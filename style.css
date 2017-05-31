@@ -1,0 +1,105 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  padding-bottom: 65px;
+  background: white;
+}
+
+.searchBody {
+  margin-top: 2%;
+}
+
+.logoWiki {
+  height: 225px;
+}
+
+.logoWiki img {
+  height: 100%;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.searchWiki {
+  font-size: 1.4em;
+  background: #f9f9f9;
+}
+
+.randomButton {
+  margin-top: 2%;
+  border: solid #ddcef2 2px;
+  background: #faf5ff;
+  font-size: 1.4em;
+  color: grey;
+}
+
+.randomButton:hover {
+  background: #ddcef2;
+  border: solid #ddcef2 2px;
+  color: grey;
+}
+
+.noResults {
+  border: 3px solid #f2cedd;
+  border-radius: 5px;
+  margin: 15px;
+  padding: .5em;
+  background: #fff5fa;
+}
+
+.noResults a {
+  color: #0b0080;
+}
+
+.mainSearchResult {
+  border: 3px solid #cef2e0;
+  border-radius: 5px;
+  margin: 15px;
+  padding: .5em;
+  background: #f5fffa;
+}
+
+.altResults {
+  border: 3px solid #cedff2;
+  border-radius: 5px;
+  margin: 15px;
+  padding: .5em;
+  background: #fafcfe;
+}
+
+a,
+a:active,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: #373d3f;
+}
+
+a:visited {
+  color: #190080;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer hr {
+  width: 45%;
+}
+
+.footer p {
+  text-align: center;
+  font-size: large;
+}
+
+.footer a {
+  color: #0b0080;
+}

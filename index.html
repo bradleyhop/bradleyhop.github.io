@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head
+    content must come *after* these tags (per bootstrap)-->
+    <title>bradley's wikipedia search app</title>
+
+    <!-- Bootstrap 4.0 alpha via cdn-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <!-- local css -->
+    <link rel="stylesheet" href="style.css" type="text/css">
+
+  </head>
+
+  <body>
+
+
+    <div class="container-fluid searchBody">
+
+      <div class="row logoWiki">
+        <div class="col-lg-4 col-sm-3">
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a href="https://en.wikipedia.org" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Wikipedia-logo-v2-en.svg"
+            class="img-responsive center-block"  alt="Wikipedia logo" />
+          </a>
+        </div><!-- col-lg-4* -->
+      </div><!-- row -->
+
+      <div class="row">
+        <div class="col-lg-4 col-sm-3">
+        </div><!-- empty space -->
+        <div class="col-lg-4 col-sm-6">
+          <div class="input-group">
+            <!-- add 'autofocus="true"' to input below if deploying.
+            will focus cursor to input box. Nice, but super annoying on codepen. -->
+            <input type="search" class="searchWiki form-control"
+            placeholder="Search Wikipedia...">
+            <span class="input-group-btn">
+              <button class="searchButton btn btn-primary" type="button">
+                <i class="fa fa-search" aria-hidden="true">
+                </i><!-- fontawesome search glyph -->
+              </button>
+            </span><!-- input-group-btn -->
+          </div><!-- /input-group -->
+          <!-- random page button -->
+          <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">
+            <button type="submit" class="randomButton btn btn-block">
+              <i class="fa fa-random" aria-hidden="true">
+              </i><!-- fontawesome random glyph -->
+            </button>
+          </a><!-- random button -->
+        </div><!-- col-lg-6* -->
+      </div><!-- row -->
+
+      <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-6 col-lg-offset-3">
+          <div class="results">
+          </div>
+        </div><!-- col-lg-6* -->
+      </div><!-- row -->
+
+    </div> <!-- container-fluid, searchBody -->
+
+    <footer class="footer">
+      <div class="container-fluid">
+        <hr>
+        <p>Developed by <a href="https://github.com/bradleyhop"
+            target="_blank">Bradley Smith</a></p>
+      </div><!-- container-fluid -->
+    </footer>
+
+    <!-- jquery first, then boostrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <!-- fontawesome glyphs -->
+    <script src="https://use.fontawesome.com/6e7bf0ea22.js"></script>
+    <!-- my js file -->
+    <script src="wikiApp.js"></script>
+
+  </body>
+</html>
+
