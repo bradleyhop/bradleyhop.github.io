@@ -59,7 +59,7 @@ function displayResults(results) {
             secResult += results[2][i] +
                 "</div></a>";
         }
-        console.log(secResult);
+        //console.log(secResult);
         $(".results").append(secResult);
     }
 
