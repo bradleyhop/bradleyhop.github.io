@@ -1,105 +1,154 @@
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  padding-bottom: 65px;
-  background: white;
+  /*background-color: rgb(2,135,208);*/
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
 }
 
-.searchBody {
-  margin-top: 2%;
-}
-
-.logoWiki {
-  height: 225px;
-}
-
-.logoWiki img {
-  height: 100%;
-}
-
-.center-block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.searchWiki {
-  font-size: 1.4em;
-  background: #f9f9f9;
-}
-
-.randomButton {
-  margin-top: 2%;
-  border: solid #ddcef2 2px;
-  background: #faf5ff;
-  font-size: 1.4em;
-  color: grey;
-}
-
-.randomButton:hover {
-  background: #ddcef2;
-  border: solid #ddcef2 2px;
-  color: grey;
-}
-
-.noResults {
-  border: 3px solid #f2cedd;
-  border-radius: 5px;
-  margin: 15px;
-  padding: .5em;
-  background: #fff5fa;
-}
-
-.noResults a {
-  color: #0b0080;
-}
-
-.mainSearchResult {
-  border: 3px solid #cef2e0;
-  border-radius: 5px;
-  margin: 15px;
-  padding: .5em;
-  background: #f5fffa;
-}
-
-.altResults {
-  border: 3px solid #cedff2;
-  border-radius: 5px;
-  margin: 15px;
-  padding: .5em;
-  background: #fafcfe;
-}
-
-a,
-a:active,
-a:hover,
-a:active {
-  text-decoration: none;
-  color: #373d3f;
-}
-
-a:visited {
-  color: #190080;
-}
-
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-.footer hr {
-  width: 45%;
+/* Custom page header */
+.header {
+  border-bottom: .05rem solid #e5e5e5;
+  padding-bottom: 1rem;
+}
+/* Make the masthead heading the same height as the navigation */
+
+h3 {
+  line-height: 3rem;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
-.footer p {
-  text-align: center;
-  font-size: large;
+.jumbotron {
+  background: url(https://cdn.idevie.com/wp-content/uploads/2015/03/0f63b_freebies_3-LowPolyBackgroundsMegaPack.jpg) no-repeat center fixed;
+  background-color: rgb(2,135,208);
+  background-size: cover;
+  border-bottom: .05rem solid #e5e5e5;
+  box-shadow: 6px 6px 5px 5px rgba(33, 33, 33, 0.5);
+  color: rgb(254, 254, 254);
+  text-shadow: 1px 1px 1px rgba(150, 150, 150, 0.9);
 }
 
-.footer a {
-  color: #0b0080;
+.my-4 {
+  border-color: rgb(178,228,251);
+  /*width: 60%;*/
+}
+
+.picMe {
+  height: 140px;
+  width: 140px;
+}
+
+
+/* Custom page footer */
+.footer {
+  border-top: .05rem solid #e5e5e5;
+  color: #777;
+  padding-top: 1.5rem;
+}
+
+/* Customize container */
+@media (min-width: 60em) {
+  .container {
+    max-width: 58em;
+  }
+}
+/*
+ *.container-narrow > hr {
+ *  margin: 2rem 0;
+ *}
+ */
+
+.card {
+  background: rgb(3,168,243);
+  box-shadow: 5px 5px 5px rgba(33, 33, 33, 0.5);
+  color: black;
+  margin: 1.2rem;
+}
+
+.card-img-top {
+  height: 160px;
+}
+
+.card .card-title {
+  color: rgb(254, 254, 254);
+}
+
+.card .card-text {
+  color: rgb(33, 33, 33);
+}
+
+.card .btn {
+  background: rgb(178,228,251);
+  box-shadow: 2px 2px 2px rgba(33, 33, 33, 0.5);
+  color: rgb(116, 116, 116);
+}
+
+.contact {
+  margin: 1em;
+}
+
+/*reset bootstrap button defaults*/
+span {
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+    line-height: 1.15em;
+}
+
+.btn {
+  border: none;
+  color: black;
+  letter-spacing: 0.02em;
+  /* Next two lines will word wrap text within the button */
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.btn:hover {
+  background-color: orange;
+}
+
+.fcc {
+  background: green;
+}
+
+.linkedin {
+  background: rgb(0, 119, 184);
+}
+
+.github {
+  background: rgb(104, 104, 104);
+}
+
+.email {
+  background: rgb(214,73,55);
+}
+
+i {
+  color: white;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 48em) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 2rem;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
 }
