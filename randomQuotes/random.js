@@ -8,7 +8,7 @@ function getQuote() {
         quote = json.quote;
         author = json.author;
 
-        $('#quotelives').html("<h2>" + quote + "<br>-- " + author + "<br><br><br>Press ENTER for new quote or 'T' to share this quote via Twitter.</h2>");
+        $('.quotelives').html("<h2>" + quote + "<br>-- " + author + "<br><br><br>Press ENTER for new quote or 'T' to share this quote via Twitter.</h2>");
     });
 }
 
