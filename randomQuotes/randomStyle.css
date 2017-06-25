@@ -2,7 +2,7 @@
 
 body {
   background: black;
-  margin: 10em;
+  margin: 1em;
 }
 
 h2 {
@@ -64,6 +64,6 @@ span:after {
   }
 }
 
-#quotelives {
+.quotelives {
   padding-top: 10px;
 }

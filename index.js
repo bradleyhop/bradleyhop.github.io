@@ -23,8 +23,8 @@ var projects = [
     {
         cardTitle: "Random Quotes Generator",
         desc: "Fetches random quotes about computing from online api. This is the first version I made. I wanted to emulate a terminal feel. For freecodecamp.com intermediate front end projects.",
-        link : "newLinky",
-        screencap: "assets/LINKY",
+        link : "randomQuotes/random.html",
+        screencap: "assets/randomGen.png",
         alt: "screen capture of random quote generator project"
     }
 ];
