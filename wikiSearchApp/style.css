@@ -32,16 +32,16 @@ body {
 }
 
 .randomButton {
-  background: #faf5ff;
-  border: solid #ddcef2 2px;
+  background: #fafcfe;
+  border: 3px solid #cedff2;
   color: grey;
   font-size: 1.4em;
   margin-top: 2%;
 }
 
 .randomButton:hover {
-  background: #ddcef2;
-  border: solid #ddcef2 2px;
+  background: #cedff2;
+  border: solid #cedff2 2px;
   color: grey;
 }
 
@@ -66,8 +66,8 @@ body {
 }
 
 .altResults {
-  background: #fafcfe;
-  border: 3px solid #cedff2;
+  background: #faf5ff;
+  border: solid #ddcef2 2px;
   border-radius: 5px;
   margin: 15px;
   padding: .5em;
