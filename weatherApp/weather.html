@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+    shrink-to-fit=no">
+    <meta name="description" content="SPA weather app based on reported lat lon">
+    <meta name="author" content="Bradley Smith">
+
+    <title>bradley's fCC weather app</title>
+
+    <!-- Bootstrap 4.0 alpha via cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <!-- weather icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.css">
+    <!-- local css -->
+    <link rel="stylesheet" href="weather.css" type="text/css">
+
+
+  </head>
+
+  <body>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2 col-sm-2">
+        </div>
+        <div class="col-md-8 col-sm-8">
+          <div class="weather text-center">
+            <h2>Loading... please wait</h2>
+          </div><!-- weather -->
+        </div><!-- col-md-4* -->
+      </div><!-- row -->
+    </div><!-- container-fluid -->
+
+    <footer class="footer">
+        <hr>
+        <a href="http://darksky.net/poweredby/" target="_blank">Powered by Dark Sky API</a>
+        <p>Developed by <a href="https://github.com/bradleyhop"
+            target="_blank">Bradley Smith</a></p>
+    </footer>
+
+    <!-- jquery first -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- tether required for bootstrap 4a -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <!-- then boostrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <!-- local javascript -->
+    <script src="weather.js"></script>
+
+  </body>
+</html>

@@ -15,7 +15,7 @@ var projects = [
     },
     {
         cardTitle: "So Meta!",
-        desc: "Github repository for this website.",
+        desc: "Github repository for this website. Contains all code for this page, as well as all the code for the SPA projects listed therein.",
         link: "https://github.com/bradleyhop/bradleyhop.github.io",
         screencap: "assets/githubIO.png",
         alt: "screen capture of github repository for this portfolio hub site"
@@ -26,6 +26,13 @@ var projects = [
         link : "randomQuotes/random.html",
         screencap: "assets/randomGen.png",
         alt: "screen capture of random quote generator project"
+    },
+    {
+        cardTitle: "Weather App",
+        desc: "SPA for weather. Collects geolocation from reported IP, then fetches json for that location from online api. Converts C to F degrees on click. Icon changes based on reported weather. For freecodecamp.com intermediate front end projects.",
+        link: "weatherApp/weather.html",
+        screencap: "assets/weatherApp.png",
+        alt: "screen capture of weather application based on reported geoloaction"
     }
 ];
 
