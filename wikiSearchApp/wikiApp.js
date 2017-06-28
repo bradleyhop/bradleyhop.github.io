@@ -92,5 +92,3 @@ $(document).ready(function() {
 
 });
 
-// Below is a linter for boostrap and html, bootlint. Uncomment for report
-//javascript:(function(){var s=document.createElement("script");s.onload=function(){bootlint.showLintReportForCurrentDocument([]);};s.src="https://maxcdn.bootstrapcdn.com/bootlint/latest/bootlint.min.js";document.body.appendChild(s)})();
