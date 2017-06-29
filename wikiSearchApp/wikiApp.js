@@ -5,13 +5,13 @@ function getResults(apiUrl) {
         type: 'GET',
         dataType: 'json'
     })
-    .always(function() {
-        // clear prior search results
-        $(".results").empty();
-    })
-    .fail(function() {
-        console.log("error getting query results");
-    });
+        .always(function() {
+            // clear prior search results
+            $(".results").empty();
+        })
+        .fail(function() {
+            console.log("error getting query results");
+        });
 
 }
 
