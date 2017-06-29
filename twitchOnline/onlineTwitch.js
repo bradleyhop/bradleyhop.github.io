@@ -17,16 +17,18 @@ var twitchJSONs = ["/users/", "/channels/", "/streams/"];
 var infoTwitch = {};
 
 function isOnline(lookUrl) {
-    $.ajax({
+    return $.ajax({
         url: lookUrl,
         type: 'GET',
         dataType: 'json'
     })
-    .done(function(data) {
-    })
-    .fail(function(error) {
-        console.log("error checking if online: " + error);
-    });
+        .fail(function(error) {
+            console.log("error checking if online: " + error);
+        });
+}
+
+function onlineDoneCallback(data) {
+    return data.stream;
 }
 
 $(document).ready(function() {
@@ -36,11 +38,13 @@ $(document).ready(function() {
     for (let i = 0; i < allStreams.length; i++) {
         let searchUrl = corsUrl + twitchAPI + "/streams/" + allStreams[i];
 
-            if (isOnline(searchUrl) === false) {
-                console.log(allStreams[i] + " is NOT online");
-            } else {
-                console.log(allStreams[i] + " IS online");
-            }
+        let streaming = isOnline(searchUrl).done(onlineDoneCallback);
+
+        if (streaming === null) {
+            console.log(allStreams[i] + " is NOT streaming");
+        } else {
+            console.log(allStreams[i] + " IS streaming");
+        }
 
     }
 
