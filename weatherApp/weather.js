@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     // because of browser security features, we need to use a CORS proxy to
-    //  access insecure json data
+    //  access insecure json data, at least on codepen.io
     var corsUrl = "https://crossorigin.me/";
 
     // don't need cors for this geolocation server
@@ -25,6 +25,7 @@ $(document).ready(function() {
     });
 
     function cbLatLon(latLonJSON) {
+        // toFixed returns a string, but that's okay for our url
         lat = latLonJSON.latitude.toFixed(2);
         lon = latLonJSON.longitude.toFixed(2);
         town = latLonJSON.city;
@@ -104,48 +105,27 @@ $(document).ready(function() {
     }
 
     function showWeather(icon) {
-        var weathICON = "";
-        // case strings provided by dark sky api
-        switch (icon) {
-            case "clear-day":
-                weathICON = "wi-day-sunny";
-                break;
-            case "clear-night":
-                weathICON = "wi-night-clear";
-                break;
-            case "partly-cloudy-day":
-                weathICON = "wi-day-cloudy";
-                break;
-            case "partly-cloudy-night":
-                weathICON = "wi-night-cloudy";
-                break;
-            case "cloudy":
-                weathICON = "wi-cloudy";
-                break;
-            case "rain":
-                weathICON = "wi-rain";
-                break;
-            case "snow":
-                weathICON = "wi-snow";
-                break;
-            case "sleet":
-                weathICON = "wi-sleet";
-                break;
-            case "fog":
-                weathICON = "wi-fog";
-                break;
-                // next two are not implemented, but could be in the future
-            case "thunderstorm":
-                weathICON = "wi-thunderstorm";
-                break;
-            case "hail":
-                weathICON = "wi-hail";
-                break;
-                // fallback for any undefined or unimplemented icons
-            default:
-                weathICON = "wi-na";
+        var weatherIcon = {
+            "clear-day":            "wi-day-sunny",
+            "clear-night":          "wi-night-clear",
+            "partly-cloudy-day":    "wi-day-cloudy",
+            "partly-cloudy-night":  "wi-night-cloudy",
+            "cloudy":               "wi-cloudy",
+            "rain":                 "wi-rain",
+            "snow":                 "wi-snow",
+            "sleet":                "wi-sleet",
+            "fog":                  "wi-fog",
+            // next two are not implemented, but could be in the future
+            "thunderstorm":         "wi-thunderstorm",
+            "hail":                 "wi-hail"
+        };
+
+        if (weatherIcon[icon] === undefined) {
+            return "<h1><i class='wi wi-na'></i></h1>";
+        } else {
+            return "<h1><i class='wi " + weatherIcon[icon] + "'></i></h1>";
         }
-        return "<h1><i class='wi " + weathICON + "'></i></h1>";
+
     }
 
 });
