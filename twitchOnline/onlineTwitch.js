@@ -14,8 +14,6 @@ var nonStreams = ["brunofin", "comster404"];
 // streams = succinct info about user
 var twitchJSONs = ["/users/", "/channels/", "/streams/"];
 
-var infoTwitch = {};
-
 function isOnline(lookUrl) {
     return $.ajax({
         url: lookUrl,
@@ -27,25 +25,22 @@ function isOnline(lookUrl) {
         });
 }
 
-function onlineDoneCallback(data) {
-    return data.stream;
-}
-
 $(document).ready(function() {
 
     let allStreams = streams.concat(nonStreams);
 
-    for (let i = 0; i < allStreams.length; i++) {
-        let searchUrl = corsUrl + twitchAPI + "/streams/" + allStreams[i];
+    // test to see which channels are currently streaming
+    allStreams.forEach( el =>  {
+        let searchUrl = corsUrl + twitchAPI + "/streams/" + el;
 
-        let streaming = isOnline(searchUrl).done(onlineDoneCallback);
-
-        if (streaming === null) {
-            console.log(allStreams[i] + " is NOT streaming");
-        } else {
-            console.log(allStreams[i] + " IS streaming");
-        }
-
-    }
+        let streaming = isOnline(searchUrl).done( data => {
+            // data object return has element stream
+            if (data.stream === null) {
+                console.log(el + " is NOT streaming");
+            } else {
+                console.log(el + " IS streaming");
+            }
+        });
+    });
 
 });

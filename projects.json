@@ -1,4 +1,4 @@
-{
+{"projects": [{
     "cardTitle": "Free Code Camp Javascript Exercises",
     "desc": "Github repository of my solutions to freecodecamp.com javascript algorithm challenges. Includes the beginning, intermediate, and advanced problems with the problem stated, my solution, and test calls.",
     "link": "https://github.com/bradleyhop/freeCodeCampAlgorithms",
@@ -32,4 +32,5 @@
     "link": "weatherApp/weather.html",
     "screencap": "assets/weatherApp.png",
     "alt": "screen capture of weather application based on reported geolocation"
+}]
 }
