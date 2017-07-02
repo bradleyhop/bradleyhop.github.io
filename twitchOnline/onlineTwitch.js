@@ -12,7 +12,7 @@ var nonStreams = ["brunofin", "comster404"];
 // users = if live, and what is streaming if so; null if not live
 // channels = verbose! info about user
 // streams = succinct info about user
-var twitchJSONs = ["/users/", "/channels/", "/streams/"];
+var twitchJSONs = ["users/", "channels/", "streams/"];
 
 function isOnline(lookUrl) {
     return $.ajax({
@@ -25,19 +25,45 @@ function isOnline(lookUrl) {
         });
 }
 
+function isExistingAccount(chanl) {
+    // if not existing, display appropriately
+
+}
+
+function getChannelInfo(chanl) {
+    // get user id, logo, links
+
+}
+
+function notExistingDisplay(chanl) {
+    // show that the user doesn't exist
+
+}
+
+function notOnlineDisplay(chanl) {
+    // show user/channel info and appropriate html
+}
+
+function onlineDisplay(chanl) {
+    // show user/channel info and appropriate html
+}
+
 $(document).ready(function() {
 
     let allStreams = streams.concat(nonStreams);
 
     // test to see which channels are currently streaming
     allStreams.forEach( el =>  {
-        let searchUrl = corsUrl + twitchAPI + "/streams/" + el;
+        let searchUrl = corsUrl + twitchAPI + "streams/" + el;
 
-        let streaming = isOnline(searchUrl).done( data => {
+        isOnline(searchUrl).done( data => {
             // data object return has element stream
             if (data.stream === null) {
+                // test to see if channel exists
+                // display results
                 console.log(el + " is NOT streaming");
             } else {
+                // channel exists if streaming, so display!
                 console.log(el + " IS streaming");
             }
         });

@@ -1,0 +1,22 @@
+Where to find what I need in the json objects.
+
+
+**streams: will be _null_ if offline, Object if online
+    streams.channel.game
+    streams.channel.logo
+    streams.channel.url  // url of channel
+    streams.game
+    streams.preview.medium // 320x180
+
+**users: will have property "display_name" if a real channel:
+    users.display_name
+    users.logo
+    users.bio
+will have "error" for property
+    users.status == 404
+    useres.message: User $ was not found
+
+**channels: not null if a real channel
+    channels.display_name
+    channels.logo
+    channels.url
