@@ -7,66 +7,60 @@ var streams = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck",
     "habathcx", "RobotCaleb", "noobs2ninjas"];
 // array of nonexisting accounts
 var nonStreams = ["brunofin", "comster404"];
+// array to hold my objects with user info that I'll use to display
+var twitchInfos = [];
 
-// array of twitch apis to jsons to get diff info about users
-// users = if live, and what is streaming if so; null if not live
-// channels = verbose! info about user
-// streams = succinct info about user
-var twitchJSONs = ["users/", "channels/", "streams/"];
-
-function isOnline(lookUrl) {
-    return $.ajax({
-        url: lookUrl,
-        type: 'GET',
-        dataType: 'json'
-    })
-        .fail(function(error) {
-            console.log("error checking if online: " + error);
-        });
-}
-
-function isExistingAccount(chanl) {
-    // if not existing, display appropriately
-
-}
-
-function getChannelInfo(chanl) {
-    // get user id, logo, links
-
-}
-
-function notExistingDisplay(chanl) {
+function notExistingDisplay(usr) {
     // show that the user doesn't exist
 
 }
 
-function notOnlineDisplay(chanl) {
+function notOnlineDisplay(usr) {
     // show user/channel info and appropriate html
 }
 
-function onlineDisplay(chanl) {
-    // show user/channel info and appropriate html
+function onlineDisplay(usr) {
+
 }
 
 $(document).ready(function() {
 
-    let allStreams = streams.concat(nonStreams);
+    let allStreams = streams.concat( nonStreams );
 
-    // test to see which channels are currently streaming
-    allStreams.forEach( el =>  {
-        let searchUrl = corsUrl + twitchAPI + "streams/" + el;
+    // build are usr object and push them onto our array
+    allStreams.forEach( strm =>  {
+        let tmpObj = { strm: {} };
+        let usersUrl = corsUrl + twitchAPI + "users/" + strm;
 
-        isOnline(searchUrl).done( data => {
-            // data object return has element stream
-            if (data.stream === null) {
-                // test to see if channel exists
-                // display results
-                console.log(el + " is NOT streaming");
+        $.getJSON( usersUrl ).then( users => {
+            // check first to see if user is valid
+            if ( users.status == 404 ) {
+                tmpObj.strm.valid = false;
+                tmpObj.strm.notFound = users.message;
+                //        break;
             } else {
-                // channel exists if streaming, so display!
-                console.log(el + " IS streaming");
+                tmpObj.strm.valid = true;
+                tmpObj.strm.logo = users.logo;
+                tmpObj.strm.bio = users.bio;
             }
+            let streamsUrl = corsUrl + twitchAPI + "streams/" + strm;
+            return $.getJSON( streamsUrl );
+        }).then( streams => {
+            // check to see if user is online, and what they're streaming
+            if ( streams == null ) {
+                tmpObj.strm.online = false;
+            } else {
+                tmpObj.strm.online = {};
+                tmpObj.strm.online.linkToStream = streams.game;
+                tmpObj.strm.online.preview = streams.preview.medium;
+            }
+            // push user info to array
+            twitchInfos.push( tmpObj );
+        }).catch( error => {
+            console.log( error );
         });
-    });
+    });// end $.getJSON
 
-});
+    console.log(twitchInfos);
+
+});// end document.ready
