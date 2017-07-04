@@ -29,6 +29,8 @@ $(document).ready(function() {
 
     // build are usr object and push them onto our array
     allStreams.forEach( strm =>  {
+        // need to set key value for object as user name
+        //  can use [] with es6 - change all . below
         let tmpObj = { strm: {} };
         let usersUrl = corsUrl + twitchAPI + "users/" + strm;
 
@@ -52,7 +54,7 @@ $(document).ready(function() {
             } else {
                 tmpObj.strm.online = {};
                 tmpObj.strm.online.linkToStream = streams.game;
-                tmpObj.strm.online.preview = streams.preview.medium;
+                tmpObj.strm.online.preview = streams.preview_medium;
             }
             // push user info to array
             twitchInfos.push( tmpObj );
