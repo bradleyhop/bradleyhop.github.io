@@ -25,39 +25,44 @@ function onlineDisplay(usr) {
 
 $(document).ready(function() {
 
-    let allStreams = streams.concat( nonStreams );
+    let allStreams = streams.concat(nonStreams);
 
     // build are usr object and push them onto our array
-    allStreams.forEach( strm =>  {
+    allStreams.forEach( user_name =>  {
         // need to set key value for object as user name
         //  can use [] with es6 - change all . below
-        let tmpObj = { strm: {} };
-        let usersUrl = corsUrl + twitchAPI + "users/" + strm;
+        let tmpObj = { [user_name]: {} };
+        let usersUrl = corsUrl + twitchAPI + "users/" + user_name;
 
-        $.getJSON( usersUrl ).then( users => {
+        $.getJSON(usersUrl).then( users => {
             // check first to see if user is valid
-            if ( users.status == 404 ) {
-                tmpObj.strm.valid = false;
-                tmpObj.strm.notFound = users.message;
-                //        break;
+            if (users.status == 404) {
+                tmpObj[user_name].valid = false;
+                tmpObj[user_name].notFound = users.message;
             } else {
-                tmpObj.strm.valid = true;
-                tmpObj.strm.logo = users.logo;
-                tmpObj.strm.bio = users.bio;
+                tmpObj[user_name].valid = true;
+                tmpObj[user_name].logo = users.logo;
+                tmpObj[user_name].bio = users.bio;
             }
-            let streamsUrl = corsUrl + twitchAPI + "streams/" + strm;
-            return $.getJSON( streamsUrl );
+            let streamsUrl = corsUrl + twitchAPI + "streams/" + user_name;
+            return $.getJSON(streamsUrl);
         }).then( streams => {
             // check to see if user is online, and what they're streaming
-            if ( streams == null ) {
-                tmpObj.strm.online = false;
+            if (streams.stream === null) {
+                tmpObj[user_name].online = false;
             } else {
-                tmpObj.strm.online = {};
-                tmpObj.strm.online.linkToStream = streams.game;
-                tmpObj.strm.online.preview = streams.preview_medium;
+                tmpObj[user_name].online = {};
+                tmpObj[user_name].online.content =
+                    streams.stream.game;
+                tmpObj[user_name].online.status =
+                    streams.stream.channel.status;
+                tmpObj[user_name].online.linkToStream =
+                    streams.stream.channel.url;
+                tmpObj[user_name].online.preview =
+                    streams.stream.preview.medium;
             }
             // push user info to array
-            twitchInfos.push( tmpObj );
+            twitchInfos.push(tmpObj);
         }).catch( error => {
             console.log( error );
         });
