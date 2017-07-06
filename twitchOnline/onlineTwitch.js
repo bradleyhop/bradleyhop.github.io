@@ -12,15 +12,16 @@ var twitchInfos = [];
 
 function notExistingDisplay(usr) {
     // show that the user doesn't exist
-
+    console.log("notExistingDisplay fired for: " + usr.display_name);
 }
 
 function notOnlineDisplay(usr) {
     // show user/channel info and appropriate html
+    console.log("notOnlineDisplay fired for: " + usr.display_name);
 }
 
 function onlineDisplay(usr) {
-
+    console.log("onlineDisplay fired for: " + usr.display_name);
 }
 
 $(document).ready(function() {
@@ -31,43 +32,58 @@ $(document).ready(function() {
     allStreams.forEach( user_name =>  {
         // need to set key value for object as user name
         //  can use [] with es6 - change all . below
-        let tmpObj = { [user_name]: {} };
+        let tmpObj = { };
         let usersUrl = corsUrl + twitchAPI + "users/" + user_name;
 
         $.getJSON(usersUrl).then( users => {
+            // first, set user name in object
             // check first to see if user is valid
             if (users.status == 404) {
-                tmpObj[user_name].valid = false;
-                tmpObj[user_name].notFound = users.message;
+                tmpObj.display_name = user_name;
+                tmpObj.valid = false;
+                tmpObj.notFound = users.message;
             } else {
-                tmpObj[user_name].valid = true;
-                tmpObj[user_name].logo = users.logo;
-                tmpObj[user_name].bio = users.bio;
+                tmpObj.display_name = users.display_name;
+                tmpObj.valid = true;
+                tmpObj.logo = users.logo;
+                tmpObj.bio = users.bio;
             }
             let streamsUrl = corsUrl + twitchAPI + "streams/" + user_name;
             return $.getJSON(streamsUrl);
         }).then( streams => {
             // check to see if user is online, and what they're streaming
             if (streams.stream === null) {
-                tmpObj[user_name].online = false;
+                tmpObj.online = false;
             } else {
-                tmpObj[user_name].online = {};
-                tmpObj[user_name].online.content =
-                    streams.stream.game;
-                tmpObj[user_name].online.status =
-                    streams.stream.channel.status;
-                tmpObj[user_name].online.linkToStream =
-                    streams.stream.channel.url;
-                tmpObj[user_name].online.preview =
-                    streams.stream.preview.medium;
+                tmpObj.online = {};
+                tmpObj.online.content = streams.stream.game;
+                tmpObj.online.status = streams.stream.channel.status;
+                tmpObj.online.linkToStream = streams.stream.channel.url;
+                tmpObj.online.preview = streams.stream.preview.medium;
             }
+
             // push user info to array
             twitchInfos.push(tmpObj);
         }).catch( error => {
-            console.log( error );
+            console.log(error);
         });
     });// end $.getJSON
 
     console.log(twitchInfos);
+
+    for (var key of twitchInfos) {
+        console.log(user);
+        if (key.valid  === false) {
+            notExistingDisplay(key);
+        } else if ( key.online === false) {
+            notOnlineDisplay(key);
+        } else if (typeof key.online === "object" &&
+            typeof key.online !== null) {
+            onlineDisplay(key);
+        } else {
+            console.log("Something is wrong with calling the display function");
+        }
+    }
+
 
 });// end document.ready
