@@ -4,7 +4,7 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS  via CDN -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
 
       <title>twichtTV online api app</title>
 
@@ -13,6 +13,29 @@
   </head>
 
   <body>
+
+    <div class="container">
+
+      <!-- Material tabs, tab menu here  -->
+      <div class="row">
+        <div class="col s12 tabMenu">
+          <ul class="tabs">
+            <li class="tab col s3"><a href="#all">All</a></li>
+            <li class="tab col s3"><a href="#online">
+                Currently Online</a></li>
+            <li class="tab col s3"><a href="#offline">Offline</a></li>
+            <li class="tab col s3"><a href="#notExist">Not Existing</a></li>
+          </ul>
+        </div>
+        <div id="all"></div>
+        <div id="online"></div>
+        <div id="offline"></div>
+        <div id="notExist"></div>
+        <!-- put results here -->
+        <!--<div id="test1" class="col s12">Test 1</div>-->
+      </div>
+
+  </div><!-- container -->
 
 
 
