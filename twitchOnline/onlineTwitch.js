@@ -1,30 +1,46 @@
 // to bypass any cross-origin errors
-var corsUrl = "https://cors-anywhere.herokuapp.com/";
+const corsUrl = "https://cors-anywhere.herokuapp.com/";
 // fCC twitch api pass-through
-var twitchAPI = "https://wind-bow.gomix.me/twitch-api/";
-// array of people who regularly stream
+const twitchAPI = "https://wind-bow.gomix.me/twitch-api/";
+// array of people who regularly stream as recommended by fCC
 var streams = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck",
     "habathcx", "RobotCaleb", "noobs2ninjas"];
 // array of nonexisting accounts
 var nonStreams = ["brunofin", "comster404"];
+// array of some of my own account additions
+var myStreams = ["stockstream", "gamesdonequick"];
 
 function notExistingDisplay(usr) {
     // show that the user doesn't exist
-    console.log("notExistingDisplay fired for: " + usr.display_name);
+    //console.log("notExistingDisplay fired for: " + usr.display_name);
+    let notExist = "<div class='col s12 notExist'>" +
+        usr.display_name + "</div>";
+    $("#all").append(notExist);
+    $("#notExist").append(notExist);
 }
 
 function notOnlineDisplay(usr) {
     // show user/channel info and appropriate html
-    console.log("notOnlineDisplay fired for: " + usr.display_name);
+    //console.log("notOnlineDisplay fired for: " + usr.display_name);
+    let offline = "<div class='col s12 offline'>" +
+        usr.display_name + "</div>";
+    $("#all").append(offline);
+    $("#offline").append(offline);
 }
 
 function onlineDisplay(usr) {
-    console.log("onlineDisplay fired for: " + usr.display_name);
+    // user/channel info and current stream
+    //console.log("onlineDisplay fired for: " + usr.display_name);
+    let online = "<div class='col s12 online'>" +
+        usr.display_name + "</div>";
+    $("#all").append(online);
+    $("#online").append(online);
 }
 
 $(document).ready(function() {
+    //$('ul.tabs').tabs();
 
-    let allStreams = streams.concat(nonStreams);
+    let allStreams = streams.concat(nonStreams, myStreams);
 
     // build are usr object and push them onto our array
     allStreams.forEach( user_name =>  {
@@ -80,7 +96,5 @@ $(document).ready(function() {
             });// end $.getJSON
 
     });// end allStreams.forEach
-
-    console.log(twitchInfos);
 
 });// end document.ready
