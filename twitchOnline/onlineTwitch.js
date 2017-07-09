@@ -37,21 +37,16 @@ function onlineDisplay(usr) {
     $("#online").append(online);
 }
 
-function preloaderMat(total) {
-    var percentLoad = 1;
-    var incLoad = (1 / total) * 100;
-    var preloader = '<div class="progress">' +
-        '<div class="determinate" style="width: ' + percentLoad.toString() + '%"></div>' +
-        '</div>';
-    $(".indicator").html(preloader);
-}
-
 $(document).ready(function() {
     //$('ul.tabs').tabs();
 
     let allStreams = streams.concat(nonStreams, myStreams);
+    console.log(allStreams.length);
 
-    preloaderMat(allStreams.length);
+    let progressBar = "<div class='progress'>" +
+                        "<div class='indeterminate'></div>" +
+                      "</div>";
+    $(".indicator").html(progressBar);
 
     // build are usr object and push them onto our array
     allStreams.forEach( user_name =>  {
@@ -102,7 +97,11 @@ $(document).ready(function() {
                     console.log("Something is wrong with calling the display" +
                         "functions: " + tmpObj.online);
                 }
-            })
+
+            }).done( () => {
+                // clear the load progress bar
+                $(".indicator").empty();
+            } )
             .catch( error => {
                 console.log(error);
             });// end $.getJSON
