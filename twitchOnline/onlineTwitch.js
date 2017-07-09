@@ -37,13 +37,25 @@ function onlineDisplay(usr) {
     $("#online").append(online);
 }
 
+function preloaderMat(total) {
+    var percentLoad = 1;
+    var incLoad = (1 / total) * 100;
+    var preloader = '<div class="progress">' +
+        '<div class="determinate" style="width: ' + percentLoad.toString() + '%"></div>' +
+        '</div>';
+    $(".indicator").html(preloader);
+}
+
 $(document).ready(function() {
     //$('ul.tabs').tabs();
 
     let allStreams = streams.concat(nonStreams, myStreams);
 
+    preloaderMat(allStreams.length);
+
     // build are usr object and push them onto our array
     allStreams.forEach( user_name =>  {
+
         // need to set key value for object as user name
         //  can use [] with es6 - change all . below
         let tmpObj = { };
