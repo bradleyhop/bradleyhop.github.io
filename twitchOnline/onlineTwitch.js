@@ -12,27 +12,40 @@ var myStreams = ["stockstream", "gamesdonequick"];
 
 function notExistingDisplay(usr) {
     // show that the user doesn't exist
-    //console.log("notExistingDisplay fired for: " + usr.display_name);
-    let notExist = "<div class='col s12 notExist'>" +
-        usr.display_name + "</div>";
+
+
+
     $("#all").append(notExist);
     $("#notExist").append(notExist);
 }
 
 function notOnlineDisplay(usr) {
     // show user/channel info and appropriate html
-    //console.log("notOnlineDisplay fired for: " + usr.display_name);
-    let offline = "<div class='col s12 offline'>" +
-        usr.display_name + "</div>";
-    $("#all").append(offline);
-    $("#offline").append(offline);
+    let notOnline = "<div class='col s12 m6'>" +
+        "<div class='card dark-primary-color hoverable'>" +
+        "<div class='card-content white-text'>";
+    if (usr.logoLink) {
+        notOnline += "<div class='valign-wrapper'>" +
+        "<img class='circle cardImg' src='" + usr.logoLink + "'/>" +
+        "<span class='card-title'>" + usr.display_name +
+        "</span></div>";
+    } else {
+        notOnline += "<span class='card-title'>" + usr.display_name +
+        "</span>";
+    }
+    if (usr.bio) {
+        notOnline += "<p>" + usr.bio + "</p>";
+    }
+    notOnline += "</div><div class='card-action'><a href='" + usr.page +
+        "'>Go To channel</a>" + "</div></div></div>";
+
+    $("#all").append(notOnline);
+    $("#offline").append(notOnline);
 }
 
 function onlineDisplay(usr) {
     // user/channel info and current stream
-    //console.log("onlineDisplay fired for: " + usr.display_name);
-    let online = "<div class='col s12 online'>" +
-        usr.display_name + "</div>";
+
     $("#all").append(online);
     $("#online").append(online);
 }
@@ -66,6 +79,7 @@ $(document).ready(function() {
                     tmpObj.notFound     = users.message;
                 } else {
                     tmpObj.display_name = users.display_name;
+                    tmpObj.page         = "https://twitch.tv/" + user_name;
                     tmpObj.valid        = true;
                     tmpObj.logoLink     = users.logo;
                     tmpObj.bio          = users.bio;
@@ -78,7 +92,7 @@ $(document).ready(function() {
                 if (streams.stream === null) {
                     tmpObj.online              = false;
                 } else {
-                    tmpObj.online              = {};
+                    tmpObj.online              = { };
                     tmpObj.online.content      = streams.stream.game;
                     tmpObj.online.status       = streams.stream.channel.status;
                     tmpObj.online.linkToStream = streams.stream.channel.url;
