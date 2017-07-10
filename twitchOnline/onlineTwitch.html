@@ -5,6 +5,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS  via CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+    <!-- local css -->
+    <link rel="stylesheet" href="styleTwitch.css">
 
       <title>twichtTV online api app</title>
 
@@ -12,29 +14,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
 
-  <body>
+  <body class="default-primary-color">
 
     <div class="container">
 
-      <div class="indicator"></div>
+      <!-- page heading -->
+      <div class="row">
+        <div class="valign-wrapper heading">
+          <img src="https://cdn1.iconfinder.com/data/icons/iconza-circle-social/64/697028-twitch-512.png" alt="Twitch tv icon" class="responsive-img twitchIcon" />
+          <h1 class="text-primary-color">
+            twitch.tv streamers</h1>
+        </div><!-- heading -->
+        <!-- indeterminate scrolling indicator via Materialize -->
+      </div><!-- row -->
+
+      <div class="row">
+        <div class="indicator col s12"></div>
+      </div>
+
 
       <!-- Material tabs, tab menu here  -->
       <div class="row">
-        <div class="col s12 tabMenu">
-          <ul class="tabs">
-            <li class="tab col s3"><a href="#all">All</a></li>
-            <li class="tab col s3"><a href="#online">
-                Currently Online</a></li>
+        <div class="col s12 tabMenu z-depth-1 light-primary-color">
+          <ul class="tabs light-primary-color">
+            <li class="tab col s3"><a href="#all" class="active">All</a></li>
+            <li class="tab col s3"><a href="#online">Currently Online</a></li>
             <li class="tab col s3"><a href="#offline">Offline</a></li>
             <li class="tab col s3"><a href="#notExist">Not Existing</a></li>
           </ul>
         </div>
+        <!-- append data results to these id's -->
         <div id="all"></div>
         <div id="online"></div>
         <div id="offline"></div>
         <div id="notExist"></div>
-        <!-- put results here -->
-        <!--<div id="test1" class="col s12">Test 1</div>-->
       </div>
 
   </div><!-- container -->
