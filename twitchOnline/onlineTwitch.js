@@ -12,8 +12,12 @@ var myStreams = ["stockstream", "gamesdonequick"];
 
 function notExistingDisplay(usr) {
     // show that the user doesn't exist
-
-
+    notExist = "<div class='col s12 m6'>" +
+        "<div class='card error-color'>" +
+        "<div class='card-content secondary-text-color'" +
+        "<span class='card-title'>" + usr.display_name + "</span>" +
+        "<p>" + usr.notFound + "</p>"  +
+        "</div></div></div>";
 
     $("#all").append(notExist);
     $("#notExist").append(notExist);
@@ -26,17 +30,16 @@ function notOnlineDisplay(usr) {
         "<div class='card-content white-text'>";
     if (usr.logoLink) {
         notOnline += "<div class='valign-wrapper'>" +
-        "<img class='circle cardImg' src='" + usr.logoLink + "'/>" +
-        "<span class='card-title'>" + usr.display_name +
-        "</span></div>";
+            "<img class='circle cardImg' src='" + usr.logoLink + "'/>" +
+            "<span class='card-title'>" + usr.display_name +
+            "</span></div>";
     } else {
-        notOnline += "<span class='card-title'>" + usr.display_name +
-        "</span>";
+        notOnline += "<span class='card-title'>" + usr.display_name + "</span>";
     }
     if (usr.bio) {
         notOnline += "<p>" + usr.bio + "</p>";
     }
-    notOnline += "</div><div class='card-action'><a href='" + usr.page +
+    notOnline += "</div><div class='card-action notOnlineLink'><a href='" + usr.page +
         "'>Go To channel</a>" + "</div></div></div>";
 
     $("#all").append(notOnline);
@@ -45,9 +48,32 @@ function notOnlineDisplay(usr) {
 
 function onlineDisplay(usr) {
     // user/channel info and current stream
+    let curStream = "<div class='col s12 m6'>" +
+        "<div class='card online-color-dark hoverable'>";
+    if (usr.online.preview) {
+        curStream += "<div class='card-image'><img src='" + usr.online.preview +
+            "'><span class='card-title'>" + usr.online.content + "<br>" +
+            usr.online.status + "</span></div>";
+    }
+    curStream += "<div class='card-content white-text'>";
+    if (usr.logoLink) {
+        curStream += "<div class='valign-wrapper'>" +
+            "<img class='circle cardImg' src='" + usr.logoLink + "'/>" +
+            "<span class='card-title'>" + usr.display_name +
+            "</span></div>";
+    } else {
+        curStream += "<span class='card-title'>" + usr.display_name +
+            "</span>";
+    }
+    if (usr.bio) {
+        curStream += "<p>" + usr.bio + "</p>";
+    }
+    curStream += "</div><div class='card-action'><a href='" + usr.page +
+        "'>Go To channel</a>" + "<a href='" + usr.online.linkToStream + "'>" +
+        "Go To stream</a>" + "</div></div></div>";
 
-    $("#all").append(online);
-    $("#online").append(online);
+    $("#all").append(curStream);
+    $("#online").append(curStream);
 }
 
 $(document).ready(function() {
@@ -96,7 +122,7 @@ $(document).ready(function() {
                     tmpObj.online.content      = streams.stream.game;
                     tmpObj.online.status       = streams.stream.channel.status;
                     tmpObj.online.linkToStream = streams.stream.channel.url;
-                    tmpObj.online.preview      = streams.stream.preview.medium;
+                    tmpObj.online.preview      = streams.stream.preview.large;
                 }
 
                 // test new temp object and send it to appropriate display fn

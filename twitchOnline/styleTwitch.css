@@ -22,7 +22,7 @@
 }
 
 .twitchIcon {
-  height : 100px;
+  margin : 12px;
   width  : 100px;
 }
 
@@ -36,10 +36,10 @@
 
 .tabs {
   overflow-x: hidden;
-} /* hide scroll bar at all times */
+} /* hide horizontal scroll bar at all times */
 
 /* FIX a.active!!! */
-.tabs .tab a, .tabs .tab a:hover, .tabs .tab a .active{
+.tabs .tab a, .tabs .tab a:hover, .tabs .tab a.active{
   color: #7C4DFF;
 } /*color of text in tab bar */
 
@@ -60,6 +60,6 @@
   border-top: 1px solid #BDBDBD;
 }
 
-.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
-  color: #4a148c;
+.card .card-action  a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
+  color: #E1BEE7;
 }
