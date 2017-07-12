@@ -8,13 +8,14 @@ var streams = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck",
 // array of nonexisting accounts
 var nonStreams = ["brunofin", "comster404"];
 // array of some of my own account additions
-var myStreams = ["stockstream", "gamesdonequick"];
+var myStreams = ["stockstream", "cirno_tv", "lackattack24", "ninja",
+    "gamesdonequick"];
 
 function notExistingDisplay(usr) {
     // show that the user doesn't exist
     notExist = "<div class='col s12 m6'>" +
-        "<div class='card error-color'>" +
-        "<div class='card-content secondary-text-color'" +
+        "<div class='card hoverable error-color'>" +
+        "<div class='card-content secondary-text-color'>" +
         "<span class='card-title'>" + usr.display_name + "</span>" +
         "<p>" + usr.notFound + "</p>"  +
         "</div></div></div>";
@@ -52,8 +53,7 @@ function onlineDisplay(usr) {
         "<div class='card online-color-dark hoverable'>";
     if (usr.online.preview) {
         curStream += "<div class='card-image'><img src='" + usr.online.preview +
-            "'><span class='card-title'>" + usr.online.content + "<br>" +
-            usr.online.status + "</span></div>";
+            "'></div>";
     }
     curStream += "<div class='card-content white-text'>";
     if (usr.logoLink) {
@@ -68,6 +68,9 @@ function onlineDisplay(usr) {
     if (usr.bio) {
         curStream += "<p>" + usr.bio + "</p>";
     }
+    curStream += "<br><p style='font-weight: bold'>" +
+        "" + usr.online.content + " -<br>" +
+        usr.online.status + "</p>";
     curStream += "</div><div class='card-action'><a href='" + usr.page +
         "'>Go To channel</a>" + "<a href='" + usr.online.linkToStream + "'>" +
         "Go To stream</a>" + "</div></div></div>";

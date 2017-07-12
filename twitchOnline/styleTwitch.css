@@ -17,8 +17,13 @@
 .online-color          { background   : #E1BEE7; } /* purple lighten-4 */
 .online-color-dark     { background   : #7B1FA2; } /* purple darken-2 */
 
+/* Below are my own changes. Needed to dig to change the defaults - not
+ * accessible from html class declartaions, in general
+ */
+
 .heading {
   height: 124px;
+  margin-top: 15px;
 }
 
 .twitchIcon {
@@ -38,7 +43,9 @@
   overflow-x: hidden;
 } /* hide horizontal scroll bar at all times */
 
-/* FIX a.active!!! */
+/* csslint give warning about overqualifying a.active, but it won't work
+ * otherwise; that's how materialize set up this element
+ */
 .tabs .tab a, .tabs .tab a:hover, .tabs .tab a.active{
   color: #7C4DFF;
 } /*color of text in tab bar */
@@ -53,7 +60,7 @@
 }
 
 .card-title {
-  padding: 20px;
+  padding: 15px;
 }
 
 .card .card-action {
