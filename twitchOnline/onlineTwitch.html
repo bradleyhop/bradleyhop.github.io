@@ -42,12 +42,14 @@
             <li class="tab col s3"><a href="#notExist">Not Existing</a></li>
           </ul>
         </div><!-- tabMenu -->
+        </div><!-- row -->
         <!-- append data results to these id's -->
-        <div id="all"></div>
-        <div id="online"></div>
-        <div id="offline"></div>
-        <div id="notExist"></div>
-      </div><!-- row -->
+        <div class="grid cardContainer">
+          <div id="all" class="grid"></div>
+          <div id="online" class="grid"></div>
+          <div id="offline" class="grid"></div>
+          <div id="notExist" class="grid"></div>
+        </div>
 
   </div><!-- container -->
 
@@ -55,6 +57,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+    <!-- Masonry CSS for well spaced layout -->
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <!-- local javascript -->
     <script src="onlineTwitch.js"></script>
 

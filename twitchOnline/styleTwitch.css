@@ -54,6 +54,12 @@
   background-color: #7C4DFF;
 } /*Color of underline in tab bar */
 
+.grid-item {
+  float: left;
+  width: 24rem;
+  margin: 1rem;
+}
+
 .cardImg {
   height : 50px;
   width  : 50px;

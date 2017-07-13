@@ -9,11 +9,12 @@ var streams = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck",
 var nonStreams = ["brunofin", "comster404"];
 // array of some of my own account additions
 var myStreams = ["stockstream", "cirno_tv", "lackattack24", "ninja",
-    "gamesdonequick"];
+    "gamesdonequick", "lulusoccer", "rivkaworks", "noopkat"];
 
 function notExistingDisplay(usr) {
     // show that the user doesn't exist
-    notExist = "<div class='col s12 m6'>" +
+    //let notExist = "<div class='col s12 m4 grid-item'>" +
+    let notExist = "<div class='grid-item'>" +
         "<div class='card hoverable error-color'>" +
         "<div class='card-content secondary-text-color'>" +
         "<span class='card-title'>" + usr.display_name + "</span>" +
@@ -26,7 +27,8 @@ function notExistingDisplay(usr) {
 
 function notOnlineDisplay(usr) {
     // show user/channel info and appropriate html
-    let notOnline = "<div class='col s12 m6'>" +
+    //let notOnline = "<div class='col s12 m4 grid-item'>" +
+    let notOnline = "<div class='grid-item'>" +
         "<div class='card dark-primary-color hoverable'>" +
         "<div class='card-content white-text'>";
     if (usr.logoLink) {
@@ -49,7 +51,8 @@ function notOnlineDisplay(usr) {
 
 function onlineDisplay(usr) {
     // user/channel info and current stream
-    let curStream = "<div class='col s12 m6'>" +
+    //let curStream = "<div class='col s12 m4 grid-item'>" +
+    let curStream = "<div class='grid-item'>" +
         "<div class='card online-color-dark hoverable'>";
     if (usr.online.preview) {
         curStream += "<div class='card-image'><img src='" + usr.online.preview +
@@ -89,6 +92,7 @@ $(document).ready(function() {
                         "<div class='indeterminate'></div>" +
                       "</div>";
     $(".indicator").html(progressBar);
+
 
     // build are usr object and push them onto our array
     allStreams.forEach( user_name =>  {
