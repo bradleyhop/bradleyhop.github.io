@@ -8,8 +8,25 @@ var streams = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck",
 // array of nonexisting accounts
 var nonStreams = ["brunofin", "comster404"];
 // array of some of my own account additions
-var myStreams = ["stockstream", "cirno_tv", "lackattack24", "ninja",
-    "gamesdonequick", "lulusoccer", "rivkaworks", "noopkat"];
+var myStreams = ["stockstream", "gamesdonequick", "noopkat", "bdx_inc",
+    "vidtendo", "itmejp", "lobosjr", "dansgaming", "rivkaworks", "lulusoccer",
+    "cirno_tv", "ninja"];
+
+
+
+function notExistingDisplay(usr) {
+    // show that the user doesn't exist
+    //notExist = "<div class='col s12 m4'>" +
+    let notExist =
+        "<div class='card error-color hoverable'>" +
+        "<div class='card-content secondary-text-color'>" +
+        "<div class='valign-wrapper'>" +
+        "<i class='material-icons errorIcon'>error</i>" +
+        "<span class='card-title'>" +
+        usr.display_name + "</span></div>" +
+        "<p class='secondary-text-color'>" + usr.notFound + "</p>"  +
+        "</div></div>";
+}
 
 function notExistingDisplay(usr) {
     // show that the user doesn't exist
@@ -25,10 +42,11 @@ function notExistingDisplay(usr) {
     $("#notExist").append(notExist);
 }
 
+
 function notOnlineDisplay(usr) {
     // show user/channel info and appropriate html
-    //let notOnline = "<div class='col s12 m4 grid-item'>" +
-    let notOnline = "<div class='grid-item'>" +
+    let notOnline =
+        "<div class='resultItem card dark-primary-color hoverable'>" +
         "<div class='card dark-primary-color hoverable'>" +
         "<div class='card-content white-text'>";
     if (usr.logoLink) {
@@ -43,17 +61,21 @@ function notOnlineDisplay(usr) {
         notOnline += "<p>" + usr.bio + "</p>";
     }
     notOnline += "</div><div class='card-action notOnlineLink'><a href='" + usr.page +
-        "'>Go To channel</a>" + "</div></div></div>";
+        "'>Go To channel</a>" + "</div></div>";
 
     $("#all").append(notOnline);
     $("#offline").append(notOnline);
 }
 
+
 function onlineDisplay(usr) {
     // user/channel info and current stream
-    //let curStream = "<div class='col s12 m4 grid-item'>" +
-    let curStream = "<div class='grid-item'>" +
-        "<div class='card online-color-dark hoverable'>";
+    let curStream =
+        "<div class='resultItem card online-color-dark hoverable'>";
+    if (usr.online.preview) {
+        curStream += "<div class='card-image'><img src='" +
+            usr.online.preview + "'></div>";
+    }
     if (usr.online.preview) {
         curStream += "<div class='card-image'><img src='" + usr.online.preview +
             "'></div>";
@@ -76,11 +98,13 @@ function onlineDisplay(usr) {
         usr.online.status + "</p>";
     curStream += "</div><div class='card-action'><a href='" + usr.page +
         "'>Go To channel</a>" + "<a href='" + usr.online.linkToStream + "'>" +
-        "Go To stream</a>" + "</div></div></div>";
+        "Go To stream</a>" + "</div></div>";
 
     $("#all").append(curStream);
     $("#online").append(curStream);
 }
+
+
 
 $(document).ready(function() {
     //$('ul.tabs').tabs();
