@@ -9,8 +9,7 @@ var streams = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck",
 var nonStreams = ["brunofin", "comster404"];
 // array of some of my own account additions
 var myStreams = ["stockstream", "gamesdonequick", "noopkat", "bdx_inc",
-    "vidtendo", "itmejp", "lobosjr", "dansgaming", "rivkaworks", "lulusoccer",
-    "cirno_tv", "ninja"];
+    "vidtendo", "itmejp", "lobosjr", "dansgaming"];
 
 
 
@@ -26,17 +25,6 @@ function notExistingDisplay(usr) {
         usr.display_name + "</span></div>" +
         "<p class='secondary-text-color'>" + usr.notFound + "</p>"  +
         "</div></div>";
-}
-
-function notExistingDisplay(usr) {
-    // show that the user doesn't exist
-    //let notExist = "<div class='col s12 m4 grid-item'>" +
-    let notExist = "<div class='grid-item'>" +
-        "<div class='card hoverable error-color'>" +
-        "<div class='card-content secondary-text-color'>" +
-        "<span class='card-title'>" + usr.display_name + "</span>" +
-        "<p>" + usr.notFound + "</p>"  +
-        "</div></div></div>";
 
     $("#all").append(notExist);
     $("#notExist").append(notExist);
@@ -45,9 +33,9 @@ function notExistingDisplay(usr) {
 
 function notOnlineDisplay(usr) {
     // show user/channel info and appropriate html
+    //let notOnline = "<div class='col s12 m4'>" +
     let notOnline =
         "<div class='resultItem card dark-primary-color hoverable'>" +
-        "<div class='card dark-primary-color hoverable'>" +
         "<div class='card-content white-text'>";
     if (usr.logoLink) {
         notOnline += "<div class='valign-wrapper'>" +
@@ -70,15 +58,12 @@ function notOnlineDisplay(usr) {
 
 function onlineDisplay(usr) {
     // user/channel info and current stream
+    //let curStream = "<div class='col s12 m4'>" +
     let curStream =
         "<div class='resultItem card online-color-dark hoverable'>";
     if (usr.online.preview) {
         curStream += "<div class='card-image'><img src='" +
             usr.online.preview + "'></div>";
-    }
-    if (usr.online.preview) {
-        curStream += "<div class='card-image'><img src='" + usr.online.preview +
-            "'></div>";
     }
     curStream += "<div class='card-content white-text'>";
     if (usr.logoLink) {
@@ -93,9 +78,8 @@ function onlineDisplay(usr) {
     if (usr.bio) {
         curStream += "<p>" + usr.bio + "</p>";
     }
-    curStream += "<br><p style='font-weight: bold'>" +
-        "" + usr.online.content + " -<br>" +
-        usr.online.status + "</p>";
+    curStream += "<br><p class='streamInfo'>" + usr.online.content + " -<br>" +
+            usr.online.status + "</p>";
     curStream += "</div><div class='card-action'><a href='" + usr.page +
         "'>Go To channel</a>" + "<a href='" + usr.online.linkToStream + "'>" +
         "Go To stream</a>" + "</div></div>";
@@ -116,7 +100,6 @@ $(document).ready(function() {
                         "<div class='indeterminate'></div>" +
                       "</div>";
     $(".indicator").html(progressBar);
-
 
     // build are usr object and push them onto our array
     allStreams.forEach( user_name =>  {
