@@ -18,7 +18,7 @@
 .online-color-dark     { background   : #7B1FA2; } /* purple darken-2 */
 
 .heading {
-  height: 124px;
+  margin-top: 24px;
 }
 
 .twitchIcon {
@@ -39,17 +39,62 @@
 } /* hide horizontal scroll bar at all times */
 
 /* FIX a.active!!! */
-.tabs .tab a, .tabs .tab a:hover, .tabs .tab a.active{
+.tabs .tab a, .tabs .tab a:hover, .tabs .tab a .active{
   color: #7C4DFF;
 } /*color of text in tab bar */
+
+
+/* trying to fix flow
+ * adapted from jsfiddle:
+ * https://jsfiddle.net/hbnp5j0L/3/?utm_source=website&utm_medium=embed&utm_campaign=hbnp5j0L*/
+.resultFlow {
+  padding: 10px 0;
+  -webkit-columns: 250px 2;
+  -moz-columns: 250px 2;
+  columns: 250px 2;
+  -webkit-column-gap: 15px;
+  -ms-column-gap: 15px;
+  -moz-column-gap: 15px;
+  column-gap: 15px;
+  max-width: 80vw;
+  margin: 0 auto;
+  display: block;
+  -moz-column-fill: balance;
+}
+
+.resultItem {
+  min-width: 100%;
+  min-height: 40vh;
+  display: inline-block;
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid-column;
+}
 
 .tabs .indicator {
   background-color: #7C4DFF;
 } /*Color of underline in tab bar */
 
+/*
+ *.card {
+ *  height : auto;
+ *  margin : 1rem;
+ *  width  : 24rem;
+ *}
+ */
+
 .cardImg {
-  height : 50px;
-  width  : 50px;
+  height : 48px;
+}
+
+.errorIcon {
+  color     : black;
+  color     : rgba(0, 0, 0, 0.54);
+  font-size : 48px;
 }
 
 .card-title {
@@ -63,3 +108,8 @@
 .card .card-action  a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
   color: #E1BEE7;
 }
+
+.streamInfo {
+  font-weight: bold;
+}
+

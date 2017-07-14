@@ -21,7 +21,9 @@
       <!-- page heading -->
       <div class="row">
         <div class="valign-wrapper heading">
+          <a href="https://twitch.tv">
           <img src="http://vignette3.wikia.nocookie.net/logopedia/images/8/83/Twitch_icon.svg/revision/latest?cb=20140727180700" alt="Twitch tv icon" class="responsive-img twitchIcon" />
+          </a>
           <h1 class="text-primary-color">
             twitch.tv streamers</h1>
         </div><!-- heading -->
@@ -42,13 +44,15 @@
             <li class="tab col s3"><a href="#offline">Offline</a></li>
             <li class="tab col s3"><a href="#notExist">Not Existing</a></li>
           </ul>
-        </div>
+        </div><!-- col -->
+      </div><!-- row -->
         <!-- append data results to these id's -->
-        <div id="all"></div>
-        <div id="online"></div>
-        <div id="offline"></div>
-        <div id="notExist"></div>
-      </div>
+        <div class="results">
+          <div id="all" class='resultFlow'></div>
+          <div id="online" class='resultFlow'></div>
+          <div id="offline" class='resultFlow'></div>
+          <div id="notExist" class='resultFlow'></div>
+        </div><!-- results -->
 
   </div><!-- container -->
 
@@ -58,8 +62,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+    <!-- Masonry for grace, beautiful div item layout -->
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <!-- local javascript -->
-    <script src="onlineTwitch.js"></script>
+    <script src="twitch.js"></script>
 
   </body>
 </html>
