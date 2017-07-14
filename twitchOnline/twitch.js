@@ -9,7 +9,8 @@ var streams = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck",
 var nonStreams = ["brunofin", "comster404"];
 // array of some of my own account additions
 var myStreams = ["stockstream", "gamesdonequick", "noopkat", "bdx_inc",
-    "vidtendo", "itmejp", "lobosjr", "dansgaming"];
+    "vidtendo", "itmejp", "lobosjr", "dansgaming", "rivkaworks", "lulusoccer",
+    "cirno_tv", "ninja"];
 
 
 
