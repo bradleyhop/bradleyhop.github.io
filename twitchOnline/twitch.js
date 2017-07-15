@@ -15,9 +15,8 @@ var myStreams = ["stockstream", "gamesdonequick", "noopkat", "bdx_inc",
 
 function notExistingDisplay(usr) {
     // show that the user doesn't exist
-    //notExist = "<div class='col s12 m4'>" +
     let notExist =
-        "<div class='card error-color hoverable'>" +
+        "<div class='resultItem card error-color hoverable'>" +
         "<div class='card-content secondary-text-color'>" +
         "<div class='valign-wrapper'>" +
         "<i class='material-icons errorIcon'>error</i>" +
@@ -33,7 +32,6 @@ function notExistingDisplay(usr) {
 
 function notOnlineDisplay(usr) {
     // show user/channel info and appropriate html
-    //let notOnline = "<div class='col s12 m4'>" +
     let notOnline =
         "<div class='resultItem card dark-primary-color hoverable'>" +
         "<div class='card-content white-text'>";
@@ -58,7 +56,6 @@ function notOnlineDisplay(usr) {
 
 function onlineDisplay(usr) {
     // user/channel info and current stream
-    //let curStream = "<div class='col s12 m4'>" +
     let curStream =
         "<div class='resultItem card online-color-dark hoverable'>";
     if (usr.online.preview) {
@@ -79,7 +76,7 @@ function onlineDisplay(usr) {
         curStream += "<p>" + usr.bio + "</p>";
     }
     curStream += "<br><p class='streamInfo'>" + usr.online.content + " -<br>" +
-            usr.online.status + "</p>";
+        usr.online.status + "</p>";
     curStream += "</div><div class='card-action'><a href='" + usr.page +
         "'>Go To channel</a>" + "<a href='" + usr.online.linkToStream + "'>" +
         "Go To stream</a>" + "</div></div>";
@@ -97,8 +94,8 @@ $(document).ready(function() {
     console.log(allStreams.length);
 
     let progressBar = "<div class='progress'>" +
-                        "<div class='indeterminate'></div>" +
-                      "</div>";
+        "<div class='indeterminate'></div>" +
+        "</div>";
     $(".indicator").html(progressBar);
 
     // build are usr object and push them onto our array
