@@ -9,7 +9,8 @@ var streams = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck",
 var nonStreams = ["brunofin", "comster404"];
 // array of some of my own account additions
 var myStreams = ["stockstream", "gamesdonequick", "noopkat", "bdx_inc",
-    "vidtendo", "itmejp", "lobosjr", "dansgaming"];
+    "vidtendo", "itmejp", "lobosjr", "dansgaming", "cirno_tv", "lulusoccer",
+    "rivkaworks"];
 
 
 
@@ -17,7 +18,7 @@ function notExistingDisplay(usr) {
     // show that the user doesn't exist
     let notExist =
         "<div class='resultItem card error-color hoverable'>" +
-        "<div class='card-content secondary-text-color'>" +
+        "<div class='card-content text-primary-color'>" +
         "<div class='valign-wrapper'>" +
         "<i class='material-icons errorIcon'>error</i>" +
         "<span class='card-title'>" +

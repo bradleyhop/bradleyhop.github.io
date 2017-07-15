@@ -8,12 +8,9 @@
 .default-primary-color { background   : #03A9F4; } /* light-blue */
 .light-primary-color   { background   : #B3E5FC; } /* light-blue lighten-4 */
 .text-primary-color    { color        : #FFFFFF; } /* white */
-.text-accent-color     { color        : #7C4DFF; } /* deep-purple accent-2 */
 .accent-color          { background   : #7C4DFF; }
-.primary-text-color    { color        : #212121; } /* grey darken-4 */
-.secondary-text-color  { color        : #757575; } /* grey darken-1 */
 .divider-color         { border-color : #BDBDBD; } /* grey lighten-1 */
-.error-color           { background   : #FFCDD2; } /* red lighten-4 */
+.error-color           { background   : #D32F2F; } /* red darken-2 */
 .online-color          { background   : #E1BEE7; } /* purple lighten-4 */
 .online-color-dark     { background   : #7B1FA2; } /* purple darken-2 */
 
@@ -21,9 +18,13 @@
   margin-top: 24px;
 }
 
+h1 {
+  margin: 1rem;
+}
+
 .twitchIcon {
-  margin : 12px;
-  width  : 100px;
+  margin : 1rem;;
+  width  : 96px;
 }
 
 .indicator {
@@ -38,7 +39,7 @@
   overflow-x: hidden;
 } /* hide horizontal scroll bar at all times */
 
-/* FIX a.active!!! */
+/* a.active is overqualified, have to change this way through materialize */
 .tabs .tab a, .tabs .tab a:hover, .tabs .tab a.active{
   color: #7C4DFF;
 } /*color of text in tab bar */
@@ -48,43 +49,43 @@
  * adapted from jsfiddle:
  * https://jsfiddle.net/hbnp5j0L/3/?utm_source=website&utm_medium=embed&utm_campaign=hbnp5j0L*/
 .resultFlow {
-  padding: 10px 0;
-  -webkit-columns: 250px 2;
-  -moz-columns: 250px 2;
+  display: block;
   columns: 250px 2;
-  -webkit-column-gap: 15px;
+  -moz-columns: 250px 2;
+  -webkit-columns: 250px 2;
+  column-gap: 15px;
   -ms-column-gap: 15px;
   -moz-column-gap: 15px;
-  column-gap: 15px;
-  /*max-width: 80vw;*/
-  margin: 0 auto;
-  display: block;
   -moz-column-fill: balance;
+  -webkit-column-gap: 15px;
+  margin: 0 auto;
+  padding: 10px 0;
 }
 
 .resultItem {
-  min-width: 100%;
-  height: auto;
-  display: inline-block;
-  position: relative;
-  box-sizing: border-box;
-  border-radius: 3px;
-  -webkit-column-break-inside: avoid;
-  page-break-inside: avoid;
-  break-inside: avoid-column;
+  border-radius               : 3px;
+  box-sizing                  : border-box;
+  break-inside                : avoid-column;
+  display                     : inline-block;
+  height                      : auto;
+  min-width                   : 100%;
+  -webkit-column-break-inside : avoid;
+  page-break-inside           : avoid;
+  position                    : relative;
 }
 
+/*Color of underline in tab bar */
 .tabs .indicator {
   background-color: #7C4DFF;
-} /*Color of underline in tab bar */
+}
 
 .cardImg {
   height : 48px;
 }
 
 .errorIcon {
-  color     : black;
-  color     : rgba(0, 0, 0, 0.54);
+  color     : #FFFFFF;
+  color     : rgba(254, 254, 254, 0.54);
   font-size : 48px;
 }
 
