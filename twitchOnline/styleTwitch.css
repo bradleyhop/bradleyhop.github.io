@@ -39,7 +39,7 @@
 } /* hide horizontal scroll bar at all times */
 
 /* FIX a.active!!! */
-.tabs .tab a, .tabs .tab a:hover, .tabs .tab a .active{
+.tabs .tab a, .tabs .tab a:hover, .tabs .tab a.active{
   color: #7C4DFF;
 } /*color of text in tab bar */
 
@@ -56,7 +56,7 @@
   -ms-column-gap: 15px;
   -moz-column-gap: 15px;
   column-gap: 15px;
-  max-width: 80vw;
+  /*max-width: 80vw;*/
   margin: 0 auto;
   display: block;
   -moz-column-fill: balance;
@@ -64,10 +64,9 @@
 
 .resultItem {
   min-width: 100%;
-  min-height: 40vh;
+  height: auto;
   display: inline-block;
   position: relative;
-  padding: 20px;
   box-sizing: border-box;
   border-radius: 3px;
   -webkit-column-break-inside: avoid;
@@ -78,14 +77,6 @@
 .tabs .indicator {
   background-color: #7C4DFF;
 } /*Color of underline in tab bar */
-
-/*
- *.card {
- *  height : auto;
- *  margin : 1rem;
- *  width  : 24rem;
- *}
- */
 
 .cardImg {
   height : 48px;
