@@ -12,7 +12,7 @@ var projects = [
         cardTitle : "WikiPedia Search App",
         desc      : "Seach for Wikipedia articles, get a list of matches with links to the articles, and a random arictle button just for fun! For freecodecamp.com intermediate front end projects.",
         link      : "wikiSearchApp/index.html",
-        screencap : "assets/wikiSearch.png",
+        screencap : "assets/wiki.png",
         alt       : "screen capture of wikipedia search app"
     },
     {
@@ -35,6 +35,13 @@ var projects = [
         link      : "weatherApp/weather.html",
         screencap : "assets/weatherApp.png",
         alt       : "screen capture of weather application based on reported geolocation"
+    },
+    {
+        cardTitle : "Twitch.tv Online",
+        desc      : "SPA that uses the twitchtv JSON API. From a list of users, generates card components based on whether a user is online, offline, or non-existing. For freecodecamp.com intermediate front end projects.",
+        link      : "twitchOnline/onlineTwitch.html",
+        screencap : "assets/twitch.png",
+        alt       : "screen caputure of twitch use onine status"
     }
 ];
 
@@ -50,7 +57,7 @@ function makeCards(cardContent) {
         div += "<div class='card col-sm-5'>" +
             "<img class='card-img-top' " +
             "src='" + cardContent[i].screencap + "' alt='" +
-            cardContent[i].alt + "'>" +
+            cardContent[i].alt + "'/>" +
             "<div class='card-block'>" +
             "<h4 class='card-title'>" + cardContent[i].cardTitle + "</h4>" +
             "<p class='card-text'>" + cardContent[i].desc + "</p>" +
