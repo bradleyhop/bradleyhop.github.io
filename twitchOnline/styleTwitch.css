@@ -22,6 +22,10 @@ h1 {
   margin: 2rem;
 }
 
+.imageWrap {
+  margin : 1rem;
+}
+
 .twitchIcon {
   margin : 1rem;;
   width  : 96px;
