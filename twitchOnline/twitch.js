@@ -48,7 +48,7 @@ function notOnlineDisplay(usr) {
         notOnline += "<p>" + usr.bio + "</p>";
     }
     notOnline += "</div><div class='card-action notOnlineLink'><a href='" + usr.page +
-        "'>Go To channel</a>" + "</div></div>";
+        "'>Go To Channel</a>" + "</div></div>";
 
     $("#all").append(notOnline);
     $("#offline").append(notOnline);
@@ -78,9 +78,9 @@ function onlineDisplay(usr) {
     }
     curStream += "<br><p class='streamInfo'>" + usr.online.content + " -<br>" +
         usr.online.status + "</p>";
-    curStream += "</div><div class='card-action'><a href='" + usr.page +
-        "'>Go To channel</a>" + "<a href='" + usr.online.linkToStream + "'>" +
-        "Go To stream</a>" + "</div></div>";
+    curStream += "</div><div class='card-action'>" +
+        "<a href='" + usr.online.linkToStream + "'>" +
+        "Go To Stream</a>" + "</div></div>";
 
     $("#all").append(curStream);
     $("#online").append(curStream);
