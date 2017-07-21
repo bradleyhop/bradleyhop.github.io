@@ -2,10 +2,10 @@ $(document).ready(function() {
 
     // because of browser security features, we need to use a CORS proxy to
     //  access insecure json data, at least on codepen.io
-    var corsUrl = "https://crossorigin.me/";
+    const corsUrl = "https://crossorigin.me/";
 
     // don't need cors for this geolocation server
-    var latLonUrl = "https://freegeoip.net/json/";
+    const latLonUrl = "https://freegeoip.net/json/";
 
     // variables we need for all our callbacks
     var lat, lon, town, state, desc, icon, summary;
@@ -52,10 +52,10 @@ $(document).ready(function() {
     }
 
     function cbWeather(weatherJSON) {
-        descr = weatherJSON.currently.summary;
-        icon = weatherJSON.currently.icon;
+        descr   = weatherJSON.currently.summary;
+        icon    = weatherJSON.currently.icon;
         summary = weatherJSON.minutely.summary;
-        temp = weatherJSON.currently.temperature;
+        temp    = weatherJSON.currently.temperature;
 
         // display our weather info!!
         $(".weather").html(
@@ -106,18 +106,18 @@ $(document).ready(function() {
 
     function showWeather(icon) {
         var weatherIcon = {
-            "clear-day":            "wi-day-sunny",
-            "clear-night":          "wi-night-clear",
-            "partly-cloudy-day":    "wi-day-cloudy",
-            "partly-cloudy-night":  "wi-night-cloudy",
-            "cloudy":               "wi-cloudy",
-            "rain":                 "wi-rain",
-            "snow":                 "wi-snow",
-            "sleet":                "wi-sleet",
-            "fog":                  "wi-fog",
+            "clear-day"           : "wi-day-sunny",
+            "clear-night"         : "wi-night-clear",
+            "partly-cloudy-day"   : "wi-day-cloudy",
+            "partly-cloudy-night" : "wi-night-cloudy",
+            "cloudy"              : "wi-cloudy",
+            "rain"                : "wi-rain",
+            "snow"                : "wi-snow",
+            "sleet"               : "wi-sleet",
+            "fog"                 : "wi-fog",
             // next two are not implemented, but could be in the future
-            "thunderstorm":         "wi-thunderstorm",
-            "hail":                 "wi-hail"
+            "thunderstorm"        : "wi-thunderstorm",
+            "hail"                : "wi-hail"
         };
 
         if (weatherIcon[icon] === undefined) {
