@@ -12,7 +12,7 @@ var projects = [
         cardTitle : "WikiPedia Search App",
         desc      : "Seach for Wikipedia articles, get a list of matches with links to the articles, and a random arictle button just for fun! For freecodecamp.com intermediate front end projects.",
         link      : "wikiSearchApp/index.html",
-        screencap : "assets/wiki.png",
+        screencap : "assets/wikiSearch.png",
         alt       : "screen capture of wikipedia search app"
     },
     {
