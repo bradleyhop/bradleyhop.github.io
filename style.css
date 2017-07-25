@@ -37,7 +37,6 @@ h3 {
 
 .my-4 {
   border-color: rgb(178,228,251);
-  /*width: 60%;*/
 }
 
 .picMe {
@@ -59,11 +58,6 @@ h3 {
     max-width: 58em;
   }
 }
-/*
- *.container-narrow > hr {
- *  margin: 2rem 0;
- *}
- */
 
 .card {
   background: #9E9E9E;
@@ -78,7 +72,7 @@ h3 {
 
 .card .card-title {
   color:  rgb(3,168,243);
-  text-shadow: 1px 1px 1px rgba(33, 33, 33, 0.8);
+  text-shadow: 1px 1px 1px rgba(33, 33, 33, 0.7);
 }
 
 .card .card-text {
