@@ -2,7 +2,7 @@
 //      - Chrome security et al
 var projects = [
     {
-        cardTitle : "Free Code Camp Javascript Exercises",
+        cardTitle : "Free Code Camp JavaScript Exercises",
         desc      : "Github repository of my solutions to freecodecamp.com javascript algorithm challenges. Includes the beginning, intermediate, and advanced problems with the problem stated, my solution, and test calls.",
         link      : "https://github.com/bradleyhop/freeCodeCampAlgorithms",
         screencap : "assets/fccAlgo.png",
@@ -10,7 +10,7 @@ var projects = [
     },
     {
         cardTitle : "WikiPedia Search App",
-        desc      : "Seach for Wikipedia articles, get a list of matches with links to the articles, and a random arictle button just for fun! For freecodecamp.com intermediate front end projects.",
+        desc      : "Search for Wikipedia articles, get a list of matches with links to the articles, and a random article button just for fun! For freecodecamp.com intermediate front end projects.",
         link      : "wikiSearchApp/index.html",
         screencap : "assets/wikiSearch.png",
         alt       : "screen capture of wikipedia search app"
@@ -50,7 +50,7 @@ function makeCards(cardContent) {
     //var cardBody = document.getElementById('cardBody');
     var div = "";
 
-    for (let i = 0; i < cardContent.length; i++) {
+    for (let i in projects) {
         // template for card html
         //  includes bootstrap grid settings
         div +=
