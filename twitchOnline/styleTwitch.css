@@ -53,17 +53,17 @@ h1 {
  * adapted from jsfiddle:
  * https://jsfiddle.net/hbnp5j0L/3/?utm_source=website&utm_medium=embed&utm_campaign=hbnp5j0L*/
 .resultFlow {
-  display: block;
-  columns: 250px 2;
-  -moz-columns: 250px 2;
-  -webkit-columns: 250px 2;
-  column-gap: 15px;
-  -ms-column-gap: 15px;
-  -moz-column-gap: 15px;
-  -moz-column-fill: balance;
-  -webkit-column-gap: 15px;
-  margin: 0 auto;
-  padding: 10px 0;
+  display            : block;
+  columns            : 250px 2;
+  -moz-columns       : 250px 2;
+  -webkit-columns    : 250px 2;
+  column-gap         : 15px;
+  -ms-column-gap     : 15px;
+  -moz-column-gap    : 15px;
+  -moz-column-fill   : balance;
+  -webkit-column-gap : 15px;
+  margin             : 0 auto;
+  padding            : 10px 0;
 }
 
 .resultItem {
