@@ -60,7 +60,7 @@ function makeCards(cardContent) {
                 <div class='card-block'>
                 <h4 class='card-title'> ${cardContent[i].cardTitle} </h4>
                 <p class='card-text'> ${cardContent[i].desc}  </p>
-                <a href=' ${cardContent[i].link} target='_blank'
+                <a href=' ${cardContent[i].link} ' target='_blank'
                 class='btn'>Go see!</a>
                 </div>
             </div>`;
