@@ -3,6 +3,7 @@ $(document).ready(function() {
     // because of browser security features, we need to use a CORS proxy to
     //  access insecure json data, at least on codepen.io
     const corsUrl = "https://crossorigin.me/";
+    const corsAltUrl =  "https://cors-anywhere.herokuapp.com/";
 
     // don't need cors for this geolocation server
     const latLonUrl = "https://freegeoip.net/json/";
@@ -33,7 +34,7 @@ $(document).ready(function() {
 
         // plugin in are geolocation to our weather api
         var weatherUrl =
-            corsUrl +
+            corsAltUrl +
             "https://api.darksky.net/forecast/" +
             "90eedb52d58f0b2c4511b99509405653/" +
             lat +
@@ -43,11 +44,10 @@ $(document).ready(function() {
 
         // get the weather json
         $.ajax({
-            url: weatherUrl,
-            type: "GET",
-            dataType: "json",
-            success: cbWeather,
-            error: handleError
+            url      : weatherUrl,
+            dataType : "json",
+            success  : cbWeather,
+            error    : handleError
         });
     }
 
@@ -87,6 +87,9 @@ $(document).ready(function() {
 
     // common error function for ajax calls
     function handleError(jqXHR, textStatus, error) {
+        let errorMessage = `<p style='color:white; font-size: 2rem'>Weather
+        data unavailable at this time.<p>`;
+        $(".weather").empty().append(errorMessage);
         console.log(error);
     }
 
