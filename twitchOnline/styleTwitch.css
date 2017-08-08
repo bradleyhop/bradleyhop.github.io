@@ -31,6 +31,28 @@ h1 {
   width  : 96px;
 }
 
+.input-field label {
+  color: white;
+}
+
+.input-field input[type=text]:focus + label {
+  color: white;
+}
+
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid white;
+  box-shadow: 0 1px 0 0 white;
+}
+
+.input-field input[type=text].valid {
+  border-bottom: 1px solid white;
+  box-shadow: 0 1px 0 0 white;
+}
+
+.input-field .prefix.active {
+  color: white;
+}
+
 .indicator {
   height: 4px;
 } /* keep rest of page in position */
