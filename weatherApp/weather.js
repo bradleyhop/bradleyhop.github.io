@@ -9,7 +9,7 @@ $(document).ready(function() {
     const latLonUrl = "https://freegeoip.net/json/";
 
     // variables we need for all our callbacks
-    var lat, lon, town, state, desc, icon, summary;
+    var town, state;
 
     // keeping track of temp scale -
     // our requested json returns Fahrenheit by default
@@ -26,20 +26,17 @@ $(document).ready(function() {
     });
 
     function cbLatLon(latLonJSON) {
-        // toFixed returns a string, but that's okay for our url
-        lat = latLonJSON.latitude.toFixed(2);
-        lon = latLonJSON.longitude.toFixed(2);
         town = latLonJSON.city;
         state = latLonJSON.region_code;
 
         // plugin in are geolocation to our weather api
-        var weatherUrl =
+        let weatherUrl =
             corsAltUrl +
             "https://api.darksky.net/forecast/" +
             "90eedb52d58f0b2c4511b99509405653/" +
-            lat +
+            latLonJSON.latitude +
             "," +
-            lon +
+            latLonJSON.longitude +
             "?exclude=hourly,daily,alerts,flags";
 
         // get the weather json
@@ -52,11 +49,6 @@ $(document).ready(function() {
     }
 
     function cbWeather(weatherJSON) {
-        descr   = weatherJSON.currently.summary;
-        icon    = weatherJSON.currently.icon;
-        summary = weatherJSON.minutely.summary;
-        temp    = weatherJSON.currently.temperature;
-
         // display our weather info!!
         $(".weather").html(
             "<h1>" + town +
@@ -67,15 +59,15 @@ $(document).ready(function() {
         $(".weather").append(
             "<div><h1>" +
             "<div class=temp>" +
-            temp.toFixed(1) +
+            weatherJSON.currently.temperature.toFixed(1) +
             " &degF<br></div>" +
-            descr +
             "</h1></div>" +
-            "<div class=summary>" +
-            summary +
-            "</div>"
+            "<div class=summary><h3>" +
+            weatherJSON.minutely.summary +
+            "</h3></div>"
         );
-        $(".weather").append(showWeather(icon));
+
+        $(".weather").append(showWeather(weatherJSON.currently.icon));
 
         // put temp changing funcion here!!
         $(".temp").click(function() {
@@ -87,8 +79,9 @@ $(document).ready(function() {
 
     // common error function for ajax calls
     function handleError(jqXHR, textStatus, error) {
-        let errorMessage = `<p style='color:white; font-size: 2rem'>Weather
-        data unavailable at this time.<p>`;
+        const errorMessage = `<p style='color:white; font-size: 2rem'>Weather
+        data unavailable at this time.<br>Please check your browser and/or
+        plugin settings to allow geolocation.</p>`;
         $(".weather").empty().append(errorMessage);
         console.log(error);
     }
@@ -108,7 +101,7 @@ $(document).ready(function() {
     }
 
     function showWeather(icon) {
-        var weatherIcon = {
+        const weatherIcon = {
             "clear-day"           : "wi-day-sunny",
             "clear-night"         : "wi-night-clear",
             "partly-cloudy-day"   : "wi-day-cloudy",
