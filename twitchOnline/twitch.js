@@ -3,15 +3,20 @@ const corsUrl = "https://cors-anywhere.herokuapp.com/";
 // fCC twitch api pass-through
 const twitchAPI = "https://wind-bow.gomix.me/twitch-api/";
 // array of people who regularly stream as recommended by fCC
-var streams = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck",
+const streams = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck",
     "habathcx", "RobotCaleb", "noobs2ninjas"];
 // array of nonexisting accounts
-var nonStreams = ["brunofin", "comster404"];
+const nonStreams = ["brunofin", "comster404"];
 // array of some of my own account additions
-var myStreams = ["stockstream", "gamesdonequick", "noopkat", "bdx_inc",
+const myStreams = ["stockstream", "gamesdonequick", "noopkat", "bdx_inc",
     "vidtendo", "itmejp", "lobosjr", "dansgaming", "cirno_tv", "lulusoccer",
     "rivkaworks"];
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 // get json data on user from twitch api
 function fetchTwitchUserInfo(url, user) {
     let tmpObj = { };
@@ -51,8 +56,12 @@ function fetchTwitchUserInfo(url, user) {
                 notExistingDisplay(tmpObj);
             } else if (tmpObj.online === false) {
                 notOnlineDisplay(tmpObj);
+<<<<<<< Updated upstream
             } else if (typeof tmpObj.online === "object" &&
                 typeof tmpObj.online !== null) {
+=======
+            } else if (typeof tmpObj.online === "object") {
+>>>>>>> Stashed changes
                 onlineDisplay(tmpObj);
             } else {
                 console.log(`Something is wrong with calling the display
@@ -65,6 +74,10 @@ function fetchTwitchUserInfo(url, user) {
         });// end $.getJSON
 }
 
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 
 function notExistingDisplay(usr) {
@@ -144,10 +157,8 @@ function onlineDisplay(usr) {
 
 
 $(document).ready(function() {
-    //$('ul.tabs').tabs();
-
     let allStreams = streams.concat(nonStreams, myStreams);
-    console.log(allStreams.length);
+    //console.log(allStreams.length);
 
     let progressBar = `<div class='progress'>
         <div class='indeterminate'></div>
@@ -159,6 +170,66 @@ $(document).ready(function() {
 
         // need to set key value for object as user name
         //  can use [] with es6 - change all . below
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+        let tmpObj = { };
+        let usersUrl = corsUrl + twitchAPI + "users/" + user_name;
+
+        $.getJSON(usersUrl)
+            .then( users => {
+                // first, set user name in object
+                // check first to see if user is valid
+                if (users.status === 404) {
+                    tmpObj.display_name = user_name;
+                    tmpObj.valid        = false;
+                    tmpObj.notFound     = users.message;
+                } else {
+                    tmpObj.display_name = users.display_name;
+                    tmpObj.page         = "https://twitch.tv/" + user_name;
+                    tmpObj.valid        = true;
+                    tmpObj.logoLink     = users.logo;
+                    tmpObj.bio          = users.bio;
+                }
+                let streamsUrl = corsUrl + twitchAPI + "streams/" + user_name;
+                return $.getJSON(streamsUrl);
+            })
+            .then( streams => {
+                // check to see if user is online, and what they're streaming
+                if (streams.stream === null) {
+                    tmpObj.online              = false;
+                } else {
+                    tmpObj.online              = { };
+                    tmpObj.online.content      = streams.stream.game;
+                    tmpObj.online.status       = streams.stream.channel.status;
+                    tmpObj.online.linkToStream = streams.stream.channel.url;
+                    tmpObj.online.preview      = streams.stream.preview.large;
+                }
+
+                // test new temp object and send it to appropriate display fn
+                if (tmpObj.valid  === false) {
+                    notExistingDisplay(tmpObj);
+                } else if (tmpObj.online === false) {
+                    notOnlineDisplay(tmpObj);
+                } else if (typeof tmpObj.online === "object" &&
+                    typeof tmpObj.online !== null) {
+                    onlineDisplay(tmpObj);
+                } else {
+                    console.log("Something is wrong with calling the display" +
+                        "functions: " + tmpObj.online);
+                }
+
+            }).done( () => {
+                // clear the load progress bar
+                $(".indicator").empty();
+            } )
+            .catch( error => {
+                console.log(error);
+            });// end $.getJSON
+
+    });// end allStreams.forEach
+=======
+>>>>>>> Stashed changes
         let usersUrl = corsUrl + twitchAPI + "users/" + userName;
 
         fetchTwitchUserInfo(usersUrl, userName);
@@ -167,9 +238,24 @@ $(document).ready(function() {
 
     // clear the load progress bar, not sure where to put this to accurately
     //  convey that loading is done
+<<<<<<< Updated upstream
     $(".indicator").empty();
 
 
 
+=======
+    //$(".indicator").empty();
+
+    $("#search").keypress( e => {
+        if (e.which === 13) {
+            //$(".indicator").html(progressBar);
+            let userQuery = $("#search").val();
+            console.log(userQuery);
+            //fetchTwitchUserInfo(userQuery);
+        }
+    });
+
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 });// end document.ready
