@@ -1,6 +1,6 @@
 // Can't import files unless from server therefore no local json
 //      - Chrome security et al
-var projects = [
+const projects = [
     {
         cardTitle : "Free Code Camp JavaScript Exercises",
         desc      : "Github repository of my solutions to freecodecamp.com javascript algorithm challenges. Includes the beginning, intermediate, and advanced problems with the problem stated, my solution, and test calls.",
@@ -48,7 +48,7 @@ var projects = [
 
 function makeCards(cardContent) {
     //var cardBody = document.getElementById('cardBody');
-    var div = "";
+    let div = "";
 
     for (let i in projects) {
         // template for card html

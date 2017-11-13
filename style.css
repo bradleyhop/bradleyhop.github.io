@@ -76,7 +76,7 @@ h3 {
 
 .card .card-title {
   color       : rgb(254, 254, 254);
-  text-shadow : 1px 1px 1px rgba(33, 33, 33, 0.3);
+  text-shadow : 1px 1px rgb(178,228,251);
 }
 
 .card .card-text {
@@ -97,6 +97,10 @@ span {
     font-family : Arial, sans-serif;
     font-size   : 1em;
     line-height : 1.15em;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 .btn {
