@@ -12,11 +12,6 @@ const myStreams = ["stockstream", "gamesdonequick", "noopkat", "bdx_inc",
     "vidtendo", "itmejp", "lobosjr", "dansgaming", "cirno_tv", "lulusoccer",
     "rivkaworks"];
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
 // get json data on user from twitch api
 function fetchTwitchUserInfo(url, user) {
     let tmpObj = { };
@@ -56,12 +51,7 @@ function fetchTwitchUserInfo(url, user) {
                 notExistingDisplay(tmpObj);
             } else if (tmpObj.online === false) {
                 notOnlineDisplay(tmpObj);
-<<<<<<< Updated upstream
-            } else if (typeof tmpObj.online === "object" &&
-                typeof tmpObj.online !== null) {
-=======
             } else if (typeof tmpObj.online === "object") {
->>>>>>> Stashed changes
                 onlineDisplay(tmpObj);
             } else {
                 console.log(`Something is wrong with calling the display
@@ -73,12 +63,6 @@ function fetchTwitchUserInfo(url, user) {
             console.log(error);
         });// end $.getJSON
 }
-
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
-
 
 function notExistingDisplay(usr) {
     // show that the user doesn't exist
@@ -170,9 +154,6 @@ $(document).ready(function() {
 
         // need to set key value for object as user name
         //  can use [] with es6 - change all . below
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
         let tmpObj = { };
         let usersUrl = corsUrl + twitchAPI + "users/" + user_name;
 
@@ -228,22 +209,9 @@ $(document).ready(function() {
             });// end $.getJSON
 
     });// end allStreams.forEach
-=======
->>>>>>> Stashed changes
-        let usersUrl = corsUrl + twitchAPI + "users/" + userName;
-
-        fetchTwitchUserInfo(usersUrl, userName);
-
-    });
 
     // clear the load progress bar, not sure where to put this to accurately
     //  convey that loading is done
-<<<<<<< Updated upstream
-    $(".indicator").empty();
-
-
-
-=======
     //$(".indicator").empty();
 
     $("#search").keypress( e => {
@@ -254,8 +222,5 @@ $(document).ready(function() {
             //fetchTwitchUserInfo(userQuery);
         }
     });
-
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 
 });// end document.ready
