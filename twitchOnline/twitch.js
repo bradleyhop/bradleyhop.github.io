@@ -155,24 +155,24 @@ $(document).ready(function() {
         // need to set key value for object as user name
         //  can use [] with es6 - change all . below
         let tmpObj = { };
-        let usersUrl = corsUrl + twitchAPI + "users/" + user_name;
+        let usersUrl = corsUrl + twitchAPI + "users/" + userName;
 
         $.getJSON(usersUrl)
             .then( users => {
                 // first, set user name in object
                 // check first to see if user is valid
                 if (users.status === 404) {
-                    tmpObj.display_name = user_name;
+                    tmpObj.display_name = userName;
                     tmpObj.valid        = false;
                     tmpObj.notFound     = users.message;
                 } else {
                     tmpObj.display_name = users.display_name;
-                    tmpObj.page         = "https://twitch.tv/" + user_name;
+                    tmpObj.page         = "https://twitch.tv/" + userName;
                     tmpObj.valid        = true;
                     tmpObj.logoLink     = users.logo;
                     tmpObj.bio          = users.bio;
                 }
-                let streamsUrl = corsUrl + twitchAPI + "streams/" + user_name;
+                let streamsUrl = corsUrl + twitchAPI + "streams/" + userName;
                 return $.getJSON(streamsUrl);
             })
             .then( streams => {
