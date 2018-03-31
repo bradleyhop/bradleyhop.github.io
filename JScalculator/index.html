@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <title>simple javascript calculator</title>
+    <!-- Vue.js -->
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+
+  <body>
+
+    <div id="calculator">
+
+      <div v-model="display">{{ display }}</div>
+
+      <div class="numpad">
+        <button v-on:click="number('1')">1</button>
+        <button v-on:click="number('2')">2</button>
+        <button v-on:click="number('3')">3</button>
+        <button v-on:click="number('4')">4</button>
+        <button v-on:click="number('5')">5</button>
+        <button v-on:click="number('6')">6</button>
+        <button v-on:click="number('7')">7</button>
+        <button v-on:click="number('8')">8</button>
+        <button v-on:click="number('9')">9</button>
+        <button v-on:click="number('0')">0</button>
+      </div>
+
+      <br>
+
+      <div class="operations">
+        <button v-on:click="operator('+')">+</button>
+        <button v-on:click="operator('-')">-</button>
+        <button v-on:click="operator('x')">x</button>
+        <button v-on:click="operator('/')">&#247;</button>
+      </div>
+
+      <br>
+
+      <div class="equals">
+        <button v-on:click="equals">&#61;</button>
+      </div>
+
+    </div>
+
+  </body>
+
+  <!-- local js -->
+  <script src="calc.js"></script>
+
+</html>
