@@ -12,7 +12,9 @@
 
     <div id="calculator">
 
-      <div v-model="display">{{ display }}</div>
+      <div class="display">
+        <p>{{ display }}</p>
+      </div>
 
       <div class="numpad">
         <button v-on:click="number('1')">1</button>
@@ -39,7 +41,13 @@
       <br>
 
       <div class="equals">
-        <button v-on:click="equals">&#61;</button>
+        <button v-on:click="equals">=</button>
+      </div>
+
+      <br>
+
+      <div class="allClear">
+        <button v-on:click="allClear">AC</button>
       </div>
 
     </div>

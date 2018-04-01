@@ -42,6 +42,13 @@ var projects = [
         link      : "twitchOnline/onlineTwitch.html",
         screencap : "assets/twitch.png",
         alt       : "screen caputure of twitch use onine status"
+    },
+    {
+        cardTitle : "Current WIP",
+        desc      : "Project currently working on. I'll save my SPA's here on github, but this project isn't finished. CURRENTLY: Javascript Calculator for fCC",
+        link      : "JScalculator/index.html",
+        screencap : "assets/transparent-wip-gif.gif",
+        alt       : "work in progress graphic"
     }
 ];
 

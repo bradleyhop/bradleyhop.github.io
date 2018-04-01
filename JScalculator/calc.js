@@ -31,30 +31,47 @@ var Calc = new Vue({
         display: "0",
         firstOp: "",
         secondOp: "" ,
-        op: ""
+        oper: ""
     },
     methods: {
         number: function(num) {
             // no leading '0'
             if (this.display === "0") {
                 this.display = "";
+            // clear display to start next calculation if user hasn't hit AC
+            } else if (this.secondOp !== "") {
+                this.secondOp = "";
+                this.display = "";
             }
-            return this.display += num;
+            this.display += num;
         },
         operator: function(op) {
-            this.firstOp = this.display;
-            this.op = op;
-            return this.display += op;
+            // add test here if display is calculated, perform additional operations on
+            //  that result
+            if (this.secondOp !== "") {
+                // this display is the prev calculation!
+                this.firstOp = this.display;
+                this.secondOp = "";
+            // otherwise, starting with new calculation
+            } else {
+                this.firstOp = this.display;
+            }
+            this.oper = op;
+            this.display += op;
         },
         equals: function() {
-            this.secondOp = this.display;
+            let x = this.display;
+            // strip first operand and operator
+            this.secondOp = x.replace(/\d{1,}(\+|\-|x|\/)/g, "");
 
-            // put the calculate fn here?
-            return this.display;
+            this.display = calculate(this.firstOp, this.secondOp, this.oper);
+        },
+        allClear: function() {
+            this.display = "0";
         }
     }
 
 });
 
-//console.log(calculate("50", "2.02", "*"));
-// 101
+/* TODO: compute a chain of operators, or reject multiple operators
+ */
