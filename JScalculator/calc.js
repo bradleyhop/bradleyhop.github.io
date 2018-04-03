@@ -103,16 +103,33 @@ var Calc = new Vue({
             this.display = "0";
             this.oper = "";
             this.decimalPresent = false;
+        },
+        clearEntry() {
+            // TODO: add test to clear entry when entering second operand
+            // calculation as been performed
+            if (this.secondOp !== "") {
+                this.allClear();
+            // operator button pressed
+            } else if (this.oper !== "") {
+                this.oper = "";
+                let clearOp = this.display;
+                this.display = clearOp.replace(/(\+|\-|x|\/)/, "");
+            // first operator is being entered
+            } else {
+                this.firstOp = "";
+                this.display = "0";
+            }
         }
     }
 });
 
 /* TODO:
  *
- * compute a chain of operators?
+ * Clear Entry button implementation
+ *
  * need to pretty the output that javascript math does >:|
  * add +/- to change positive and negative values:
- *      BUG: adding a leading 0 to a decimal on second operand only makes sense if no
- *              other number has been pressed before it...
+ * Optional: add event listeners to keyup? That way, user could use their keyboard
+ *      instead of just the mouse.
  *
  */
