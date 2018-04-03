@@ -52,33 +52,42 @@ var Calc = new Vue({
                 if (this.oper === "") {
                     this.display += ".";
                 } else {
-                    this.display += "0."; // add a leading '0' for second operand
+                    //const secDec = this.display;
+                    //if (secDec.test(/(\+|\-|x|\/)\d{1,}/g, "") === false) {
+                        this.display += "0."; // add a leading '0' for second operand
+                    //} else {
+                        //this.display += ".";
+                    //}
                 }
                 this.decimalPresent = true;
             }
         },
         operator: function(op) {
-            // add test here if display is calculated, perform additional operations on
-            //  that result
-            if (this.secondOp !== "") {
-                // this display is the prev calculation!
-                this.firstOp = this.display;
-                this.secondOp = "";
-            // otherwise, starting with new calculation
-            } else {
-                this.firstOp = this.display;
+            // only accept one operator at a time
+            if (this.oper === "") {
+                // add test here if display is calculated, perform additional operations on
+                //  that result
+                if (this.secondOp !== "") {
+                    // this display is the prev calculation!
+                    this.firstOp = this.display;
+                    this.secondOp = "";
+                    // otherwise, starting with new calculation
+                } else {
+                    this.firstOp = this.display;
+                }
+                this.oper = op;
+                this.display += op;
+                // allows for secondOp to have decimal place
+                this.decimalPresent = false;
             }
-            this.oper = op;
-            this.display += op;
-            // allows for secondOp to have decimal place
-            this.decimalPresent = false;
         },
         equals: function() {
             // strip first operand and operator, also decimals if present
             let x = this.display;
-            this.secondOp = x.replace(/\d{1,}\.{0,}\d{0,}(\+|\-|x|\/)/g, "");
+            this.secondOp = x.replace(/\-{0,1}\d{1,}\.{0,}\d{0,}(\+|\-|x|\/)/, "");
 
             this.display = calculate(this.firstOp, this.secondOp, this.oper);
+            this.oper = "";
         },
         allClear: function() {
             this.display = "0";
@@ -86,14 +95,14 @@ var Calc = new Vue({
             this.decimalPresent = false;
         }
     }
-
 });
 
 /* TODO:
  *
- * compute a chain of operators, or reject multiple operators
+ * compute a chain of operators?
  * need to pretty the output that javascript math does >:|
  * add +/- to change positive and negative values:
- *      BUG: computing addition to a negative number adds two negatives together :(
+ *      BUG: adding a leading 0 to a decimal on second operand only makes sense if no
+ *              other number has been pressed before it...
  *
  */
