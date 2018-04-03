@@ -36,7 +36,7 @@ var Calc = new Vue({
         decimalPresent : false
     },
     methods: {
-        number: function(num) {
+        number(num) {
             // no leading '0'
             if (this.display === "0") {
                 this.display = "";
@@ -47,22 +47,24 @@ var Calc = new Vue({
             }
             this.display += num;
         },
-        decimal: function() {
+        decimal() {
             if (this.decimalPresent === false) {
                 if (this.oper === "") {
                     this.display += ".";
                 } else {
-                    //const secDec = this.display;
-                    //if (secDec.test(/(\+|\-|x|\/)\d{1,}/g, "") === false) {
-                        this.display += "0."; // add a leading '0' for second operand
-                    //} else {
-                        //this.display += ".";
-                    //}
+                    // allow for a decimal for the second operand
+                    const secDec = this.display;
+                    if ( /(\+|\-|x|\/)\d{1,}$/.test(secDec) )  {
+                        this.display += ".";
+                    } else {
+                        // add a leading '0' for second operand
+                        this.display += "0.";
+                    }
                 }
                 this.decimalPresent = true;
             }
         },
-        operator: function(op) {
+        operator(op) {
             // only accept one operator at a time
             if (this.oper === "") {
                 // add test here if display is calculated, perform additional operations on
@@ -75,13 +77,21 @@ var Calc = new Vue({
                 } else {
                     this.firstOp = this.display;
                 }
+
                 this.oper = op;
                 this.display += op;
                 // allows for secondOp to have decimal place
                 this.decimalPresent = false;
+            } else if (this.oper !== "") {
+                // CHAIN CALCULATIONS by performing a calc on the two given operands
+                //      before going onto the next
+                let isNumberAfterOp = this.display;
+                if (! /(\+|\-|x|\/)$/.test(isNumberAfterOp) ) {
+                    this.equals();
+                }
             }
         },
-        equals: function() {
+        equals() {
             // strip first operand and operator, also decimals if present
             let x = this.display;
             this.secondOp = x.replace(/\-{0,1}\d{1,}\.{0,}\d{0,}(\+|\-|x|\/)/, "");
@@ -89,7 +99,7 @@ var Calc = new Vue({
             this.display = calculate(this.firstOp, this.secondOp, this.oper);
             this.oper = "";
         },
-        allClear: function() {
+        allClear() {
             this.display = "0";
             this.oper = "";
             this.decimalPresent = false;
