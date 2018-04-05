@@ -22,7 +22,6 @@ function calculate(firstOperand, secondOperand, operator) {
             throw "calculate Error!!";
     }
 
-    // need to floor the result for floating point numbers
     return result;
 }
 
@@ -37,7 +36,7 @@ var Calc = new Vue({
     },
     methods: {
         number(num) {
-            // no leading '0'
+            // no leading '0' after other numbers have been pressed
             if (this.display === "0") {
                 this.display = "";
             // clear display to start next calculation if user hasn't hit AC
@@ -86,40 +85,58 @@ var Calc = new Vue({
                 // CHAIN CALCULATIONS by performing a calc on the two given operands
                 //      before going onto the next
                 let isNumberAfterOp = this.display;
+                // TODO: Chaining calculations is getting buggy....
                 if (! /(\+|\-|x|\/)$/.test(isNumberAfterOp) ) {
-                    this.equals();
+                    this.display = calculate(this.firstOp, this.secondOp, this.oper);
+                    this.display += op;
+                    this.oper = op;
                 }
             }
         },
         equals() {
             // strip first operand and operator, also decimals if present
-            let x = this.display;
-            this.secondOp = x.replace(/\-{0,1}\d{1,}\.{0,}\d{0,}(\+|\-|x|\/)/, "");
+            this.secondOp = this.display.substr(this.display.lastIndexOf(this.oper) + 1);
 
             this.display = calculate(this.firstOp, this.secondOp, this.oper);
             this.oper = "";
         },
         allClear() {
             this.display = "0";
-            this.oper = "";
+            this.oper = this.firstOp = this.secondOp = "";
             this.decimalPresent = false;
         },
         clearEntry() {
             // TODO: add test to clear entry when entering second operand
-            // calculation as been performed
             if (this.secondOp !== "") {
+                // calculation as been performed
+
                 this.allClear();
-            // operator button pressed
             } else if (this.oper !== "") {
-                this.oper = "";
-                let clearOp = this.display;
-                this.display = clearOp.replace(/(\+|\-|x|\/)/, "");
-            // first operator is being entered
+                // operator button has been pressed
+
+                // need to check if there's anything that was pressed after the operator
+                const hasStuffAfterOper = this.display;
+                if (/(\+|\-|x|\/)./.test(hasStuffAfterOper)) {
+                    this.display =
+                        this.display.substr(0, this.display.lastIndexOf(this.oper) + 1);
+                    this.decimalPresent = false;
+                } else {
+                    // only the operator has been pressed
+                    this.oper = "";
+                    this.display = this.display.replace(/(\+|\-|x|\/)/, "");
+                    // test to see if first operand has a decimal and set flag appropriately
+                    const ceDecimal = this.firstOp;
+                    if (/\.{1}/g.test(ceDecimal)) {
+                        this.decimalPresent = true;
+                    }
+                }
             } else {
+                // first operator is being entered
                 this.firstOp = "";
                 this.display = "0";
+                this.decimalPresent = false;
             }
-        }
+        },
     }
 });
 
@@ -129,7 +146,7 @@ var Calc = new Vue({
  *
  * need to pretty the output that javascript math does >:|
  * add +/- to change positive and negative values:
- * Optional: add event listeners to keyup? That way, user could use their keyboard
- *      instead of just the mouse.
+ *
+ * Chaining calculations is getting buggy
  *
  */
