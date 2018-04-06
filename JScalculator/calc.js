@@ -41,8 +41,7 @@ var Calc = new Vue({
                 this.display = "";
             // clear display to start next calculation if user hasn't hit AC
             } else if (this.secondOp !== "") {
-                this.secondOp = "";
-                this.display = "";
+                this.secondOp = this.display = "";
             }
             this.display += num;
         },
@@ -64,7 +63,7 @@ var Calc = new Vue({
             }
         },
         operator(op) {
-            // only accept one operator at a time
+            /* only accept one operator at a time */
             if (this.oper === "") {
                 // add test here if display is calculated, perform additional operations on
                 //  that result
@@ -82,14 +81,22 @@ var Calc = new Vue({
                 // allows for secondOp to have decimal place
                 this.decimalPresent = false;
             } else if (this.oper !== "") {
-                // CHAIN CALCULATIONS by performing a calc on the two given operands
-                //      before going onto the next
+                 /*
+                  *CHAIN CALCULATIONS by performing a calc on the two given operands
+                  *     before going onto the next
+                  */
                 let isNumberAfterOp = this.display;
-                // TODO: Chaining calculations is getting buggy....
+                 /*
+                  *TODO: Chaining calculations is getting buggy....
+                  */
                 if (! /(\+|\-|x|\/)$/.test(isNumberAfterOp) ) {
+                    this.secondOp =
+                        this.display.substr(this.display.lastIndexOf(this.oper) + 1);
                     this.display = calculate(this.firstOp, this.secondOp, this.oper);
+                    this.firstOp = this.display;
                     this.display += op;
                     this.oper = op;
+                    this.secondOp = "";
                 }
             }
         },
@@ -106,13 +113,11 @@ var Calc = new Vue({
             this.decimalPresent = false;
         },
         clearEntry() {
-            // TODO: add test to clear entry when entering second operand
             if (this.secondOp !== "") {
-                // calculation as been performed
-
+                /* calculation as been performed */
                 this.allClear();
             } else if (this.oper !== "") {
-                // operator button has been pressed
+                /* operator button has been pressed */
 
                 // need to check if there's anything that was pressed after the operator
                 const hasStuffAfterOper = this.display;
@@ -121,7 +126,7 @@ var Calc = new Vue({
                         this.display.substr(0, this.display.lastIndexOf(this.oper) + 1);
                     this.decimalPresent = false;
                 } else {
-                    // only the operator has been pressed
+                    /* only the operator has been pressed */
                     this.oper = "";
                     this.display = this.display.replace(/(\+|\-|x|\/)/, "");
                     // test to see if first operand has a decimal and set flag appropriately
@@ -131,7 +136,7 @@ var Calc = new Vue({
                     }
                 }
             } else {
-                // first operator is being entered
+                /* first operator is being entered */
                 this.firstOp = "";
                 this.display = "0";
                 this.decimalPresent = false;
