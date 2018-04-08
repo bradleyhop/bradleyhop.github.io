@@ -1,5 +1,5 @@
 // global function to take in two strings, convert them to numbers, and
-//  return the result based on the operator
+//  return the result as a string based on the operator
 function calculate(firstOperand, secondOperand, operator) {
     firstOperand  = Number(firstOperand);
     secondOperand = Number(secondOperand);
@@ -22,11 +22,11 @@ function calculate(firstOperand, secondOperand, operator) {
             throw "calculate Error!!";
     }
 
-    return result;
+    return String(result);
 }
 
 var Calc = new Vue({
-    el: '#calculator',
+    el: "#calculator",
     data: {
         display        : "0",
         firstOp        : "",
@@ -36,14 +36,22 @@ var Calc = new Vue({
     },
     methods: {
         number(num) {
-            // no leading '0' after other numbers have been pressed
+            // no leading '0' after other numbers have been pressed on initial entry
             if (this.display === "0") {
                 this.display = "";
-            // clear display to start next calculation if user hasn't hit AC
+                this.display += num;
             } else if (this.secondOp !== "") {
+                // clear display to start next calculation if user hasn't hit AC
                 this.secondOp = this.display = "";
+                this.display += num;
+            } else if (/(\+|\-|x|\/)\d{0}$/.test(this.display)) {
+                //  no leading 0's for second operand
+                if (num !== "0") {
+                    this.display += num;
+                }
+            } else {
+                this.display += num;
             }
-            this.display += num;
         },
         decimal() {
             if (this.decimalPresent === false) {
@@ -61,6 +69,20 @@ var Calc = new Vue({
                 }
                 this.decimalPresent = true;
             }
+        },
+        posNeg() {
+            // entering frist operand
+            if (this.firstOp === "") {
+                if (/^\-{1}/.test(this.display)) {
+                    this.display = this.display.slice(1);
+                } else {
+                    this.display = "-" + this.display;
+                }
+            } else if (this.oper !== "") {
+                console.log("working on second operation");
+            }
+            // TODO:  +/- for second operand
+
         },
         operator(op) {
             /* only accept one operator at a time */
@@ -86,9 +108,6 @@ var Calc = new Vue({
                   *     before going onto the next
                   */
                 let isNumberAfterOp = this.display;
-                 /*
-                  *TODO: Chaining calculations is getting buggy....
-                  */
                 if (! /(\+|\-|x|\/)$/.test(isNumberAfterOp) ) {
                     this.secondOp =
                         this.display.substr(this.display.lastIndexOf(this.oper) + 1);
