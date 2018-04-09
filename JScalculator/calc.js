@@ -79,10 +79,18 @@ var Calc = new Vue({
                     this.display = "-" + this.display;
                 }
             } else if (this.oper !== "") {
-                console.log("working on second operation");
+                // TODO:  +/- for second operand
+                // remove -
+                if (/(\+|\-|x|\/)\-{1}/g.test(this.display)) {
+                    this.display = this.display.replace(/\-{1}/, "");
+                } else {
+                    // add -
+                    // TODO: bug when adding '-' after digit(s) have been entered
+                    //          adds the digit(s) and the '-'...
+                    this.display += this.display.substr(
+                        this.display.lastIndexOf(this.oper) + 1) + "-";
+                }
             }
-            // TODO:  +/- for second operand
-
         },
         operator(op) {
             /* only accept one operator at a time */
