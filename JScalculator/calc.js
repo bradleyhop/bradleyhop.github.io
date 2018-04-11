@@ -58,7 +58,8 @@ var Calc = new Vue({
                 if (this.oper === "") {
                     this.display += ".";
                 } else {
-                    // allow for a decimal for the second operand
+                    // allows for secondOp to have decimal place
+                    this.decimalPresent = false;
                     const secDec = this.display;
                     if ( /(\+|\-|x|\/)\d{1,}$/.test(secDec) )  {
                         this.display += ".";
@@ -75,12 +76,12 @@ var Calc = new Vue({
             if (this.firstOp === "") {
                 if (/^\-{1}/.test(this.display)) {
                     this.display = this.display.slice(1);
-                } else {
-                    this.display = "-" + this.display;
+                } else if (this.display !== "0") {
+                    this.display = "-";
                 }
             } else if (this.oper !== "") {
                 // TODO:  +/- for second operand
-                // remove -
+                // remove - when no numbers have been pressed for second operand
                 if (/(\+|\-|x|\/)\-{1}/g.test(this.display)) {
                     this.display = this.display.replace(/\-{1}/, "");
                 } else {
@@ -91,9 +92,10 @@ var Calc = new Vue({
                         this.display.lastIndexOf(this.oper) + 1) + "-";
                 }
             }
+            // TODO: also change sign of first operand?
         },
         operator(op) {
-            /* only accept one operator at a time */
+            // only accept one operator at a time
             if (this.oper === "") {
                 // add test here if display is calculated, perform additional operations on
                 //  that result
@@ -108,13 +110,9 @@ var Calc = new Vue({
 
                 this.oper = op;
                 this.display += op;
-                // allows for secondOp to have decimal place
-                this.decimalPresent = false;
             } else if (this.oper !== "") {
-                 /*
-                  *CHAIN CALCULATIONS by performing a calc on the two given operands
-                  *     before going onto the next
-                  */
+                //CHAIN CALCULATIONS by performing a calc on the two given operands
+                //   before going onto the next
                 let isNumberAfterOp = this.display;
                 if (! /(\+|\-|x|\/)$/.test(isNumberAfterOp) ) {
                     this.secondOp =
@@ -174,11 +172,8 @@ var Calc = new Vue({
 
 /* TODO:
  *
- * Clear Entry button implementation
- *
  * need to pretty the output that javascript math does >:|
  * add +/- to change positive and negative values:
- *
- * Chaining calculations is getting buggy
+ * prevent equals() throw errors on calculate() calls
  *
  */
