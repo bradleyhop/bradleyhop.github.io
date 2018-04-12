@@ -71,30 +71,36 @@ var Calc = new Vue({
                 this.decimalPresent = true;
             }
         },
-        posNeg() {
-            // entering frist operand
-            if (this.firstOp === "") {
-                if (/^\-{1}/.test(this.display)) {
-                    this.display = this.display.slice(1);
-                } else if (this.display !== "0") {
-                    this.display = "-";
-                }
-            } else if (this.oper !== "") {
-                // TODO:  +/- for second operand
-                // remove - when no numbers have been pressed for second operand
-                if (/(\+|\-|x|\/)\-{1}/g.test(this.display)) {
-                    this.display = this.display.replace(/\-{1}/, "");
-                } else {
-                    // add -
-                    // TODO: bug when adding '-' after digit(s) have been entered
-                    //          adds the digit(s) and the '-'...
-                    this.display += this.display.substr(
-                        this.display.lastIndexOf(this.oper) + 1) + "-";
-                }
-            }
-            // TODO: also change sign of first operand?
-        },
+        /*
+         *posNeg() {
+         *    // entering frist operand
+         *    if (this.firstOp === "") {
+         *        if (/^\-{1}/.test(this.display)) {
+         *            this.display = this.display.slice(1);
+         *        } else if (this.display !== "0") {
+         *            this.display = "-";
+         *        }
+         *    } else if (this.oper !== "") {
+         *        // TODO:  +/- for second operand
+         *        // remove - when no numbers have been pressed for second operand
+         *        if (/(\+|\-|x|\/)\-{1}/g.test(this.display)) {
+         *            this.display = this.display.replace(/\-{1}/, "");
+         *        } else {
+         *            // add -
+         *            // TODO: bug when adding '-' after digit(s) have been entered
+         *            //          adds the digit(s) and the '-'...
+         *            this.display += this.display.substr(
+         *                this.display.lastIndexOf(this.oper) + 1) + "-";
+         *        }
+         *    }
+         *    // TODO: also change sign of first operand?
+         *},
+         */
         operator(op) {
+            // take care of any lingering decimal that has no digits after it in first operand
+            if (/\.$/.test(this.display)) {
+                this.display = this.display.substring(0, this.display.length - 1);
+            }
             // only accept one operator at a time
             if (this.oper === "") {
                 // add test here if display is calculated, perform additional operations on
@@ -110,6 +116,8 @@ var Calc = new Vue({
 
                 this.oper = op;
                 this.display += op;
+                // to allow decimal place for second operand
+                this.decimalPresent = false;
             } else if (this.oper !== "") {
                 //CHAIN CALCULATIONS by performing a calc on the two given operands
                 //   before going onto the next
@@ -129,8 +137,17 @@ var Calc = new Vue({
             // strip first operand and operator, also decimals if present
             this.secondOp = this.display.substr(this.display.lastIndexOf(this.oper) + 1);
 
-            this.display = calculate(this.firstOp, this.secondOp, this.oper);
-            this.oper = "";
+            // prevent throw error from calculate()
+            if (this.firstOp !== "" && this.secondOp !== "" && this.oper !== "") {
+                this.display = calculate(this.firstOp, this.secondOp, this.oper);
+                this.oper = "";
+            }
+            // reset decimalPresent based on result
+            if (/\./g.test(this.display)) {
+                this.decimalPresent = true;
+            } else {
+                this.decimalPresent = false;
+            }
         },
         allClear() {
             this.display = "0";
@@ -143,7 +160,6 @@ var Calc = new Vue({
                 this.allClear();
             } else if (this.oper !== "") {
                 /* operator button has been pressed */
-
                 // need to check if there's anything that was pressed after the operator
                 const hasStuffAfterOper = this.display;
                 if (/(\+|\-|x|\/)./.test(hasStuffAfterOper)) {
@@ -174,6 +190,5 @@ var Calc = new Vue({
  *
  * need to pretty the output that javascript math does >:|
  * add +/- to change positive and negative values:
- * prevent equals() throw errors on calculate() calls
  *
  */
