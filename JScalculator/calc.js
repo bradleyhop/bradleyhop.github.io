@@ -22,7 +22,11 @@ function calculate(firstOperand, secondOperand, operator) {
             throw "calculate Error!!";
     }
 
-    return String(result);
+    // b/c of javscript conversions to binary,
+    //    we want floating point to make  a bit more sense
+    // could use .toFixed for decimals, but introduces rounding errors
+    //    --feature anyway?
+    return result.toPrecision(8);
 }
 
 var Calc = new Vue({
@@ -161,18 +165,16 @@ var Calc = new Vue({
             } else if (this.oper !== "") {
                 /* operator button has been pressed */
                 // need to check if there's anything that was pressed after the operator
-                const hasStuffAfterOper = this.display;
-                if (/(\+|\-|x|\/)./.test(hasStuffAfterOper)) {
+                if (/(\+|\-|x|\/).$/.test(this.display)) {
                     this.display =
                         this.display.substr(0, this.display.lastIndexOf(this.oper) + 1);
                     this.decimalPresent = false;
                 } else {
                     /* only the operator has been pressed */
                     this.oper = "";
-                    this.display = this.display.replace(/(\+|\-|x|\/)/, "");
+                    this.display = this.display.replace(/(\+|\-|x|\/)$/, "");
                     // test to see if first operand has a decimal and set flag appropriately
-                    const ceDecimal = this.firstOp;
-                    if (/\.{1}/g.test(ceDecimal)) {
+                    if (/\.{1}/g.test(this.firstOp)) {
                         this.decimalPresent = true;
                     }
                 }
