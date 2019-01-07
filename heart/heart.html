@@ -2,6 +2,13 @@
 <html>
   <head>
     <style>
+@keyframes wiggle {
+    0% { transform: rotate(-45deg); }
+   80% { transform: rotate(-45deg); }
+   85% { transform: rotate(-40deg); }
+   95% { transform: rotate(-50deg); }
+  100% { transform: rotate(-45deg); }
+}
 .heart {
   position: absolute;
   margin: auto;
@@ -10,28 +17,28 @@
   bottom: 0;
   left: 0;
   background-color: pink;
-  height: 50px;
-  width: 50px;
-  transform: rotate(-45deg);
+  height: 100px;
+  width: 100px;
+  animation: wiggle 2.5s infinite;
 }
 .heart::after {
   background-color: pink;
   content: "";
   border-radius: 50%;
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   top: 0px;
-  left: 25px;
+  left: 50px;
 }
 .heart::before {
   content: "";
   background-color: pink;
   border-radius: 50%;
   position: absolute;
-  width: 50px;
-  height: 50px;
-  top: -25px;
+  width: 100px;
+  height: 100px;
+  top: -50px;
   left: 0px;
 }
     </style>
