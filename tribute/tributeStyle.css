@@ -1,0 +1,59 @@
+h1 {
+  font-family: 'Kreon', sans-serif;
+  font-weight: 700;
+}
+
+h2 {
+  font-family: 'Kreon', sans-serif;
+  font-weight: 400;
+  padding: 5px;
+}
+
+h3 {
+  font-family: 'Kreon', serif;
+  padding: 15px;
+}
+
+footer {
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+
+body {
+  background: #DEB887;
+}
+
+.story {
+  background: #F0F0F0; padding: 30px;
+}
+
+.copy {
+  font-family: 'Lora', serif;
+}
+
+.jumbotron {
+  background: #456790;
+  color: #F0F0F0;
+}
+
+.timeline {
+  background: #456790;
+  color: white;
+  font-family: 'Lora', serif;
+}
+
+.linky {
+  color: white;
+}
+
+.tributeVid {
+  background: #F0F0F0;
+}
+
+.moreInfo {
+  padding: 15px;
+}
+
+.container-fluid {
+  margin: 2%;
+}
