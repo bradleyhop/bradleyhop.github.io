@@ -20,8 +20,6 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" integrity="sha384-vhJnz1OVIdLktyixHY4Uk3OHEwdQqPppqYR8+5mjsauETgLOcEynD9oPHhhz18Nw" crossorigin="anonymous"></script>
 
-    <!--freeCodeCamp project auto-checker-->
-    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 
     <!-- local style sheet -->
     <link href="tributeStyle.css" rel="stylesheet" type="text/css">
@@ -30,6 +28,9 @@
   </head>
 
   <body>
+    <!--freeCodeCamp project auto-checker-->
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
     <div id="main">
 
       <div class="jumbotron jumbotron-fluid">
@@ -37,9 +38,9 @@
         <h2 class="text-center">The Ambassador of Lindy Hop</h2>
 
         <div id="img-div">
-          <img class="img-responsive center-block img-rounded"
+          <img id="image" class="img-responsive center-block img-rounded"
                src="https://www.bluesuedeshoesdance.com.au/site-cms/wp-content/uploads/2015/04/slike_postovi-frankie.jpg" alt="picture of Frankie Manning">
-          <div class="caption text-center">
+          <div id="img-caption" class="caption text-center">
             Frankie Manning spread the joy of swing dancing as a young man and then
             again after he "retired".</div>
         </div>
@@ -67,7 +68,7 @@
           <div class="col-sm-3">
             <img class="img-responsive img-rounded" src="http://www.frankiemanningfoundation.org/wp-content/uploads/2014/09/frankie_y1.png" alt="Frankie Manning as a young man.">
           </div>
-          <div class="col-sm-7">
+          <div class="col-sm-7 copy">
             <ul>
               <li>1914: Born in Jacksonville, Florida.</li>
               <li>1927: Frankie began dancing in the ballrooms and house parties in Harlem, NYC.</li>
@@ -98,7 +99,7 @@
           </div>
         </div>
         <div>
-          <p id="tribute-link" class="moreInfo text-center">More information about Frankie Manning can be found via <a href="https://en.wikipedia.org/wiki/Frankie_Manning" target="_blank">Frankie Manning's Wikipedia article</a> and <a href="http://www.savoystyle.com/frankie_manning.html" target="_blank">Frankie Manning's article at the Archives of Early Lindy Hop</a>.</p>
+          <p class="copy moreInfo text-center">More information about Frankie Manning can be found via <a id="tribute-link" href="https://en.wikipedia.org/wiki/Frankie_Manning" target="_blank">Frankie Manning's Wikipedia article</a> and <a href="http://www.savoystyle.com/frankie_manning.html" target="_blank">Frankie Manning's article at the Archives of Early Lindy Hop</a>.</p>
         </div>
       </div>
     </div>
