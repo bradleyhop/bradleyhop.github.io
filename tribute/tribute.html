@@ -1,30 +1,47 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1,
     shrink-to-fit=no">
     <meta name="description" content="freeCodeCamp Tribute project">
     <meta name="author" content="Bradley Smith">
+    <!--for bootstrap: disable old IE compatibility modes-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- google font -->
-    <link href='https://fonts.googleapis.com/css?family=Kreon:700, 400|Lora'
-          rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+
+    <!--bootstrap 3.4.0-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" integrity="sha384-vhJnz1OVIdLktyixHY4Uk3OHEwdQqPppqYR8+5mjsauETgLOcEynD9oPHhhz18Nw" crossorigin="anonymous"></script>
+
+    <!--freeCodeCamp project auto-checker-->
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
     <!-- local style sheet -->
-    <link rel="sytlesheet" href="tributeStyle.css" type="text/css">
+    <link href="tributeStyle.css" rel="stylesheet" type="text/css">
+
+    <title>fCC Tribute Page</title>
   </head>
 
   <body>
-    <div id="main" class="container-fluid">
-      <div class="jumbotron">
+    <div id="main">
+
+      <div class="jumbotron jumbotron-fluid">
         <h1 id="title" class="text-center">Frankie Manning</h1>
         <h2 class="text-center">The Ambassador of Lindy Hop</h2>
 
         <div id="img-div">
-        <img id="img-caption" class="img-responsive center-block thumbnail"
-             src="https://www.bluesuedeshoesdance.com.au/site-cms/wp-content/uploads/2015/04/slike_postovi-frankie.jpg" alt="picture of Frankie Manning">
-        <div class="caption text-center">
-          Frankie Manning spread the joy of swing dancing as a young man and then
-          again after he "retired".</div>
+          <img class="img-responsive center-block img-rounded"
+               src="https://www.bluesuedeshoesdance.com.au/site-cms/wp-content/uploads/2015/04/slike_postovi-frankie.jpg" alt="picture of Frankie Manning">
+          <div class="caption text-center">
+            Frankie Manning spread the joy of swing dancing as a young man and then
+            again after he "retired".</div>
         </div>
       </div>
 
@@ -36,18 +53,9 @@
           </div>
           <div class="col-sm-7">
             <div id="tribute-info" class="copy text-justify">
-              <p>In the late 1920's and early 1930's, jazz music and dancing were becoming extremely poplular in the U.S., especially in New York City. Of the many jazz dances to emerge from this era, Lindy Hop became the most famous. Lindy Hop is a partnered
-                jazz dance named after Charles Lindenburg's famous transatlantic flight. Frankie Manning was there to help shape the dance in its formative years, and was there again to teach to another generation in the last years of his life.
-              </p>
-              <p>Frankie Manning grew up in New York City in the 1920's in Harlem. Within that neighborhood there was a very large ballroom called "The Savoy". Frankie would go most evenings dancing to the big bands, learning new moves, and competing in dance
-                contests. It was in one of these competitions where Frankie would showcase the first "air step": a partnered move set to time in the music where one partner would perform accorbatics. These air steps would come to help define Lindy Hop. Frankie
-                would join a traveling performance troupe called "Whitey's Lindy Hoppers" that showcased the Lindy Hop. The troupe would travel the country and the world performing in movies, shorties, and on stage. After returning from service in World War
-                II, Frankie Manning assembled another Lindy Hop dance troupe, but changes in the music and venues led to the troupe disbanding. Frankie went on to work for the US Postal Service for the next thirty years.
-              </p>
-              <p>Interest in the Lindy Hop emerged in the 1980s in Sweden and in Los Angeles. New dancers were seeking out the orginal masters to instruct them. At first, Frankie declined when he got a call from a young instructor couple from LA. However, he
-                eventually agreed to teach them and to come out of retirement. Frankie went on to help choreograph film scenes and Broadway, teach internationally, and inspire a whole new generation to dance the Lindy Hop through his joy and charisma.
-              </p>
-              <div class="col-sm-2"></div>
+              <p>In the late 1920's and early 1930's, jazz music and dancing were becoming extremely poplular in the U.S., especially in New York City. Of the many jazz dances to emerge from this era, Lindy Hop became the most famous. Lindy Hop is a partnered jazz dance named after Charles Lindenburg's famous transatlantic flight. Frankie Manning was there to help shape the dance in its formative years, and was there again to teach to another generation in the last years of his life.</p>
+              <p>Frankie Manning grew up in New York City in the 1920's in Harlem. Within that neighborhood there was a very large ballroom called "The Savoy". Frankie would go most evenings dancing to the big bands, learning new moves, and competing in dance contests. It was in one of these competitions where Frankie would showcase the first "air step": a partnered move set to time in the music where one partner would perform accorbatics. These air steps would come to help define Lindy Hop. Frankie would join a traveling performance troupe called "Whitey's Lindy Hoppers" that showcased the Lindy Hop. The troupe would travel the country and the world performing in movies, shorties, and on stage. After returning from service in World War II, Frankie Manning assembled another Lindy Hop dance troupe, but changes in the music and venues led to the troupe disbanding. Frankie went on to work for the US Postal Service for the next thirty years.</p>
+              <p>Interest in the Lindy Hop emerged in the 1980s in Sweden and in Los Angeles. New dancers were seeking out the orginal masters to instruct them. At first, Frankie declined when he got a call from a young instructor couple from LA. However, he eventually agreed to teach them and to come out of retirement. Frankie went on to help choreograph film scenes and Broadway, teach internationally, and inspire a whole new generation to dance the Lindy Hop through his joy and charisma.</p>
             </div>
           </div>
         </div>
@@ -83,21 +91,22 @@
           <h3>Frankie in his high-stepping younger days and his <em>still</em> high-stepping later years.</h3>
         </div>
         <div class="row">
-          <div class="col-sm-2"></div>
-          <div class="col-sm-8">
+          <div class="col-sm-offset-2 col-sm-8">
             <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" src="//youtube.com/embed/m34eD21QzUw">
+              <iframe class="embed-responsive-item center-block"
+                      src="http://youtube.com/embed/m34eD21QzUw">
               </iframe>
             </div>
           </div>
-          <div class="col-sm-2"></div>
         </div>
         <div>
-        <p id="tribute-link" class="moreInfo text-center">More information about Frankie Manning can be found via <a href="https://en.wikipedia.org/wiki/Frankie_Manning" target="_blank">Frankie Manning's Wikipedia article</a> and <a href="http://www.savoystyle.com/frankie_manning.html" target="_blank">Frankie Manning's article at the Archives of Early Lindy Hop</a>.</p>
+          <p id="tribute-link" class="moreInfo text-center">More information about Frankie Manning can be found via <a href="https://en.wikipedia.org/wiki/Frankie_Manning" target="_blank">Frankie Manning's Wikipedia article</a> and <a href="http://www.savoystyle.com/frankie_manning.html" target="_blank">Frankie Manning's article at the Archives of Early Lindy Hop</a>.</p>
         </div>
       </div>
     </div>
+
     <footer class="text-center">Site written and coded by <a href="https://www.freecodecamp.com/bradleyhop">bradleyhop</a></footer>
+
   </body>
 
 </html>
