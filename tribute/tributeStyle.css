@@ -23,12 +23,21 @@ body {
   background: #DEB887;
 }
 
+#image {
+  box-shadow: 5px 5px 5px rgba(0 ,0 ,0 , .3);
+}
+
+#img-caption {
+  margin: 5px;
+}
+
 .story {
   background: #F0F0F0; padding: 30px;
 }
 
 .copy {
   font-family: 'Lora', serif;
+  font-size: 16px;
 }
 
 .jumbotron {
