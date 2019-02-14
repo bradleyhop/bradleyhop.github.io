@@ -3,50 +3,83 @@
 <html>
   <head>
     <title>silly little page for a silly one</title>
+    <link href="https://fonts.googleapis.com/css?family=Miss+Fajardose" rel="stylesheet">
     <style>
-@keyframes wiggle {
-    0% { transform: rotate(-45deg); }
-   80% { transform: rotate(-45deg); }
-   85% { transform: rotate(-40deg); }
-   95% { transform: rotate(-50deg); }
-  100% { transform: rotate(-45deg); }
+body{
+  background-color:#f9f9f9;
 }
+
 .heart {
-  position: absolute;
-  margin: auto;
+  animation: heartbeat 1s infinite;
+  background-color: pink;
+  display: inline-block;
+  height: 50px;
+  margin: 0 10px;
+  position: relative;
   top: 0;
-  right: 0;
-  bottom: 0;
+  transform: rotate(-45deg);
+  position: absolute;
+  left: 45%; top: 45%;
+  width: 50px;
+  margin-top: 65px;
+  margin-left: 3%;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  background-color: pink;
+  border-radius: 50%;
+  height: 50px;
+  position: absolute;
+  width: 50px;
+}
+
+.heart:before {
+  top: -25px;
   left: 0;
-  background-color: pink;
-  height: 100px;
-  width: 100px;
-  animation: wiggle 2.5s infinite;
 }
-.heart::after {
-  background-color: pink;
-  content: "";
-  border-radius: 50%;
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  top: 0px;
-  left: 50px;
+
+.heart:after {
+  left: 25px;
+  top: 0;
 }
-.heart::before {
-  content: "";
-  background-color: pink;
-  border-radius: 50%;
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  top: -50px;
-  left: 0px;
+
+@keyframes heartbeat
+{
+  0%
+  {
+    transform: scale( 1 )
+      rotate(-45deg);
+  }
+  20%
+  {
+    transform: scale( 1.25 )
+      rotate(-45deg);
+  }
+   40%
+  {
+    transform: scale( 1.5 )
+      rotate(-45deg);
+  }
+}
+.message {
+  text-align: center;
+  font-family: 'Miss Fajardose', cursive;
+  font-size: 1.6em;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
 }
     </style>
   </head>
 
   <body>
+    <div class="message">
+    <h1>Larisa,</h1>
+    <h2>You're B- B- B-</h2>
+    <h2>Beautiful!!</h2>
+    </div>
     <div class="heart"></div>
   </body>
 
