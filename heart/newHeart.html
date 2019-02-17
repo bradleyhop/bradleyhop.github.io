@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>a silly page for a giggly one</title>
+    <link href="https://fonts.googleapis.com/css?family=Miss+Fajardose" rel="stylesheet">
+    <style>
+body{
+  padding: 4vh 0;
+}
+
+.heart {
+  animation: heartbeat 1s infinite;
+  background-color: pink;
+  display: inline-block;
+  height: 50px;
+  margin: 0px 10px;
+  position: relative;
+  top: 0;
+  transform: rotate(-45deg);
+  position: absolute;
+  left: 45%; top: 45%;
+  width: 50px;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  background-color: pink;
+  border-radius: 50%;
+  height: 50px;
+  position: absolute;
+  width: 50px;
+}
+
+.heart:before {
+  top: -25px;
+  left: 0;
+}
+
+.heart:after {
+  left: 25px;
+  top: 0;
+}
+
+  @keyframes heartbeat
+  {
+    0%
+    {
+      transform: scale( 1 )
+        rotate(-45deg);
+    }
+    20%
+    {
+      transform: scale( 1.25 )
+        rotate(-45deg);
+    }
+    40%
+    {
+      transform: scale( 1.5 )
+        rotate(-45deg);
+    }
+  }
+  .message {
+    font-family: 'Miss Fajardose', cursive;
+    font-size: 3em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+    </style>
+  </head>
+  <body>
+
+    <div class="row">
+      <p class="message text-center">Larisa,<br>You're B- B- B-<br>Beautiful!!</p>
+    </div>
+    <div class="row">
+      <div class="heart center-block"></div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
