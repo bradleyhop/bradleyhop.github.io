@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -14,13 +14,32 @@
 
   <body>
 
-    <h1 id="title">Survey Time!!</h1>
+      <h1 id="title">Survey Time!!</h1>
 
-    <p id="description">This is a survery, silly!</p>
+      <p id="description">This is a survery, silly!</p>
 
-    <form id="survey-form">
+      <form id="survey-form">
 
-    </form>
+        <div>
+          <label id="name-label" for="name">Enter your name</label>
+          <input id="name" type="text" name="name" required
+          placeholder="namey mcnameface" >
+        </div>
+        <div>
+          <label id="email-label" for="email">Enter you email address</label>
+          <input id="email" type="email" name="email" required
+          placeholder="emailly@mcemail.face">
+        </div>
+        <div>
+          <label id="number-label" for="number">Enter a number</label>
+          <input type="number" id="number" name="number" min="0" max="1000"
+          placeholder="0-1000">
+        </div>
+
+      </form>
+
+    <!--script for validating project for submission-->
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 
   </body>
 
