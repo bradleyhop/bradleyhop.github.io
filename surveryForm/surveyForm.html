@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -34,6 +35,25 @@
           <label id="number-label" for="number">Enter a number</label>
           <input type="number" id="number" name="number" min="0" max="1000"
           placeholder="0-1000">
+        </div>
+
+        <div>
+          <label>Choose one, why don't you?!</label>
+          <select id="dropdown" class="dropdown" required>
+            <option value="one">one</option>
+            <option value="two">two</option>
+            <option value="three">three</option>
+          </select>
+        </div>
+
+        <!--TODO: group radio buttons together-->
+        <div class="radio-group">
+          <label for="one">
+            <input type="radio" id="one" name="one">One
+          </label>
+          <label for="two">
+            <input type="radio" id="two" name="two">Two
+          </label>
         </div>
 
       </form>
