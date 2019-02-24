@@ -40,25 +40,48 @@
         <div>
           <label>Choose one, why don't you?!</label>
           <select id="dropdown" class="dropdown" required>
+            <option value="" disabled selected hidden>Select your option</option>
             <option value="one">one</option>
             <option value="two">two</option>
             <option value="three">three</option>
           </select>
         </div>
 
-        <!--TODO: group radio buttons together-->
         <div class="radio-group">
-          <label for="one">
-            <input type="radio" id="one" name="one">One
-          </label>
-          <label for="two">
-            <input type="radio" id="two" name="two">Two
-          </label>
+          <fieldset>
+            <legend>what's the frequency, kenneth?</legend>
+              <input type="radio" name="numbers" value="one" id="one">
+              <label for="one">one</label><br>
+              <input type="radio" name="numbers" value="two" id="two">
+              <label for="two">two</label><br>
+          </fieldset>
+        </div>
+
+        <div class="checkbox-group">
+          <fieldset>
+            <legend>Select all that apply</legend>
+            <input type="checkbox" name="red" value="red" id="red">
+            <label for="red">red</label><br>
+            <input type="checkbox" name="blue" value="blue" id="blue">
+            <label for="blue">blue</label><br>
+          </fieldset>
+        </div>
+
+        <div class="text-area">
+          <label for="user-comment">Got something on your mind? Speak now.</label>
+          <br>
+          <textarea id="user-comment" name="user-comment"
+          placeholder="Type here..." cols="45" rows="5" maxlength="275"
+          required></textarea>
+        </div>
+
+        <div class="submit-button">
+          <button type="submit" id="submit">SUBMIT!</button>
         </div>
 
       </form>
 
-    <!--script for validating project for submission-->
+    <!-- freeCodeCamp script for validating project for submission-->
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 
   </body>
