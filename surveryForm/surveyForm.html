@@ -11,53 +11,75 @@
 
     <!--local style sheet-->
     <link rel="stylesheet" href="styleSurvey.css" type="text/css">
+    <!--Open Sans font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   </head>
 
   <body>
 
-      <h1 id="title">Survey Time!!</h1>
+    <h1 id="title">Survey Time!!</h1>
 
-      <p id="description">This is a survery, silly!</p>
+    <div class="contain">
+
+      <p id="description" class="description">This is a survery, silly!</p>
 
       <form id="survey-form">
 
-        <div>
-          <label id="name-label" for="name">Enter your name</label>
-          <input id="name" type="text" name="name" required
-          placeholder="namey mcnameface" >
-        </div>
-        <div>
-          <label id="email-label" for="email">Enter you email address</label>
-          <input id="email" type="email" name="email" required
-          placeholder="emailly@mcemail.face">
-        </div>
-        <div>
-          <label id="number-label" for="number">Enter a number</label>
-          <input type="number" id="number" name="number" min="0" max="1000"
-          placeholder="0-1000">
+        <div class="survey-question">
+          <div class="labels">
+            <label id="name-label" for="name">
+              Enter your name</label>
+          </div>
+          <div class="user-field">
+            <input id="name" type="text" name="name" required placeholder="namey mcnameface">
+          </div>
         </div>
 
-        <div>
-          <label>Choose one, why don't you?!</label>
-          <select id="dropdown" class="dropdown" required>
-            <option value="" disabled selected hidden>Select your option</option>
-            <option value="one">one</option>
-            <option value="two">two</option>
-            <option value="three">three</option>
-          </select>
+        <div class="survey-question">
+          <div class="labels">
+            <label id="email-label" for="email">
+              Enter your email address</label>
+          </div>
+          <div class="user-field">
+            <input id="email" type="email" name="email" required placeholder="emailly@mcemail.face">
+          </div>
         </div>
 
-        <div class="radio-group">
+        <div class="survey-question">
+          <div class="labels">
+            <label id="number-label" for="number">
+              Enter a number</label>
+          </div>
+          <div class="user-field">
+            <input type="number" id="number" name="number" min="0" max="1000" placeholder="enter yo digitz">
+          </div>
+        </div>
+
+        <div class="survey-question">
+          <div class="labels">
+            <label class="labels">Choose one, why don't you?!</label>
+          </div>
+          <div class="user-field">
+            <select id="dropdown" class="dropdown" required>
+              <option value="" disabled selected hidden>Select your option</option>
+              <option value="one">one</option>
+              <option value="two">two</option>
+              <option value="three">three</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="radio-group survey-question">
           <fieldset>
             <legend>what's the frequency, kenneth?</legend>
-              <input type="radio" name="numbers" value="one" id="one">
-              <label for="one">one</label><br>
-              <input type="radio" name="numbers" value="two" id="two">
-              <label for="two">two</label><br>
+            <input type="radio" name="numbers" value="one" id="one">
+            <label for="one">one</label><br>
+            <input type="radio" name="numbers" value="two" id="two">
+            <label for="two">two</label><br>
           </fieldset>
         </div>
 
-        <div class="checkbox-group">
+        <div class="checkbox-group survey-question">
           <fieldset>
             <legend>Select all that apply</legend>
             <input type="checkbox" name="red" value="red" id="red">
@@ -67,12 +89,10 @@
           </fieldset>
         </div>
 
-        <div class="text-area">
+        <div class="text-area survey-question">
           <label for="user-comment">Got something on your mind? Speak now.</label>
           <br>
-          <textarea id="user-comment" name="user-comment"
-          placeholder="Type here..." cols="45" rows="5" maxlength="275"
-          required></textarea>
+          <textarea id="user-comment" name="user-comment" placeholder="Type here..." cols="45" rows="5" maxlength="275" required></textarea>
         </div>
 
         <div class="submit-button">
@@ -81,8 +101,11 @@
 
       </form>
 
+    </div>
+
     <!-- freeCodeCamp script for validating project for submission-->
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
 
   </body>
 

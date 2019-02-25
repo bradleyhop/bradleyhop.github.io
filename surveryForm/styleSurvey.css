@@ -1,8 +1,51 @@
 body {
+  background: #56ecfd;
+  font-family: 'Open Sans', sans-serif;
   text-align: center;
+}
+
+h1 {
+  color: #041c24;
+  text-shadow: 2px 2px 2px lightgrey;
+}
+
+.contain {
+  background: #ffc0eb;
+  border-radius: 5px;
+  /*margin-bottom: 5%;*/
+  margin-left: 15%;
+  margin-right: 15%;
+  padding-bottom: 2%;
+}
+
+.description {
+  font-size: 22px;
+  padding-top: 2%;
+}
+
+.survey-question {
+  /*border: 1px solid red;*/
+  margin: 10px;
+}
+
+.labels {
+  display: inline-block;
+  text-align: right;
+  width: 30%;
+}
+
+.user-field {
+  display: inline-block;
+  text-align: left;
+  width: 40%;
 }
 
 textarea {
   /*disable user resizing of textarea*/
   resize: none;
 }
+
+fieldset {
+  border-style: none;
+}
+
