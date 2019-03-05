@@ -31,7 +31,7 @@
               Enter your name</label>
           </div>
           <div class="user-field">
-            <input id="name" type="text" name="name" required placeholder="namey mcnameface">
+            <input type="text" id="name" class="input-box" name="name" required placeholder="namey mcnameface">
           </div>
         </div>
 
@@ -41,17 +41,17 @@
               Enter your email address</label>
           </div>
           <div class="user-field">
-            <input id="email" type="email" name="email" required placeholder="emailly@mcemail.face">
+            <input type="email" id="email" class="input-box" name="email" required placeholder="emailly@mcemail.face">
           </div>
         </div>
 
         <div class="survey-question">
           <div class="labels">
             <label id="number-label" for="number">
-              Enter a number</label>
+              Enter a number (0-1000)</label>
           </div>
           <div class="user-field">
-            <input type="number" id="number" name="number" min="0" max="1000" placeholder="enter yo digitz">
+            <input type="number" id="number" class="input-box" name="number" min="0" max="1000" size="24" placeholder="enter yo digitz">
           </div>
         </div>
 
@@ -71,11 +71,15 @@
 
         <div class="radio-group survey-question">
           <fieldset>
-            <legend>what's the frequency, kenneth?</legend>
+            <legend>What's the frequency, Kenneth?</legend>
             <input type="radio" name="numbers" value="one" id="one">
-            <label for="one">one</label><br>
+            <label for="one">107.1</label>
             <input type="radio" name="numbers" value="two" id="two">
-            <label for="two">two</label><br>
+            <label for="two">95.3</label>
+            <input type="radio" name="numbers" value="three" id="three">
+            <label for="three">20K</label>
+            <input type="radio" name="numbers" value="four" id="four">
+            <label for="four">5K</label>
           </fieldset>
         </div>
 
@@ -83,16 +87,16 @@
           <fieldset>
             <legend>Select all that apply</legend>
             <input type="checkbox" name="red" value="red" id="red">
-            <label for="red">red</label><br>
+            <label for="red">red</label>
             <input type="checkbox" name="blue" value="blue" id="blue">
-            <label for="blue">blue</label><br>
+            <label for="blue">blue</label>
           </fieldset>
         </div>
 
         <div class="text-area survey-question">
           <label for="user-comment">Got something on your mind? Speak now.</label>
           <br>
-          <textarea id="user-comment" name="user-comment" placeholder="Type here..." cols="45" rows="5" maxlength="275" required></textarea>
+          <textarea id="user-comment" name="user-comment" placeholder="Type here..." cols="35" rows="5" maxlength="275" required></textarea>
         </div>
 
         <div class="submit-button">
