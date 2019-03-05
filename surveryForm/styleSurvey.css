@@ -5,14 +5,19 @@ body {
 }
 
 h1 {
+  /*text-shadow: 2px 2px 2px lightgrey;*/
+  background: lightgrey;
+  border-radius: 10px;
+  box-shadow: 8px 8px 5px rgba(140, 146, 172, .8);
   color: #041c24;
-  text-shadow: 2px 2px 2px lightgrey;
+  margin: 0 15%;
+  padding: 1%;
 }
 
 .contain {
   background: #ffc0eb;
-  border-radius: 5px;
-  /*margin-bottom: 5%;*/
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(140, 146, 172, .8);
   margin-left: 15%;
   margin-right: 15%;
   padding-bottom: 2%;
@@ -24,28 +29,60 @@ h1 {
 }
 
 .survey-question {
-  /*border: 1px solid red;*/
   margin: 10px;
 }
 
 .labels {
   display: inline-block;
+  margin-right: 2px;
   text-align: right;
-  width: 30%;
+  vertical-align: middle;
+  width: 40%;
 }
 
 .user-field {
   display: inline-block;
+  margin-left: 2px;
   text-align: left;
   width: 40%;
 }
 
+@media (max-width: 600px) {
+  .labels {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+  .user-field {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+  .contain {
+    margin: 1%;
+  }
+}
+
 textarea {
+  border-radius: 5px;
   /*disable user resizing of textarea*/
   resize: none;
 }
 
 fieldset {
-  border-style: none;
+  border-radius: 5px;
+  display: inline-block;
+  width: 60%;
 }
+
+.input-box {
+  border-radius: 5px;
+  width: 200px;
+}
+
+.dropdown {
+  background: #E6FFFB;
+  border-radius: 5px;
+}
+
 
