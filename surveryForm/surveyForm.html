@@ -72,33 +72,55 @@
         <div class="radio-group survey-question">
           <fieldset>
             <legend>What's the frequency, Kenneth?</legend>
-            <input type="radio" name="numbers" value="one" id="one">
-            <label for="one">107.1</label>
-            <input type="radio" name="numbers" value="two" id="two">
-            <label for="two">95.3</label>
-            <input type="radio" name="numbers" value="three" id="three">
-            <label for="three">20K</label>
-            <input type="radio" name="numbers" value="four" id="four">
-            <label for="four">5K</label>
+            <div class="radio-contain">
+              <div class="radio-flex-items">
+                <div>
+                  <input type="radio" name="numbers" value="one" id="one">
+                  <label for="one">107.1</label>
+                </div>
+                <div>
+                  <input type="radio" name="numbers" value="two" id="two">
+                  <label for="two">95.3</label>
+                </div>
+                <div>
+                  <input type="radio" name="numbers" value="three" id="three">
+                  <label for="three">20K</label>
+                </div>
+                <div>
+                  <input type="radio" name="numbers" value="four" id="four">
+                  <label for="four">5K</label>
+                </div>
+              </div>
+            </div>
           </fieldset>
         </div>
 
         <div class="checkbox-group survey-question">
           <fieldset>
             <legend>Select all that apply</legend>
-            <input type="checkbox" name="red" value="red" id="red">
-            <label for="red">red</label>
-            <input type="checkbox" name="blue" value="blue" id="blue">
-            <label for="blue">blue</label>
-            <input type="checkbox" name="green" value="green" id="green">
-            <label for="green">green</label>
+            <div class="radio-contain">
+              <div class="checkbox-flex-contain">
+                <div>
+                  <input type="checkbox" name="red" value="red" id="red">
+                  <label for="red">red</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="blue" value="blue" id="blue">
+                  <label for="blue">blue</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="green" value="green" id="green">
+                  <label for="green">green</label>
+                </div>
+              </div>
+            </div>
           </fieldset>
         </div>
 
         <div class="text-area survey-question">
           <label for="user-comment">Got something on your mind? Speak now.</label>
           <br>
-          <textarea id="user-comment" name="user-comment" placeholder="Type here..." cols="35" rows="5" maxlength="275" required></textarea>
+          <textarea id="user-comment" name="user-comment" placeholder="Type here..." cols="35" rows="6" maxlength="275" required></textarea>
         </div>
 
         <div>
