@@ -1,25 +1,30 @@
+/*some cool colors for this site!
+.temp {
+  color: #82E6C2, #F2BCE0, #688FF4, #05C8F6, #03E9F8;
+}
+*/
+
+
 body {
-  background: #56ecfd;
+  background: #05C8F6;
   font-family: 'Open Sans', sans-serif;
   text-align: center;
 }
 
-h1 {
-  /*text-shadow: 2px 2px 2px lightgrey;*/
-  background: lightgrey;
+.title {
+  background: #82E6C2;
   border-radius: 10px;
   box-shadow: 10px 10px 5px rgba(140, 146, 172, .8);
-  color: black;
-  margin: 0 15%;
+  color: #688FF4;
+  margin: 0 20%;
   padding: 1%;
 }
 
 .contain {
-  background: #ffc0eb;
+  background: #F2BCE0;
   border-radius: 10px;
   box-shadow: 5px 5px 5px rgba(140, 146, 172, .8);
-  margin-left: 20%;
-  margin-right: 20%;
+  margin: 0 20%;
   padding-bottom: 2%;
 }
 
@@ -33,13 +38,6 @@ h1 {
 }
 
 .labels {
-  /*
-   *display: inline-block;
-   *margin-right: 2px;
-   *text-align: right;
-   *vertical-align: middle;
-   *width: 40%;
-   */
   display: inline-flex;
   justify-content: flex-end;
   vertical-align: middle;
@@ -47,18 +45,19 @@ h1 {
 }
 
 .user-field {
-  /*
-   *display: inline-block;
-   *margin-left: 2px;
-   *text-align: left;
-   *width: 40%;
-   */
   display: inline-flex;
   justify-content: flex-start;
   width: 30%;
 }
 
+
 @media (max-width: 800px) {
+  .title {
+    margin: 0;
+  }
+  .contain {
+    margin: 0.5%;
+  }
   .labels {
     display: block;
     text-align: center;
@@ -68,9 +67,6 @@ h1 {
     display: block;
     text-align: center;
     width: 100%;
-  }
-  .contain {
-    margin: 0.5%;
   }
 }
 
@@ -105,8 +101,9 @@ fieldset {
 }
 
 .submit-button {
-  background: white;
+  background: #82E6C2;
   border-radius: 5px;
+  font-weight: bold;
   padding: 10px;
 }
 
