@@ -89,6 +89,36 @@ fieldset {
   text-align: left;
 }
 
+.radio-item {
+  margin: 3px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"] + span {
+  margin-right: 14px;
+}
+
+input[type="radio"] + label span {
+  background-color: #82E6C2;
+  border-radius: 50%;
+  display: inline-block;
+  height: 19px;
+  vertical-align: middle;
+  width: 19px;
+}
+
+input[type="radio"]:checked + label span {
+  background-color: #688FF4;
+}
+
+input[type="radio"] + label span,
+input[type="radio"]:checked + label span {
+  transition: background-color 0.2s linear;
+}
+
 .input-box {
   border-radius: 5px;
   width: 200px;
