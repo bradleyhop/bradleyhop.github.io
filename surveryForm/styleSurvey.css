@@ -128,7 +128,7 @@ fieldset {
 }
 
 .radio-styled:checked + label::after {
-  background: #fff;
+  background: #FFF;
   border-radius: 50%;
   content: '';
   height: 10px;
@@ -169,9 +169,9 @@ fieldset {
 }
 
 .checkbox-styled:checked + label::after {
-  background: #fff;
-  box-shadow: 2px 0 0 #fff, 4px 0 0 #fff, 4px -2px 0 #fff, 4px -4px 0 #fff,
-  4px -6px 0 #fff, 4px -8px 0 #fff;
+  background: #FFF;
+  box-shadow: 2px 0 0 #FFF, 4px 0 0 #FFF, 4px -2px 0 #FFF, 4px -4px 0 #FFF,
+  4px -6px 0 #FFF, 4px -8px 0 #FFF;
   content: '';
   height: 2px;
   left: 5px;
