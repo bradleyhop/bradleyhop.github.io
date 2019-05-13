@@ -1,0 +1,29 @@
+header {
+  position: fixed;
+  height: 150px;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.header-flex {
+  display: inline-flex;
+  flex-flow: row nowrap;
+}
+
+.header-flex + img {
+  align-self: flex-start;
+}
+
+h1 {
+  align-self: center;
+
+}
+
+.nav-link {
+  align-self: flex-end;
+  display: inline-flex;
+  flex-flow: row nowrap;
+  list-style: none;
+}
