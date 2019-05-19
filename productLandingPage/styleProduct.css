@@ -1,28 +1,18 @@
-header {
-  background: lightgrey;
-  height: 5em;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 100%;
+body {
+  margin: 0;
 }
 
 .header-flex {
   align-items: center;
+  background: lightgrey;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
-/*TODO: get this navbar responsive!!*/
 @media (max-width: 415px) {
-  header {
-    height: 22%;
-  }
   .header-flex {
     flex-direction: column;
-    padding: 0;
   }
 }
 
@@ -43,15 +33,15 @@ header {
 
 .navs {
   display: flex;
-}
-
-ul {
   /* fix to clear padding put in by ul default*/
   padding-left: 0;
 }
 
 .nav-link {
-  margin: 5px;
+  color: #000;
+  display: block;
+  padding: 20px;
+  text-decoration: none;
 }
 
 .nav-link:hover {
@@ -62,8 +52,7 @@ ul {
   list-style: none;
 }
 
-.navs a {
-  color: #000;
-  padding: 20px;
-  text-decoration: none;
+.features {
+  display: flex;
+  flex-direction: column;
 }
