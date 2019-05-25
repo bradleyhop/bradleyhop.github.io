@@ -52,11 +52,27 @@ body {
   list-style: none;
 }
 
+.title {
+  text-align: center;
+}
+
 .features {
-  display: flex;
-  flex-direction: column;
+  text-align: center;
+}
+
+.features > ul {
+  text-decoration: none;
 }
 
 .demo {
   display: flex;
+}
+
+.video {
+  border: unset;
+  margin: 0 auto;
+}
+
+.form {
+  text-align: center;
 }
