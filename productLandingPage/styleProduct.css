@@ -75,22 +75,32 @@ li {
   text-decoration: none;
 }
 
-/*TODO: center video preview*/
 .demo {
-  width: 50%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 480px;
+  width: 80%;
 }
 
-.video-padding {
-  padding: 0 0 56.25%;
+.video-container {
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  padding-top: 20px;
   position: relative;
 }
 
-.video {
+.video-conatiner iframe {
+  left: 0;
   position: absolute;
-  border: unset;
-  /*margin: 0 auto;*/
-  width: 100%;
-  height: 100%;
+  top: 0;
+}
+
+iframe {
+  /*to maintain 16:9, do math!*/
+  height: 270px;
+  width: 480px;
 }
 
 .pricing {
@@ -128,5 +138,8 @@ li {
   .pricing {
     margin: auto;
     min-width: 90%;
+  }
+  .demo {
+    width: 100%;
   }
 }
