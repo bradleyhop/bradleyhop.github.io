@@ -13,6 +13,7 @@
 body {
   font-family: sans;
   margin: 0;
+  padding-bottom: 30px;
   padding-top: 80px;
 }
 
@@ -98,7 +99,7 @@ li {
 }
 
 iframe {
-  /*to maintain 16:9, do math!*/
+  /*to maintain 16:9, divide width by .5625*/
   height: 270px;
   width: 480px;
 }
@@ -113,9 +114,39 @@ iframe {
   text-align: center;
 }
 
+.form-item {
+  margin: 10px;
+}
+
+.form-item label {
+  font-size: 24px;
+}
+
+.email {
+  border-color: darkgrey;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 2px;
+  font: 16px "sans-serif";
+  height: 28px;
+  text-align: center;
+  width: 320px;
+}
+
+.submit-button {
+  background-color: pink;
+  border-color: darkgrey;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  font: 16px "sans-serif";
+  height: 28px;
+}
+
 /*tablet rsponiveness*/
 @media (max-width: 800px) {
   body {
+    padding-bottom: 20px;
     padding-top: 110px;
   }
   .nav-link {
@@ -140,6 +171,6 @@ iframe {
     min-width: 90%;
   }
   .demo {
-    width: 100%;
+    width: 100vh;
   }
 }
