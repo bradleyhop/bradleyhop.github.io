@@ -1,3 +1,11 @@
+body {
+  background-color: #bfbcb7;
+  font-family: sans;
+  margin: 0;
+  padding-bottom: 30px;
+  padding-top: 80px;
+}
+
 .header-flex {
   align-items: center;
   background: #555560;
@@ -10,16 +18,8 @@
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1;
 }
-
-body {
-  background-color: #bfbcb7;
-  font-family: sans;
-  margin: 0;
-  padding-bottom: 30px;
-  padding-top: 80px;
-}
-
 
 .product-id {
   display: inline-flex;
@@ -162,12 +162,15 @@ iframe {
   body {
     padding-top: 170px;
   }
-  .features {
-    margin: auto;
-    min-width: 90%;
-  }
   .pricing {
     margin: auto;
     min-width: 90%;
+  }
+  .pricing-flex {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .pricepoint {
+    width: 100%;
   }
 }
