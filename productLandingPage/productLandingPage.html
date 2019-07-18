@@ -14,85 +14,91 @@
     <link rel="stylesheet" href="styleProduct.css" type="text/css">
   </head>
 
-  <header id="header">
-    <div class="header-flex">
-      <div class="product-id">
-        <!--free icon use via https://www.stockio.com/free-icon/santiago-gameboy-->
-        <img id="header-img" class="header-img" src="https://d29fhpw069ctt2.cloudfront.net/icon/image/81314/preview5.svg" alt="product logo, a game boy">
+  <body>
 
-        <p>Game Boy Mods</p>
-      </div>
-      <nav id="nav-bar">
-        <ul class="navs">
-          <li><a class="nav-link" href="#features">Features</a></li>
-          <li><a class="nav-link" href="#demo">Demo</a></li>
-          <li><a class="nav-link" href="#pricing">Pricing</a></li>
-          <li><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <header id="header">
+      <div class="header-flex">
+        <div class="product-id">
+          <!--free icon use via https://www.stockio.com/free-icon/santiago-gameboy-->
+          <img id="header-img" class="header-img" src="https://d29fhpw069ctt2.cloudfront.net/icon/image/81314/preview5.svg" alt="product logo, a game boy">
 
-  <main>
-
-    <div class="title">
-      <h1>Give New Life To Old Games</h1>
-    </div>
-
-    <div id="features" class="features">
-      <p class="copy-features">Love your old Game Boy but find that it is too difficult to see? Too blury? Have to hold at just the right angle in the light? Sure, you could play your original Game Boy games on other hardware, but the best experience is always on original hardware!</p>
-      <p class="copy-features">Give your Game Boy a new life!</p>
-      <ul class="copy-features">
-        <li>Fully clean unit, replace screen with new glass replica.</li>
-        <li>Install backlight and circuitry to double invert video signal to improve contrast and see your Game Boy like never before.</li>
-        <li>Replace aging off-the-shelf components to protect and improve effeciancy of the circuitry.</li>
-      </ul>
-    </div>
-
-    <div id="demo" class="demo">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/xS8NQ3dds2k"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </div>
-
-    <div id="pricing" class="pricing">
-      <div class="pricing-flex">
-        <div class="pricepoint">
-          <img src="" alt="" />
-          <p class="card-title">BACKLIGHT ONLY</p>
-          <p>This option includes this installation of <b><em>only</em></b> the backlight and bivert modules.</p>
+          <p>Game Boy Mods</p>
         </div>
-        <div class="pricepoint">
-          <img src="" alt="" />
-          <p class="card-title">BACKLIGHT and RESTORATION</p>
-          <p>This option includes the installation of the backlight and bivert module <b><em>in addition to</em></b>:</p>
-          <ul class="restoration-description">
-            <li>Replacement of all electrolytic capacitors</li>
-            <li>Cleaning of battery contacts, pots, and cartridge slot</li>
-            <li>Replace worn rubber button membranes</li>
+        <nav id="nav-bar">
+          <ul class="navs">
+            <li><a class="nav-link" href="#features">Features</a></li>
+            <li><a class="nav-link" href="#demo">Demo</a></li>
+            <li><a class="nav-link" href="#pricing">Pricing</a></li>
+            <li><a class="nav-link" href="#contact">Contact</a></li>
           </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+
+      <div class="title">
+        <h1>Give New Life To Old Games</h1>
+      </div>
+
+      <div id="features" class="features">
+        <p class="copy-features">Love your old Game Boy but find that it is too difficult to see? Too blury? Have to hold at just the right angle in the light? Sure, you could play your original Game Boy games on other hardware, but the best experience is always on original hardware!</p>
+        <p class="copy-features">Give your Game Boy a new life!</p>
+        <ul class="copy-features">
+          <li>Fully clean unit, replace screen with new glass replica.</li>
+          <li>Install backlight and circuitry to double invert video signal to improve contrast and see your Game Boy like never before.</li>
+          <li>Replace aging off-the-shelf components to protect and improve effeciancy of the circuitry.</li>
+        </ul>
+      </div>
+
+      <div id="demo" class="demo">
+        <iframe id="video" width="560" height="315"
+          src="https://www.youtube.com/embed/xS8NQ3dds2k"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+
+      <div id="pricing" class="pricing">
+        <div class="pricing-flex">
+          <div class="pricepoint">
+            <img src="" alt="" />
+            <p class="card-title">BACKLIGHT ONLY</p>
+            <p>This option includes this installation of <b><em>only</em></b> the backlight and bivert modules.</p>
+          </div>
+          <div class="pricepoint">
+            <img src="" alt="" />
+            <p class="card-title">BACKLIGHT and RESTORATION</p>
+            <p>This option includes the installation of the backlight and bivert module <b><em>in addition to</em></b>:</p>
+            <ul class="restoration-description">
+              <li>Replacement of all electrolytic capacitors</li>
+              <li>Cleaning of battery contacts, pots, and cartridge slot</li>
+              <li>Replace worn rubber button membranes</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div id="contact">
-      <form id="form" class="form" action="https://www.freecodecamp.com/email-submit" method="post">
-        <div class="form-item">
-          <label for="email">Enter Your Email Address for a Quote</label>
-        </div>
-        <div class="form-item">
-          <input id="email" class="email" type="email" name="email" placeholder="gameon@yourgame.com" required>
-        </div>
-        <div class="form-item">
-          <input type="submit" class="submit-button" id="submit" value="EMAIL US">
-        </div>
-      </form>
-    </div>
+      <div id="contact">
+        <form id="form" class="form" action="https://www.freecodecamp.com/email-submit"
+                                     method="post">
+          <div class="form-item">
+            <label for="email">Enter Your Email Address for a Quote</label>
+          </div>
+          <div class="form-item">
+            <input id="email" class="email" type="email" name="email"
+              placeholder="gameon@yourgame.com" required>
+          </div>
+          <div class="form-item">
+            <input type="submit" class="submit-button" id="submit" value="EMAIL US">
+          </div>
+        </form>
+      </div>
 
+    </main>
 
     <!-- freeCodeCamp script for validating project for submission-->
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 
-  </main>
+  </body>
 
 </html>
