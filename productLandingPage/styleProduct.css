@@ -3,7 +3,7 @@ body {
   font-family: sans;
   margin: 0;
   padding-bottom: 30px;
-  padding-top: 80px;
+  padding-top: 120px;
 }
 
 .header-flex {
@@ -26,14 +26,14 @@ body {
   margin: 10px;
 }
 
-.product-id p {
-  font-size: 22px;
-  padding-left: 5px;
+.header-img {
+  height: 94px;
+  width: 94px;
 }
 
-.header-img {
-  height: 64px;
-  width: 64px;
+.product-id p {
+  font-size: 32px;
+  padding-left: 5px;
 }
 
 .navs {
@@ -57,6 +57,12 @@ ul {
   padding-left: 0;
 }
 
+main {
+  display: block;
+  margin: 0 auto;
+  width: 75%;
+}
+
 .title {
   color: #0D1669;
   text-align: center;
@@ -64,7 +70,7 @@ ul {
 
 .features {
   margin: auto;
-  max-width: 70%;
+  max-width: 75%;
   text-align: left;
 }
 
@@ -72,17 +78,23 @@ ul {
   font-family: sans;
 }
 
+
 .demo {
+  display: block;
+  margin: auto;
+  width: 40%;
+}
+
+.vid-container {
   height: 0;
   padding-bottom: 56.25%;
   position: relative;
   width: 100%;
 }
+
 .demo iframe{
   height: 100%;
-  left: 0;
   position: absolute;
-  top:0;
   width: 100%;
 }
 
@@ -92,7 +104,7 @@ iframe {
 
 .pricing {
   margin: auto;
-  max-width: 70%;
+  max-width: 75%;
   text-align: left;
 }
 
@@ -106,16 +118,9 @@ iframe {
   width: 40%;
 }
 
-.card-title {
-  text-align: center;
-}
-
-.form {
-  text-align: center;
-}
-
 .form-item {
   margin: 10px;
+  text-align: center;
 }
 
 .form-item label {
@@ -129,7 +134,6 @@ iframe {
   border-width: 2px;
   font: 16px "sans-serif";
   height: 28px;
-  text-align: center;
   width: 320px;
 }
 
@@ -152,6 +156,9 @@ iframe {
   .nav-link {
     padding: 10px;
   }
+  .demo {
+    width: 60%;
+  }
 }
 
 /*phone responsiveness*/
@@ -160,7 +167,20 @@ iframe {
     flex-direction: column;
   }
   body {
-    padding-top: 170px;
+    padding-top: 215px;
+  }
+  main {
+    width: 100%;
+  }
+  .title {
+    font-size: smaller;
+  }
+  .features {
+    max-width: 90%;
+  }
+  .demo {
+    margin: 0;
+    width: 100%;
   }
   .pricing {
     margin: auto;
