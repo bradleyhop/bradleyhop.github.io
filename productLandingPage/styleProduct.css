@@ -78,6 +78,10 @@ main {
   font-family: sans;
 }
 
+.copy-features > li {
+  padding: 5px;
+}
+
 
 .demo {
   display: block;
@@ -104,7 +108,8 @@ iframe {
 
 .pricing {
   margin: auto;
-  max-width: 75%;
+  max-width: 85%;
+  padding-top: 15px;
   text-align: left;
 }
 
@@ -115,7 +120,22 @@ iframe {
 }
 
 .pricepoint {
-  width: 40%;
+  border: 1px solid #0D1669;
+  text-align: center;
+  border-radius: 3px;
+  width: 45%;
+}
+
+.pricepoint-title {
+  background-color: #94c11f;
+  color: #555560;
+  height: 2.5em;
+  padding-top: 1.25em;
+  text-align: center;
+}
+
+.pricepoint-copy {
+  padding: 7px;
 }
 
 .form-item {
@@ -125,6 +145,10 @@ iframe {
 
 .form-item label {
   font-size: 24px;
+}
+
+.restoration-description > li {
+  padding: 5px;
 }
 
 .email {
@@ -183,8 +207,8 @@ iframe {
     width: 100%;
   }
   .pricing {
-    margin: auto;
-    min-width: 90%;
+    margin: 0;
+    min-width: 100%;
   }
   .pricing-flex {
     flex-direction: column;
