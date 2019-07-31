@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Bradley Smith">
+    <meta name="description" content="freeCodeCamp project page for technical documentation page">
+    <meta name="keywords" content="fcc project freecodecamp">
+
+    <title>freeCodeCamp Technical Documentation Project</title>
+
+    <!--local style sheet-->
+    <link rel="stylesheet" href="styleTechDoc.css" type="text/css">
+  </head>
+
+  <body>
+
+    <main id="main-doc">
+
+      <section class="main-section" id="Introduction">
+        <header>Introduction</header>
+        <p>Emmet is a web-developer’s toolkit that can greatly improve your HTML &amp; CSS workflow.</p>
+        <p>Basically, most text editors out there allow you to store and re-use commonly used code chunks, called “snippets”. While snippets are a good way to boost your productivity, all implementations have common pitfalls: you have to define the snippet first and you can’t extend them in runtime.</p>
+        <p>Emmet takes the snippets idea to a whole new level: you can type CSS-like expressions that can be dynamically parsed, and produce output depending on what you type in the abbreviation. Emmet is developed and optimised for web-developers whose workflow depends on HTML/XML and CSS, but can be used with programming languages too.</p>
+        <p><b>This documentation is for <em>emmet-vim</em>: a vim plug-in which provides support for expanding abbreviations similar to emmet.</b></p>
+      </section>
+      <section class="main-section" id="Expand_an_Abbreviation">
+        <header>Expand an Abbreviation</header>
+        <p>Type the abbreviation as <code>div>p#foo$*3>a'</code> and type <code>&lt;c-y>,</code>.</p>
+        <pre><code>
+    &lt;div>
+        &lt;p id="foo1">
+            &lt;a href="">&lt;/a>
+        &lt;/p>
+        &lt;p id="foo2">
+            &lt;a href="">&lt;/a>
+        &lt;/p>
+        &lt;p id="foo3">
+            &lt;a href="">&lt;/a>
+        &lt;/p>
+    &lt;/div>
+        </code></pre>
+      </section>
+      <section class="main-section" id="Wrap_with_an_Abbreviation">
+        <header>Wrap with an Abbreviation</header>
+        <p>Write as below.</p>
+        <ul>
+          <li>test1</li>
+          <li>test2</li>
+          <li>test3</li>
+          <li>test4</li>
+          <li>test5</li>
+        </ul>
+        <p>Then do visual select(line wise) and type <code>&lt;c-y>,</code>. Once you get to the 'Tag:' prompt, type <code>'ul>li*'</code>.</p>
+        <pre><code>
+    &lt;ul>
+        &lt;li>test1&lt;/li>
+        &lt;li>test2&lt;/li>
+        &lt;li>test3&lt;/li>
+    &lt;/ul>
+        </code></pre>
+        <p>If you type a tag, such as 'blockquote', then you'll see the following:</p>
+        <pre><code>
+    &lt;blockquote>
+        test1
+        test2
+        test3
+    &lt;/blockquote>
+        </code></pre>
+      </section>
+      <section class="main-section" id="Balance_a_Tag_Inward">
+        <header>Balance a Tag Inward</header>
+      </section>
+      <section class="main-section" id="Balance_a_Tag_Outward">
+        <header>Balance a Tag Outward</header>
+      </section>
+      <section class="main-section" id="Go_to_the_Next_Edit_Point">
+        <header>Go to the Next Edit Point</header>
+      </section>
+      <section class="main-section" id="Go_to_the_Previous_Edit_Point">
+        <header>Go to the Previous Edit Point</header>
+      </section>
+      <section class="main-section" id="Update_an_<img>’s_Size">
+        <header>Update an &lt;img&gt;’s Size</header>
+      </section>
+      <section class="main-section" id="Merge_Lines">
+        <header>Merge Lines</header>
+      </section>
+      <section class="main-section" id="Remove_a_Tag">
+        <header>Remove a Tag</header>
+      </section>
+      <section class="main-section" id="Split/Join_Tag">
+        <header>Split/Join Tag</header>
+      </section>
+      <section class="main-section" id="Toggle_Comment">
+        <header>Toggle Comment</header>
+      </section>
+      <section class="main-section" id="Make_an_anchor_from_a_URL">
+        <header>Make an anchor from a URL</header>
+      </section>
+      <section class="main-section" id="Make_some_quoted_text_from_a_URL">
+        <header>Make some quoted text from a URL</header>
+      </section>
+      <section class="main-section" id="Installing_emmet.vim_for_the_language_you_are_using:">
+        <header>Installing emmet.vim for the language you are using:</header>
+      </section>
+      <section class="main-section" id="Enable_emmet.vim_for_the_language_you_using.">
+        <header>Enable emmet.vim for the language you using.</header>
+      </section>
+    </main>
+
+    <!-- freeCodeCamp script for validating project for submission-->
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+  </body>
+
+</html>
