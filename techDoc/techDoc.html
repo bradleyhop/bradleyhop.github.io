@@ -71,21 +71,47 @@
       </section>
       <section class="main-section" id="Balance_a_Tag_Inward">
         <header>Balance a Tag Inward</header>
+        <p>Type <code>&lt;c-y>d</code> in insert mode.</p>
       </section>
       <section class="main-section" id="Balance_a_Tag_Outward">
         <header>Balance a Tag Outward</header>
+        <p>Type <code>&lt;c-y>D</code> in insert mode.</p>
       </section>
       <section class="main-section" id="Go_to_the_Next_Edit_Point">
         <header>Go to the Next Edit Point</header>
+        <p>Type <code><c-y>n</code> in insert mode.</p>
       </section>
       <section class="main-section" id="Go_to_the_Previous_Edit_Point">
         <header>Go to the Previous Edit Point</header>
+        <p>Type <code><c-y>N</code> in insert mode.</p>
       </section>
       <section class="main-section" id="Update_an_<img>’s_Size">
-        <header>Update an &lt;img&gt;’s Size</header>
+        <header>Update an &lt;img>’s Size</header>
+        <p>Move cursor to the img tag.</p>
+        <pre><code>
+    &lt;img src="foo.png" />
+        </code></pre>
+        <p>Type <code><c-y>i</code> on img tag.</p>
+        <pre><code>
+    &lt;img src="foo.png" width="32" height="48" />
+        </code></pre>
       </section>
       <section class="main-section" id="Merge_Lines">
         <header>Merge Lines</header>
+        <p>Select the lines, which include <code>&lt;li></code></p>
+        <pre><code>
+    &lt;ul>
+  	  &lt;li class="list1">&lt;/li>
+  	  &lt;li class="list2">&lt;/li>
+  	  &lt;li class="list3">&lt;/li>
+    &lt;/ul>
+        </code></pre>
+          <p>and then type <code>&lt;c-y>m</code></p>
+          <pre><code>
+    &lt;ul>
+  	  &lt;li class="list1">&lt;/li>&lt;li class="list2">&lt;/li>&lt;li class="list3">&lt;/li>
+    &lt;/ul>
+          </code></pre>
       </section>
       <section class="main-section" id="Remove_a_Tag">
         <header>Remove a Tag</header>
