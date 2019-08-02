@@ -20,25 +20,25 @@
 
       <section class="main-section" id="Introduction">
         <header>Introduction</header>
+        <p><b>This documentation is for <em>emmet-vim</em>: a vim plug-in which provides support for expanding abbreviations similar to emmet.</b>Note: the <code>&lt;c-y></code> notation is shorthand for holding the <code>ctrl</code> button and pressing the letter <code>y</code>.</p>
         <p>Emmet is a web-developer’s toolkit that can greatly improve your HTML &amp; CSS workflow.</p>
         <p>Basically, most text editors out there allow you to store and re-use commonly used code chunks, called “snippets”. While snippets are a good way to boost your productivity, all implementations have common pitfalls: you have to define the snippet first and you can’t extend them in runtime.</p>
         <p>Emmet takes the snippets idea to a whole new level: you can type CSS-like expressions that can be dynamically parsed, and produce output depending on what you type in the abbreviation. Emmet is developed and optimised for web-developers whose workflow depends on HTML/XML and CSS, but can be used with programming languages too.</p>
-        <p><b>This documentation is for <em>emmet-vim</em>: a vim plug-in which provides support for expanding abbreviations similar to emmet.</b></p>
       </section>
       <section class="main-section" id="Expand_an_Abbreviation">
         <header>Expand an Abbreviation</header>
         <p>Type the abbreviation as <code>div>p#foo$*3>a'</code> and type <code>&lt;c-y>,</code>.</p>
         <pre><code>
     &lt;div>
-        &lt;p id="foo1">
-            &lt;a href="">&lt;/a>
-        &lt;/p>
-        &lt;p id="foo2">
-            &lt;a href="">&lt;/a>
-        &lt;/p>
-        &lt;p id="foo3">
-            &lt;a href="">&lt;/a>
-        &lt;/p>
+      &lt;p id="foo1">
+        &lt;a href="">&lt;/a>
+      &lt;/p>
+      &lt;p id="foo2">
+        &lt;a href="">&lt;/a>
+      &lt;/p>
+      &lt;p id="foo3">
+        &lt;a href="">&lt;/a>
+      &lt;/p>
     &lt;/div>
         </code></pre>
       </section>
@@ -115,24 +115,133 @@
       </section>
       <section class="main-section" id="Remove_a_Tag">
         <header>Remove a Tag</header>
+        <p>Move cursor in block.</p>
+        <pre><code>
+    &lt;div class="foo">
+      &lt;a>cursor is here&lt;/a>
+    &lt;/div>
+        </code></pre>
+        <p>Type <code>&lt;c-y>k</code> in insert mode.</p>
+        <pre><code>
+    &lt;div class="foo">
+
+    &lt;/div>
+        </code></pre>
+        <p>And type <code>&lt;c-y>k</code> in there again.</p>
+        <!--next pre section left intintially blank-->
+        <pre><code>
+
+        </code></pre>
       </section>
       <section class="main-section" id="Split/Join_Tag">
         <header>Split/Join Tag</header>
+        <p>Move the cursor inside block.</p>
+        <pre><code>
+    &lt;div class="foo">
+      cursor is here
+    &lt;/div
+        </code></pre>
+        <p>Type <code>&lt;c-y>j</code> in insert mode.</p>
+        <pre><code>
+    &lt;div class="foo"/>
+        </code></pre>
+        <p>And then type <code>&lt;c-y>j</code> in there again.</p>
+        <pre><code>
+    &lt;div class="foo">
+    &lt;/div>
+        </code></pre>
       </section>
       <section class="main-section" id="Toggle_Comment">
         <header>Toggle Comment</header>
+        <p>Move cursor inside the block.</p>
+        <pre><code>
+    <div>
+      hello world
+    </div>
+        </code></pre>
+        <p>Type <code>&lt;c-y>/</code> in insert mode.</p>
+        <pre><code>
+    &lt;!-- &lt;div>
+      hello world
+    &lt;/div> -->
+        </code></pre>
+        <p>Type <code>&lt;c-y>/</code> in there again.</p>
+        <pre><code>
+    &lt;div>
+      hello world
+    &lt;/div>
+        </code></pre>
       </section>
       <section class="main-section" id="Make_an_anchor_from_a_URL">
         <header>Make an anchor from a URL</header>
+        <p>Move cursor to the URL.</p>
+        <pre><code>
+    http://www.google.com/
+        </code></pre>
+        <p>Type <code>&lt;c-y>a</code></p>
+        <pre><code>
+    &lt;a href="http://www.google.com/">Google&lt;/a>
+        </code></pre>
       </section>
       <section class="main-section" id="Make_some_quoted_text_from_a_URL">
         <header>Make some quoted text from a URL</header>
+        <p>Move cursor to the URL.</p>
+        <pre><code>
+    http://github.com/
+        </code></pre>
+        <p>Type <code>&lt;c-y>A</code></p>
+        <!--
+           -TODO: Change length of code below to not extend the container's width!
+           -->
+        <pre><code>
+    &lt;blockquote class="quote">
+      &lt;a href="http://github.com/">Secure source code hosting and collaborative development - GitHub&lt;/a>&lt;br />
+    &lt;p>How does it work? Get up and running in seconds by forking a project, pushing an existing repository...&lt;/p>
+    &lt;cite>http://github.com/&lt;/cite>
+  </blockquote>
+        </code></pre>
       </section>
       <section class="main-section" id="Installing_emmet.vim_for_the_language_you_are_using:">
         <header>Installing emmet.vim for the language you are using:</header>
+        <pre><code>
+    # cd ~/.vim
+    # unzip emmet-vim.zip
+        </code></pre>
+        <p>Or if you are using pathogen.vim:</p>
+        <pre><code>
+    # cd ~/.vim/bundle # or make directory
+    # unzip /path/to/emmet-vim.zip
+        </code></pre>
+        <p>Or if you get the sources from the repository:</p>
+        <pre><code>
+    # cd ~/.vim/bundle # or make directory
+    # git clone http://github.com/mattn/emmet-vim.git
+        </code></pre>
       </section>
       <section class="main-section" id="Enable_emmet.vim_for_the_language_you_using.">
         <header>Enable emmet.vim for the language you using.</header>
+        <p>You can customize the behavior of the languages you are using.</p>
+        <pre><code>
+  # cat >> ~/.vimrc
+    let g:user_emmet_settings = {
+    \  'php' : {
+    \    'extends' : 'html',
+    \    'filters' : 'c',
+    \  },
+    \  'xml' : {
+    \    'extends' : 'html',
+    \  },
+    \  'haml' : {
+    \    'extends' : 'html',
+    \  },
+    \}
+        </code></pre>
+      </section>
+      <section>
+        <header>Reference</header>
+        <p>This documentation taken from <a href="https://github.com/mattn/emmet-vim">emmet-vim</a>
+         github page <a href="https://raw.githubusercontent.com/mattn/emmet-vim/master/TUTORIAL">here</a>.
+        </p>
       </section>
     </main>
 
