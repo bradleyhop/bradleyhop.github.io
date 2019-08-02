@@ -1,7 +1,7 @@
 body {
   font-family: sans-serif;
   font-size: 20px;
-  margin: 5% 20% 5%;
+  margin: 5% 5%;
 }
 
 header {
@@ -11,6 +11,8 @@ header {
 code {
   background-color: lightgrey;
   font-size: 18px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 pre {
