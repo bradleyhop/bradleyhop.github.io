@@ -20,26 +20,26 @@
 
       <section class="main-section" id="Introduction">
         <header>Introduction</header>
-        <p><b>This documentation is for <em>emmet-vim</em>: a vim plug-in which provides support for expanding abbreviations similar to emmet.</b>Note: the <code>&lt;c-y></code> notation is shorthand for holding the <code>ctrl</code> button and pressing the letter <code>y</code>.</p>
+        <p><b>This documentation is for <em>emmet-vim</em>: a vim plug-in which provides support for expanding abbreviations similar to emmet.</b>Note: the <code>&lt;c-y&gt;</code> notation is shorthand for holding the <code>ctrl</code> button and pressing the letter <code>y</code>.</p>
         <p>Emmet is a web-developer’s toolkit that can greatly improve your HTML &amp; CSS workflow.</p>
         <p>Basically, most text editors out there allow you to store and re-use commonly used code chunks, called “snippets”. While snippets are a good way to boost your productivity, all implementations have common pitfalls: you have to define the snippet first and you can’t extend them in runtime.</p>
         <p>Emmet takes the snippets idea to a whole new level: you can type CSS-like expressions that can be dynamically parsed, and produce output depending on what you type in the abbreviation. Emmet is developed and optimised for web-developers whose workflow depends on HTML/XML and CSS, but can be used with programming languages too.</p>
       </section>
       <section class="main-section" id="Expand_an_Abbreviation">
         <header>Expand an Abbreviation</header>
-        <p>Type the abbreviation as <code>div>p#foo$*3>a'</code> and type <code>&lt;c-y>,</code>.</p>
+        <p>Type the abbreviation as <code>div&gt;p#foo$*3&gt;a'</code> and type <code>&lt;c-y&gt;,</code>.</p>
         <pre><code>
-    &lt;div>
-      &lt;p id="foo1">
-        &lt;a href="">&lt;/a>
-      &lt;/p>
-      &lt;p id="foo2">
-        &lt;a href="">&lt;/a>
-      &lt;/p>
-      &lt;p id="foo3">
-        &lt;a href="">&lt;/a>
-      &lt;/p>
-    &lt;/div>
+  &lt;div&gt;
+    &lt;p id="foo1"&gt;
+      &lt;a href=""&gt;&lt;/a&gt;
+    &lt;/p&gt;
+    &lt;p id="foo2"&gt;
+      &lt;a href=""&gt;&lt;/a&gt;
+    &lt;/p&gt;
+    &lt;p id="foo3"&gt;
+      &lt;a href=""&gt;&lt;/a&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;
         </code></pre>
       </section>
       <section class="main-section" id="Wrap_with_an_Abbreviation">
@@ -52,30 +52,34 @@
           <li>test4</li>
           <li>test5</li>
         </ul>
-        <p>Then do visual select(line wise) and type <code>&lt;c-y>,</code>. Once you get to the 'Tag:' prompt, type <code>'ul>li*'</code>.</p>
+        <p>Then do visual select(line wise) and type <code>&lt;c-y&gt;,</code>. Once you get to the 'Tag:' prompt, type <code>'ul&gt;li*'</code>.</p>
         <pre><code>
-    &lt;ul>
-        &lt;li>test1&lt;/li>
-        &lt;li>test2&lt;/li>
-        &lt;li>test3&lt;/li>
-    &lt;/ul>
+  &lt;ul&gt;
+    &lt;li&gt;test1&lt;/li&gt;
+    &lt;li&gt;test2&lt;/li&gt;
+    &lt;li&gt;test3&lt;/li&gt;
+    &lt;li&gt;test4&lt;/li&gt;
+    &lt;li&gt;test5&lt;/li&gt;
+  &lt;/ul&gt;
         </code></pre>
         <p>If you type a tag, such as 'blockquote', then you'll see the following:</p>
         <pre><code>
-    &lt;blockquote>
-        test1
-        test2
-        test3
-    &lt;/blockquote>
+  &lt;blockquote&gt;
+    test1
+    test2
+    test3
+    test4
+    test5
+  &lt;/blockquote&gt;
         </code></pre>
       </section>
       <section class="main-section" id="Balance_a_Tag_Inward">
         <header>Balance a Tag Inward</header>
-        <p>Type <code>&lt;c-y>d</code> in insert mode.</p>
+        <p>Type <code>&lt;c-y&gt;d</code> in insert mode.</p>
       </section>
       <section class="main-section" id="Balance_a_Tag_Outward">
         <header>Balance a Tag Outward</header>
-        <p>Type <code>&lt;c-y>D</code> in insert mode.</p>
+        <p>Type <code>&lt;c-y&gt;D</code> in insert mode.</p>
       </section>
       <section class="main-section" id="Go_to_the_Next_Edit_Point">
         <header>Go to the Next Edit Point</header>
@@ -86,48 +90,48 @@
         <p>Type <code><c-y>N</code> in insert mode.</p>
       </section>
       <section class="main-section" id="Update_an_<img>’s_Size">
-        <header>Update an &lt;img>’s Size</header>
+        <header>Update an &lt;img&gt;’s Size</header>
         <p>Move cursor to the img tag.</p>
         <pre><code>
-    &lt;img src="foo.png" />
+  &lt;img src="foo.png" /&gt;
         </code></pre>
-        <p>Type <code><c-y>i</code> on img tag.</p>
+        <p>Type <code>&lt;c-y&gt;i</code> on img tag.</p>
         <pre><code>
-    &lt;img src="foo.png" width="32" height="48" />
+  &lt;img src="foo.png" width="32" height="48" /&gt;
         </code></pre>
       </section>
       <section class="main-section" id="Merge_Lines">
         <header>Merge Lines</header>
-        <p>Select the lines, which include <code>&lt;li></code></p>
+        <p>Select the lines, which include <code>&lt;li&gt;</code></p>
         <pre><code>
-    &lt;ul>
-  	  &lt;li class="list1">&lt;/li>
-  	  &lt;li class="list2">&lt;/li>
-  	  &lt;li class="list3">&lt;/li>
-    &lt;/ul>
+  &lt;ul&gt;
+    &lt;li class="list1"&gt;&lt;/li&gt;
+    &lt;li class="list2"&gt;&lt;/li&gt;
+    &lt;li class="list3"&gt;&lt;/li&gt;
+  &lt;/ul&gt;
         </code></pre>
-          <p>and then type <code>&lt;c-y>m</code></p>
+          <p>and then type <code>&lt;c-y&gt;m</code></p>
           <pre><code>
-    &lt;ul>
-  	  &lt;li class="list1">&lt;/li>&lt;li class="list2">&lt;/li>&lt;li class="list3">&lt;/li>
-    &lt;/ul>
+  &lt;ul&gt;
+    &lt;li class="list1"&gt;&lt;/li&gt;&lt;li class="list2"&gt;&lt;/li&gt;&lt;li class="list3"&gt;&lt;/li&gt;
+  &lt;/ul&gt;
           </code></pre>
       </section>
       <section class="main-section" id="Remove_a_Tag">
         <header>Remove a Tag</header>
         <p>Move cursor in block.</p>
         <pre><code>
-    &lt;div class="foo">
-      &lt;a>cursor is here&lt;/a>
-    &lt;/div>
+  &lt;div class="foo"&gt;
+    &lt;a&gt;cursor is here&lt;/a&gt;
+  &lt;/div&gt;
         </code></pre>
-        <p>Type <code>&lt;c-y>k</code> in insert mode.</p>
+        <p>Type <code>&lt;c-y&gt;k</code> in insert mode.</p>
         <pre><code>
-    &lt;div class="foo">
+  &lt;div class="foo"&gt;
 
-    &lt;/div>
+  &lt;/div&gt;
         </code></pre>
-        <p>And type <code>&lt;c-y>k</code> in there again.</p>
+        <p>And type <code>&lt;c-y&gt;k</code> in there again.</p>
         <!--next pre section left intintially blank-->
         <pre><code>
 
@@ -137,92 +141,92 @@
         <header>Split/Join Tag</header>
         <p>Move the cursor inside block.</p>
         <pre><code>
-    &lt;div class="foo">
-      cursor is here
-    &lt;/div
+  &lt;div class="foo"&gt;
+    cursor is here
+  &lt;/div
         </code></pre>
-        <p>Type <code>&lt;c-y>j</code> in insert mode.</p>
+        <p>Type <code>&lt;c-y&gt;j</code> in insert mode.</p>
         <pre><code>
-    &lt;div class="foo"/>
+  &lt;div class="foo"/&gt;
         </code></pre>
-        <p>And then type <code>&lt;c-y>j</code> in there again.</p>
+        <p>And then type <code>&lt;c-y&gt;j</code> in there again.</p>
         <pre><code>
-    &lt;div class="foo">
-    &lt;/div>
+  &lt;div class="foo"&gt;
+  &lt;/div&gt;
         </code></pre>
       </section>
       <section class="main-section" id="Toggle_Comment">
         <header>Toggle Comment</header>
         <p>Move cursor inside the block.</p>
         <pre><code>
-    <div>
-      hello world
-    </div>
+  &lt;div&gt;
+    hello world
+  &lt;/div&gt;
         </code></pre>
-        <p>Type <code>&lt;c-y>/</code> in insert mode.</p>
+        <p>Type <code>&lt;c-y&gt;/</code> in insert mode.</p>
         <pre><code>
-    &lt;!-- &lt;div>
-      hello world
-    &lt;/div> -->
+  &lt;!-- &lt;div&gt;
+    hello world
+  &lt;/div&gt; --&gt;
         </code></pre>
-        <p>Type <code>&lt;c-y>/</code> in there again.</p>
+        <p>Type <code>&lt;c-y&gt;/</code> in there again.</p>
         <pre><code>
-    &lt;div>
-      hello world
-    &lt;/div>
+  &lt;div&gt;
+    hello world
+  &lt;/div&gt;
         </code></pre>
       </section>
       <section class="main-section" id="Make_an_anchor_from_a_URL">
         <header>Make an anchor from a URL</header>
         <p>Move cursor to the URL.</p>
         <pre><code>
-    http://www.google.com/
+  http://www.google.com/
         </code></pre>
-        <p>Type <code>&lt;c-y>a</code></p>
+        <p>Type <code>&lt;c-y&gt;a</code></p>
         <pre><code>
-    &lt;a href="http://www.google.com/">Google&lt;/a>
+  &lt;a href="http://www.google.com/"&gt;Google&lt;/a&gt;
         </code></pre>
       </section>
       <section class="main-section" id="Make_some_quoted_text_from_a_URL">
         <header>Make some quoted text from a URL</header>
         <p>Move cursor to the URL.</p>
         <pre><code>
-    http://github.com/
+  http://github.com/
         </code></pre>
-        <p>Type <code>&lt;c-y>A</code></p>
+        <p>Type <code>&lt;c-y&gt;A</code></p>
         <!--
            -TODO: Change length of code below to not extend the container's width!
            -->
         <pre><code>
-    &lt;blockquote class="quote">
-      &lt;a href="http://github.com/">Secure source code hosting and collaborative development - GitHub&lt;/a>&lt;br />
-    &lt;p>How does it work? Get up and running in seconds by forking a project, pushing an existing repository...&lt;/p>
-    &lt;cite>http://github.com/&lt;/cite>
-  </blockquote>
+  &lt;blockquote class="quote"&gt;
+    &lt;a href="http://github.com/"&gt;Secure source code hosting and collaborative development - GitHub&lt;/a&gt;&lt;br /&gt;
+  &lt;p&gt;How does it work? Get up and running in seconds by forking a project, pushing an existing repository...&lt;/p&gt;
+  &lt;cite&gt;http://github.com/&lt;/cite&gt;
+  &lt;/blockquote&gt;
         </code></pre>
       </section>
       <section class="main-section" id="Installing_emmet.vim_for_the_language_you_are_using:">
         <header>Installing emmet.vim for the language you are using:</header>
         <pre><code>
-    # cd ~/.vim
-    # unzip emmet-vim.zip
-        </code></pre>
-        <p>Or if you are using pathogen.vim:</p>
-        <pre><code>
-    # cd ~/.vim/bundle # or make directory
-    # unzip /path/to/emmet-vim.zip
+  # cd ~/.vim
+  # unzip emmet-vim.zip
+      </code></pre>
+      <p>Or if you are using pathogen.vim:</p>
+      <pre><code>
+  # cd ~/.vim/bundle # or make directory
+  # unzip /path/to/emmet-vim.zip
         </code></pre>
         <p>Or if you get the sources from the repository:</p>
         <pre><code>
-    # cd ~/.vim/bundle # or make directory
-    # git clone http://github.com/mattn/emmet-vim.git
+  # cd ~/.vim/bundle # or make directory
+  # git clone http://github.com/mattn/emmet-vim.git
         </code></pre>
       </section>
       <section class="main-section" id="Enable_emmet.vim_for_the_language_you_using.">
         <header>Enable emmet.vim for the language you using.</header>
         <p>You can customize the behavior of the languages you are using.</p>
         <pre><code>
-  # cat >> ~/.vimrc
+  # cat &gt;&gt; ~/.vimrc
     let g:user_emmet_settings = {
     \  'php' : {
     \    'extends' : 'html',
