@@ -12,27 +12,82 @@
 
     <!--local style sheet-->
     <link rel="stylesheet" href="styleTechDoc.css" type="text/css">
-    <!--stylesheet for highlight.js: this line chooses the highlighting style-->
+    <!--stylesheet for highlight.js: this line chooses the color scheme-->
     <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/styles/atom-one-light.min.css">
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/styles/github.min.css">
     <!--main script for commmon highlight.js langs-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js"></script>
   </head>
 
   <body>
 
+    <nav id="navbar">
+      <header>emmet-vim</header>
+      <div>
+        <a href="#Introduction">Introduction</a>
+      </div>
+      <div>
+        <a href="#Expand_an_Abbreviation">Expand an Abbreviation</a>
+      </div>
+      <div>
+        <a href="#Wrap_with_an_Abbreviation">Wrap with an Abbreviation</a>
+      </div>
+      <div>
+        <a href="#Balance_a_Tag_Inward">Balance a Tag Inward</a>
+      </div>
+      <div>
+        <a href="#Balance_a_Tag_Outward">Balance a Tag Outward</a>
+      </div>
+      <div>
+        <a href="#Go_to_the_Next_Edit_Point">Go to the Next Edit Point</a>
+      </div>
+      <div>
+        <a href="#Go_to_the_Previous_Edit_Point">Go to the Previous Edit Point</a>
+      </div>
+      <div>
+        <a href="#Update_an_<img>’s_Size">Update an &lt;img&gt;’s Size</a>
+      </div>
+      <div>
+        <a href="#Merge_Lines">Merge Lines</a>
+      </div>
+      <div>
+        <a href="#Remove_a_Tag">Remove a Tag</a>
+      </div>
+      <div>
+        <a href="#Split/Join_Tag">Split/Join Tag</a>
+      </div>
+      <div>
+        <a href="#Toggle_Comment">Toggle Comment</a>
+      </div>
+      <div>
+        <a href="#Make_an_anchor_from_a_URL">Make an anchor from a URL</a>
+      </div>
+      <div>
+        <a href="#Make_some_quoted_text_from_a_URL">Make some quoted text from a URL</a>
+      </div>
+      <div>
+        <a href="#Installing_emmet.vim_for_the_language_you_are_using">Installing emmet.vim for the language you are using</a>
+      </div>
+      <div>
+        <a href="#Enable_emmet.vim_for_the_language_you_using">Enable emmet.vim for the language you using</a>
+      </div>
+      <div>
+        <a href="#Reference">Reference</a>
+      </div>
+    </nav>
+
     <main id="main-doc">
 
       <section class="main-section" id="Introduction">
         <header>Introduction</header>
-        <p><b>This documentation is for <em>emmet-vim</em>: a vim plug-in which provides support for expanding abbreviations similar to emmet.</b>Note: the <code>&lt;c-y&gt;</code> notation is shorthand for holding the <code>ctrl</code> button and pressing the letter <code>y</code>.</p>
+        <p><b>This documentation is for <em>emmet-vim</em>: a vim plug-in which provides support for expanding abbreviations similar to emmet. </b>Note: the <code class="keystroke">&lt;c-y&gt;</code> notation is shorthand for holding the <code class="keystroke">ctrl</code> button and pressing the letter <code class="keystroke">y</code>.</p>
         <p>Emmet is a web-developer’s toolkit that can greatly improve your HTML &amp; CSS workflow.</p>
         <p>Basically, most text editors out there allow you to store and re-use commonly used code chunks, called “snippets”. While snippets are a good way to boost your productivity, all implementations have common pitfalls: you have to define the snippet first and you can’t extend them in runtime.</p>
         <p>Emmet takes the snippets idea to a whole new level: you can type CSS-like expressions that can be dynamically parsed, and produce output depending on what you type in the abbreviation. Emmet is developed and optimised for web-developers whose workflow depends on HTML/XML and CSS, but can be used with programming languages too.</p>
       </section>
       <section class="main-section" id="Expand_an_Abbreviation">
         <header>Expand an Abbreviation</header>
-        <p>Type the abbreviation as <code>div&gt;p#foo$*3&gt;a'</code> and type <code>&lt;c-y&gt;,</code>.</p>
+        <p>Type the abbreviation as <code class="keystroke">div&gt;p#foo$*3&gt;a'</code> and type <code class="keystroke">&lt;c-y&gt;,</code></p>
         <pre><code class="html">
   &lt;div&gt;
     &lt;p id="foo1"&gt;
@@ -57,7 +112,7 @@
           <li>test4</li>
           <li>test5</li>
         </ul>
-        <p>Then do visual select(line wise) and type <code>&lt;c-y&gt;,</code>. Once you get to the 'Tag:' prompt, type <code>'ul&gt;li*'</code>.</p>
+        <p>Then do visual select (line wise) and type <code class="keystroke">&lt;c-y&gt;,</code>. Once you get to the 'Tag:' prompt, type <code class="keystroke">'ul&gt;li*'</code></p>
         <pre><code class="html">
   &lt;ul&gt;
     &lt;li&gt;test1&lt;/li&gt;
@@ -80,19 +135,19 @@
       </section>
       <section class="main-section" id="Balance_a_Tag_Inward">
         <header>Balance a Tag Inward</header>
-        <p>Type <code>&lt;c-y&gt;d</code> in insert mode.</p>
+        <p>Type <code class="keystroke">&lt;c-y&gt;d</code> in insert mode.</p>
       </section>
       <section class="main-section" id="Balance_a_Tag_Outward">
         <header>Balance a Tag Outward</header>
-        <p>Type <code>&lt;c-y&gt;D</code> in insert mode.</p>
+        <p>Type <code class="keystroke">&lt;c-y&gt;D</code> in insert mode.</p>
       </section>
       <section class="main-section" id="Go_to_the_Next_Edit_Point">
         <header>Go to the Next Edit Point</header>
-        <p>Type <code><c-y>n</code> in insert mode.</p>
+        <p>Type <code class="keystroke">&lt;c-y&gt;n</code> in insert mode.</p>
       </section>
       <section class="main-section" id="Go_to_the_Previous_Edit_Point">
         <header>Go to the Previous Edit Point</header>
-        <p>Type <code><c-y>N</code> in insert mode.</p>
+        <p>Type <code class="keystroke">&lt;c-y&gt;N</code> in insert mode.</p>
       </section>
       <section class="main-section" id="Update_an_<img>’s_Size">
         <header>Update an &lt;img&gt;’s Size</header>
@@ -100,14 +155,14 @@
         <pre><code class="html">
   &lt;img src="foo.png" /&gt;
         </code></pre>
-        <p>Type <code>&lt;c-y&gt;i</code> on img tag.</p>
+        <p>Type <code class="keystroke">&lt;c-y&gt;i</code> on img tag.</p>
         <pre><code class="html">
   &lt;img src="foo.png" width="32" height="48" /&gt;
         </code></pre>
       </section>
       <section class="main-section" id="Merge_Lines">
         <header>Merge Lines</header>
-        <p>Select the lines, which include <code>&lt;li&gt;</code></p>
+        <p>Select the lines, which include <code class="keystroke">&lt;li&gt;</code></p>
         <pre><code class="html">
   &lt;ul&gt;
     &lt;li class="list1"&gt;&lt;/li&gt;
@@ -115,7 +170,7 @@
     &lt;li class="list3"&gt;&lt;/li&gt;
   &lt;/ul&gt;
         </code></pre>
-          <p>and then type <code>&lt;c-y&gt;m</code></p>
+          <p>and then type <code class="keystroke">&lt;c-y&gt;m</code></p>
           <pre><code class="html">
   &lt;ul&gt;
     &lt;li class="list1"&gt;&lt;/li&gt;&lt;li class="list2"&gt;&lt;/li&gt;&lt;li class="list3"&gt;&lt;/li&gt;
@@ -130,13 +185,13 @@
     &lt;a&gt;cursor is here&lt;/a&gt;
   &lt;/div&gt;
         </code></pre>
-        <p>Type <code>&lt;c-y&gt;k</code> in insert mode.</p>
+        <p>Type <code class="keystroke">&lt;c-y&gt;k</code> in insert mode.</p>
         <pre><code class="html">
   &lt;div class="foo"&gt;
 
   &lt;/div&gt;
         </code></pre>
-        <p>And type <code>&lt;c-y&gt;k</code> in there again.</p>
+        <p>And type <code class="keystroke">&lt;c-y&gt;k</code> in there again.</p>
         <!--next pre section left intintially blank-->
         <pre><code>
 
@@ -150,11 +205,11 @@
     cursor is here
   &lt;/div&gt;
         </code></pre>
-        <p>Type <code>&lt;c-y&gt;j</code> in insert mode.</p>
+        <p>Type <code class="keystroke">&lt;c-y&gt;j</code> in insert mode.</p>
         <pre><code class="html">
   &lt;div class="foo"/&gt;
         </code></pre>
-        <p>And then type <code>&lt;c-y&gt;j</code> in there again.</p>
+        <p>And then type <code class="keystroke">&lt;c-y&gt;j</code> in there again.</p>
         <pre><code class="html">
   &lt;div class="foo"&gt;
   &lt;/div&gt;
@@ -168,13 +223,13 @@
     hello world
   &lt;/div&gt;
         </code></pre>
-        <p>Type <code>&lt;c-y&gt;/</code> in insert mode.</p>
+        <p>Type <code class="keystroke">&lt;c-y&gt;/</code> in insert mode.</p>
         <pre><code class="html">
   &lt;!-- &lt;div&gt;
     hello world
   &lt;/div&gt; --&gt;
         </code></pre>
-        <p>Type <code>&lt;c-y&gt;/</code> in there again.</p>
+        <p>Type <code class="keystroke">&lt;c-y&gt;/</code> in there again.</p>
         <pre><code class="html">
   &lt;div&gt;
     hello world
@@ -187,7 +242,7 @@
         <pre><code class="http">
   http://www.google.com/
         </code></pre>
-        <p>Type <code>&lt;c-y&gt;a</code></p>
+        <p>Type <code class="keystroke">&lt;c-y&gt;a</code></p>
         <pre><code class="html">
   &lt;a href="http://www.google.com/"&gt;Google&lt;/a&gt;
         </code></pre>
@@ -198,7 +253,7 @@
         <pre><code class="http">
   http://github.com/
         </code></pre>
-        <p>Type <code>&lt;c-y&gt;A</code></p>
+        <p>Type <code class="keystroke">&lt;c-y&gt;A</code></p>
         <pre><code class="html">
   &lt;blockquote class="quote"&gt;
     &lt;a href="http://github.com/"&gt;Secure source code hosting and collaborative development - GitHub&lt;/a&gt;&lt;br /&gt;
@@ -243,7 +298,7 @@
   \}
         </code></pre>
       </section>
-      <section>
+      <section class="main-section" id="Reference">
         <header>Reference</header>
         <p>This documentation taken from <a href="https://github.com/mattn/emmet-vim">emmet-vim</a>
          github page <a href="https://raw.githubusercontent.com/mattn/emmet-vim/master/TUTORIAL">here</a>.
@@ -254,7 +309,7 @@
     <!-- freeCodeCamp script for validating project for submission-->
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
     <!--need to call highlight.js script to apply syntax highlighting-->
-    <script>hljs.initHighlightingOnLoad();</script
+    <script>hljs.initHighlightingOnLoad();</script>
 
   </body>
 
