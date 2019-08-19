@@ -3,22 +3,25 @@ body {
   font-family: sans;
   margin: 0;
   padding-bottom: 30px;
-  padding-top: 120px;
+  padding-top: 130px;
 }
 
-.header-flex {
-  align-items: center;
+header {
   background: #555560;
   color: #94c11f;
-  display: flex;
-  flex-direction: row;
   font-weight: bold;
-  justify-content: space-around;
   margin: auto;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1;
+}
+
+.header-flex {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .product-id {
@@ -58,7 +61,6 @@ ul {
 }
 
 main {
-  display: block;
   margin: 0 auto;
   width: 75%;
 }
@@ -85,6 +87,14 @@ main {
   color: #0D1669;
 }
 
+/*hack to show each section's content under menu*/
+.features::before, .demo::before, .pricing::before, .contact::before {
+  content: "";
+  display: block;
+  height: 125px;
+  margin: -125px 0 0;
+}
+
 .features {
   margin: auto;
   max-width: 75%;
@@ -101,7 +111,7 @@ main {
   padding: 10px;
 }
 
-.copy-features > li:before {
+.copy-features > li::before {
   background-color: #84338E;
   border-radius: 50%;
   content: '';
@@ -111,7 +121,6 @@ main {
   vertical-align: .1em;
   width: 12px;
 }
-
 
 .demo {
   display: block;
@@ -139,7 +148,6 @@ iframe {
 .pricing {
   margin: auto;
   max-width: 85%;
-  padding-top: 15px;
   text-align: left;
 }
 
@@ -175,7 +183,7 @@ iframe {
   padding: 0 7px;
 }
 
-.restoration-description > li:before {
+.restoration-description > li::before {
   background-color: #84338E;
   border-radius: 50%;
   content: '';
@@ -233,6 +241,13 @@ iframe {
   .nav-link {
     padding: 10px;
   }
+  /*hack to show each section's content under menu*/
+  .features::before, .demo::before, .pricing::before, .contact::before {
+    content: "";
+    display: block;
+    height: 125px;
+    margin: -125px 0 0;
+  }
   .demo {
     width: 60%;
   }
@@ -240,20 +255,27 @@ iframe {
 
 /*phone responsiveness*/
 @media (max-width: 415px) {
-  .header-flex {
-    flex-direction: column;
-  }
   body {
     padding-top: 220px;
   }
   main {
     width: 100%;
   }
+  .header-flex {
+    flex-direction: column;
+  }
   .title {
     font-size: smaller;
   }
   .hr-red, .hr-blue {
     width: 90%;
+  }
+  /*hack to show each section's content under menu*/
+  .features::before, .demo::before, .pricing::before, .contact::before {
+    content: "";
+    display: block;
+    height: 225px;
+    margin: -225px 0 0;
   }
   .features {
     max-width: 90%;
@@ -273,5 +295,8 @@ iframe {
   .pricepoint {
     margin-top: 20px;
     width: 100%;
+  }
+  .submit-button {
+    margin-top: 10px;
   }
 }
