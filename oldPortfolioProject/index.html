@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+    shrink-to-fit=no">
+    <meta name="description" content="Landing page for Bradley Smith's coding projects">
+    <meta name="author" content="Bradley Smith">
+
+    <title>bradley's portfolio</title>
+
+    <!-- Bootstrap 4.0 alpha via cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <!-- local css -->
+    <link rel="stylesheet" href="style.css" type="text/css">
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#100Days">#100DaysOfCode</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#portfolio">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </nav>
+        <a href="https://github.com/bradleyhop/">
+          <h3 class="text-muted">bradleyhop</h3>
+        </a>
+      </div>
+
+      <div class="jumbotron">
+        <img class="img-fluid rounded-circle picMe" src="assets/meCafe.jpg"
+        alt="Headshot of me in a cafe">
+        <h1 class="display-3">Bradley Smith</h1>
+        <p class="lead">Self taught front-end web developer from Chicago, IL.</p>
+        <hr class="my-4">
+        <p class="jumboCopy">Welcome to my landing page/ portfolio of my work!
+          Here, you'll find SPA's and solutions to JavaScript algorithm
+          problems. Scroll down to peek at my journey as a front end web
+          developer!</p>
+      </div>
+
+      <div class="oneHundredDays" id="100Days">
+        <h2 class="text-center">#100DaysOfCode</h2>
+        <p>I've committed to <a href="http://www.100daysofcode.com" target="_blank">
+            #100DaysOfCode</a> challenge. There are two mains rules for this
+          challenge:</p>
+        <ol>
+          <li>Code a minimum an hour every day for the next 100 days (must be
+            a project -- tutorials don't count).</li>
+          <li>Tweet your progress every day using the #100DaysOfCode hashtag.
+          </li>
+        </ol>
+        <p>You can check out my <a href="http://twitter.com/bradleyhop1" target="_blank">
+            Tweets</a>, though I'm much better at updating my github
+          <a href="https://github.com/bradleyhop/100-days-of-code/blob/master/log.md"
+            target="_blank">log</a>.</p>
+      </div><!-- oneHundredDays -->
+
+      <div class="portfolio" id="portfolio">
+        <!-- heading -->
+        <div class="container-fluid portfolioBox">
+          <div class="row justify-content-center">
+            <div class="col-sm-6 portfolioTitle">
+              <h2 class="text-center">Portfolio</h2>
+              <h4 class="text-center">Projects and Websites</h4>
+            </div><!-- col-* -->
+          </div><!-- row -->
+        </div><!-- container-fluid portfolio-section -->
+
+        <!-- bootstrap cards for project pages -->
+        <div class="container-fluid">
+          <div class="row portCards justify-content-center">
+          </div><!-- row -->
+        </div><!-- container-fluid -->
+      </div><!-- portfolio -->
+
+      <div class="contact" id="contact">
+        <div class="container-fluid contactBox">
+          <div class="row justify-content-center">
+            <div class="col-md-9 contactTitle">
+              <h2 class="text-center">Contact Me</h2>
+              <!-- link buttons -->
+              <!--<div class="btn-group " role="group"-->
+                <!--aria-label="Contact buttons">-->
+                <button type="button" class="btn btn-lg github"><a href="https://github.com/bradleyhop"
+                    target="_blank">
+                    <i class="fa fa-github" aria-hidden:"true">
+                      <span class="hidden-sm">Github</span></i>
+                  </a>
+                </button><!-- github -->
+                <button type="button" class="btn btn-lg linkedin">
+                  <a href="https://www.linkedin.com/in/bradley-smith-328235112/"  target="_blank">
+                    <i class="fa fa-linkedin fa-4" aria-hidden:"true">
+                      <span class="hidden-sm">LinkedIn</span></i>
+                  </a>
+                </button><!-- linkedin -->
+                <button type="button" class="btn btn-lg email">
+                  <a href="mailto:bradleywjsmith@gmail.com">
+                    <i class="fa fa-envelope-o fa-4" aria-hidden:"true">
+                      <span class="hidden-sm">Email</span></i>
+                  </a>
+                </button><!-- email -->
+                <button type="button" class="btn btn-lg twitter"><a href="https://twitter.comm/bradleyhop1"
+                    target="_blank">
+                    <i class="fa fa-twitter" aria-hidden:"true">
+                      <span class="hidden-sm">Twitter</span></i>
+                  </a>
+                </button><!-- github -->
+                <!--</div>[> button group <]-->
+            </div><!-- col-* -->
+          </div><!-- row -->
+        </div><!-- container-fluid portfolio-section -->
+      </div><!-- conact -->
+
+      <footer class="footer">
+        <p>&copy; Bradley Smith 2017</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <!-- jquery first, then boostrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- tether required for bootstrap 4a -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <!-- fontawesome glyphs -->
+    <script src="https://use.fontawesome.com/6e7bf0ea22.js"></script>
+    <!-- local js file -->
+    <script src="index.js"></script>
+    <!-- google analytics tracker -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-103166437-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>
