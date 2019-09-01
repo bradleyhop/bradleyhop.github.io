@@ -1,0 +1,27 @@
+html {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+.navbar {
+  height: 10vh;
+  position: fixed;
+  top: 0;
+}
+
+.welcome-section {
+  height: 90vh;
+  padding-top: 10vh;
+}
+
+
+
+/*phone responsiveness*/
+@media (max-width: 768px) {
+  html {
+    font-size: 18px;
+  }
+  body {
+    margin: 0;
+  }
+}
