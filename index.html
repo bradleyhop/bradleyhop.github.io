@@ -10,14 +10,16 @@
 
     <!--local style sheet-->
     <link rel="stylesheet" href="style.css" type="text/css">
+    <!--fontawesome embed-->
+    <script src="https://kit.fontawesome.com/b69c87ed84.js"></script>
 
   </head>
 
   <body>
 
     <nav id="navbar" class="navbar">
-      <ul>
-        <li><a class="nav=link" href="#welcome-section">About</a></li>
+      <ul class="navs">
+        <li><a class="nav-link" href="#welcome-section">About</a></li>
         <li><a class="nav-link" href="#projects">Work</a></li>
         <li><a class="nav-link" href="#contact">Contact</a></li>
       </ul>
@@ -27,9 +29,13 @@
 
       <div id="welcome-section" class="welcome-section">
 
-        <h1>Bradley Smith</h1>
-        <a id="profile-link" class="profile-link" href="https://github.com/bradleyhop" target="_blank" rel="noopener noreferrer">Github</a>
-        <a id="profile-link" class="profile-link" href="https://www.freecodecamp.org/bradleyhop" target="_blank" rel="noopener noreferrer">freeCodeCamp</a>
+        <div class="banner">
+          <h1 class="my-name">Bradley Smith</h1>
+          <div class="profile-flex">
+            <a id="profile-link" class="profile-link" href="https://github.com/bradleyhop" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+            <a id="profile-link" class="profile-link" href="https://www.freecodecamp.org/bradleyhop" target="_blank" rel="noopener noreferrer"><i class="fab fa-free-code-camp"></i></a>
+          </div>
+        </div>
 
       </div>
 
@@ -40,32 +46,33 @@
 
         <div class="project-tile">
           <h3 class="project-heading">Technical Documenation</h3>
-          <a class="profile-link" href="https://bradleyhop.github.io/techDoc/techDoc.html">here!</a>
+          <a class="project-link" href="https://bradleyhop.github.io/techDoc/techDoc.html">here!</a>
         </div>
 
         <div class="project-tile">
           <h3 class="project-heading">Product Landing Page</h3>
-          <a class="profile-link" href="https://bradleyhop.github.io/productLandingPage/productLandingPage.html">here!</a>
+          <a class="project-link" href="https://bradleyhop.github.io/productLandingPage/productLandingPage.html">here!</a>
         </div>
 
         <div class="project-tile">
           <h3 class="project-heading">Survey Form</h3>
-          <a class="profile-link" href="https://bradleyhop.github.io/surveyForm/surveyForm.html">here!</a>
+          <a class="project-link" href="https://bradleyhop.github.io/surveyForm/surveyForm.html">here!</a>
         </div>
 
         <div class="project-tile">
           <h3 class="project-heading">Tribute</h3>
-          <a class="profile-link" href="https://bradleyhop.github.io/tribute.html">here!</a>
+          <a class="project-link" href="https://bradleyhop.github.io/tribute.html">here!</a>
         </div>
 
         <div class="project-tile">
           <h3 class="project-heading"></h3>
-          <a class="profile-link" href="https://bradleyhop.github.io/"></a>
+          <a class="project-link" href="https://bradleyhop.github.io/"></a>
         </div>
 
       </div>
 
       <div id="contact" class="contact">
+        <p>You can contact me here.</p>
       </div>
 
     </main>
