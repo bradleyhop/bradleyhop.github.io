@@ -27,6 +27,7 @@ body {
 
 .nav-link {
   display: block;
+  font-size: 1.25rem;
   padding: 1.5rem;
   text-decoration: none;
 }
@@ -60,9 +61,22 @@ ul {
 }
 
 .profile-link {
-  color: black;
   font-size: 3rem;
-  margin: 0 2rem 0 2rem;
+  margin: 0 2rem;
+}
+
+.fa-github {
+  color: #24292e;
+}
+
+.fa-free-code-camp {
+  color: #006400;
+}
+
+.projects {
+  box-sizing: border-box;
+  height: 100vh;
+  padding-top: 10vh;
 }
 
 /*phone responsiveness*/
