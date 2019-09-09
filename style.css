@@ -8,6 +8,10 @@ body {
   margin: 0 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 .navbar {
   align-items: center;
   color: #fff;
@@ -33,7 +37,6 @@ body {
   font-size: 1.25rem;
   font-weight: bold;
   padding: 1.5rem;
-  text-decoration: none;
 }
 
 .nav-link:visited {
@@ -42,18 +45,15 @@ body {
 
 ul {
   list-style: none;
-
-  /* fix to clear padding put in by ul default */
   padding: 0;
 }
 
 .welcome-section {
   background: url("assets/vimSession.png") no-repeat fixed;
-  background-size: 100vw 100vh;
   box-sizing: border-box;
 
   /* transparent layer over  background image */
-  box-shadow: inset 0 0 0 100vw rgba(0, 0, 0, 0.6);
+  box-shadow: inset 0 0 0 100vw rgba(0, 0, 0, 0.65);
   height: 100vh;
   padding-top: 10vh;
 }
@@ -93,14 +93,6 @@ ul {
   color: #fff;
 }
 
-.fa-free-code-camp {
-  color: #006400;
-}
-
-.fa-code {
-  color: #ecb613;
-}
-
 .projects {
   background: lightblue;
   box-sizing: border-box;
@@ -111,8 +103,55 @@ ul {
 .contact {
   background: lightyellow;
   box-sizing: border-box;
-  height: 50vh;
+  height: 80vh;
   padding-top: 10vh;
+}
+
+.contact-row {
+  display: flex;
+}
+
+.contact-column {
+  flex: 50%;
+}
+
+.contact-flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.contact-link .fa-github {
+  color: black;
+}
+
+.fa-free-code-camp {
+  color: #006400;
+}
+
+.fa-code {
+  color: #ecb613;
+}
+
+.fa-twitter {
+  color: #00aced;
+}
+
+.fa-linkedin-in {
+  color: #0077b5;
+}
+
+.wakatime {
+  width: 50%;
+}
+
+figcaption {
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+}
+
+figcaption a:visited {
+  color: lightblue;
 }
 
 /* phone responsiveness */
@@ -125,7 +164,23 @@ ul {
     margin: 0;
   }
 
+  .navs {
+    padding-right: 0.5rem;
+  }
+
   .banner {
     margin-top: 20vh;
+  }
+
+  .contact-row {
+    flex-direction: column;
+  }
+
+  .contact-column {
+    flex: 100%;
+  }
+
+  .wakatime {
+    width: 100%;
   }
 }
