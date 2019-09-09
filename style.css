@@ -1,6 +1,7 @@
 html {
   font-family: Roboto, sans-serif;
   font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -9,8 +10,7 @@ body {
 
 .navbar {
   align-items: center;
-  /*background: lightgray;*/
-  color: #ffffff;
+  color: #fff;
   display: flex;
   flex-direction: row;
   height: 10vh;
@@ -28,7 +28,7 @@ body {
 }
 
 .nav-link {
-  color: #ffffff;
+  color: #fff;
   display: block;
   font-size: 1.25rem;
   font-weight: bold;
@@ -37,21 +37,23 @@ body {
 }
 
 .nav-link:visited {
-  color: #ffffff;
+  color: #fff;
 }
 
 ul {
   list-style: none;
-  /* fix to clear padding put in by ul default*/
+
+  /* fix to clear padding put in by ul default */
   padding: 0;
 }
 
 .welcome-section {
-  background: url("assets/vimSession.png")no-repeat fixed;
+  background: url("assets/vimSession.png") no-repeat fixed;
   background-size: 100vw 100vh;
   box-sizing: border-box;
-  /*transparent layer over  background image*/
-  box-shadow: inset 0 0 0 100vw rgba(0,0,0,.6);
+
+  /* transparent layer over  background image */
+  box-shadow: inset 0 0 0 100vw rgba(0, 0, 0, 0.6);
   height: 100vh;
   padding-top: 10vh;
 }
@@ -62,14 +64,14 @@ ul {
 }
 
 .my-name {
-  color: #ffffff;
+  color: #fff;
   font-size: 5rem;
   font-weight: normal;
-  margin: .75rem;
+  margin: 0.75rem;
 }
 
 .tagline {
-  color: #ffffff;
+  color: #fff;
   font-size: 2rem;
   font-style: italic;
   font-weight: normal;
@@ -88,7 +90,7 @@ ul {
 }
 
 .fa-github {
-  color: #ffffff;
+  color: #fff;
 }
 
 .fa-free-code-camp {
@@ -96,7 +98,7 @@ ul {
 }
 
 .fa-code {
-  color: #ECB613;
+  color: #ecb613;
 }
 
 .projects {
@@ -113,14 +115,16 @@ ul {
   padding-top: 10vh;
 }
 
-/*phone responsiveness*/
+/* phone responsiveness */
 @media (max-width: 768px) {
   html {
     font-size: 14px;
   }
+
   body {
     margin: 0;
   }
+
   .banner {
     margin-top: 20vh;
   }
