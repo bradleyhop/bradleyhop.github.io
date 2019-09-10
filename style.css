@@ -95,6 +95,25 @@ ul {
   text-align: center;
 }
 
+.tab-button {
+  border: none;
+  font-size: 1.25rem;
+  color: #fff;
+  background: none;
+  padding: 0.25rem 1rem 0.25rem 1rem;
+}
+
+.tab-button:hover {
+  background: lightyellow;
+  color: #000;
+}
+
+/*not sure what to do to show current selection*/
+.tab-button:active {
+  background: white;
+  color: lightblue;
+}
+
 .project-flex {
   display: flex;
   align-content: space-around;
