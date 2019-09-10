@@ -14,6 +14,8 @@
     <script src="https://kit.fontawesome.com/b69c87ed84.js"></script>
     <!--google Roboto font-->
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <!--simple function for tabbed project browsing-->
+    <script src="tabs.js"></script>
 
   </head>
 
@@ -34,41 +36,70 @@
         <div class="banner">
           <h1 class="my-name">Bradley Smith</h1>
           <h2 class="tagline">web developer</h2>
-          <div class="profile-flex">
-            <a id="profile-link" class="profile-link" href="https://github.com/bradleyhop" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-          </div>
+          <a id="profile-link" class="profile-link" href="https://github.com/bradleyhop" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
         </div>
 
       </div>
 
       <div id="projects" class="projects">
 
-        <h2 class="projects-heading">Projects</h2>
-        <p>Here my some of my projects!</p>
-
-        <div class="project-tile">
-          <h3 class="project-heading">Technical Documentation</h3>
-          <a class="project-link" href="https://bradleyhop.github.io/techDoc/techDoc.html">here!</a>
+        <div class="projects-heading">
+          <h2>Projects</h2>
+          <h3>My learning journey.</h3>
         </div>
 
-        <div class="project-tile">
-          <h3 class="project-heading">Product Landing Page</h3>
-          <a class="project-link" href="https://bradleyhop.github.io/productLandingPage/productLandingPage.html">here!</a>
+        <div class="tabbar-projects">
+          <button class="tab-button" onclick="openBranch('responsive')">
+            Responsive Web Design
+          </button>
+          <button class="tab-button" onclick="openBranch('javascript')">
+            Javascript Algorithms and Data Structures
+          </button>
+          <button class="tab-button" onclick="openBranch('extracirricular')">
+            Extracirricular Projects
+          </button>
         </div>
 
-        <div class="project-tile">
-          <h3 class="project-heading">Survey Form</h3>
-          <a class="project-link" href="https://bradleyhop.github.io/surveyForm/surveyForm.html">here!</a>
+        <div id="responsive" class="project-branch">
+          <div class="project-flex">
+
+            <div class="project-tile">
+              <h3 class="project-heading">Technical Documentation</h3>
+              <a class="project-link" href="https://bradleyhop.github.io/techDoc/techDoc.html">here!</a>
+            </div>
+
+            <div class="project-tile">
+              <h3 class="project-heading">Product Landing Page</h3>
+              <a class="project-link" href="https://bradleyhop.github.io/productLandingPage/productLandingPage.html">here!</a>
+            </div>
+
+            <div class="project-tile">
+              <h3 class="project-heading">Survey Form</h3>
+              <a class="project-link" href="https://bradleyhop.github.io/surveyForm/surveyForm.html">here!</a>
+            </div>
+
+            <div class="project-tile">
+              <h3 class="project-heading">Tribute</h3>
+              <a class="project-link" href="https://bradleyhop.github.io/tribute.html">here!</a>
+            </div>
+
+            <div class="project-tile">
+              <h3 class="project-heading">Personal Profile</h3>
+              <a class="project-link" href="https://bradleyhop.github.io/">here!</a>
+            </div>
+
+          </div>
         </div>
 
-        <div class="project-tile">
-          <h3 class="project-heading">Tribute</h3>
-          <a class="project-link" href="https://bradleyhop.github.io/tribute.html">here!</a>
-        </div>
+        <div id="javascript" class="project-branch" style="display: none">
 
-        <div class="project-tile">
-          <h3 class="project-heading">Personal Profile</h3>
-          <a class="project-link" href="https://bradleyhop.github.io/">here!</a>
+          <div class="project-flex">
+            <div class="project-tile">
+              <h3 class="project-heading">Javascript Algorithms and Data Structures</h3>
+              <a class="project-link" href="https://github.com/bradleyhop/freeCodeCampAlgorithms">here!</a>
+            </div>
+          </div>
+
         </div>
 
       </div>
@@ -77,9 +108,9 @@
         <div class="contact-row">
 
           <div class="contact-column">
-            <p>You can find me here.</p>
+            <p class="profile-header">Sneak a peek at my profiles</p>
 
-            <div class="contact-flex">
+            <div class="contact-link-flex">
               <a class="contact-link" href="https://github.com/bradleyhop" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
               <a class="contact-link" href="https://www.freecodecamp.org/bradleyhop" target="_blank" rel="noopener noreferrer"><i class="fab fa-free-code-camp"></i></a>
               <a class="contact-link" href="https://twitter.com/bradleyhop1" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
@@ -88,18 +119,18 @@
           </div>
 
           <div class="contact-column">
+            <div class="status-links">
             <div class="codewars">
               <a class="codewars-link" href="https://www.codewars.com/users/bradleyhop/stats">
                 <img src="https://www.codewars.com/users/bradleyhop/badges/large" alt="bradley's current codewars standing">
               </a>
             </div>
 
-            <figure class="wakatime">
+            <div class="wakatime">
               <embed src="https://wakatime.com/share/@bradleyhop/244fbf2a-7dcc-4004-8bf2-315e729a786a.svg">
-                <figcaption>
-                  <a class="contact-link" href="https://wakatime.com/@bradleyhop">Wakatime profile</a>
-                </figcaption>
-            </figure>
+                <a class="waka-caption" href="https://wakatime.com/@bradleyhop">Wakatime profile</a>
+            </div>
+            </div>
           </div>
 
         </div>

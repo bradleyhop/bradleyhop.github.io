@@ -77,16 +77,8 @@ ul {
   font-weight: normal;
 }
 
-.profile-flex {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
 .profile-link {
   font-size: 3rem;
-  margin: 0 2rem;
 }
 
 .fa-github {
@@ -95,16 +87,39 @@ ul {
 
 .projects {
   background: lightblue;
-  box-sizing: border-box;
   height: 100vh;
   padding-top: 10vh;
+}
+
+.projects-heading {
+  text-align: center;
+}
+
+.project-flex {
+  display: flex;
+  align-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+}
+
+.project-tile {
+  width: 25%;
+  border: solid white;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem;
 }
 
 .contact {
   background: lightyellow;
   box-sizing: border-box;
-  height: 80vh;
-  padding-top: 10vh;
+  height: 90vh;
+}
+
+.profile-header {
+  text-align: center;
 }
 
 .contact-row {
@@ -115,9 +130,19 @@ ul {
   flex: 50%;
 }
 
-.contact-flex {
+.contact-link-flex {
+  align-items: center;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  height: 40vh;
+  justify-content: space-evenly;
+}
+
+.contact-link {
+  font-size: 5rem;
+  width: 50%;
+  text-align: center;
 }
 
 .contact-link .fa-github {
@@ -128,10 +153,6 @@ ul {
   color: #006400;
 }
 
-.fa-code {
-  color: #ecb613;
-}
-
 .fa-twitter {
   color: #00aced;
 }
@@ -140,14 +161,28 @@ ul {
   color: #0077b5;
 }
 
-.wakatime {
-  width: 50%;
+.status-links {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  justify-content: space-evenly;
 }
 
-figcaption {
-  color: #000;
-  font-weight: bold;
+.codewars {
   text-align: center;
+}
+
+.wakatime {
+  width: 55%;
+  text-align: center;
+}
+
+.waka-caption {
+  color: #000;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 figcaption a:visited {
