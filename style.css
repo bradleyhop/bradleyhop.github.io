@@ -49,7 +49,7 @@ ul {
 }
 
 .welcome-section {
-  background: url("assets/vimSession.png") no-repeat fixed;
+  background: url('assets/vimSession.png') no-repeat fixed;
   box-sizing: border-box;
 
   /* transparent layer over  background image */
@@ -86,12 +86,17 @@ ul {
 }
 
 .projects {
-  background: lightblue;
+  background: #8ec3eb;
   height: 100vh;
   padding-top: 10vh;
 }
 
 .projects-heading {
+  text-align: center;
+}
+
+.tabbar-projects {
+  background: #2a6592;
   text-align: center;
 }
 
@@ -108,10 +113,8 @@ ul {
   color: #000;
 }
 
-/*not sure what to do to show current selection*/
-.tab-button:active {
-  background: white;
-  color: lightblue;
+.tab-button:focus {
+  outline: none;
 }
 
 .project-flex {
@@ -129,6 +132,11 @@ ul {
   border-radius: 4px;
   padding: 1rem;
   margin: 1rem;
+}
+
+.project-img {
+  max-width: 100%;
+  height: auto;
 }
 
 .contact {
