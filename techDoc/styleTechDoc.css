@@ -13,7 +13,7 @@ body {
   margin: 0;
   overflow: auto;
   position: fixed;
-  width: 300px;
+  width: 30%;
 }
 
 .nav-container {
@@ -46,7 +46,7 @@ body {
 
 .main-doc {
   /* set margin-left to width of navbar to account for navigation */
-  margin-left: 330px;
+  margin-left: 30%;
   padding: 1px 12px;
 }
 
