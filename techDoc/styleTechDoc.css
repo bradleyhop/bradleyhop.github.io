@@ -20,13 +20,16 @@ body {
   margin: 0 5px 5px 5px;
 }
 
+.nav-container header {
+  text-align: center;
+}
+
 .nav-header {
   color: #7acb17;
   font-size: 2rem;
   font-weight: 700;
   padding-bottom: 0.2rem;
   text-shadow: -1px 1px 1px #000;
-  text-align: center;
   text-decoration: none;
 }
 
@@ -46,7 +49,7 @@ body {
 
 .main-doc {
   /* set margin-left to width of navbar to account for navigation */
-  margin-left: 30%;
+  margin-left: 31%;
   padding: 1px 12px;
 }
 
