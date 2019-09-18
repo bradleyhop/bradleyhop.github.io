@@ -122,16 +122,16 @@ ul {
   align-content: space-around;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
   box-sizing: border-box;
 }
 
 .project-tile {
   width: 25%;
-  border: solid white;
+  border: solid 2px white;
   border-radius: 4px;
-  padding: 1rem;
   margin: 1rem;
+  text-align: center;
 }
 
 .project-img {
