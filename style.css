@@ -50,10 +50,9 @@ ul {
 
 .welcome-section {
   background: url('assets/vimSession.png') no-repeat fixed;
-  box-sizing: border-box;
-
   /* transparent layer over  background image */
   box-shadow: inset 0 0 0 100vw rgba(0, 0, 0, 0.65);
+  box-sizing: border-box;
   height: 100vh;
   padding-top: 10vh;
 }
@@ -96,25 +95,29 @@ ul {
 }
 
 .tabbar-projects {
-  background: #2a6592;
   text-align: center;
 }
 
 .tab-button {
+  background: #8ec3eb;
   border: none;
-  font-size: 1.25rem;
+  border-radius: 5px 5px 0 0;
   color: #fff;
-  background: none;
+  font-size: 1.25rem;
   padding: 0.25rem 1rem 0.25rem 1rem;
 }
 
-.tab-button:hover {
-  background: lightyellow;
-  color: #000;
+.tab-active {
+  background: #2a6592;
 }
 
 .tab-button:focus {
   outline: none;
+}
+
+.project-branch {
+  background: #2a6592;
+  height: 100%;
 }
 
 .project-flex {
