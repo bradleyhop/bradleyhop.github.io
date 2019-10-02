@@ -1,4 +1,4 @@
 # bradleyhop.github.io
-Landing page for my projects.
-
-In the near future, I will have a landing page linking to each project.
+Source code for my personal portfolio page.
+Each folder contains a seperate project for the freeCodeCamp.org curriculum.
+[See it in action!](https://bradleyhop.github.io)
