@@ -4,44 +4,52 @@ html {
 
 body {
   font-family: sans-serif;
-  margin: 2% 5%;
+  margin: 0;
 }
 
 .navbar {
-  background-color: #f8f8f8;
+  background-color: #3b3c44;
   height: 100%;
   margin: 0;
   overflow: auto;
-  padding: 15px;
   position: fixed;
-  width: 300px;
+  width: 30%;
+}
+
+.nav-container {
+  margin: 0 5px 5px 5px;
+}
+
+.nav-container header {
+  text-align: center;
 }
 
 .nav-header {
   color: #7acb17;
   font-size: 2rem;
   font-weight: 700;
-  padding-bottom: .2rem;
-  text-shadow: -2px 2px 1px #bfe394;
-  text-align: center;
+  padding-bottom: 0.2rem;
+  text-shadow: -1px 1px 1px #000;
+  text-decoration: none;
 }
 
 .nav-link {
   color: #bfe394;
   display: block;
   font-weight: 700;
-  padding: .5rem;
+  padding: 0.5rem;
   text-decoration: none;
 }
 
 .nav-link:hover {
   background-color: #bfe394;
+  border-radius: 5px;
   color: #fff;
 }
 
 .main-doc {
-  /*set margin-left to width of navbar to account for navigation*/
-  margin-left: 330px;
+  /* set margin-left to width of navbar to account for navigation */
+  margin-left: 31%;
   padding: 1px 12px;
 }
 
@@ -55,11 +63,11 @@ body {
 }
 
 .main-doc code {
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .keystroke {
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
   color: #000080;
   padding: 6px 6px 6px;
 }
@@ -68,19 +76,21 @@ body {
   list-style: none;
 }
 
-/*table & phone responsiveness*/
 @media (max-width: 768px) {
   html {
     font-size: 18px;
   }
+
   body {
     margin: 0;
   }
+
   .navbar {
     height: 10rem;
     position: static;
     width: 100%;
   }
+
   .main-doc {
     margin-left: 0;
   }
