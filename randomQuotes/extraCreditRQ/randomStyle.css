@@ -1,14 +1,22 @@
-@import url('https://fonts.googleapis.com/css?family=VT323');
-
-body {
+html {
+  margin: 10px 24px 0 24px;
   background: black;
-  margin: 1em;
 }
 
-h2 {
+p {
   color: green;
   font-family: 'VT323', monospace;
+  font-size: 36px;
   line-height: 110%;
+}
+
+/*Separator between text and fake prompt.*/
+hr {
+  border: none;
+  border-top: 2px dotted green;
+  color: green;
+  height: 1px;
+  width: 100%;
 }
 
 a {
@@ -28,15 +36,6 @@ a:hover {
 a:active {
   color: green;
   text-decoration: none;
-}
-
-/*Separator between text and fake prompt.*/
-hr {
-  border: none;
-  border-top: 2px dotted green;
-  color: green;
-  height: 1px;
-  width: 100%;
 }
 
 /*Blinking cursor */
@@ -62,8 +61,4 @@ span:after {
   100% {
     opacity: 0;
   }
-}
-
-.quotelives {
-  padding-top: 10px;
 }

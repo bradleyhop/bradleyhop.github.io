@@ -1,17 +1,18 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1,
-    shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Landing page for Bradley Smith's coding projects">
+    <meta name="keywords" content="fcc project freecodecamp">
     <meta name="author" content="Bradley Smith">
 
     <title>random quote generator!</title>
 
-    <!-- Bootstrap 4.0 alpha via cdn-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
-    <!-- local css -->
+    <!--local style sheet-->
     <link rel="stylesheet" href="randomStyle.css" type="text/css">
+    <!--google VT323 terminal-style font-->
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
 
   </head>
 
@@ -19,24 +20,22 @@
 
     <div class="quote">
       <div class="quotelives">
-        <h2>Welcome to the random quote generator!<br>
-          These quotes are themed around programming and computers, courtesy of <i><a href="https://quotes.stormconsultancy.co.uk/">Storm Consultancy.</a></i><br>
+        <p>Welcome to the random quote generator!<br>
+          These quotes are themed around programming and computers, courtesy of
+          <i><a href="https://stormconsultancy.co.uk/">Storm Consultancy.</a></i><br>
           Press ENTER to see a new quote!<br>
           (You may need to mouse click this window for the keypresses to register.)
-        </h2>
+        </p>
       </div>
       <div id="userprompt">
         <hr>
-        <h2>user@localhost:~$ <span></span></h2>
-      </div><!-- userprompt -->
-    </div><!-- quote -->
+        <p>user@localhost:~$ <span></span></p>
+      </div>
+    </div>
 
-    <!-- jquery first, then boostrap -->
+    <!-- jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <!-- tether required for bootstrap 4a -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
-    <!-- js file for collaspeable navbar -->
+    <!-- local script file -->
     <script src="random.js"></script>
 
   </body>
