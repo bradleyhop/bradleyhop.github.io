@@ -10,7 +10,7 @@ p {
   line-height: 110%;
 }
 
-/*Separator between text and fake prompt.*/
+/* Separator between text and fake prompt. */
 hr {
   border: none;
   border-top: 2px dotted green;
@@ -38,8 +38,8 @@ a:active {
   text-decoration: none;
 }
 
-/*Blinking cursor */
-span:after {
+/* Blinking cursor */
+span::after {
   content: '_';
   opacity: 0;
   animation: cursor 0.7s infinite;
@@ -49,15 +49,19 @@ span:after {
   0% {
     opacity: 0;
   }
+
   40% {
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
+
   90% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
