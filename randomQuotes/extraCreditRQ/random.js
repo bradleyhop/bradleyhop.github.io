@@ -3,7 +3,7 @@ const quoteEl = document.getElementById('quotelives');
 
 async function getQuote() {
   const response = await fetch(
-    'http://quotes.stormconsultancy.co.uk/quotes/random.json'
+      'https://cors-anywhere.herokuapp.com/http://quotes.stormconsultancy.co.uk/quotes/random.json'
   );
   const myQuote = await response.json();
   quote = myQuote.quote;
