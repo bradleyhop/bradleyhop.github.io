@@ -22,7 +22,7 @@ document.addEventListener('keypress', function(event) {
         quote = quote.slice(0, 180) + '...';
       }
       window.open(
-        'https://twitter.com/intent/tweet?hashtags=randomQuoteGenerator,freecodeCamp&url=https://bit.ly/1THoBDa&related=freecodecamp&text=' +
+        'https://twitter.com/intent/tweet?hashtags=randomQuoteGenerator,freecodeCamp&url=https://bit.ly/2pSSqhd&related=freecodecamp&text=' +
           encodeURIComponent(`"${quote}" - ${author}`), "_self"
       );
     } else {
