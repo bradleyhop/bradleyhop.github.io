@@ -109,6 +109,7 @@ ul {
   font-size: 1.25rem;
   font-weight: bold;
   padding: 0.25rem 1rem 0.25rem 1rem;
+  cursor: pointer;
 }
 
 .tab-active {
@@ -122,6 +123,15 @@ ul {
 .project-branch {
   background: #2a6592;
   height: 100%;
+}
+
+.responsive-copy {
+  font-size: 1.25rem;
+  font-family: 'Lato', sans-serif;
+  color: #fff;
+  margin: auto;
+  padding: 1.5rem 0 1.5rem 0;
+  width: 70%;
 }
 
 .project-flex {
@@ -149,7 +159,7 @@ ul {
   box-shadow:
     0 8px 16px 0 rgba(0, 0, 0, 0.4),
     0 12px 40px rgba(0, 0, 0, 0.38);
-  transition: box-shadow 0.4s;
+  transition: box-shadow 0.2s;
 }
 
 .project-img {
