@@ -87,7 +87,7 @@ ul {
 
 .projects {
   background: #8ec3eb;
-  height: 110vh;
+  height: 120vh;
   padding-top: 5vh;
 }
 
@@ -135,16 +135,13 @@ ul {
 }
 
 .project-flex {
-  display: flex;
-  align-content: space-around;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(min-content, 1fr));
+  align-content: center;
+  justify-content: center;
 }
 
 .project-tile {
-  width: 25%;
   background: #8ec3eb;
   box-shadow:
     0 4px 8px 0 rgba(0, 0, 0, 0.2),
