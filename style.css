@@ -12,7 +12,7 @@ a {
   text-decoration: none;
 }
 
-.navbar {
+#navbar {
   align-items: center;
   background: rgba(252, 115, 7, 0.9);
   color: #fff;
@@ -49,7 +49,7 @@ ul {
   padding: 0;
 }
 
-.welcome-section {
+#welcome-section {
   background: url('assets/vimSession.png') no-repeat fixed;
 
   /* transparent layer over  background image */
@@ -86,7 +86,7 @@ ul {
   color: #fff;
 }
 
-.projects {
+#projects {
   background: #8ec3eb;
   height: 100vh;
   padding-top: 6vh;
@@ -140,6 +140,7 @@ ul {
   grid-template-columns: repeat(4, minmax(min-content, 1fr));
   align-content: center;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .project-tile {
@@ -180,11 +181,16 @@ ul {
   font-style: italic;
 }
 
-.contact {
+#contact {
+  display: flex;
   background: lightyellow;
-  box-sizing: border-box;
-  height: 90vh;
+  height: 94vh;
   margin-top: 6vh;
+}
+
+.contact-wrapper {
+  margin: auto;
+  text-align: center;
 }
 
 .profile-header {
@@ -240,22 +246,6 @@ ul {
   text-align: center;
 }
 
-.wakatime {
-  width: 25%;
-  text-align: center;
-}
-
-.waka-caption {
-  color: #000;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-figcaption a:visited {
-  color: lightblue;
-}
-
 /* phone responsiveness */
 @media (max-width: 768px) {
   html {
@@ -280,9 +270,5 @@ figcaption a:visited {
 
   .contact-column {
     flex: 100%;
-  }
-
-  .wakatime {
-    width: 100%;
   }
 }
