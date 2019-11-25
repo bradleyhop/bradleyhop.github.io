@@ -134,11 +134,11 @@ ul {
 }
 
 .project-flex {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(min-content, 1fr));
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-content: center;
-  justify-content: center;
-  overflow: auto;
 }
 
 .project-tile {
@@ -150,6 +150,7 @@ ul {
   border-radius: 5px;
   margin: 1rem;
   text-align: center;
+  width: 30%;
 }
 
 .project-tile:hover {
@@ -276,6 +277,14 @@ footer {
 
   .banner {
     margin-top: 20vh;
+  }
+
+  .project-flex {
+    flex-direction: column;
+  }
+
+  .project-tile {
+    width: 98%;
   }
 
   .contact-row {
