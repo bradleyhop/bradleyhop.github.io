@@ -12,6 +12,14 @@ a {
   text-decoration: none;
 }
 
+/* removes white checked box around button text in firefox */
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner {
+  border: none;
+}
+
 #navbar {
   align-items: center;
   background: #fc7307;
@@ -183,7 +191,7 @@ ul {
 #contact {
   display: flex;
   background: lightyellow;
-  height: 54vh;
+  height: 50vh;
 }
 
 .contact-wrapper {
@@ -195,6 +203,11 @@ ul {
   font-size: 3rem;
   text-align: center;
   padding: 2rem;
+}
+
+.profile-sub {
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 .contact-link-flex {
@@ -261,8 +274,21 @@ footer {
   padding: 1rem;
 }
 
+/* tablet responsiveness */
+@media (max-width: 900px) {
+  .tab-button {
+    border-radius: 5px;
+    border: solid #fc7307 2px;
+    margin: 0.25rem;
+  }
+
+  .project-tile {
+    width: 45%;
+  }
+}
+
 /* phone responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 599px) {
   html {
     font-size: 14px;
   }
