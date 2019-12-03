@@ -190,8 +190,7 @@ ul {
 
 #contact {
   display: flex;
-  background: lightyellow;
-  height: 50vh;
+  background: #ffffe0;
 }
 
 .contact-wrapper {
@@ -200,13 +199,15 @@ ul {
 }
 
 .profile-header {
-  font-size: 3rem;
+  font-size: 3.5rem;
   text-align: center;
   padding: 2rem;
 }
 
 .profile-sub {
   font-size: 1.5rem;
+  font-family: Loto, sans-serif;
+  padding-bottom: 2rem;
   text-align: center;
 }
 
@@ -259,7 +260,7 @@ ul {
 
 footer {
   display: inline-block;
-  background: lightyellow;
+  background: #ffffe0;
   border-top: 0.5rem solid #fc7307;
   height: 3rem;
   width: 100%;
@@ -271,11 +272,14 @@ footer {
 .to-top a {
   color: #000;
   font-size: 2rem;
-  padding: 1rem;
 }
 
 /* tablet responsiveness */
 @media (max-width: 900px) {
+  .responsive-copy {
+    width: 85%;
+  }
+
   .tab-button {
     border-radius: 5px;
     border: solid #fc7307 2px;
