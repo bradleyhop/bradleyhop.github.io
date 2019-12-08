@@ -128,6 +128,12 @@ ul {
   outline: none;
 }
 
+/* project branches hidden until tab button clicked */
+#javascript,
+#extracirricular {
+  display: none;
+}
+
 .project-branch {
   background: #2a6592;
 }
