@@ -111,7 +111,7 @@ ul {
 }
 
 .tab-button {
-  background: #8ec3eb;
+  background: #a0a0a0;
   border: none;
   border-radius: 5px 5px 0 0;
   color: #fff;
@@ -289,8 +289,8 @@ footer {
 
   .tab-button {
     border-radius: 5px;
-    border: solid #fc7307 2px;
-    margin: 0.25rem;
+    box-shadow: 2px 2px 5px #505050;
+    margin: 0.5rem;
   }
 
   .project-tile {
@@ -314,6 +314,10 @@ footer {
 
   .banner {
     margin-top: 20vh;
+  }
+
+  .tab-button {
+    width: 90%;
   }
 
   .project-flex {

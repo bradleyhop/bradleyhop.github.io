@@ -8,5 +8,6 @@ function openBranch(evt, projects) {
   );
 
   document.getElementById(projects).style.display = 'block';
+  document.getElementById(projects).style.transition = 'all 0.3s';
   evt.currentTarget.className += ' tab-active';
 }
