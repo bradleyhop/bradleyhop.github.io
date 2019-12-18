@@ -11,13 +11,16 @@ var quote = new Vue({
   },
   methods: {
     async getQuote() {
-      console.log("getQuote fired!");
       const response = await fetch(
         'https://cors-anywhere.herokuapp.com/http://quotes.stormconsultancy.co.uk/quotes/random.json'
       );
       const myQuote = await response.json();
+      console.log(response);
       this.text = myQuote.quote;
-      this.author = myQuote.author;
-    }
+      this.author = "- " + myQuote.author;
+    },
   },
+  mounted() {
+    this.getQuote();
+  }
 });
