@@ -28,11 +28,13 @@
 
   <body>
 
-    <div id="quote-box">
-      <div id="text">{{ text }}</div>
-      <div id="author">{{ author }}</div>
-      <button id="new-quote" v-on:click="getQuote">New Quote</button>
-      <button id="tweet-quote">Tweet Quote</button>
+    <div class="flex-wrap">
+      <div id="quote-box">
+        <div id="text">{{ text }}</div>
+        <div id="author">{{ author }}</div>
+        <button id="new-quote" v-on:click="getQuote">New Quote</button>
+        <button id="tweet-quote">Tweet Quote</button>
+      </div>
     </div>
 
   </body>

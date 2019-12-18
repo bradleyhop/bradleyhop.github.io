@@ -1,6 +1,32 @@
+body {
+  background-color: tan;
+  font-size: 14px;
+}
+
+.flex-wrap {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #quote-box {
+  background-color: lightblue;
+  border: 2px red;
+  border-radius: 5px;
   text-align: center;
+  margin: auto;
   width: 50%;
+  padding: 1rem;
+}
+#quote-box #text {
+  font-family: "VT323", sans-serif;
+  font-size: 3rem;
+}
+#quote-box #author {
+  font-family: "VT323", sans-serif;
+  font-size: 2rem;
+  padding-bottom: 0.5rem;
 }
 
 /*# sourceMappingURL=styleRandom.css.map */
