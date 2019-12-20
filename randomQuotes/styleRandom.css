@@ -12,21 +12,49 @@ body {
 
 #quote-box {
   background-color: lightblue;
-  border: 2px red;
   border-radius: 5px;
   text-align: center;
   margin: auto;
   width: 50%;
   padding: 1rem;
 }
+@media (max-width: 900px) {
+  #quote-box {
+    width: 75%;
+  }
+}
+@media (max-width: 599px) {
+  #quote-box {
+    width: 90%;
+  }
+}
 #quote-box #text {
   font-family: "VT323", sans-serif;
   font-size: 3rem;
 }
+@media (max-width: 900px) {
+  #quote-box #text {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 599px) {
+  #quote-box #text {
+    font-size: 1.5rem;
+  }
+}
 #quote-box #author {
   font-family: "VT323", sans-serif;
   font-size: 2rem;
-  padding-bottom: 0.5rem;
+}
+@media (max-width: 900px) {
+  #quote-box #author {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 599px) {
+  #quote-box #author {
+    font-size: 1rem;
+  }
 }
 
 /*# sourceMappingURL=styleRandom.css.map */
