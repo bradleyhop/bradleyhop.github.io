@@ -1,8 +1,10 @@
 $small-layout-breakpoint: 599px;
 $medium-layout-breakpoint: 900px;
+$quote-font-family: "VT323", sans-serif;
 
 body {
   background-color: tan;
+  box-sizing: border-box;
   font-size: 14px;
 }
 
@@ -15,11 +17,12 @@ body {
 
 #quote-box {
   background-color: lightblue;
-  border-radius: 5px;
-  text-align: center;
+  border-radius: 15px;
   margin: auto;
   width: 50%;
+  height: 50%;
   padding: 1rem;
+  position: relative;
 
   @media (max-width: $medium-layout-breakpoint) {
     width: 75%;
@@ -29,8 +32,9 @@ body {
   }
 
   #text {
-    font-family: "VT323", sans-serif;
+    font-family: $quote-font-family;
     font-size: 3rem;
+    text-align: left;
 
     @media (max-width: $medium-layout-breakpoint) {
       font-size: 2rem;
@@ -41,8 +45,9 @@ body {
   }
 
   #author {
-    font-family: "VT323", sans-serif;
+    font-family: $quote-font-family;
     font-size: 2rem;
+    text-align: right;
 
     @media (max-width: $medium-layout-breakpoint) {
       font-size: 1rem;
@@ -51,4 +56,14 @@ body {
       font-size: 1rem;
     }
   }
+}
+
+.button-well {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 2rem;
+  width: 100%;
 }
