@@ -71,4 +71,13 @@ body {
   width: 100%;
 }
 
+#tweet-quote {
+  text-decoration: none;
+  color: black;
+}
+#tweet-quote:visited {
+  text-decoration: none;
+  color: black;
+}
+
 /*# sourceMappingURL=styleRandom.css.map */

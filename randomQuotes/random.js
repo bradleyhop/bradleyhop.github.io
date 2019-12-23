@@ -7,7 +7,8 @@ var quote = new Vue({
   el: '#quote-box',
   data: {
     text: '',
-    author: ''
+    author: '',
+    urlTweet: 'https://twitter.com/intent/tweet?'
   },
   methods: {
     async getQuote() {
@@ -23,16 +24,13 @@ var quote = new Vue({
         console.log(err);
       }
     },
-    tweetQuote(event) {
-      if (this.text.length > 200)
+    tweetQuote() {
+      if (this.text.length > 200) {
         this.text = this.text.slice(0, 200) + '...';
-      window.open(
-        'https://twitter.com/intent/tweet?' +
+      }
+      this.urlTweet +=
         'hashtags=randomQuoteMachine,freeCodeCamp&related=freecodecamp&text=' +
-        encodeURIComponent(`"${this.text}" ${this.author}`), "_self"
-      );
-      // refuse to share quote if none fetched error handling?
-      // this.text = 'No quote has been fetched, yet!';
+        this.text + ' ' + this.author;
     }
   },
   mounted() {
