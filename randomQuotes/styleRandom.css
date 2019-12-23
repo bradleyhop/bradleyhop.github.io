@@ -1,5 +1,6 @@
 body {
   background-color: tan;
+  box-sizing: border-box;
   font-size: 14px;
 }
 
@@ -12,11 +13,12 @@ body {
 
 #quote-box {
   background-color: lightblue;
-  border-radius: 5px;
-  text-align: center;
+  border-radius: 15px;
   margin: auto;
   width: 50%;
+  height: 50%;
   padding: 1rem;
+  position: relative;
 }
 @media (max-width: 900px) {
   #quote-box {
@@ -31,6 +33,7 @@ body {
 #quote-box #text {
   font-family: "VT323", sans-serif;
   font-size: 3rem;
+  text-align: left;
 }
 @media (max-width: 900px) {
   #quote-box #text {
@@ -45,6 +48,7 @@ body {
 #quote-box #author {
   font-family: "VT323", sans-serif;
   font-size: 2rem;
+  text-align: right;
 }
 @media (max-width: 900px) {
   #quote-box #author {
@@ -55,6 +59,16 @@ body {
   #quote-box #author {
     font-size: 1rem;
   }
+}
+
+.button-well {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 2rem;
+  width: 100%;
 }
 
 /*# sourceMappingURL=styleRandom.css.map */
