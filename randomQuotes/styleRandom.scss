@@ -67,3 +67,13 @@ body {
   bottom: 2rem;
   width: 100%;
 }
+
+#tweet-quote {
+  text-decoration: none;
+  color: black;
+
+  &:visited {
+    text-decoration: none;
+    color: black;
+  }
+}

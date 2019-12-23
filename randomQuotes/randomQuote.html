@@ -34,7 +34,9 @@
         <div id="author">{{ author }}</div>
         <div class="button-well">
           <button id="new-quote" v-on:click="getQuote">New Quote</button>
-          <button id="tweet-quote" v-on:click="tweetQuote">Tweet Quote</button>
+          <button v-on:click="tweetQuote">
+            <a id="tweet-quote" v-bind:href="urlTweet">Tweet Quote</a>
+          </button>
         </div>
       </div>
     </div>
