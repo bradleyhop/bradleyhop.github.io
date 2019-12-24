@@ -19,6 +19,7 @@ var quote = new Vue({
       } catch(err) {
         this.text =
           'Quote cannot be fetched at this time. Please try again later.';
+        this.author = '';
         console.log(err);
       }
     },
