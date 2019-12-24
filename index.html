@@ -46,7 +46,7 @@
              rel="noopener noreferrer">
             <i class="fab fa-github" aria-hidden="true"
               title="Bradley's github profile">
-              <span class="sr-only">Link to github proile</span>
+              <span class="sr-only">Link to github profile</span>
             </i>
           </a>
         </div>
@@ -69,6 +69,11 @@
             Javascript Algorithms and Data Structures
           </button>
           <button class="tab-button"
+                  onclick="openBranch(event, 'frontEndLibs')"
+                  type="button">
+            Front End Libraries
+          </button>
+          <button class="tab-button"
                   onclick="openBranch(event, 'extracirricular')"
                   type="button">
             Extracurricular Projects
@@ -79,11 +84,11 @@
         <div id="responsive" class="project-branch">
 
           <p class="responsive-copy">The first certification of the
-            freeCodeCamp curriculum. Learn and apply html, css to complete
-            five projects each with their own use story requirements. On each
-            project, there is a green hamburger icon in the top left corner that
-            opens the testing suite for that particular project. The user
-            stories are listed therein (be sure that the correct project is
+            freeCodeCamp curriculum. This section teaches html and css to
+            complete five projects each with their own use story requirements.
+            On each project, there is a green hamburger icon in the top left
+            corner that opens the testing suite for that particular project. The
+            user stories are listed therein (be sure that the correct project is
             selected in the drop-down menu).</p>
 
           <div class="project-flex">
@@ -194,7 +199,6 @@
 
           <div class="project-flex">
 
-
             <div class="project-tile">
               <a class="project-link" href="#">
                 <img src="assets/jsCert.png"
@@ -216,6 +220,39 @@
             </div>
 
           </div>
+        </div>
+
+        <!-- Front End Libraries Projects -->
+        <div id="frontEndLibs" class="project-branch">
+
+          <p class="responsive-copy">The third certification of the freeCodeCamp
+            curriculum. This section teaches the use of various libraries for
+            html, css, and javascript. On each project, there is a green
+            hamburger icon in the top left corner that opens the testing suite
+            for that particular project. The user stories are listed therein
+            (be sure that the correct project is selected in the drop-down
+            menu).</p>
+
+          <div class="project-flex">
+
+            <div class="project-tile">
+              <a class="project-link"
+                href="https://bradleyhop.github.io/randomQuotes/randomQuote.html">
+                <img src="assets/randomQuoteGenerator.png"
+                     alt="screenshot of random quote machine"
+                     class="project-img">
+                <p class="tile-heading">Random Quote Machine</p>
+              </a>
+              <a class="projects-github"
+                 href="https://github.com/bradleyhop/bradleyhop.github.io/randomQuotes/randomQuote.html">
+                <p class="github-link">github repo
+                  <i class="fa fa-external-link"></i>
+                </p>
+              </a>
+            </div>
+
+          </div>
+
         </div>
 
         <!--Extracurricular tab-->
