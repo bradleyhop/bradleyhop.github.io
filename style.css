@@ -131,7 +131,8 @@ ul {
 
 /* project branches hidden until tab button clicked */
 #javascript,
-#extracirricular {
+#extracirricular,
+#frontEndLibs {
   display: none;
 }
 
