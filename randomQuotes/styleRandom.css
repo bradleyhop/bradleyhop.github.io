@@ -1,6 +1,5 @@
 body {
   background-color: tan;
-  box-sizing: border-box;
   font-size: 14px;
 }
 
@@ -13,11 +12,10 @@ body {
 
 #quote-box {
   background-color: lightblue;
-  border-radius: 15px;
+  border-radius: 20px;
   margin: auto;
-  width: 50%;
-  height: 50%;
-  padding: 1rem;
+  width: 30%;
+  padding: 3rem;
   position: relative;
 }
 @media (max-width: 900px) {
@@ -32,8 +30,8 @@ body {
 }
 #quote-box #text {
   font-family: "VT323", sans-serif;
-  font-size: 3rem;
-  text-align: left;
+  font-size: 2rem;
+  text-align: center;
 }
 @media (max-width: 900px) {
   #quote-box #text {
@@ -66,12 +64,12 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  position: absolute;
-  bottom: 2rem;
   width: 100%;
+  padding-top: 2rem;
 }
 
 #tweet-quote {
+  cursor: default;
   text-decoration: none;
   color: black;
 }

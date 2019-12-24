@@ -1,8 +1,3 @@
-/*
- * Note: using an api that is not secure. Using cor-anywhere to resolve cors
- * issues.
- */
-
 var quote = new Vue({
   el: '#quote-box',
   data: {
@@ -13,6 +8,8 @@ var quote = new Vue({
   methods: {
     async getQuote() {
       try {
+        // Note: using an api that is not secure. Using cor-anywhere to resolve
+        // cors issues.
         const response = await fetch(
           'https://cors-anywhere.herokuapp.com/http://quotes.stormconsultancy.co.uk/quotes/random.json'
         );
@@ -20,7 +17,8 @@ var quote = new Vue({
         this.text = myQuote.quote;
         this.author = "- " + myQuote.author;
       } catch(err) {
-        this.text = 'Quote cannot be fetched at this time. Please try again later.';
+        this.text =
+          'Quote cannot be fetched at this time. Please try again later.';
         console.log(err);
       }
     },
