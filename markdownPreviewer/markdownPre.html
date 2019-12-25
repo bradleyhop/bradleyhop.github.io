@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+      content="Landing page for Bradley Smith's markdown previewer">
+    <meta name="keywords" content="fcc project freecodecamp markdown vue">
+    <meta name="author" content="Bradley Smith">
+
+    <title>markdown previewer in vue</title>
+
+    <!-- local style sheet -->
+    <link rel="stylesheet" href="styleMD.css" type="text/css">
+
+    <!-- Vue development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Vue production version, optimized for size and speed -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+    <!-- marked library to parse markdown -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.7.0/marked.js"></script>
+    <!-- local script file, defered to allow vue and marked to load first -->
+    <script src="mdv.js" defer></script>
+    <!-- fCC automated test -->
+    <script
+      src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" defer>
+    </script>
+
+  </head>
+
+  <body>
+
+    <div class="flex-container">
+
+      <textarea id="editor" v-bind:placeholder="editor" v-model="usermd"></textarea>
+
+      <div id="preview" v-html="preview"></div>
+
+    </div>
+
+  </body>
+
+</html>

@@ -1,0 +1,18 @@
+body {
+  background: lightgrey;
+}
+
+.flex-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#editor {
+  height: 250px;
+  width: 250px;
+}
+
+/*# sourceMappingURL=styleMD.css.map */
