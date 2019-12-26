@@ -11,6 +11,16 @@ body {
 }
 
 #editor {
-  height: 250px;
-  width: 250px;
+  height: 40%;
+  width: 50%;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+}
+
+blockquote {
+  border-left: 3px solid darkgrey;
+  padding-left: 5px;
 }
