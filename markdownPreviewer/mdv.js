@@ -36,4 +36,9 @@ This is made **bold** with asterisk, this __one__ with double underscore.`,
   mounted () {
     this.translate();
   },
+  watch: {
+    usermd: function () {
+      this.translate();
+    }
+  },
 });
