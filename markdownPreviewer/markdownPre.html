@@ -32,7 +32,7 @@
 
     <div class="flex-container">
 
-      <textarea id="editor" v-bind:placeholder="editor" v-model="usermd"></textarea>
+      <textarea id="editor">{{ usermd }}</textarea>
 
       <div id="preview" v-html="preview"></div>
 
