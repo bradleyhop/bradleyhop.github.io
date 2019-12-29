@@ -1,5 +1,5 @@
 var vm = new Vue({
-  el: '.flex-container',
+  el: '#md-container',
   data: {
     // default markdown on pageload
     usermd: `
@@ -27,22 +27,13 @@ Here's an image:
 
 This is made **bold** with asterisk, this __one__ with double underscore.
 This word is _emphasized_!`,
-    preview: ''
   },
-  methods: {
-    translate() {
-      this.preview = marked(this.usermd,
+  computed: {
+    preview() {
+      return marked(this.usermd,
         { pendantic: false, gfm: true, breaks: true, smartLists: true,
-          xhtml: false });
+          xhtml: false, sanitize: true });
       // this.preview = this.preview.replace(/(\n)/g, "<br>");
-    }
-  },
-  mounted () {
-    this.translate();
-  },
-  watch: {
-    usermd: function () {
-      this.translate();
     }
   },
 });

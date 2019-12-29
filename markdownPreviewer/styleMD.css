@@ -8,10 +8,10 @@ body {
   font-family: monospace;
   text-align: center;
   color: darkblue;
-  margin: 2rem;
+  margin: 1rem;
 }
 
-.flex-container {
+#md-container {
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -20,12 +20,12 @@ body {
 }
 
 #editor {
-  height: 40%;
-  width: 50%;
+  height: 50%;
+  width: 60%;
 }
 
 #preview {
-  width: 50%;
+  width: 60%;
 }
 
 img {
