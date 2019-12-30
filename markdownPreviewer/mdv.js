@@ -26,8 +26,7 @@ console.log(addFive(a));
 Here is a list:
 1. List item
 2. Second list item
-* nested item
-
+  * unordered nested item
 
 Here's an image:
 ![alt text](https://secure.meetupstatic.com/photos/event/4/c/b/b/600_468259643.jpeg 'free code camp logo')
