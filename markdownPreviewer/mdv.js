@@ -1,39 +1,56 @@
-var vm = new Vue({
-  el: '#md-container',
-  data: {
-    // default markdown on pageload
-    usermd: `
+// default markdown on pageload
+const usrMD =`
 # Heading 1
 ## Heading 2
 -------------
 
-[Bradley's portfolio](https://bradleyhop.github.io)
+Here is a link to [Bradley's portfolio](https://bradleyhop.github.io)
 
 This sentence has \`\<inline-code\>\` in it.
-\`\`\`
-var let a = 52;
-a += 5;
-console.log(a);
+
+\`\`\`javascript
+const message = "This is javascript code";
+let a = 52;
+fucntion addFive(val) {
+  return val + 5;
+  }
+console.log(addFive(a));
+\\\\ 55
 \`\`\`
 
+\`\`\`html
+<p>This is html code.</p>
+<div class="test"></div>
+\`\`\`
+
+Here is a list:
 1. List item
 2. Second list item
+* nested item
 
-> This is a blockquote. It is really, really long.
-> It makes these words look important!
 
 Here's an image:
 ![alt text](https://secure.meetupstatic.com/photos/event/4/c/b/b/600_468259643.jpeg 'free code camp logo')
 
 This is made **bold** with asterisk, this __one__ with double underscore.
-This word is _emphasized_!`,
+This word is _emphasized_!
+
+> This is a blockquote. It is really, really long.
+> It makes these words look important!`;
+
+var vm = new Vue({
+  el: '#md-container',
+  data: {
+    textmarkMD: usrMD,
   },
   computed: {
-    preview() {
-      return marked(this.usermd,
+    preview: function () {
+      return marked(this.textmarkMD,
         { pendantic: false, gfm: true, breaks: true, smartLists: true,
-          xhtml: false, sanitize: true });
-      // this.preview = this.preview.replace(/(\n)/g, "<br>");
+          xhtml: false,
+          highlight: function(code) {
+            return hljs.highlightAuto(code).value;}
+        });
     }
   },
 });

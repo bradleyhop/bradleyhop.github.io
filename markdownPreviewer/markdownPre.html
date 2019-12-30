@@ -13,12 +13,17 @@
     <!-- local style sheet -->
     <link rel="stylesheet" href="styleMD.css" type="text/css">
 
+    <!-- highlight.js library for auto code highlighting -->
+    <link rel="stylesheet"
+          href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/solarized-light.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
     <!-- Vue development version, includes helpful console warnings -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <!-- Vue production version, optimized for size and speed -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
     <!-- marked library to parse markdown -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.7.0/marked.js"></script>
+
     <!-- local script file, defered to allow vue and marked to load first -->
     <script src="mdv.js" defer></script>
     <!-- fCC automated test -->
@@ -34,9 +39,15 @@
 
     <div id="md-container">
 
-      <textarea id="editor" v-model="usermd"></textarea>
+      <div class="frame">
+        <div class="frame-title">MARKDOWN EDITOR</div>
+        <textarea id="editor" v-model="textmarkMD"></textarea>
+      </div>
 
-      <div id="preview" v-html="preview"></div>
+      <div class="frame">
+        <div class="frame-title">HTML PREVIEW</div>
+        <div id="preview" v-html="preview"></div>
+      </div>
 
     </div>
 
