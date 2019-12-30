@@ -35,7 +35,8 @@ Here's an image:
 This is made **bold** with asterisk, this __one__ with double underscore.
 This word is _emphasized_!
 
-> This is a blockquote. It is really, really long.
+> This is a blockquote.
+> It is really, really long.
 > It makes these words look important!`;
 
 var vm = new Vue({
