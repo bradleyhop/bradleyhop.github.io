@@ -20,7 +20,7 @@ body {
 }
 @media (max-width: 599px) {
   #quote-box {
-    width: 90%;
+    width: 95%;
   }
 }
 
@@ -40,7 +40,7 @@ body {
 }
 @media (max-width: 599px) {
   .content-container #text {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 }
 .content-container #author {
@@ -50,7 +50,7 @@ body {
 }
 @media (max-width: 900px) {
   .content-container #author {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 }
 
