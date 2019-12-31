@@ -22,7 +22,7 @@ body {
   }
 
   @media (max-width: $small-layout-breakpoint) {
-    width: 90%;
+    width: 95%;
   }
 }
 
@@ -41,7 +41,7 @@ body {
     text-align: left;
 
     @media (max-width: $small-layout-breakpoint) {
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
   }
 
@@ -51,7 +51,7 @@ body {
     text-align: right;
 
     @media (max-width: $medium-layout-breakpoint) {
-      font-size: 1rem;
+      font-size: 1.5rem;
     }
   }
 }
