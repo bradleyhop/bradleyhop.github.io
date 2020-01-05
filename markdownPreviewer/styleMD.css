@@ -1,12 +1,14 @@
 body {
-  background: lightgrey;
+  background: #fff;
+  box-sizing: border-box;
 }
 
 #title {
   font-size: 3rem;
-  font-family: monospace;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  font-weight: 300;
   text-align: center;
-  color: #35495e;
+  color: #273849;
   margin: 1rem;
 }
 
@@ -16,27 +18,49 @@ body {
   justify-content: space-evenly;
 }
 
-.frame-title {
-  text-align: center;
-  font-family: monospace;
-  font-size: 1.5rem;
-  color: #41b883;
-}
-
 .frame {
   margin: 1%;
   width: 40%;
+}
+
+.frame-title {
+  text-align: center;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #42b983;
+}
+
+label {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  font-weight: 400;
+  color: #4f5959;
 }
 
 #editor {
   width: 100%;
   height: 90%;
   min-height: 450px;
+  border: 2px solid #273849;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+#editor:focus {
+  border-color: #42b983;
 }
 
 pre,
 code {
   background: #fdf6e3;
+}
+
+pre {
+  padding: 5px;
+}
+
+p > code {
+  padding: 0 5px 0 5px;
 }
 
 img {

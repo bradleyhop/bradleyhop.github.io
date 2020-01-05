@@ -13,6 +13,9 @@
     <!-- local style sheet -->
     <link rel="stylesheet" href="styleMD.css" type="text/css">
 
+    <!-- google source sans pro font -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400&display=swap" rel="stylesheet">
+
     <!-- highlight.js library for auto code highlighting -->
     <link rel="stylesheet"
           href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/solarized-light.min.css">
@@ -35,12 +38,13 @@
 
   <body>
 
-    <div id="title">Markdown Previewer in Vue.js</div>
+    <h1 id="title">Markdown Previewer in Vue.js</h1>
 
     <div id="md-container">
 
       <div class="frame">
         <div class="frame-title">MARKDOWN EDITOR</div>
+        <label for="editor">Enter your markdown here</label>
         <textarea id="editor" v-model="textmarkMD"></textarea>
       </div>
 
