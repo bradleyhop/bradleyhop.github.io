@@ -1,6 +1,5 @@
 // default markdown on pageload
-const usrMD =`
-# Heading 1
+const usrMD =`# Heading 1
 ## Heading 2
 -------------
 
@@ -15,7 +14,7 @@ fucntion addFive(val) {
   return val + 5;
   }
 console.log(addFive(a));
-\\\\ 55
+// 57
 \`\`\`
 
 \`\`\`html
