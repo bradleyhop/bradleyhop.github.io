@@ -38,7 +38,7 @@ label {
 }
 
 #editor {
-  width: 100%;
+  width: 95%;
   height: 90%;
   min-height: 450px;
   border: 2px solid #273849;
@@ -48,6 +48,7 @@ label {
 
 #editor:focus {
   border-color: #42b983;
+  outline: none;
 }
 
 pre,
