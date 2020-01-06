@@ -55,10 +55,10 @@
 
       <div id="projects">
 
-        <p class="work-heading">My Learning Journey</p>
+        <p class="work-heading">My Coding Projects</p>
 
         <div class="tabbar-projects">
-          <button class="tab-button tab-active"
+          <button class="tab-button"
                   onclick="openBranch(event, 'responsive')"
                   type="button">
             Responsive Web Design
@@ -68,7 +68,7 @@
                   type="button">
             Javascript Algorithms and Data Structures
           </button>
-          <button class="tab-button"
+          <button class="tab-button tab-active"
                   onclick="openBranch(event, 'frontEndLibs')"
                   type="button">
             Front End Libraries
@@ -251,6 +251,21 @@
               </a>
             </div>
 
+            <div class="project-tile">
+              <a class="project-link"
+                href="https://bradleyhop.github.io/markdownPreviewer/markdownPre.html">
+                <img src="assets/markdownPreviewer.png"
+                     alt="screenshot of markdown to html previewer"
+                     class="project-img">
+                <p class="tile-heading">Markdown Previewer</p>
+              </a>
+              <a class="projects-github"
+                 href="https://github.com/bradleyhop/bradleyhop.github.io/tree/master/markdownPreviewer/">
+                <p class="github-link">github repo
+                  <i class="fa fa-external-link"></i>
+                </p>
+              </a>
+            </div>
           </div>
 
         </div>
@@ -382,7 +397,10 @@
             <span class="sr-only">link to scroll to top of page</span>
           </i>
         </a>
-        <div class="copyright">Bradley Smith &copy; 2019</div>
+        <div class="copyright">Bradley Smith &copy; <span id="year"></span></div>
+        <script>
+          document.getElementById("year").innerHTML = new Date().getFullYear();
+        </script>
       </div>
     </footer>
 
