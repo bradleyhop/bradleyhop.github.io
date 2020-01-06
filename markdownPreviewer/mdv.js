@@ -44,12 +44,13 @@ var vm = new Vue({
   },
   computed: {
     preview: function () {
-      return marked(this.textmarkMD,
+      return DOMPurify.sanitize( marked(this.textmarkMD,
         { pendantic: false, gfm: true, breaks: true, smartLists: true,
           xhtml: false,
           highlight: function(code) {
             return hljs.highlightAuto(code).value;}
-        });
+        })
+      );
     }
   },
 });
