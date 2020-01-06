@@ -1,0 +1,101 @@
+$green-vue: #42b983;
+$gray-vue: #273849;
+$text-vue: #4f5959;
+$font-family-vue: "Source Sans Pro", Arial, sans-serif;
+$responsive-breakpoint: 900px;
+
+body {
+  background: #fff;
+  box-sizing: border-box;
+}
+
+#title {
+  font: {
+    size: 3rem;
+    family: $font-family-vue;
+    weight: 300;
+  }
+
+  text-align: center;
+  color: $gray-vue;
+  margin: 1rem;
+}
+
+#md-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  @media (max-width: $responsive-breakpoint) {
+    flex-direction: column;
+  }
+}
+
+.frame {
+  margin: 1%;
+  width: 40%;
+
+  @media (max-width: $responsive-breakpoint) {
+    width: initial;
+    min-height: 500px;
+  }
+}
+
+.frame-title {
+  font: {
+    size: 1.5rem;
+    family: $font-family-vue;
+    weight: 400;
+  }
+
+  text-align: center;
+  color: $green-vue;
+}
+
+label {
+  font: {
+    family: $font-family-vue;
+    weight: 400;
+  }
+
+  color: $text-vue;
+}
+
+#editor {
+  width: 95%;
+  height: 90%;
+  min-height: 450px;
+  border: 2px solid $gray-vue;
+  border-radius: 3px;
+  padding: 5px;
+
+  &:focus {
+    border-color: $green-vue;
+    outline: none;
+  }
+}
+
+pre,
+code {
+  background: #fdf6e3;
+}
+
+pre {
+  padding: 5px;
+}
+
+p {
+  code {
+    padding: 0 5px 0 5px;
+  }
+}
+
+img {
+  height: 125px;
+  width: 125px;
+}
+
+blockquote {
+  border-left: 3px solid #a9a9a9;
+  padding-left: 5px;
+}
