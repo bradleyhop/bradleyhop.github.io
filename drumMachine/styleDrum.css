@@ -1,0 +1,18 @@
+#display {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.drum-pad {
+  border: 2px solid black;
+  margin: 10px;
+  height: 40px;
+  width: 40px;
+}
+
+.drum-pad:active {
+  background: green;
+}
+
+/*# sourceMappingURL=styleDrum.css.map */
