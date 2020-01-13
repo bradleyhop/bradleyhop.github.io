@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="styleDrum.css" type="text/css">
 
     <!-- google source sans pro font -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400&display=swap">
+    <!-- <link rel="stylesheet" -->
+          <!-- href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400&display=swap"> -->
 
     <!-- Vue development version, includes helpful console warnings -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -25,16 +25,17 @@
     <!-- local script file, defered to allow vue and marked to load first -->
     <script src="drum.js" defer></script>
     <!-- fCC automated test -->
-    <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" defer> -->
-    <!-- </script> -->
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" defer>
+    </script>
 
   </head>
 
   <body>
 
     <div id="drum-machine">
-      <div id="display">
-        <!-- change drum-pad id's to describe audio sound -->
+      <div id="display">{{ whatDrum }}</div>
+      <!-- change drum-pad id's to describe audio sound -->
+      <div id="button-box">
         <button class="drum-pad" id="hh" v-on:click="hitDrum('Q')">
           <audio src="" class="clip" id="Q">
           </audio>
