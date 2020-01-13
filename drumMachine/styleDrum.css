@@ -1,5 +1,10 @@
+#display {
+  text-align: center;
+}
+
 #button-box {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   justify-content: center;
 }
