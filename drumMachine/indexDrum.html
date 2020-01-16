@@ -34,64 +34,9 @@
 
     <div id="drum-machine">
       <div id="display">Game Boy Beats</div>
-      <!-- change drum-pad id's to describe audio sound -->
-      <div id="button-box">
-        <button class="drum-pad" id="arp" v-on:click="hitDrum('Q')">
-          <audio src="gbDrums/arp (2).mp3" class="clip" id="Q"
-            type="audio/mp3">
-          </audio>
-          Q
-        </button>
-        <button class="drum-pad" id="sfx" v-on:click="hitDrum('W')">
-          <audio src="gbDrums/sfx (1).mp3" class="clip" id="W"
-            type="audio/mp3">
-          </audio>
-          W
-        </button>
-        <button class="drum-pad" id="openhat" v-on:click="hitDrum('E')">
-          <audio src="gbDrums/openhat (1).mp3" class="clip" id="E"
-            type="audio/mp3">
-          </audio>
-          E
-        </button>
-        <button class="drum-pad" id="snare5" v-on:click="hitDrum('A')">
-          <audio src="gbDrums/snare (5).mp3" class="clip" id="A"
-            type="audio/mp3">
-          </audio>
-          A
-        </button>
-        <button class="drum-pad" id="hihat1" v-on:click="hitDrum('S')">
-          <audio src="gbDrums/hihat (1).mp3" class="clip" id="S"
-            type="audio/mp3">
-          </audio>
-          S
-        </button>
-        <button class="drum-pad" id="hihat5" v-on:click="hitDrum('D')">
-          <audio src="gbDrums/hihat (5).mp3" class="clip" id="D"
-            type="audio/mp3">
-          </audio>
-          D
-        </button>
-        <button class="drum-pad" id="kick3" v-on:click="hitDrum('Z')">
-          <audio src="gbDrums/kick (3).mp3" class="clip" id="Z"
-            type="audio/mp3">
-          </audio>
-          Z
-        </button>
-        <button class="drum-pad" id="kick7" v-on:click="hitDrum('X')">
-          <audio src="gbDrums/kick (7).mp3" class="clip" id="X"
-            type="audio/mp3">
-          </audio>
-          X
-        </button>
-        <button class="drum-pad" id="snare1" v-on:click="hitDrum('C')">
-          <audio src="gbDrums/snare (1).mp3" class="clip" id="C"
-            type="audio/mp3">
-          </audio>
-          C
-        </button>
-      </div>
+      <drum-pads />
     </div>
 
   </body>
+
 </html>
