@@ -1,4 +1,4 @@
-const drums = [
+const gbDrums = [
   {
     desc: 'arp',
     letter: 'Q',
@@ -46,17 +46,17 @@ const drums = [
   }
 ];
 
-Vue.component('drum-pads',{
+var DrumPads = Vue.extend({
   data () {
     return {
-      drumpad: drums
+      drumpad: gbDrums
     };
   },
   template:
   `
   <div id="button-box">
     <div v-for="drum in drumpad">
-      <button class="drum-pad" :id="drum.desc">
+      <button class="drum-pad" :id="drum.desc" @click="clickDrum(drum.letter)">
         <audio :src="drum.source" class="clip" :id="drum.letter"
           type="audio/mp3">
         </audio>
@@ -64,11 +64,19 @@ Vue.component('drum-pads',{
       </button>
     </div>
   </div>
-  `
+  `,
+  methods: {
+    clickDrum(e) {
+      this.$parent.hitDrum(e);
+    }
+  }
 });
 
 var dm = new Vue({
   el: "#drum-machine",
+  components: {
+    "drum-pads": DrumPads
+  },
   methods: {
     hitDrum: (inst) => {
       inst = inst.toUpperCase();
