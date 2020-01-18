@@ -83,7 +83,7 @@ var dm = new Vue({
       if (['Q', 'W', 'E', 'A', 'S', 'D', 'Z', 'X', 'C'].indexOf(inst) >= 0) {
         dm.playAudio(document.getElementById(inst));
 
-        // using pure js to pass user story 8. since doing it via Vue
+        // Using pure js to pass user story 8. Since doing it via Vue
         //  doesn't register with the test script
         let discriptionDisplay = gbDrums.find( hit => hit.letter === inst );
         document.getElementById("display").innerText = discriptionDisplay.desc;
@@ -91,6 +91,8 @@ var dm = new Vue({
     },
     playAudio: async (el) => {
       try {
+        // reduces perceived latency playback on button press/function call
+        el.currentTime = 0;
         await el.play();
       }
       catch (err) {
