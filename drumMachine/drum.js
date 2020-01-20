@@ -78,16 +78,26 @@ var dm = new Vue({
     "drum-pads": DrumPads
   },
   methods: {
-    hitDrum: (inst) => {
+    hitDrum (inst) {
       inst = inst.toUpperCase();
       if (['Q', 'W', 'E', 'A', 'S', 'D', 'Z', 'X', 'C'].indexOf(inst) >= 0) {
-        dm.playAudio(document.getElementById(inst));
-
-        // Using pure js to pass user story 8. Since doing it via Vue
-        //  doesn't register with the test script
-        let discriptionDisplay = gbDrums.find( hit => hit.letter === inst );
-        document.getElementById("display").innerText = discriptionDisplay.desc;
+        this.playAudio(document.getElementById(inst));
+        this.styleDrumHit(inst);
       }
+    },
+    styleDrumHit (styleHit)  {
+      let discriptionDisplay = gbDrums.find( hit => hit.letter === styleHit );
+      discriptionDisplay = discriptionDisplay.desc;
+
+      document.getElementById(discriptionDisplay)
+        .classList.add("pressed-drum-pad");
+      setTimeout( () =>
+        document.getElementById(discriptionDisplay)
+        .classList.remove("pressed-drum-pad"), 150 );
+
+      // Using pure js to pass user story 8 since doing it via Vue
+      //  doesn't register with the test script
+      document.getElementById("display").innerText = discriptionDisplay;
     },
     playAudio: async (el) => {
       try {
@@ -103,7 +113,7 @@ var dm = new Vue({
   created () {
     window.addEventListener("keyup", (e) => this.hitDrum(e.key));
   },
-  // not sure if needed since this is a SPA, but why nor prevent memory leaks?
+  // not sure if needed since this is a SPA, but why not prevent memory leaks?
   beforeDestroy() {
     window.removeEventListener("keyup", (e) => this.hitDrum(e.key));
   }
