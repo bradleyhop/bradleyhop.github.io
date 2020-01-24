@@ -1,46 +1,46 @@
 const gbDrums = [
   {
-    desc   : 'arp',
+    desc   : 'ARP',
     letter : 'Q',
     source : 'gbDrums/arp (2).mp3',
   },
   {
-    desc   : 'sfx',
+    desc   : 'SFX',
     letter : 'W',
     source : 'gbDrums/sfx (1).mp3',
   },
   {
-    desc   : 'openhat',
+    desc   : 'OPEnhat',
     letter : 'E',
     source : 'gbDrums/openhat (1).mp3',
   },
   {
-    desc   : 'snare 1',
+    desc   : 'SNARE 1',
     letter : 'A',
     source : 'gbDrums/snare (5).mp3',
   },
   {
-    desc   : 'high hat 1',
+    desc   : 'HIGH HAT 1',
     letter : 'S',
     source : 'gbDrums/hihat (1).mp3',
   },
   {
-    desc   : 'high hat 2',
+    desc   : 'HIGH HAT 2',
     letter : 'D',
     source : 'gbDrums/hihat (5).mp3',
   },
   {
-    desc   : 'kick drum 1',
+    desc   : 'KICK DRUM 1',
     letter : 'Z',
     source : 'gbDrums/kick (3).mp3',
   },
   {
-    desc   : 'kick drum 2',
+    desc   : 'KICK DRUM 2',
     letter : 'X',
     source : 'gbDrums/kick (7).mp3',
   },
   {
-    desc   : 'snare 2',
+    desc   : 'SNARE 2',
     letter : 'C',
     source : 'gbDrums/snare (1).mp3'
   }
