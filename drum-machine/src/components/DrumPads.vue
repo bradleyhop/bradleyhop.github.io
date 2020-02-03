@@ -31,6 +31,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+$gb-button: #84338e;
+$pressed-gb-button: #a988a7;
+
 #button-box {
   display: flex;
   flex-wrap: wrap;
@@ -39,23 +42,25 @@ export default {
 }
 
 .drum-pad {
-  border: 1px solid black;
+  background: radial-gradient(circle, rgba(132,51,142,1) 60%, rgba(169,136,167,1) 100%);
+  border: none;
+  border-radius: 50%;
   margin: 10px;
-  height: 40px;
-  width: 40px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  height: 60px;
+  width: 60px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
 
   &:hover {
-    background: white;
+    background: $gb-button;
   }
 
   &:active {
-    background: green;
+    background: $pressed-gb-button;
   }
 }
 
 .pressed-drum-pad {
-  background: green;
+  background: $pressed-gb-button;
   box-shadow: unset;
 }
 </style>

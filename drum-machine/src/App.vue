@@ -26,6 +26,7 @@ export default {
       let discriptionDisplay = gbDrums.find(hit => hit.letter === styleHit);
       discriptionDisplay = discriptionDisplay.desc;
 
+      // add flash styling to button press
       document.getElementById(discriptionDisplay)
         .classList.add('pressed-drum-pad');
       setTimeout(() => document.getElementById(discriptionDisplay)
@@ -40,7 +41,7 @@ export default {
       try {
         // reduces perceived latency playback on button press/function call
         playObj.currentTime = 0;
-        await el.play();
+        await playObj.play();
       } catch (err) {
         // eslint-disable-next-line
         console.error(`Playback error! ${err}`);
@@ -58,10 +59,19 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
+html {
+  background: #bfbcb7;
   font-family: monospace;
   font-size: 24px;
+}
+#app {
   text-align: center;
   margin-top: 60px;
+}
+#display {
+  background: #94c11f;
+  width: 40%;
+  padding: 20px;
+  margin: auto;
 }
 </style>
