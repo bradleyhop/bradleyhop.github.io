@@ -1,24 +1,9 @@
 # drum-machine
 
-## Project setup
-```
-npm install
-```
+This project was first built using locally linked cdn's to render the Sass and Vue libraries.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Now, I use the official [Vue CLI](https://cli.vuejs.org) to write this app modularly. The build is deployed on another [github repository](https://github.com/bradleyhop/drumMachine).
 
-### Compiles and minifies for production
-```
-npm run build
-```
+The live app is found [here](https://bradleyhop.github.io/drumMachine/index.html)
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Here are [requirements and user stories](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-drum-machine) for this freecodecamp.org project.
