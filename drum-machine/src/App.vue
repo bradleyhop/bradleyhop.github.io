@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app-container">
     <div id="display">Game Boy Beats</div>
     <DrumPads />
   </div>
@@ -23,8 +23,7 @@ export default {
       }
     },
     styleDrumHit(styleHit) {
-      let discriptionDisplay = gbDrums.find(hit => hit.letter === styleHit);
-      discriptionDisplay = discriptionDisplay.desc;
+      const discriptionDisplay = gbDrums.find(hit => hit.letter === styleHit).desc;
 
       // add flash styling to button press
       document.getElementById(discriptionDisplay)
@@ -64,7 +63,7 @@ html {
   font-family: monospace;
   font-size: 24px;
 }
-#app {
+#app-container {
   text-align: center;
   margin-top: 60px;
 }
