@@ -63,14 +63,19 @@ html {
   font-family: monospace;
   font-size: 24px;
 }
+
 #app-container {
-  text-align: center;
   margin-top: 60px;
 }
+
 #display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #94c11f;
-  width: 40%;
-  padding: 20px;
+  border-radius: 5px;
+  width: calc(1.5 * 160px);
+  height: calc(1.5 * 144px);
   margin: auto;
 }
 </style>

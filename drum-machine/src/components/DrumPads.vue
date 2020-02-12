@@ -35,14 +35,24 @@ $gb-button: #84338e;
 $pressed-gb-button: #a988a7;
 
 #button-box {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  justify-items: center;
+  width: 30%;
+  margin: auto;
+
+  @media (max-width: 599px) {
+    width: 90%;
+  }
 }
 
 .drum-pad {
-  background: radial-gradient(circle, rgba(132,51,142,1) 60%, rgba(169,136,167,1) 100%);
+  background:
+    radial-gradient(
+    circle,
+    rgba(132, 51, 142, 1) 60%,
+    rgba(169, 136, 167, 1) 100%
+  );
   border: none;
   border-radius: 50%;
   margin: 10px;
