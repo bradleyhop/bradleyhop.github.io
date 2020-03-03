@@ -29,7 +29,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 $gb-button: #84338e;
 $pressed-gb-button: #a988a7;
@@ -53,7 +52,7 @@ $pressed-gb-button: #a988a7;
     rgba(132, 51, 142, 1) 60%,
     rgba(169, 136, 167, 1) 100%
   );
-  border: none;
+  border-style: none;
   border-radius: 50%;
   margin: 10px;
   height: 60px;
