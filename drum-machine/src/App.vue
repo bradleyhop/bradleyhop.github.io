@@ -1,6 +1,9 @@
 <template>
   <div id="app-container">
-    <div id="display">Game Boy Beats</div>
+    <div class="wrapper-display">
+      <span class="power-light"></span>
+      <span id="display">Game Boy Beats</span>
+    </div>
     <DrumPads />
   </div>
 </template>
@@ -60,12 +63,39 @@ export default {
 <style lang="scss">
 html {
   background: #bfbcb7;
-  font-family: monospace;
+  font-family: 'Peepo', monospace;
   font-size: 24px;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 #app-container {
+  text-align: center;
   margin-top: 60px;
+}
+
+.wrapper-display {
+  background: #555362;
+  border-radius: 9px 9px 40px 9px;
+  width: calc(2.25 * 160px);
+  height: calc(1.8 * 144px);
+  margin: auto;
+  padding-top: calc(0.25 * 144px);
+}
+
+.power-light {
+  display: inline-block;
+  float: left;
+  background: red;
+  border-style: none;
+  border-radius: 50%;
+  margin-left: 25px;
+  margin-top: 60px;
+  height: 12px;
+  width: 12px;
 }
 
 #display {
@@ -76,6 +106,6 @@ html {
   border-radius: 5px;
   width: calc(1.5 * 160px);
   height: calc(1.5 * 144px);
-  margin: auto;
+  margin-left: calc(0.4 * 160px);
 }
 </style>
