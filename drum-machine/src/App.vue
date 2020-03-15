@@ -26,7 +26,7 @@ export default {
       }
     },
     styleDrumHit(styleHit) {
-      const discriptionDisplay = gbDrums.find(hit => hit.letter === styleHit).desc;
+      const discriptionDisplay = gbDrums.find((hit) => hit.letter === styleHit).desc;
 
       // add flash styling to button press
       document.getElementById(discriptionDisplay)
@@ -51,11 +51,11 @@ export default {
     },
   },
   created() {
-    window.addEventListener('keyup', e => this.hitDrum(e.key));
+    window.addEventListener('keyup', (e) => this.hitDrum(e.key));
   },
   // not sure if needed since this is a SPA, but why not prevent memory leaks?
   beforeDestroy() {
-    window.removeEventListener('keyup', e => this.hitDrum(e.key));
+    window.removeEventListener('keyup', (e) => this.hitDrum(e.key));
   },
 };
 </script>
@@ -89,7 +89,12 @@ body {
 .power-light {
   display: inline-block;
   float: left;
-  background: red;
+  background:
+    radial-gradient(
+      circle,
+      red 40%,
+      white 100%,
+    );
   border-style: none;
   border-radius: 50%;
   margin-left: 25px;
