@@ -3,5 +3,5 @@ module.exports = {
     lintStyleOnBuild: false,
     stylelint: {},
   },
-  publicPath: process.env.NODE_ENV === 'production' ? '/drumMachine/' : '/'
+  publicPath: process.env.NODE_ENV === 'production' ? '/drumMachine/' : '/',
 };
