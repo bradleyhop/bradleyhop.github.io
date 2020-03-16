@@ -5,6 +5,9 @@
       <span id="display">Game Boy Beats</span>
     </div>
     <DrumPads />
+    <div class="speaker-holes sh1"></div>
+    <div class="speaker-holes sh2"></div>
+    <div class="speaker-holes sh3"></div>
   </div>
 </template>
 
@@ -61,25 +64,64 @@ export default {
 </script>
 
 <style lang="scss">
+// Note: the original Game Boy has a resolution of 160 x 144, so much of the
+//  scaling is done to that resolution.
+
+$responsive-width: 599px;
+$light-grey: #bfbcb7;
+$deep-grey: #555362;
+
+@font-face {
+  font-family: 'Pixelated';
+  src: url("../public/assets/Pixeled.ttf");
+}
+
 html {
-  background: #bfbcb7;
-  font-family: 'Peepo', monospace;
-  font-size: 24px;
+  background-image: url(../public/assets/gb.webp);
+  background-color: $light-grey;
+  font-family: 'Pixelated', monospace;
+  font-size: 20px;
+  height: 100vh;
+  overflow: hidden;
+
+  @media (max-width: $responsive-width) {
+    background-image: none;
+    background-color: $light-grey;
+  }
 }
 
 body {
+  background: rgba(0, 0, 0, 0.7);
   margin: 0;
-  padding: 0;
+  padding: 60px 0;
+  height: 100%;
+
+  @media (max-width: $responsive-width) {
+    background: initial;
+  }
 }
 
 #app-container {
+  background: $light-grey;
   text-align: center;
-  margin-top: 60px;
+  margin: 60px auto;
+  border: 2px solid $deep-grey;
+  border-radius: 9px 9px 50px 9px;
+  padding: 1rem;
+  width: calc(2.5 * 160px);
+  height: calc(4.5 * 144px);
+
+  @media (max-width: $responsive-width) {
+    border: none;
+    height: 100%;
+    padding: 0;
+    width: 100%;
+  }
 }
 
 .wrapper-display {
-  background: #555362;
-  border-radius: 9px 9px 40px 9px;
+  background: $deep-grey;
+  border-radius: 9px 9px 50px 9px;
   width: calc(2.25 * 160px);
   height: calc(1.8 * 144px);
   margin: auto;
@@ -92,7 +134,7 @@ body {
   background:
     radial-gradient(
       circle,
-      red 40%,
+      red 30%,
       white 100%,
     );
   border-style: none;
@@ -112,5 +154,28 @@ body {
   width: calc(1.5 * 160px);
   height: calc(1.5 * 144px);
   margin-left: calc(0.4 * 160px);
+}
+
+.speaker-holes {
+  background: $deep-grey;
+  border-radius: 2px;
+  display: block;
+  float: right;
+  width: 4px;
+  height: 3.5rem;
+  transform: rotate(-40deg);
+  margin-right: 25px;
+}
+
+.sh1 {
+  margin-top: 10px;
+}
+
+.sh2 {
+  margin-top: 20px;
+}
+
+.sh3 {
+  margin-top: 30px;
 }
 </style>

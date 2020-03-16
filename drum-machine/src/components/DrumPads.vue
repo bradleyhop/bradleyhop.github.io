@@ -29,18 +29,20 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 $gb-button: #84338e;
 $pressed-gb-button: #a988a7;
+$responsive-width: 599px;
 
 #button-box {
   display: grid;
   grid-template-columns: 33% 33% 33%;
   justify-items: center;
-  width: 30%;
+  width: 90%;
+  padding-top: 1rem;
   margin: auto;
 
-  @media (max-width: 599px) {
+  @media (max-width: $responsive-width) {
     width: 90%;
   }
 }
@@ -48,10 +50,10 @@ $pressed-gb-button: #a988a7;
 .drum-pad {
   background:
     radial-gradient(
-    circle,
-    rgba(132, 51, 142, 1) 60%,
-    rgba(169, 136, 167, 1) 100%
-  );
+      circle,
+      rgba(132, 51, 142, 1) 60%,
+      rgba(169, 136, 167, 1) 100%
+    );
   border-style: none;
   border-radius: 50%;
   margin: 10px;
