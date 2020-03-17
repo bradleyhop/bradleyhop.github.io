@@ -81,20 +81,18 @@ html {
   background-color: $light-grey;
   font-family: 'Pixelated', monospace;
   font-size: 20px;
-  height: 100vh;
-  overflow: hidden;
+  box-sizing: border-box;
 
   @media (max-width: $responsive-width) {
     background-image: none;
-    background-color: $light-grey;
   }
 }
 
 body {
   background: rgba(0, 0, 0, 0.7);
-  margin: 0;
-  padding: 60px 0;
   height: 100%;
+  margin: 0;
+  padding: 20px 0;
 
   @media (max-width: $responsive-width) {
     background: initial;
@@ -104,7 +102,7 @@ body {
 #app-container {
   background: $light-grey;
   text-align: center;
-  margin: 60px auto;
+  margin: auto;
   border: 2px solid $deep-grey;
   border-radius: 9px 9px 50px 9px;
   padding: 1rem;
@@ -134,8 +132,8 @@ body {
   background:
     radial-gradient(
       circle,
-      red 30%,
-      white 100%,
+      red 40%,
+      black 100%,
     );
   border-style: none;
   border-radius: 50%;
