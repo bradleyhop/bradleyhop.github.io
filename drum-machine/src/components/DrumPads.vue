@@ -36,7 +36,7 @@ $responsive-width: 599px;
 
 #button-box {
   display: grid;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: 33.3% 33.3% 33.3%;
   justify-items: center;
   width: 90%;
   padding-top: 1rem;
