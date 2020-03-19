@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
-    "minimist": "^1.2.5",
     "stylelint": "^13.2.1",
     "stylelint-order": "^4.0.0",
     "stylelint-scss": "^3.15.0",
