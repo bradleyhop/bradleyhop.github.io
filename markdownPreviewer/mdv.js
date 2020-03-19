@@ -41,20 +41,24 @@ This nastiness below will be removed through DOMPurify!
 (Here is no malicious code.)`;
 
 var vm = new Vue({
-  el: '#md-container',
+  el: "#md-container",
   data: {
-    textmarkMD: usrMD,
+    textmarkMD: usrMD
   },
   computed: {
-    preview: function () {
+    preview: function() {
       return DOMPurify.sanitize(
-        marked(this.textmarkMD,
-          { pendantic: false, gfm: true, breaks: true, smartLists: true,
-            xhtml: false,
-            highlight: function(code) {
-              return hljs.highlightAuto(code).value;}
-          })
+        marked(this.textmarkMD, {
+          pendantic: false,
+          gfm: true,
+          breaks: true,
+          smartLists: true,
+          xhtml: false,
+          highlight: function(code) {
+            return hljs.highlightAuto(code).value;
+          }
+        })
       );
     }
-  },
+  }
 });

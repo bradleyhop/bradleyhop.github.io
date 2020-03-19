@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-          content="Landing page for Bradley Smith's markdown previewer">
-    <meta name="keywords" content="fcc project freecodecamp markdown vue">
-    <meta name="author" content="Bradley Smith">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Landing page for Bradley Smith's markdown previewer"
+    />
+    <meta name="keywords" content="fcc project freecodecamp markdown vue" />
+    <meta name="author" content="Bradley Smith" />
 
     <title>markdown previewer in vue</title>
 
     <!-- local style sheet -->
-    <link rel="stylesheet" href="styleMD.css" type="text/css">
+    <link rel="stylesheet" href="styleMD.css" type="text/css" />
 
     <!-- google source sans pro font -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400&display=swap">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400&display=swap"
+    />
 
     <!-- highlight.js library for auto code highlighting -->
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/solarized-light.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/solarized-light.min.css"
+    />
     <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
     <!-- Vue development version, includes helpful console warnings -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
@@ -33,17 +39,16 @@
     <!-- local script file, defered to allow vue and marked to load first -->
     <script src="mdv.js" defer></script>
     <!-- fCC automated test -->
-    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" defer>
-    </script>
-
+    <script
+      src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"
+      defer
+    ></script>
   </head>
 
   <body>
-
     <h1 id="title">Markdown Previewer in Vue.js</h1>
 
     <div id="md-container">
-
       <div class="frame">
         <div class="frame-title">MARKDOWN EDITOR</div>
         <label for="editor">Enter your markdown here</label>
@@ -54,9 +59,6 @@
         <div class="frame-title">HTML PREVIEW</div>
         <div id="preview" v-html="preview"></div>
       </div>
-
     </div>
-
   </body>
-
 </html>
