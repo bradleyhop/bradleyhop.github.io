@@ -38,9 +38,9 @@ $responsive-width: 599px;
   display: grid;
   grid-template-columns: 33.3% 33.3% 33.3%;
   justify-items: center;
-  width: 90%;
-  padding-top: 1rem;
   margin: auto;
+  padding-top: 1rem;
+  width: 90%;
 
   @media (max-width: $responsive-width) {
     width: 90%;
@@ -54,12 +54,14 @@ $responsive-width: 599px;
       rgba(132, 51, 142, 1) 60%,
       rgba(169, 136, 167, 1) 100%
     );
-  border-style: none;
   border-radius: 50%;
-  margin: 10px;
-  height: 60px;
-  width: 60px;
+  border-style: none;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+  font-family: 'Pixelated', monospace;
+  font-size: 0.5rem;
+  height: 60px;
+  margin: 10px;
+  width: 60px;
 
   &:hover {
     background: $gb-button;
