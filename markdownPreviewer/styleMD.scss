@@ -11,14 +11,14 @@ body {
 
 #title {
   font: {
-    size: 3rem;
     family: $font-family-vue;
+    size: 3rem;
     weight: 300;
   }
 
-  text-align: center;
   color: $gray-vue;
   margin: 1rem;
+  text-align: center;
 }
 
 #md-container {
@@ -36,20 +36,20 @@ body {
   width: 40%;
 
   @media (max-width: $responsive-breakpoint) {
-    width: initial;
     min-height: 500px;
+    width: initial;
   }
 }
 
 .frame-title {
   font: {
-    size: 1.5rem;
     family: $font-family-vue;
+    size: 1.5rem;
     weight: 400;
   }
 
-  text-align: center;
   color: $green-vue;
+  text-align: center;
 }
 
 label {
@@ -62,12 +62,12 @@ label {
 }
 
 #editor {
-  width: 95%;
-  height: 90%;
-  min-height: 450px;
   border: 2px solid $gray-vue;
   border-radius: 3px;
+  height: 90%;
+  min-height: 450px;
   padding: 5px;
+  width: 95%;
 
   &:focus {
     border-color: $green-vue;

@@ -4,12 +4,12 @@ body {
 }
 
 #title {
-  font-size: 3rem;
   font-family: "Source Sans Pro", Arial, sans-serif;
+  font-size: 3rem;
   font-weight: 300;
-  text-align: center;
   color: #273849;
   margin: 1rem;
+  text-align: center;
 }
 
 #md-container {
@@ -29,17 +29,17 @@ body {
 }
 @media (max-width: 900px) {
   .frame {
-    width: initial;
     min-height: 500px;
+    width: initial;
   }
 }
 
 .frame-title {
-  font-size: 1.5rem;
   font-family: "Source Sans Pro", Arial, sans-serif;
+  font-size: 1.5rem;
   font-weight: 400;
-  text-align: center;
   color: #42b983;
+  text-align: center;
 }
 
 label {
@@ -49,12 +49,12 @@ label {
 }
 
 #editor {
-  width: 95%;
-  height: 90%;
-  min-height: 450px;
   border: 2px solid #273849;
   border-radius: 3px;
+  height: 90%;
+  min-height: 450px;
   padding: 5px;
+  width: 95%;
 }
 #editor:focus {
   border-color: #42b983;
