@@ -54,8 +54,8 @@ $responsive-width: 599px;
       rgba(132, 51, 142, 1) 60%,
       rgba(169, 136, 167, 1) 100%
     );
+  border: none;
   border-radius: 50%;
-  border-style: none;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
   font-family: 'Pixelated', monospace;
   font-size: 0.5rem;

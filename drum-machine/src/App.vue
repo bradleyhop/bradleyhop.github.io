@@ -75,8 +75,13 @@ $deep-grey: #555362;
 
 // to remove the outline on button focus; not needed here since keyboard presses
 //  activate buttons and are labeled
-:focus {outline:none;}
-::-moz-focus-inner {border:0;}
+::-moz-focus-inner {
+  border: 0;
+}
+
+:focus {
+  outline: none;
+}
 
 @font-face {
   font-family: 'Pixelated';
@@ -96,10 +101,12 @@ html {
 }
 
 body {
-  background: rgba(0, 0, 0, 0.7);
+  align-items: center;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
   height: 100%;
+  justify-content: center;
   margin: 0;
-  padding: 20px 0;
   position: absolute;
   width: 100%;
 
@@ -113,7 +120,6 @@ body {
   border: 2px solid $deep-grey;
   border-radius: 9px 9px 50px 9px;
   height: calc(4.5 * 144px);
-  margin: auto;
   padding: 1rem;
   text-align: center;
   width: calc(2.5 * 160px);
