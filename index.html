@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Bradley Smith">
-    <meta name="description"
-          content="freeCodeCamp project page for personal portfolio project">
-    <meta name="keywords" content="fcc project freecodecamp">
-    <title>freeCodeCamp Personal Portfolio Project</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Bradley Smith" />
+  <meta
+    name="description"
+    content="freeCodeCamp project page for personal portfolio project"
+  />
+  <meta name="keywords" content="fcc project freecodecamp" />
+  <title>freeCodeCamp Personal Portfolio Project</title>
 
-    <!--local style sheet-->
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <!--fontawesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-    <!--google Roboto font-->
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
-          rel="stylesheet">
-    <!--google Lato font-->
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap"
-          rel="stylesheet">
-    <!--simple function for tabbed project browsing-->
-    <script src="tabs.js"></script>
-
-  </head>
+  <!--local style sheet-->
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <!--fontawesome-->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+  />
+  <!-- google Source Sans Pro & Montserrat fonts -->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Montserrat|Source+Sans+Pro&display=swap"
+  />
+  <!--simple function for tabbed project browsing-->
+  <script src="tabs.js" defer></script>
+</head>
 
   <body>
 
@@ -37,21 +40,53 @@
     <main>
 
       <div id="welcome-section">
+        <div class="welcome-wrapper">
+
+          <div class="blurb-section">
+            <p class="me-copy">I am a self-taught web developer using freeCodeCamp as my main learning
+            resource. I am proficient in html, css, and javascript while also
+            utilizing tools like: flexbox in css, Sass to help me write responsive
+            content, and Vue.js to build webpages using Vue CLI. I upload most
+            of my work to my github which also serves the webpages live.</p>
+            <br>
+            <p>Here are my most recent projects:</p>
+            <ul class="recent-projects-list">
+              <li>
+              <a class="project-link"
+                href="https://bradleyhop.github.io/drumMachine/">
+                Game Boy Drum Machine
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+              </li>
+              <li>
+                <a class="project-link"
+                   href="https://bradleyhop.github.io/postRockBandName/">
+                  Post Rock Band Name Generator
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
 
         <div class="banner">
           <h1 class="my-name">Bradley Smith</h1>
-          <h2 class="tagline">web developer</h2>
-          <a id="profile-link" class="profile-link"
-             href="https://github.com/bradleyhop" target="_blank"
-             rel="noopener noreferrer"
-             aria-label="Bradley's github profile">
-            <i class="fab fa-github" aria-hidden="true"
-              title="Bradley's github profile">
-              <span class="sr-only">Link to github profile</span>
-            </i>
-          </a>
+          <div class="tagline">
+            web developer
+            <a id="profile-link" class="profile-link"
+               href="https://github.com/bradleyhop" target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Bradley's github profile">
+              <i class="fab fa-github" aria-hidden="true"
+                 title="Bradley's github profile">
+                <span class="sr-only">Link to github profile</span>
+              </i>
+            </a>
+          </div>
+          <img src="assets/me.jpg" alt="picture of bradley looking forward to the future"
+               class="profile-pic">
         </div>
 
+        </div>
       </div>
 
       <div id="projects">
