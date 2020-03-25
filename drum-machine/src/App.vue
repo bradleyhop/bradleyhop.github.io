@@ -89,29 +89,26 @@ $deep-grey: #555362;
 }
 
 html {
-  background-color: $light-grey;
-  background-image: url(../public/assets/gb.webp);
   font-family: 'Pixelated', monospace;
   font-size: 20px;
   overflow: hidden;
-
-  @media (max-width: $responsive-width) {
-    background-image: none;
-  }
 }
 
 body {
   align-items: center;
-  background: rgba(0, 0, 0, 0.65);
+  background-color: $light-grey;
+  background-image: url(../public/assets/gb.webp);
+  box-shadow: inset 0 0 0 100vw rgba(0, 0, 0, 0.65);
   display: flex;
-  height: 100%;
+  height: 100vh;
   justify-content: center;
-  margin: 0;
+  margin: 0 0;
   position: absolute;
-  width: 100%;
+  width: 100vw;
 
   @media (max-width: $responsive-width) {
-    background: initial;
+    background-image: none;
+    box-shadow: none;
   }
 }
 
@@ -126,9 +123,6 @@ body {
 
   @media (max-width: $responsive-width) {
     border: none;
-    height: 100%;
-    padding: 0;
-    width: 100%;
   }
 }
 
