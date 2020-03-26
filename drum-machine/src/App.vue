@@ -86,6 +86,7 @@ $deep-grey: #555362;
 @font-face {
   font-family: 'Pixelated';
   src: url("../public/assets/Pixeled.ttf");
+  font-display: swap;
 }
 
 html {
