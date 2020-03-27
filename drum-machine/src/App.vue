@@ -73,26 +73,15 @@ $responsive-width: 599px;
 $light-grey: #bfbcb7;
 $deep-grey: #555362;
 
-// to remove the outline on button focus; not needed here since keyboard presses
-//  activate buttons and are labeled
-::-moz-focus-inner {
-  border: 0;
-}
-
-:focus {
-  outline: none;
-}
-
 @font-face {
+  font-display: swap;
   font-family: 'Pixelated';
   src: url("../public/assets/Pixeled.ttf");
-  font-display: swap;
 }
 
 html {
   font-family: 'Pixelated', monospace;
   font-size: 20px;
-  overflow: hidden;
 }
 
 body {
