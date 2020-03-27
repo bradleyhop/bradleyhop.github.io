@@ -1,12 +1,12 @@
 <template>
   <div id="button-box">
     <div v-for="drum in drumpad" :key="drum.id">
-      <button class="drum-pad" :id="drum.desc" @click="clickDrum(drum.letter)">
+      <div class="drum-pad" :id="drum.desc" @click="clickDrum(drum.letter)">
         <audio preload="auto" :src="drum.source" class="clip" :id="drum.letter"
           type="audio/mp3">
         </audio>
         {{ drum.letter }}
-      </button>
+      </div>
     </div>
   </div>
 </template>
@@ -43,11 +43,12 @@ $responsive-width: 599px;
   width: 90%;
 
   @media (max-width: $responsive-width) {
-    width: 90%;
+    width: 100%;
   }
 }
 
 .drum-pad {
+  align-items: center;
   background:
     radial-gradient(
       circle,
@@ -57,18 +58,21 @@ $responsive-width: 599px;
   border: none;
   border-radius: 50%;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+  color: #fcfcfc;
+  display: flex;
   font-family: 'Pixelated', monospace;
   font-size: 0.5rem;
   height: 60px;
+  justify-content: center;
   margin: 10px;
   width: 60px;
 
   &:hover {
-    background: $gb-button;
+    background-color: $gb-button;
   }
 
   &:active {
-    background: $pressed-gb-button;
+    background-color: $pressed-gb-button;
   }
 }
 
