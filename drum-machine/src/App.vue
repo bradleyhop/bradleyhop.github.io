@@ -21,6 +21,15 @@ export default {
   components: {
     DrumPads,
   },
+  mounted() {
+    const plugin = document.createElement('script');
+    plugin.setAttribute(
+      'src',
+      '//unpkg.com/focus-visible',
+    );
+    plugin.async = true;
+    document.head.appendChild(plugin);
+  },
 };
 </script>
 
@@ -59,6 +68,14 @@ body {
     background-image: none;
     box-shadow: none;
   }
+}
+
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
+.focus-visible {
+  outline: auto 5px -webkit-focus-ring-color;
 }
 
 #app-container {

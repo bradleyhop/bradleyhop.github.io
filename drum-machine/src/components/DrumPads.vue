@@ -1,13 +1,10 @@
 <template>
   <div id="button-box">
     <div v-for="drum in drumpad" :key="drum.id">
-      <button
-        class="drum-pad focus-visable"
-        type="button"
-        :id="drum.desc"
-        @click="hitDrum(drum.letter)"
-      >
-        <audio preload="auto" :src="drum.source" :id="drum.letter" type="audio/mp3"></audio>
+      <button class="drum-pad" type="button" :id="drum.desc" @click="hitDrum(drum.letter)">
+        <!-- class .clip required for project requirements -->
+        <audio preload="auto" class="clip" :src="drum.source" :id="drum.letter" type="audio/mp3">
+        </audio>
         {{ drum.letter }}
       </button>
     </div>
@@ -70,27 +67,6 @@ $gb-button: #84338e;
 $pressed-gb-button: #a988a7;
 $responsive-width: 599px;
 
-/*
- * .js-focus-visible :focus:not(.focus-visible) {
- *   outline: none;
- * }
- * [> Optional: Customize .focus-visible <]
- * .focus-visible {
- *   outline: lightgreen solid 2px;
- * }
- */
-
-/*
- * @mixin focusing {
- *   border: 3px solid #393c9f;
- * }
- */
-/*
- *
- * :focus {outline:none;}
- * ::-moz-focus-inner {border:0;}
- */
-
 #button-box {
   display: grid;
   grid-template-columns: 33.3% 33.3% 33.3%;
@@ -120,20 +96,6 @@ $responsive-width: 599px;
   height: 60px;
   margin: 10px;
   width: 60px;
-
-  /*
-   * &:focus-visible {
-   *   @include focusing;
-   * }
-   */
-  /*
-   * &::-moz-focusring {
-   *   @include focusing;
-   * }
-   * &:focus-within {
-   *   @include focusing;
-   * }
-   */
 
   &:hover {
     background-color: $gb-button;
