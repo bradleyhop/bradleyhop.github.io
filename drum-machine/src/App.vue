@@ -1,5 +1,5 @@
 <template>
-  <div id="app-container">
+  <div id="app-container" class="focus-visible">
     <div class="wrapper-display">
       <span class="power-light"></span>
       <span id="display">Game Boy Beats</span>
@@ -21,15 +21,6 @@ export default {
   components: {
     DrumPads,
   },
-  mounted() {
-    const plugin = document.createElement('script');
-    plugin.setAttribute(
-      'src',
-      '//unpkg.com/focus-visible',
-    );
-    plugin.async = true;
-    document.head.appendChild(plugin);
-  },
 };
 </script>
 
@@ -48,30 +39,35 @@ $spinach-screen: #94c11f;
   src: url("../public/assets/Pixeled.ttf");
 }
 
-html {
-  font-family: 'Pixelated', monospace;
-  font-size: 20px;
-}
-
 body {
   align-items: center;
   background-color: $light-grey;
-  background-image: url(../public/assets/gb.webp);
-  box-shadow: inset 0 0 0 100vw rgba(0, 0, 0, 0.65);
+  background-image: none;
+  box-shadow: none;
   display: flex;
+  font-family: 'Pixelated', monospace;
+  font-size: 20px;
   height: 100vh;
   justify-content: center;
-  margin: 0 0;
+  margin: 0;
   position: absolute;
   width: 100vw;
 
-  @media (max-width: $responsive-width) {
-    background-image: none;
-    box-shadow: none;
+  @media only screen and (min-width: $responsive-width) {
+    background-image: url(../public/assets/gb.webp);
+    box-shadow: inset 0 0 0 100vw rgba(0, 0, 0, 0.65);
   }
 }
 
-:focus {outline:none;} ::-moz-focus-inner {border:0;}
+// next four rules needed for the focus-visible polyfill; gives focus on keyboard navigation only
+
+:focus {
+  outline:none;
+}
+
+::-moz-focus-inner {
+  border:0;
+}
 
 .js-focus-visible :focus:not(.focus-visible) {
   outline: none;
@@ -82,17 +78,19 @@ body {
   border-radius: 50%;
 }
 
+// end focus-visible polyfill rules
+
 #app-container {
   background: $light-grey;
-  border: 2px solid $deep-grey;
+  border: none;
   border-radius: 9px 9px 50px 9px;
   height: calc(4.5 * 144px);
   padding: 1rem;
   text-align: center;
   width: calc(2.5 * 160px);
 
-  @media (max-width: $responsive-width) {
-    border: none;
+  @media only screen and (min-width: $responsive-width) {
+    border: 2px solid $deep-grey;
   }
 }
 
@@ -109,8 +107,8 @@ body {
   background:
     radial-gradient(
       circle,
-      red 40%,
-      black 100%,
+      #f00 40%,
+      #000 100%,
     );
   border-radius: 50%;
   border-style: none;
@@ -134,9 +132,10 @@ body {
 
 .speaker-grill {
   float: right;
+  padding-right: 10px;
 
-  @media (max-width: $responsive-width) {
-    padding-right: 10px;
+  @media only screen and (min-width: $responsive-width) {
+    padding: 0;
   }
 }
 
