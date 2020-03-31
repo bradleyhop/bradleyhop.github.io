@@ -73,10 +73,10 @@ $responsive-width: 599px;
   justify-items: center;
   margin: auto;
   padding-top: 1rem;
-  width: 90%;
+  width: 100%;
 
-  @media (max-width: $responsive-width) {
-    width: 100%;
+  @media only screen and (min-width: $responsive-width) {
+    width: 90%;
   }
 }
 
