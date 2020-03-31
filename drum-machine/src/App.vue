@@ -40,6 +40,7 @@ export default {
 $responsive-width: 599px;
 $light-grey: #bfbcb7;
 $deep-grey: #555362;
+$spinach-screen: #94c11f;
 
 @font-face {
   font-display: swap;
@@ -70,12 +71,15 @@ body {
   }
 }
 
+:focus {outline:none;} ::-moz-focus-inner {border:0;}
+
 .js-focus-visible :focus:not(.focus-visible) {
   outline: none;
 }
 
 .focus-visible {
-  outline: auto 5px -webkit-focus-ring-color;
+  border: #fff solid 2px;
+  border-radius: 50%;
 }
 
 #app-container {
@@ -119,7 +123,7 @@ body {
 
 #display {
   align-items: center;
-  background: #94c11f;
+  background: $spinach-screen;
   border-radius: 5px;
   display: flex;
   height: calc(1.5 * 144px);
