@@ -89,13 +89,13 @@ $responsive-width: 599px;
     );
   border: none;
   border-radius: 50%;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 0.15rem 0.15rem 0.15rem rgba(0, 0, 0, 0.5);
   color: #fcfcfc;
   font-family: 'Pixelated', monospace;
   font-size: 0.5rem;
-  height: 60px;
-  margin: 10px;
-  width: 60px;
+  height: 3rem;
+  margin: 0.5rem;
+  width: 3rem;
 
   &:hover {
     background-color: $gb-button;
