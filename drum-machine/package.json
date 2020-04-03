@@ -1,6 +1,6 @@
 {
   "name": "drum-machine",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -46,7 +46,7 @@
     }
   },
   "browserslist": [
-    "> 1%",
+    "> 5%",
     "last 2 versions"
   ],
   "gitHooks": {

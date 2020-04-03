@@ -1,10 +1,20 @@
 <template>
   <div id="button-box">
     <div v-for="drum in drumpad" :key="drum.id">
-      <button class="drum-pad" type="button" :id="drum.desc" @click="hitDrum(drum.letter)">
-        <!-- class .clip required for project requirements -->
-        <audio preload="auto" class="clip" :src="drum.source" :id="drum.letter" type="audio/mp3">
-        </audio>
+      <button
+        class="drum-pad"
+        type="button"
+        :id="drum.desc"
+        :aria-label="'press ' + drum.letter + ' for ' + drum.desc"
+        @click="hitDrum(drum.letter)"
+      >
+        <audio
+          preload="auto"
+          class="clip"
+          :src="drum.source"
+          :id="drum.letter"
+          type="audio/mp3"
+        ></audio>
         {{ drum.letter }}
       </button>
     </div>
@@ -68,6 +78,7 @@ $pressed-gb-button: #a988a7;
 $responsive-width: 599px;
 
 #button-box {
+  display: -ms-grid;
   display: grid;
   grid-template-columns: 33.3% 33.3% 33.3%;
   justify-items: center;

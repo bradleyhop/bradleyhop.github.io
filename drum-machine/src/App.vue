@@ -1,8 +1,8 @@
 <template>
-  <div id="app-container" class="focus-visible" role="main">
+  <div id="drum-machine" class="focus-visible" role="main">
     <div class="wrapper-display">
       <span class="power-light"></span>
-      <span id="display">Game Boy Drum Machine</span>
+      <span id="display" aria-hidden="true">Game Boy Drum Machine</span>
     </div>
     <DrumPads />
     <div class="speaker-grill">
@@ -58,18 +58,19 @@ body {
   margin: 0;
 
   @media only screen and (min-width: $responsive-width) {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
       url(../public/assets/gb.webp);
   }
 }
 
-.title {
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
+.title-hidden {
   clip: rect(1px, 1px, 1px, 1px);
-  white-space: nowrap; /* added line */
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  white-space: nowrap;
+  width: 1px;
 }
 
 // next four rules needed for the focus-visible polyfill; gives focus on keyboard navigation only
@@ -93,7 +94,7 @@ body {
 
 // end focus-visible polyfill rules
 
-#app-container {
+#drum-machine {
   background: $light-grey;
   border: none;
   border-radius: 0.45rem 0.45rem 2.5rem 0.45rem;
