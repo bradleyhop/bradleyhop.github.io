@@ -1,8 +1,8 @@
 <template>
-  <div id="app-container" class="focus-visible">
+  <div id="app-container" class="focus-visible" role="main">
     <div class="wrapper-display">
       <span class="power-light"></span>
-      <span id="display">Game Boy Beats</span>
+      <span id="display">Game Boy Drum Machine</span>
     </div>
     <DrumPads />
     <div class="speaker-grill">
@@ -46,24 +46,30 @@ $spinach-screen: #94c11f;
 html {
   font-family: 'Pixelated', monospace;
   font-size: 20px;
+  height: 100%;
+  min-height: 100%;
 }
 
 body {
-  align-items: center;
   background-color: $light-grey;
-  background-image: none;
-  box-shadow: none;
   display: flex;
+  flex-direction: column;
   height: 100vh;
-  justify-content: center;
   margin: 0;
-  position: absolute;
-  width: 100vw;
 
   @media only screen and (min-width: $responsive-width) {
-    background-image: url(../public/assets/gb.webp);
-    box-shadow: inset 0 0 0 100vw rgba(0, 0, 0, 0.65);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url(../public/assets/gb.webp);
   }
+}
+
+.title {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; /* added line */
 }
 
 // next four rules needed for the focus-visible polyfill; gives focus on keyboard navigation only
@@ -92,6 +98,7 @@ body {
   border: none;
   border-radius: 0.45rem 0.45rem 2.5rem 0.45rem;
   height: calc(4.5 * #{$height-gameboy});
+  margin: auto;
   padding: 1rem;
   text-align: center;
   width: calc(2.5 * #{$width-gameboy});
@@ -129,7 +136,6 @@ body {
 #display {
   align-items: center;
   background: $spinach-screen;
-  border-radius: 0.25rem;
   display: flex;
   height: calc(1.5 * #{$height-gameboy});
   justify-content: center;
