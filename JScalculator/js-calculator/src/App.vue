@@ -39,7 +39,7 @@
       <button @click="operator('-')" class="operator darkgrey" type="button" aria-label="substract">
         -
       </button>
-      <button @click="operator('x')" class="operator darkgrey" type="button" aria-label="multiply">
+      <button @click="operator('*')" class="operator darkgrey" type="button" aria-label="multiply">
         x
       </button>
       <button @click="operator('/')" class="operator darkgrey" type="button" aria-label="divide">
@@ -50,7 +50,9 @@
     <br>
 
     <div class="equals">
-      <button @click="equals" class="equals orange" type="button" aria-label="calculate">=</button>
+      <button @click="equals" class="equals orange" type="button" aria-label="calculate">
+        =
+      </button>
     </div>
 
     <br>
@@ -69,6 +71,8 @@
 </template>
 
 <script>
+import { evaluate } from 'mathjs';
+
 export default {
   name: 'App',
 
@@ -85,11 +89,19 @@ export default {
       if (this.display === '0') {
         this.display = '';
         this.display += num;
-      } else if (/(\+|-|x|\/)/.test(this.display)) {
-        if (num !== '0') {
-          this.display += num;
-        }
-      } else {
+        // put in another check to see if there's been a calulation, clear display and io, add num
+      } else if (/=/.test(this.io)) {
+        this.io = '';
+        this.display = '';
+        this.io += num;
+        this.display += num;
+        document.getElementById('io').innerText = this.io;
+      } else if (/\d/.test(this.display)) {
+        this.display += num;
+      } else if (/(\+|-|\*|\/)/.test(this.display)) {
+        this.io += ` ${this.display} `;
+        document.getElementById('io').innerText = this.io;
+        this.display = '';
         this.display += num;
       }
 
@@ -97,42 +109,55 @@ export default {
     },
 
     operator(op) {
-      // Throw whatever is in the active display to the io line above, clear display, and show
-      //   perator.
-      if (this.io !== '') {
-        this.io = this.display;
-      } else {
+      // only activate operator if there are numbers in the display and also if not just 0
+      if (/\d/.test(this.display) && !/^0$/.test(this.display) && !/=/.test(this.io)) {
         this.io += this.display;
+        this.display = '';
+        this.display += op;
+        document.getElementById('io').innerText = this.io;
+        document.getElementById('display').innerText = op;
+      // check for prior calulation
+      } else if (/=/.test(this.io)) {
+        this.io = '';
+        this.io += this.display;
+        this.display = op;
+        document.getElementById('io').innerText = this.io;
+        document.getElementById('display').innerText = op;
       }
-      this.display = '';
-      this.display = op;
+      // else ignore other operator button presses
+    },
 
-      document.getElementById('io').innerText = this.io;
-      document.getElementById('display').innerText = '';
-      document.getElementById('display').innerText = op;
+    equals() {
+      // pop whatever is currently in the display to io to prep for calculation
+      this.io += this.display;
+
+      // evaluate and display full calculation on <io> and result on <display>
+      const answer = evaluate(this.io);
+      this.io += ` = ${answer}`;
+      document.getElementById('io').innerText = `${this.io}`;
+      this.display = '';
+      this.display = answer;
+      document.getElementById('display').innerText = this.display;
     },
 
     allClear() {
       // clear out both the active display and th io line
-      this.$data.display = '0';
-      this.$data.io = '';
+      this.display = '0';
+      this.io = '';
 
-      document.getElementById('display').innerText = this.$data.display;
-      document.getElementById('io').innerText = this.$data.io;
+      document.getElementById('display').innerText = this.display;
+      document.getElementById('io').innerText = this.io;
     },
+
+    clearEntry() {
+      this.display = '0';
+      document.getElementById('display').innerHTML = this.display;
+    },
+
   },
 
   mounted() {
     document.getElementById('display').innerText = this.display;
-  },
-
-  created() {
-    // listen for keypress and assign call method for that keypress
-    window.addEventListener('keyup', (e) => this.dosomething(e));
-  },
-
-  beforeDestroy() {
-    window.removeEventListener('keyup', (e) => this.dosomething(e));
   },
 };
 </script>
@@ -145,10 +170,10 @@ body {
 }
 
 #calculator {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 16px;
+  font-size: 18px;
   color: #2c3e50;
   margin-top: 60px;
   text-align: center;
@@ -162,6 +187,6 @@ body {
 #io {
   color: white;
   height: 3rem;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
 }
 </style>
