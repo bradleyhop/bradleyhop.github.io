@@ -9,40 +9,69 @@
     </div>
 
     <div class="numpad">
-      <button @click="number('1')" class="digit lightgrey" type="button" aria-label="1">1</button>
-      <button @click="number('2')" class="digit lightgrey" type="button" aria-label="2">2</button>
-      <button @click="number('3')" class="digit lightgrey" type="button" aria-label="3">3</button>
-      <button @click="number('4')" class="digit lightgrey" type="button" aria-label="4">4</button>
-      <button @click="number('5')" class="digit lightgrey" type="button" aria-label="5">5</button>
-      <button @click="number('6')" class="digit lightgrey" type="button" aria-label="6">6</button>
-      <button @click="number('7')" class="digit lightgrey" type="button" aria-label="7">7</button>
-      <button @click="number('8')" class="digit lightgrey" type="button" aria-label="8">8</button>
-      <button @click="number('9')" class="digit lightgrey" type="button" aria-label="9">9</button>
-      <button @click="number('0')" class="digit lightgrey" type="button" aria-label="0">0</button>
+      <button id="one" @click="number('1')" class="digit lightgrey" type="button" aria-label="1">
+        1
+      </button>
+      <button id="two" @click="number('2')" class="digit lightgrey" type="button" aria-label="2">
+        2
+      </button>
+      <button id="three" @click="number('3')" class="digit lightgrey" type="button" aria-label="3">
+        3
+      </button>
+      <button id="four" @click="number('4')" class="digit lightgrey" type="button" aria-label="4">
+        4
+      </button>
+      <button id="five" @click="number('5')" class="digit lightgrey" type="button" aria-label="5">
+        5
+      </button>
+      <button id="six" @click="number('6')" class="digit lightgrey" type="button" aria-label="6">
+        6
+      </button>
+      <button id="seven" @click="number('7')" class="digit lightgrey" type="button" aria-label="7">
+        7
+      </button>
+      <button id="eight" @click="number('8')" class="digit lightgrey" type="button" aria-label="8">
+        8
+      </button>
+      <button id="nine" @click="number('9')" class="digit lightgrey" type="button" aria-label="9">
+        9
+      </button>
+      <button id="zero" @click="number('0')" class="digit lightgrey" type="button" aria-label="0">
+        0
+      </button>
     </div>
 
     <br>
 
     <div class="decimal">
-      <button @click="decimal" class="decimal lightgrey" type="button" aria-label="decimal">
+      <button id="decimal" @click="decimal" class="decimal lightgrey" type="button"
+              aria-label="decimal">
         .
       </button>
-      <!--<button @click="posNeg">+ &#47; -</button>-->
+      <button @click="posNeg">
+        <span style="vertical-align: super">+</span>
+        &#47;
+        <span style="vertical-align: sub">-</span>
+      </button>
     </div>
 
     <br>
 
     <div class="operations">
-      <button @click="operator('+')" class="operator darkgrey" type="button" aria-label="add">
+      <button id="add" @click="operator('+')" class="operator darkgrey" type="button"
+              aria-label="add">
         +
       </button>
-      <button @click="operator('-')" class="operator darkgrey" type="button" aria-label="substract">
+      <button id="subtract" @click="operator('-')" class="operator darkgrey" type="button"
+              aria-label="substract">
         -
       </button>
-      <button @click="operator('*')" class="operator darkgrey" type="button" aria-label="multiply">
+      <button id="multiply" @click="operator('*')" class="operator darkgrey" type="button"
+              aria-label="multiply">
         x
       </button>
-      <button @click="operator('/')" class="operator darkgrey" type="button" aria-label="divide">
+      <button id="divide" @click="operator('/')" class="operator darkgrey" type="button"
+              aria-label="divide">
         &#247;
       </button>
     </div>
@@ -50,7 +79,8 @@
     <br>
 
     <div class="equals">
-      <button @click="equals" class="equals orange" type="button" aria-label="calculate">
+      <button id="equals" @click="equals" class="equals orange" type="button"
+              aria-label="calculate">
         =
       </button>
     </div>
@@ -58,11 +88,12 @@
     <br>
 
     <div class="allClear">
-      <button @click="allClear" class="clearDisplay darkgrey" type="button"
+      <button id="clear" @click="allClear" class="clearDisplay darkgrey" type="button"
               aria-label="clear display to 0">
         CD
       </button>
-      <button @click="clearEntry" class="clear darkgrey" type="button" aria-label="clear entry">
+      <button id="clear-entry" @click="clearEntry" class="clear darkgrey" type="button"
+              aria-label="clear entry">
         C
       </button>
     </div>
@@ -89,15 +120,16 @@ export default {
       if (this.display === '0') {
         this.display = '';
         this.display += num;
-        // put in another check to see if there's been a calulation, clear display and io, add num
+      // put in another check to see if there's been a calulation, clear display and io, add num
       } else if (/=/.test(this.io)) {
         this.io = '';
         this.display = '';
-        this.io += num;
         this.display += num;
         document.getElementById('io').innerText = this.io;
+      // check if only digits are in the display, if so then add digits
       } else if (/\d/.test(this.display)) {
         this.display += num;
+      // if there is an operator, put it in <io> and start new number input
       } else if (/(\+|-|\*|\/)/.test(this.display)) {
         this.io += ` ${this.display} `;
         document.getElementById('io').innerText = this.io;
@@ -116,6 +148,10 @@ export default {
         this.display += op;
         document.getElementById('io').innerText = this.io;
         document.getElementById('display').innerText = op;
+      // 0 in <display> is okay if we have numbers in <io>
+      } else if (/\d/.test(this.io) && /^0$/.test(this.display)) {
+        this.display = op;
+        document.getElementById('display').innerText = this.display;
       // check for prior calulation
       } else if (/=/.test(this.io)) {
         this.io = '';
@@ -127,21 +163,50 @@ export default {
       // else ignore other operator button presses
     },
 
+    decimal() {
+      // if no leading numbers, then decimal < 0
+      if (/^0$/.test(this.display)) {
+        this.display = '0.';
+        document.getElementById('display').innerText = this.display;
+      // if operator in <display>, add to io and begin new decimal number
+      } else if (/(\+|-|\*|\/)/.test(this.display)) {
+        this.io += ` ${this.display}`;
+        document.getElementById('io').innerText = this.io;
+        this.display = '0.';
+        document.getElementById('display').innerText = this.display;
+      // else add decimal
+      } else if (/\d/.test(this.display) && !/\./.test(this.display)) {
+        this.display += '.';
+        document.getElementById('io').innerText = this.io;
+        document.getElementById('display').innerText = this.display;
+      }
+      // do nothing, which prevents multiple decimals in same number
+    },
+
+    posNeg() {
+      if (/^-/.test(this.display)) {
+        this.display = this.display.substring(1);
+        document.getElementById('display').innerText = this.display;
+      } else if (/\d/.test(this.display)) {
+        this.display = `-${this.display}`;
+        document.getElementById('display').innerText = this.display;
+      }
+    },
+
     equals() {
       // pop whatever is currently in the display to io to prep for calculation
       this.io += this.display;
-
       // evaluate and display full calculation on <io> and result on <display>
       const answer = evaluate(this.io);
       this.io += ` = ${answer}`;
-      document.getElementById('io').innerText = `${this.io}`;
+      document.getElementById('io').innerText = ` ${this.io}`;
       this.display = '';
       this.display = answer;
       document.getElementById('display').innerText = this.display;
     },
 
     allClear() {
-      // clear out both the active display and th io line
+      // clear out both the active <display> and the <io> line
       this.display = '0';
       this.io = '';
 
@@ -150,6 +215,7 @@ export default {
     },
 
     clearEntry() {
+      // clear out a place a 0 in the active display
       this.display = '0';
       document.getElementById('display').innerHTML = this.display;
     },
