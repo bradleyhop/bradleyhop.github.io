@@ -141,26 +141,25 @@ export default {
     },
 
     operator(op) {
-      // only activate operator if there are numbers in the display and also if not just 0
-      if (/\d/.test(this.display) && !/^0$/.test(this.display) && !/=/.test(this.io)) {
-        this.io += this.display;
-        this.display = '';
-        this.display += op;
-        document.getElementById('io').innerText = this.io;
-        document.getElementById('display').innerText = op;
-      // 0 in <display> is okay if we have numbers in <io>
-      } else if (/\d/.test(this.io) && /^0$/.test(this.display)) {
-        this.display = op;
-        document.getElementById('display').innerText = this.display;
-      // check for prior calulation
-      } else if (/=/.test(this.io)) {
+      if (/=/.test(this.io)) {
         this.io = '';
         this.io += this.display;
         this.display = op;
         document.getElementById('io').innerText = this.io;
         document.getElementById('display').innerText = op;
+      } else if (/\d/.test(this.display)) {
+        this.io += this.display;
+        document.getElementById('io').innerText = this.io;
+        this.display = op;
+        document.getElementById('display').innerText = this.display;
+      } else if (/\+|-\*|\/|/.test(this.display)) {
+        if (op === '-') {
+          this.display += op;
+        } else {
+          this.display = op;
+        }
+        document.getElementById('display').innerText = this.display;
       }
-      // else ignore other operator button presses
     },
 
     decimal() {
@@ -215,7 +214,7 @@ export default {
     },
 
     clearEntry() {
-      // clear out a place a 0 in the active display
+      // clear out and place a 0 in the active display
       this.display = '0';
       document.getElementById('display').innerHTML = this.display;
     },
