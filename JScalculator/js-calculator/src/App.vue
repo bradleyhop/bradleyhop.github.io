@@ -48,10 +48,20 @@
               aria-label="decimal">
         .
       </button>
-      <button @click="posNeg">
-        <span style="vertical-align: super">+</span>
-        &#47;
-        <span style="vertical-align: sub">-</span>
+      <button @click="posNeg" class="darkgrey">
+        + &#47; -
+      </button>
+      <button id="inverse" @click="inverse" class="inverse darkgrey" type="button"
+              aria-label="compute inverse">
+        1 &#47; x
+      </button>
+      <button id="square" @click="square" class="square darkgrey" type="button"
+              aria-label="compute square">
+        x<span style="vertical-align: super; font-size: 0.8rem;">2</span>
+      </button>
+      <button id="sqareRoot" @click="squareRoot" class="sqareRoot darkgrey" type="button"
+              aria-label="compute square root">
+        &#8730;x
       </button>
     </div>
 
@@ -88,7 +98,7 @@
     <br>
 
     <div class="allClear">
-      <button id="clear" @click="allClear" class="clearDisplay darkgrey" type="button"
+      <button id="clear" @click="allClear" class="clearDisplay lightgrey" type="button"
               aria-label="clear display to 0">
         CD
       </button>
@@ -102,7 +112,9 @@
 </template>
 
 <script>
-import { evaluate } from 'mathjs';
+import {
+  evaluate, inv, square, sqrt,
+} from 'mathjs';
 
 export default {
   name: 'App',
@@ -118,13 +130,11 @@ export default {
     number(num) {
       // no leading '0'
       if (this.display === '0') {
-        this.display = '';
-        this.display += num;
+        this.display = num;
       // put in another check to see if there's been a calulation, clear display and io, add num
       } else if (/=/.test(this.io)) {
         this.io = '';
-        this.display = '';
-        this.display += num;
+        this.display = num;
         document.getElementById('io').innerText = this.io;
       // check if only digits are in the display, if so then add digits
       } else if (/\d/.test(this.display)) {
@@ -133,25 +143,26 @@ export default {
       } else if (/(\+|-|\*|\/)/.test(this.display)) {
         this.io += ` ${this.display} `;
         document.getElementById('io').innerText = this.io;
-        this.display = '';
-        this.display += num;
+        this.display = num;
       }
 
       document.getElementById('display').innerText = this.display;
     },
 
     operator(op) {
+      // see if there's a previous calulation
       if (/=/.test(this.io)) {
-        this.io = '';
-        this.io += this.display;
+        this.io = this.display;
         this.display = op;
         document.getElementById('io').innerText = this.io;
         document.getElementById('display').innerText = op;
+      // only numbers
       } else if (/\d/.test(this.display)) {
         this.io += this.display;
         document.getElementById('io').innerText = this.io;
         this.display = op;
         document.getElementById('display').innerText = this.display;
+      // a previous operator present, NB: allow minus to be used as a negative sign
       } else if (/\+|-\*|\/|/.test(this.display)) {
         if (op === '-') {
           this.display += op;
@@ -192,6 +203,27 @@ export default {
       }
     },
 
+    inverse() {
+      if (/\d/.test(this.display) && !/^0$/.test(this.display)) {
+        this.display = inv(this.display);
+        document.getElementById('display').innerText = this.display;
+      }
+    },
+
+    square() {
+      if (/\d/.test(this.display) && !/^0$/.test(this.display)) {
+        this.display = square(this.display);
+        document.getElementById('display').innerText = this.display;
+      }
+    },
+
+    squareRoot() {
+      if (/\d/.test(this.display) && !/^0$/.test(this.display)) {
+        this.display = sqrt(this.display);
+        document.getElementById('display').innerText = this.display;
+      }
+    },
+
     equals() {
       // pop whatever is currently in the display to io to prep for calculation
       this.io += this.display;
@@ -199,7 +231,6 @@ export default {
       const answer = evaluate(this.io);
       this.io += ` = ${answer}`;
       document.getElementById('io').innerText = ` ${this.io}`;
-      this.display = '';
       this.display = answer;
       document.getElementById('display').innerText = this.display;
     },
@@ -231,7 +262,7 @@ export default {
 body {
   margin: 0;
   padding: 0;
-  background-color: darkgrey;
+  background-color: #bcb7a9;
 }
 
 #calculator {
@@ -253,5 +284,24 @@ body {
   color: white;
   height: 3rem;
   font-size: 0.8rem;
+}
+
+button {
+  width: 4rem;
+  height: 4rem;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.lightgrey {
+  background-color: #e6d6c7;
+}
+
+.darkgrey {
+  background-color: #818179;
+}
+
+.orange {
+  background-color: #ff733d;
 }
 </style>
