@@ -113,8 +113,11 @@
 
 <script>
 import {
-  evaluate, inv, square, sqrt,
+  evaluate, inv, square, sqrt, format,
 } from 'mathjs';
+
+// imported format() takes a number as the first arg, precision as the second
+const precision = 7;
 
 export default {
   name: 'App',
@@ -140,7 +143,7 @@ export default {
       } else if (/\d/.test(this.display)) {
         this.display += num;
       // if there is an operator, put it in <io> and start new number input
-      } else if (/(\+|-|\*|\/)/.test(this.display)) {
+      } else if (/\+|-|\*|\//.test(this.display)) {
         this.io += ` ${this.display} `;
         document.getElementById('io').innerText = this.io;
         this.display = num;
@@ -162,77 +165,88 @@ export default {
         document.getElementById('io').innerText = this.io;
         this.display = op;
         document.getElementById('display').innerText = this.display;
-      // a previous operator present, NB: allow minus to be used as a negative sign
-      } else if (/\+|-\*|\/|/.test(this.display)) {
-        if (op === '-') {
-          this.display += op;
-        } else {
-          this.display = op;
-        }
+      // NOTE: allow minus to be used as a negative sign, so append
+      } else if (op === '-' && this.display.length < 2) {
+        this.display += op;
+        document.getElementById('display').innerText = this.display;
+      // only two operators can be present
+      } else if (this.display.length === 2) {
+        this.display = op;
+        document.getElementById('display').innerText = this.display;
+      // replace display with single operator
+      } else {
+        this.display = op;
         document.getElementById('display').innerText = this.display;
       }
     },
 
     decimal() {
-      // if no leading numbers, then decimal < 0
-      if (/^0$/.test(this.display)) {
-        this.display = '0.';
-        document.getElementById('display').innerText = this.display;
-      // if operator in <display>, add to io and begin new decimal number
+      if (/\d/.test(this.display)) {
+        // if no leading numbers, then decimal < 0
+        if (/^0$/.test(this.display)) {
+          this.display = '0.';
+          document.getElementById('display').innerText = this.display;
+        // else add decimal
+        } else if (/\d/.test(this.display) && !/\./.test(this.display)) {
+          this.display += '.';
+          document.getElementById('io').innerText = this.io;
+          document.getElementById('display').innerText = this.display;
+        }
       } else if (/(\+|-|\*|\/)/.test(this.display)) {
+        // if operator in <display>, add to io and begin new decimal number
         this.io += ` ${this.display}`;
         document.getElementById('io').innerText = this.io;
         this.display = '0.';
         document.getElementById('display').innerText = this.display;
-      // else add decimal
-      } else if (/\d/.test(this.display) && !/\./.test(this.display)) {
-        this.display += '.';
-        document.getElementById('io').innerText = this.io;
-        document.getElementById('display').innerText = this.display;
       }
-      // do nothing, which prevents multiple decimals in same number
+      // do nothing to prevent multiple decimals in same number
     },
 
     posNeg() {
-      if (/^-/.test(this.display)) {
-        this.display = this.display.substring(1);
-        document.getElementById('display').innerText = this.display;
-      } else if (/\d/.test(this.display)) {
-        this.display = `-${this.display}`;
-        document.getElementById('display').innerText = this.display;
+      if (/\d/.test(this.display)) {
+        if (/^-/.test(this.display)) {
+          this.display = this.display.substring(1);
+          document.getElementById('display').innerText = this.display;
+        } else if (/\d/.test(this.display)) {
+          this.display = `-${this.display}`;
+          document.getElementById('display').innerText = this.display;
+        }
       }
     },
 
     inverse() {
       if (/\d/.test(this.display) && !/^0$/.test(this.display)) {
-        this.display = inv(this.display);
+        this.display = format(inv(this.display), precision);
         document.getElementById('display').innerText = this.display;
       }
     },
 
     square() {
       if (/\d/.test(this.display) && !/^0$/.test(this.display)) {
-        this.display = square(this.display);
+        this.display = format(square(this.display), precision);
         document.getElementById('display').innerText = this.display;
       }
     },
 
     squareRoot() {
       if (/\d/.test(this.display) && !/^0$/.test(this.display)) {
-        this.display = sqrt(this.display);
+        this.display = format(sqrt(this.display), precision);
         document.getElementById('display').innerText = this.display;
       }
     },
 
     equals() {
-      // pop whatever is currently in the display to io to prep for calculation
-      this.io += this.display;
-      // evaluate and display full calculation on <io> and result on <display>
-      const answer = evaluate(this.io);
-      this.io += ` = ${answer}`;
-      document.getElementById('io').innerText = ` ${this.io}`;
-      this.display = answer;
-      document.getElementById('display').innerText = this.display;
+      if (/\d/.test(this.display)) {
+        // pop whatever is currently in the display to io to prep for calculation
+        this.io += this.display;
+        // evaluate and display full calculation on <io> and result on <display>
+        const answer = format(evaluate(this.io), precision);
+        this.io += ` = ${answer}`;
+        document.getElementById('io').innerText = ` ${this.io}`;
+        // format(number, precision)
+        this.display = answer;
+        document.getElementById('display').innerText = this.display;
+      }
     },
 
     allClear() {
