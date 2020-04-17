@@ -8,49 +8,7 @@
       <div id="display"></div>
     </div>
 
-    <div class="numpad">
-      <button id="one" @click="number('1')" class="digit lightgrey" type="button" aria-label="1">
-        1
-      </button>
-      <button id="two" @click="number('2')" class="digit lightgrey" type="button" aria-label="2">
-        2
-      </button>
-      <button id="three" @click="number('3')" class="digit lightgrey" type="button" aria-label="3">
-        3
-      </button>
-      <button id="four" @click="number('4')" class="digit lightgrey" type="button" aria-label="4">
-        4
-      </button>
-      <button id="five" @click="number('5')" class="digit lightgrey" type="button" aria-label="5">
-        5
-      </button>
-      <button id="six" @click="number('6')" class="digit lightgrey" type="button" aria-label="6">
-        6
-      </button>
-      <button id="seven" @click="number('7')" class="digit lightgrey" type="button" aria-label="7">
-        7
-      </button>
-      <button id="eight" @click="number('8')" class="digit lightgrey" type="button" aria-label="8">
-        8
-      </button>
-      <button id="nine" @click="number('9')" class="digit lightgrey" type="button" aria-label="9">
-        9
-      </button>
-      <button id="zero" @click="number('0')" class="digit lightgrey" type="button" aria-label="0">
-        0
-      </button>
-    </div>
-
-    <br>
-
-    <div class="decimal">
-      <button id="decimal" @click="decimal" class="decimal lightgrey" type="button"
-              aria-label="decimal">
-        .
-      </button>
-      <button @click="posNeg" class="darkgrey">
-        + &#47; -
-      </button>
+    <div class="button-container">
       <button id="inverse" @click="inverse" class="inverse darkgrey" type="button"
               aria-label="compute inverse">
         1 &#47; x
@@ -63,42 +21,11 @@
               aria-label="compute square root">
         &#8730;x
       </button>
-    </div>
-
-    <br>
-
-    <div class="operations">
-      <button id="add" @click="operator('+')" class="operator darkgrey" type="button"
-              aria-label="add">
-        +
+      <button id="posNeg" @click="posNeg" class="darkgrey">
+        + &#47; -
       </button>
-      <button id="subtract" @click="operator('-')" class="operator darkgrey" type="button"
-              aria-label="substract">
-        -
-      </button>
-      <button id="multiply" @click="operator('*')" class="operator darkgrey" type="button"
-              aria-label="multiply">
-        x
-      </button>
-      <button id="divide" @click="operator('/')" class="operator darkgrey" type="button"
-              aria-label="divide">
-        &#247;
-      </button>
-    </div>
 
-    <br>
-
-    <div class="equals">
-      <button id="equals" @click="equals" class="equals orange" type="button"
-              aria-label="calculate">
-        =
-      </button>
-    </div>
-
-    <br>
-
-    <div class="allClear">
-      <button id="clear" @click="allClear" class="clearDisplay lightgrey" type="button"
+      <button id="clear" @click="allClear" class="clearDisplay lightgrey doublewide" type="button"
               aria-label="clear display to 0">
         CD
       </button>
@@ -106,7 +33,67 @@
               aria-label="clear entry">
         C
       </button>
-    </div>
+      <button id="divide" @click="operator('/')" class="operator darkgrey" type="button"
+              aria-label="divide">
+        &#247;
+      </button>
+
+      <button id="seven" @click="number('7')" class="digit lightgrey" type="button" aria-label="7">
+        7
+      </button>
+      <button id="eight" @click="number('8')" class="digit lightgrey" type="button" aria-label="8">
+        8
+      </button>
+      <button id="nine" @click="number('9')" class="digit lightgrey" type="button" aria-label="9">
+        9
+      </button>
+      <button id="multiply" @click="operator('*')" class="operator darkgrey" type="button"
+              aria-label="multiply">
+        x
+      </button>
+
+
+      <button id="four" @click="number('4')" class="digit lightgrey" type="button" aria-label="4">
+        4
+      </button>
+      <button id="five" @click="number('5')" class="digit lightgrey" type="button" aria-label="5">
+        5
+      </button>
+      <button id="six" @click="number('6')" class="digit lightgrey" type="button" aria-label="6">
+        6
+      </button>
+      <button id="subtract" @click="operator('-')" class="operator darkgrey" type="button"
+              aria-label="substract">
+        -
+      </button>
+
+      <button id="one" @click="number('1')" class="digit lightgrey" type="button" aria-label="1">
+        1
+      </button>
+      <button id="two" @click="number('2')" class="digit lightgrey" type="button" aria-label="2">
+        2
+      </button>
+      <button id="three" @click="number('3')" class="digit lightgrey" type="button" aria-label="3">
+        3
+      </button>
+      <button id="add" @click="operator('+')" class="operator darkgrey" type="button"
+              aria-label="add">
+        +
+      </button>
+
+
+      <button id="zero" @click="number('0')" class="digit lightgrey" type="button" aria-label="0">
+        0
+      </button>
+      <button id="decimal" @click="decimal" class="decimal lightgrey" type="button"
+              aria-label="decimal">
+        .
+      </button>
+      <button id="equals" @click="equals" class="equals orange doublewide" type="button"
+              aria-label="calculate">
+        =
+      </button>
+    </div><!-- button-container -->
 
   </div>
 </template>
@@ -273,29 +260,44 @@ export default {
 </script>
 
 <style lang="scss">
+$lcd-red: #f0466b;
+
+html {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
 body {
   margin: 0;
   padding: 0;
-  background-color: #bcb7a9;
+  background-color: #e9ebdd;
 }
 
 #calculator {
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 18px;
   color: #2c3e50;
   margin-top: 60px;
   text-align: center;
 }
 
+.lcd {
+  margin: auto;
+  background-color: #000;
+  width: 20rem;
+}
+
 #display {
   height: 3rem;
-  color: white;
+  color: $lcd-red;
+  text-shadow: $lcd-red 1px -1px 14px;
 }
 
 #io {
-  color: white;
+  color: $lcd-red;
+  text-shadow: $lcd-red 1px 0 14px;
   height: 3rem;
   font-size: 0.8rem;
 }
@@ -305,17 +307,32 @@ button {
   height: 4rem;
   font-weight: bold;
   border-radius: 5px;
+  padding-inline: 0;
+  border: none ;
+  margin: 4px;
+}
+
+.button-container {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 18rem;
+  justify-content: center;
+}
+
+.doublewide {
+  width: 8rem;
 }
 
 .lightgrey {
-  background-color: #e6d6c7;
+  background-color: #f8f8f8;
 }
 
 .darkgrey {
-  background-color: #818179;
+  background-color: #c8cccb;
 }
 
 .orange {
-  background-color: #ff733d;
+  background-color: #fdb94c;
 }
 </style>
