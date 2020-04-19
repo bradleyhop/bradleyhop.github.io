@@ -1,99 +1,104 @@
 <template>
   <div id="calculator">
 
-    <div class="lcd">
-      <!-- io shows the line above where the user is stringing their calculations -->
-      <div id="io"></div>
-      <!-- display shows the active input the user gives -->
-      <div id="display"></div>
-    </div>
+    <div class="body">
+      <div class="lcd-container">
+        <!-- io shows the line above where the user is stringing their calculations -->
+        <div id="io"></div>
+        <!-- display shows the active input the user gives -->
+        <div id="display"></div>
+      </div>
 
-    <div class="button-container">
-      <button id="inverse" @click="inverse" class="inverse darkgrey" type="button"
-              aria-label="compute inverse">
-        1 &#47; x
-      </button>
-      <button id="square" @click="square" class="square darkgrey" type="button"
-              aria-label="compute square">
-        x<span style="vertical-align: super; font-size: 0.8rem;">2</span>
-      </button>
-      <button id="sqareRoot" @click="squareRoot" class="sqareRoot darkgrey" type="button"
-              aria-label="compute square root">
-        &#8730;x
-      </button>
-      <button id="posNeg" @click="posNeg" class="darkgrey">
-        + &#47; -
-      </button>
+      <div class="button-container">
+        <button id="inverse" @click="inverse" class="inverse darkgrey" type="button"
+                aria-label="compute inverse">
+          1 &#47; x
+        </button>
+        <button id="square" @click="square" class="square darkgrey" type="button"
+                aria-label="compute square">
+          x<span style="vertical-align: super; font-size: 0.8rem;">2</span>
+        </button>
+        <button id="sqareRoot" @click="squareRoot" class="sqareRoot darkgrey" type="button"
+                aria-label="compute square root">
+          &#8730;x
+        </button>
+        <button id="posNeg" @click="posNeg" class="darkgrey">
+          + &#47; -
+        </button>
 
-      <button id="clear" @click="allClear" class="clearDisplay lightgrey doublewide" type="button"
-              aria-label="clear display to 0">
-        CD
-      </button>
-      <button id="clear-entry" @click="clearEntry" class="clear darkgrey" type="button"
-              aria-label="clear entry">
-        C
-      </button>
-      <button id="divide" @click="operator('/')" class="operator darkgrey" type="button"
-              aria-label="divide">
-        &#247;
-      </button>
+        <button id="clear" @click="allClear" class="clearDisplay lightgrey doublewide" type="button"
+                aria-label="clear display to 0">
+          CD
+        </button>
+        <button id="clear-entry" @click="clearEntry" class="clear darkgrey" type="button"
+                aria-label="clear entry">
+          C
+        </button>
+        <button id="divide" @click="operator('/')" class="operator darkgrey" type="button"
+                aria-label="divide">
+          &#247;
+        </button>
 
-      <button id="seven" @click="number('7')" class="digit lightgrey" type="button" aria-label="7">
-        7
-      </button>
-      <button id="eight" @click="number('8')" class="digit lightgrey" type="button" aria-label="8">
-        8
-      </button>
-      <button id="nine" @click="number('9')" class="digit lightgrey" type="button" aria-label="9">
-        9
-      </button>
-      <button id="multiply" @click="operator('*')" class="operator darkgrey" type="button"
-              aria-label="multiply">
-        x
-      </button>
-
-
-      <button id="four" @click="number('4')" class="digit lightgrey" type="button" aria-label="4">
-        4
-      </button>
-      <button id="five" @click="number('5')" class="digit lightgrey" type="button" aria-label="5">
-        5
-      </button>
-      <button id="six" @click="number('6')" class="digit lightgrey" type="button" aria-label="6">
-        6
-      </button>
-      <button id="subtract" @click="operator('-')" class="operator darkgrey" type="button"
-              aria-label="substract">
-        -
-      </button>
-
-      <button id="one" @click="number('1')" class="digit lightgrey" type="button" aria-label="1">
-        1
-      </button>
-      <button id="two" @click="number('2')" class="digit lightgrey" type="button" aria-label="2">
-        2
-      </button>
-      <button id="three" @click="number('3')" class="digit lightgrey" type="button" aria-label="3">
-        3
-      </button>
-      <button id="add" @click="operator('+')" class="operator darkgrey" type="button"
-              aria-label="add">
-        +
-      </button>
+        <button id="seven" @click="number('7')" class="digit lightgrey" type="button"
+                aria-label="7">
+          7
+        </button>
+        <button id="eight" @click="number('8')" class="digit lightgrey" type="button"
+                aria-label="8">
+          8
+        </button>
+        <button id="nine" @click="number('9')" class="digit lightgrey" type="button" aria-label="9">
+          9
+        </button>
+        <button id="multiply" @click="operator('*')" class="operator darkgrey" type="button"
+                aria-label="multiply">
+          x
+        </button>
 
 
-      <button id="zero" @click="number('0')" class="digit lightgrey" type="button" aria-label="0">
-        0
-      </button>
-      <button id="decimal" @click="decimal" class="decimal lightgrey" type="button"
-              aria-label="decimal">
-        .
-      </button>
-      <button id="equals" @click="equals" class="equals orange doublewide" type="button"
-              aria-label="calculate">
-        =
-      </button>
-    </div><!-- button-container -->
+        <button id="four" @click="number('4')" class="digit lightgrey" type="button" aria-label="4">
+          4
+        </button>
+        <button id="five" @click="number('5')" class="digit lightgrey" type="button" aria-label="5">
+          5
+        </button>
+        <button id="six" @click="number('6')" class="digit lightgrey" type="button" aria-label="6">
+          6
+        </button>
+        <button id="subtract" @click="operator('-')" class="operator darkgrey" type="button"
+                aria-label="substract">
+          -
+        </button>
+
+        <button id="one" @click="number('1')" class="digit lightgrey" type="button" aria-label="1">
+          1
+        </button>
+        <button id="two" @click="number('2')" class="digit lightgrey" type="button" aria-label="2">
+          2
+        </button>
+        <button id="three" @click="number('3')" class="digit lightgrey" type="button"
+                aria-label="3">
+          3
+        </button>
+        <button id="add" @click="operator('+')" class="operator darkgrey" type="button"
+                aria-label="add">
+          +
+        </button>
+
+
+        <button id="zero" @click="number('0')" class="digit lightgrey" type="button" aria-label="0">
+          0
+        </button>
+        <button id="decimal" @click="decimal" class="decimal lightgrey" type="button"
+                aria-label="decimal">
+          .
+        </button>
+        <button id="equals" @click="equals" class="equals orange doublewide" type="button"
+                aria-label="calculate">
+          =
+        </button>
+      </div><!-- button-container -->
+    </div><!-- body -->
 
   </div>
 </template>
@@ -104,6 +109,7 @@ import {
 } from 'mathjs';
 
 // imported format() takes a number as the first arg, precision as the second
+//   chosen to reflect the TI SR 10 display limit
 const precision = 7;
 
 export default {
@@ -262,66 +268,91 @@ export default {
 <style lang="scss">
 $lcd-red: #f0466b;
 
+@font-face {
+  font-display: swap;
+  font-family: 'Digital7Mono';
+  src: url("../public/assets/fonts/digital-7-mono.ttf");
+}
+
 html {
   margin: 0;
   padding: 0;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: #e9ebdd;
 }
 
 #calculator {
-  font-family: Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
   margin-top: 60px;
   text-align: center;
 }
 
-.lcd {
-  margin: auto;
-  background-color: #000;
+.body {
   width: 20rem;
+  margin: auto;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+  background-color: #434434;
+  border: 10px solid #5e6d68;
+  border-radius: 2px;
+}
+
+.lcd-container {
+  border: 5px solid #ebecf0;
+  border-radius: 2px;
+  box-sizing: border-box;
+  font-family: 'Digital7Mono', 'Courier New', Courier, monospace;
+  padding-right: 2rem;
+  background-color: #000;
+  width: 18rem;
+  text-align: right;
+  margin: 0 1rem 1rem 1rem;
 }
 
 #display {
   height: 3rem;
   color: $lcd-red;
-  text-shadow: $lcd-red 1px -1px 14px;
+  text-shadow: 1px 1px 5px $lcd-red;
+  font-size: 2rem;
 }
 
 #io {
   color: $lcd-red;
   text-shadow: $lcd-red 1px 0 14px;
   height: 3rem;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
+  overflow: auto;
+}
+
+.button-container {
+  background-color: #e9ebdd;
+  border-radius: 2px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 18rem;
+  justify-content: space-between;
+  padding: 1rem 0.5rem 1rem 0.5rem;
 }
 
 button {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.5rem;
+  color: #3b3b3b;
   width: 4rem;
   height: 4rem;
   font-weight: bold;
   border-radius: 5px;
   padding-inline: 0;
   border: none ;
-  margin: 4px;
-}
-
-.button-container {
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  width: 18rem;
-  justify-content: center;
+  margin: 2px;
 }
 
 .doublewide {
-  width: 8rem;
+  width: calc(8rem + 9px);
 }
 
 .lightgrey {
