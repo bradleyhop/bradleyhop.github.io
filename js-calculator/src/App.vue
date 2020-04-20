@@ -11,27 +11,27 @@
 
       <div class="button-container">
         <button id="inverse" @click="inverse" class="inverse darkgrey" type="button"
-                aria-label="compute inverse">
+                aria-label="compute inverse" title="Inverse">
           1 &#47; x
         </button>
         <button id="square" @click="square" class="square darkgrey" type="button"
-                aria-label="compute square">
+                aria-label="compute square" title="Square">
           x<span style=" font-size: 0.8rem; vertical-align: super;">2</span>
         </button>
         <button id="sqareRoot" @click="squareRoot" class="sqareRoot darkgrey" type="button"
-                aria-label="compute square root">
+                aria-label="compute square root" title="Square Root">
           &#8730;x
         </button>
-        <button id="posNeg" @click="posNeg" class="darkgrey">
+        <button id="posNeg" @click="posNeg" class="darkgrey" title="Negate">
           + &#47; -
         </button>
 
         <button id="clear" @click="allClear" class="clearDisplay lightgrey doublewide" type="button"
-                aria-label="clear display to 0">
+                aria-label="clear display to 0" title="Clear Display">
           CD
         </button>
         <button id="clear-entry" @click="clearEntry" class="clear darkgrey" type="button"
-                aria-label="clear entry">
+                aria-label="clear entry" title="Clear Input">
           C
         </button>
         <button id="divide" @click="operator('/')" class="operator darkgrey" type="button"
@@ -128,7 +128,7 @@ export default {
       // no leading '0'
       if (this.display === '0') {
         this.display = num;
-      // put in another check to see if there's been a calulation, clear display and io, add num
+      // put in another check to see if there's been a calculation, clear display and io, add num
       } else if (/=/.test(this.io)) {
         this.io = '';
         this.display = num;
@@ -147,7 +147,7 @@ export default {
     },
 
     operator(op) {
-      // see if there's a previous calulation
+      // see if there's a previous calculation
       if (/=/.test(this.io)) {
         this.io = this.display;
         this.display = op;
@@ -311,7 +311,7 @@ $lcd-red: #f0466b;
   font-size: 2rem;
   height: 3rem;
   overflow: auto;
-  text-shadow: 1px 1px 5px $lcd-red;
+  text-shadow: 1px 1px 2px $lcd-red, -1px -1px 2px $lcd-red;
 }
 
 #io {
@@ -319,7 +319,7 @@ $lcd-red: #f0466b;
   font-size: 1.2rem;
   height: 3rem;
   overflow: auto;
-  text-shadow: 1px 0 14px $lcd-red;
+  text-shadow: 1px 0 1px $lcd-red, -1px 0 1px $lcd-red;
 }
 
 .button-container {
