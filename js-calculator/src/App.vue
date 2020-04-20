@@ -1,7 +1,7 @@
 <template>
   <div id="calculator">
 
-    <div class="body">
+    <div class="calc-body">
       <div class="lcd-container">
         <!-- io shows the line above where the user is stringing their calculations -->
         <div id="io"></div>
@@ -16,7 +16,7 @@
         </button>
         <button id="square" @click="square" class="square darkgrey" type="button"
                 aria-label="compute square">
-          x<span style="vertical-align: super; font-size: 0.8rem;">2</span>
+          x<span style=" font-size: 0.8rem; vertical-align: super;">2</span>
         </button>
         <button id="sqareRoot" @click="squareRoot" class="sqareRoot darkgrey" type="button"
                 aria-label="compute square root">
@@ -97,6 +97,7 @@
                 aria-label="calculate">
           =
         </button>
+
       </div><!-- button-container -->
     </div><!-- body -->
 
@@ -266,6 +267,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../public/assets/styles/style.scss';
+
 $lcd-red: #f0466b;
 
 @font-face {
@@ -274,81 +277,73 @@ $lcd-red: #f0466b;
   src: url("../public/assets/fonts/digital-7-mono.ttf");
 }
 
-html {
-  margin: 0;
-  padding: 0;
-  font-size: 14px;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
 #calculator {
-  margin-top: 60px;
-  text-align: center;
+  width: 100%;
+
+  @media screen and (min-width: 600px) {
+    width: 50%;
+  }
 }
 
-.body {
-  width: 20rem;
-  margin: auto;
-  padding-top: 1.5rem;
-  padding-bottom: 1rem;
+.calc-body {
   background-color: #434434;
   border: 10px solid #5e6d68;
-  border-radius: 2px;
+  border-radius: 4px;
+  margin: auto;
+  padding-bottom: 1rem;
+  padding-top: 1.5rem;
+  width: 20rem;
 }
 
 .lcd-container {
-  border: 5px solid #ebecf0;
-  border-radius: 2px;
+  background-color: #000;
+  border: 4px solid #ebecf0;
   box-sizing: border-box;
   font-family: 'Digital7Mono', 'Courier New', Courier, monospace;
-  padding-right: 2rem;
-  background-color: #000;
-  width: 18rem;
-  text-align: right;
   margin: 0 1rem 1rem 1rem;
+  padding-right: 2rem;
+  text-align: right;
+  width: 18rem;
 }
 
 #display {
-  height: 3rem;
   color: $lcd-red;
-  text-shadow: 1px 1px 5px $lcd-red;
   font-size: 2rem;
+  height: 3rem;
+  overflow: auto;
+  text-shadow: 1px 1px 5px $lcd-red;
 }
 
 #io {
   color: $lcd-red;
-  text-shadow: $lcd-red 1px 0 14px;
-  height: 3rem;
   font-size: 1.2rem;
+  height: 3rem;
   overflow: auto;
+  text-shadow: 1px 0 14px $lcd-red;
 }
 
 .button-container {
   background-color: #e9ebdd;
-  border-radius: 2px;
-  margin: auto;
+  border-radius: 4px;
   display: flex;
   flex-wrap: wrap;
-  width: 18rem;
   justify-content: space-between;
+  margin: auto;
   padding: 1rem 0.5rem 1rem 0.5rem;
+  width: 18rem;
 }
 
 button {
+  border: none;
+  border-radius: 5px;
+  color: #3b3b3b;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 1.5rem;
-  color: #3b3b3b;
-  width: 4rem;
-  height: 4rem;
   font-weight: bold;
-  border-radius: 5px;
-  padding-inline: 0;
-  border: none ;
+  height: 4rem;
   margin: 2px;
+  padding-inline: 0;
+  width: 4rem;
 }
 
 .doublewide {
