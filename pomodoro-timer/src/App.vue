@@ -5,11 +5,15 @@
       <div id="session-label">
         Work Timer
         <div>
-          <button id="session-decrement">-</button>
+          <button id="session-decrement" @click="decSess">
+            -
+          </button>
           <div id="session-length">
-          {{ workTime }}
+            {{ workTime }}
           </div>
-          <button id="session-increment">+</button>
+          <button id="session-increment" @click="incSess">
+            +
+          </button>
         </div>
       </div>
     </div>
@@ -18,11 +22,15 @@
       <div id="break-label">
         Break Timer
         <div>
-          <button id="break-decrement">-</button>
+          <button id="break-decrement" @click="decBreak">
+            -
+          </button>
           <div id="break-length">
-          {{ playTime }}
+            {{ playTime }}
           </div>
-          <button id="break-increment">+</button>
+          <button id="break-increment" @click="incBreak">
+            +
+          </button>
         </div>
       </div>
     </div>
@@ -53,22 +61,66 @@ export default {
 
   data() {
     return {
-      workTime: '25',
-      playTime: '5',
+      workTime: 25,
+      playTime: 5,
       displayTime: '25:00',
     };
   },
 
   methods: {
-    startTimer() {
-      const timeSet = new Date().getTime();
+    decSess() {
+      if (this.workTime > 1) {
+        this.workTime -= 1;
+      }
+    },
+    incSess() {
+      if (this.workTime < 59) {
+        this.workTime += 1;
+      }
+    },
+    decBreak() {
+      if (this.playTime > 1) {
+        this.playTime -= 1;
+      }
+    },
+    incBreak() {
+      if (this.playTime < 59) {
+        this.playTime += 1;
+      }
+    },
 
-      this.displayTime = timeSet;
+    startTimer() {
+      // get timer limit
+      const deadline = new Date().getTime() + (this.workTime * 60000);
+
+      const countdown = setInterval(() => {
+        // timer from minutes to milliseconds, add to current time
+        const now = new Date().getTime();
+        const interval = deadline - now;
+        let minutes = Math.floor((interval % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((interval % (1000 * 60)) / 1000);
+
+        // format numbers to have a 00:00 MM:SS format
+        if (minutes < 10) {
+          minutes = `0${minutes}`;
+        }
+        if (seconds < 10) {
+          seconds = `0${seconds}`;
+        }
+        this.displayTime = `${minutes}:${seconds}`;
+
+
+        if (interval < 1) {
+          clearInterval(countdown);
+          this.workTime = this.playTime;
+          this.startTimer();
+        }
+      }, 1000); // interval interupt in ms
     },
 
     resetTimer() {
-      this.workTime = '25';
-      this.playTime = '5';
+      this.workTime = 25;
+      this.playTime = 5;
       this.displayTime = '25:00';
     },
 
