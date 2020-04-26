@@ -40,12 +40,12 @@
         reset
       </button>
       <button id="start_stop" @click="startTimer">
-        start/stop
+        start/pause
       </button>
     </div>
 
     <div id="timer-label">
-      Session
+      {{ sessionLabel }}
       <div id="time-left">
         {{ displayTime }}
       </div>
@@ -63,6 +63,7 @@ export default {
     return {
       workTime: 25,
       playTime: 5,
+      sessionLabel: 'Time to work!',
       displayTime: '25:00',
     };
   },
@@ -84,7 +85,7 @@ export default {
       }
     },
     incBreak() {
-      if (this.playTime < 59) {
+      if (this.playTime < 60) {
         this.playTime += 1;
       }
     },
@@ -112,7 +113,9 @@ export default {
 
         if (interval < 1) {
           clearInterval(countdown);
+          this.displayTime = '00:00';
           this.workTime = this.playTime;
+          this.sessionLabel = 'Take a break!';
           this.startTimer();
         }
       }, 1000); // interval interupt in ms
@@ -122,6 +125,7 @@ export default {
       this.workTime = 25;
       this.playTime = 5;
       this.displayTime = '25:00';
+      this.sessionLabel = 'Time to work!';
     },
 
   },
