@@ -99,43 +99,43 @@ export default {
       this.workTime = 25;
       this.playTime = 5;
       this.timeElapsedOnPause = 0;
+      this.timmerRunning = false;
       this.displayTime = '25:00';
       this.sessionLabel = 'Time to work!';
+      clearInterval(this.countdown);
     },
 
     startTimer() {
       if (this.timmerRunning) {
         this.timmerRunning = false;
-        this.timeElapsedOnPause = this.timeElapsed;
-        clearInterval(this.countdown);
+        this.timeElapsedOnPause += 1000;
       } else {
         let deadline = new Date().getTime();
         this.timmerRunning = true;
-        this.timeElapsedOnPause = 0;
 
-        if (this.working) {
-          deadline += (this.workTime * 60000);
-        } else {
-          deadline += (this.playTime * 60000);
-        }
+        deadline += this.working ? this.workTime * 60000 : this.playTime * 60000;
 
         this.countdown = setInterval(() => {
-          const now = new Date().getTime();
-          const interval = deadline - now - this.timeElapsedOnPause;
-          const minutes = Math.floor((interval % (1000 * 60 * 60)) / (1000 * 60));
-          const seconds = Math.floor((interval % (1000 * 60)) / 1000);
+          if (this.timmerRunning) {
+            const now = new Date().getTime();
+            const interval = deadline - now - this.timeElapsedOnPause;
+            const minutes = Math.floor((interval % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((interval % (1000 * 60)) / 1000);
 
-          // set to setInterval() timer
-          this.timeElapsed += 1000;
-
-          this.displayTime = `${this.formatTime(minutes)}:${this.formatTime(seconds)}`;
-
-          if (interval < 1) {
-            clearInterval(this.scountdown);
             this.timeElapsedOnPause = 0;
-            this.displayTime = '00:00';
-            this.sessionLabel = 'Take a break!';
-            this.startTimer();
+            // set to setInterval() timer
+            this.timeElapsed += 1000;
+
+            this.displayTime = `${this.formatTime(minutes)}:${this.formatTime(seconds)}`;
+
+            if (interval < 1) {
+              clearInterval(this.countdown);
+              this.timeElapsed = 0;
+              this.displayTime = '00:00';
+              this.sessionLabel = 'Take a break!';
+              this.working = false;
+              this.startTimer();
+            }
           }
         }, 1000);
       }
@@ -143,10 +143,7 @@ export default {
 
     formatTime(time) {
       // return number so that time is in a MM:SS format
-      let formatedTime = time;
-      if (time < 10) {
-        formatedTime = `0${time}`;
-      }
+      const formatedTime = time < 10 ? `0${time}` : time;
       return formatedTime;
     },
 
@@ -154,6 +151,10 @@ export default {
 
   mounted() {
     this.displayTime = `${this.formatTime(this.workTime)}:00`;
+  },
+
+  beforeDestroy() {
+    clearInterval(this.countdown);
   },
 };
 </script>
