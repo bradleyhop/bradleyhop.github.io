@@ -25,61 +25,67 @@ export default {
   name: 'Timer',
   data() {
     return {
-      sessionLabel: 'Time to work!',
+      sessionLabel: 'Time to work!', // default to start with work session
       displayTime: '',
       timmerRunning: false,
-      timeElapsedOnPause: 0,
       timeElapsed: 0,
       working: true,
-      countdown: null,
+      timeInc: null, // placeholder for setTimeout()
     };
   },
   methods: {
     resetTimer() {
       this.$parent.workTime = 25;
       this.$parent.playTime = 5;
-      this.timeElapsedOnPause = 0;
+      this.timeElapsed = 0;
       this.timmerRunning = false;
       this.displayTime = '25:00';
       this.sessionLabel = 'Time to work!';
-      clearInterval(this.countdown);
+      clearInterval(this.timeInc);
     },
 
     startTimer() {
-      if (this.timmerRunning) {
-        this.timmerRunning = false;
-        this.timeElapsedOnPause += 1000;
-      } else {
-        let deadline = new Date().getTime();
+      const countdown = Math.floor((this.$parent.workTime * 60) / 100);
+      if (!this.timmerRunning) {
         this.timmerRunning = true;
+        this.incrementTime(countdown);
+      } else {
+        this.timmerRunning = false;
+      }
+    },
 
-        // set current countdown time based on either work or break session
-        deadline += this.working ? this.$parent.workTime * 60000 : this.$parent.playTime * 60000;
+    incrementTime(enditnow) {
+      // let deadline = new Date().getTime();
 
-        this.countdown = setInterval(() => {
-          if (this.timmerRunning) {
-            const now = new Date().getTime();
-            const interval = deadline - now - this.timeElapsedOnPause;
-            const minutes = Math.floor((interval % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((interval % (1000 * 60)) / 1000);
+      // // set current countdown time based on either work or break session
+      // deadline += this.working ? this.$parent.workTime * 60000 : this.$parent.playTime * 60000;
+      if (this.timmerRunning) {
+        this.timeInc = setTimeout(() => {
+          // set to setTimeout() interval, in ms
+          this.timeElapsed += 1;
 
-            this.timeElapsedOnPause = 0;
-            // set to setInterval() timer
-            this.timeElapsed += 1000;
+          // const now = new Date().getTime();
+          const interval = enditnow - this.timeElapsed;
+          const minutes = Math.floor(interval / 10 / 60);
+          const seconds = Math.floor((interval / 10) % 60);
 
-            this.displayTime = `${this.formatTime(minutes)}:${this.formatTime(seconds)}`;
 
-            if (interval < 1) {
-              clearInterval(this.countdown);
-              this.timeElapsed = 0;
-              this.timmerRunning = false;
-              this.displayTime = '00:00';
-              this.sessionLabel = 'Take a break!';
-              this.working = false;
-              this.startTimer();
-            }
-          }
-        }, 1000);
+          this.displayTime = `${this.formatTime(minutes)}:${this.formatTime(seconds)}`;
+
+          /*
+           * if (this.timeElapsed < 100) {
+           *   this.timeElapsed = 0;
+           *   this.timmerRunning = false;
+           *   this.displayTime = '00:00';
+           *   this.sessionLabel = 'Take a break!';
+           *   this.working = false;
+           *   clearTimeout(this.timeInc);
+           *   this.startTimer();
+           * }
+           */
+
+          this.incrementTime(enditnow);
+        }, 100);
       }
     },
 
@@ -95,8 +101,9 @@ export default {
   },
 
   beforeDestroy() {
-    clearInterval(this.countdown);
+    clearTimeout(this.timeInc);
   },
+
 };
 </script>
 
