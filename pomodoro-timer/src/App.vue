@@ -48,8 +48,8 @@ export default {
 
   data() {
     return {
-      workTime: 1,
-      playTime: 2,
+      workTime: 25,
+      playTime: 5,
     };
   },
 
