@@ -10,12 +10,10 @@
       </button>
     </div>
 
-    <div id="timer-label">
-      {{ sessionLabel }}
-      <div id="time-left">
-        {{ displayTime }}
-      </div>
-    </div>
+    <div id="timer-label"></div>
+    <div id="time-left"></div>
+    <audio id="beep" preload="auto" class="clip" source="./assets/chime.mp3" type="audio/mp3">
+    </audio>
 
   </div>
 </template>
@@ -26,24 +24,34 @@ export default {
 
   data() {
     return {
-      sessionLabel: 'Time to work!', // default to start with work session
-      displayTime: '',
       timmerRunning: false,
       timeElapsed: 0,
       working: true,
       timeInc: null, // placeholder for setTimeout()
+      chime: new Audio('../assets/chime.mp3'),
     };
   },
 
   methods: {
 
     resetTimer() {
+      // pause that gong and reset playback!
+      this.chime.pause();
+      this.chime.currentTime = 0;
+
       // reset all attributes to default work time
-      this.timeElapsed = 0;
+      clearTimeout(this.timeInc);
       this.timmerRunning = false;
-      this.displayTime = '25:00';
-      this.sessionLabel = 'Time to work!';
+      this.timeElapsed = 0;
+      document.getElementById('time-left')
+        .innerText = `${this.formatTime(this.$parent.workTime)}:00`;
+      document.getElementById('timer-label')
+        .innerText = 'Time to work!';
       this.working = true;
+
+      // reset default time limits
+      this.$parent.workTime = 25;
+      this.$parent.playTime = 5;
     },
 
     startTimer() {
@@ -52,7 +60,8 @@ export default {
         : (this.$parent.playTime * 60 * 1000);
 
       // we could add another button to manually set break or work session?
-      this.sessionLabel = (this.working) ? 'Time to work!' : 'Take a break!';
+      document.getElementById('timer-label')
+        .innerText = (this.working) ? 'Time to work!' : 'Take a break!';
 
       if (!this.timmerRunning) {
         this.timmerRunning = true;
@@ -73,21 +82,39 @@ export default {
           const seconds = Math.floor((interval / 1000) % 60);
 
 
-          this.displayTime = `${this.formatTime(minutes)}:${this.formatTime(seconds)}`;
+          document.getElementById('time-left')
+            .innerText = `${this.formatTime(minutes)}:${this.formatTime(seconds)}`;
 
           // if current timer has ended, start next timer
-          if (interval < 100) {
+          if (interval < 1) {
+            // play audio at end of timer
+            this.chime.play();
+
             clearTimeout(this.timeInc);
             this.timeElapsed = 0;
             this.timmerRunning = false;
+
             // switch from work to break session
             this.working = !this.working;
+
+            // start new timer automatically
             this.startTimer();
           } else {
             // continue to call setTimeout() to measure time
             this.incrementTime(time);
           }
-        }, 100);
+        }, 10);
+      }
+    },
+
+    playAudio: async (el) => {
+      const playObj = el;
+      try {
+        playObj.currentTime = 0;
+        await playObj.play();
+      } catch (err) {
+        // eslint-disable-next-line
+        console.error(`Playback error! ${err}`);
       }
     },
 
@@ -99,7 +126,10 @@ export default {
   },
 
   mounted() {
-    this.displayTime = `${this.formatTime(this.$parent.workTime)}:00`;
+    document.getElementById('timer-label')
+      .innerText = 'Time to work!';
+    document.getElementById('time-left')
+      .innerText = `${this.formatTime(this.$parent.workTime)}:00`;
   },
 
 };
