@@ -44,7 +44,7 @@ export default {
 
   data() {
     return {
-      workTime: 25,
+      workTime: 1,
       playTime: 5,
     };
   },
@@ -53,21 +53,25 @@ export default {
     decSess() {
       if (this.workTime > 1) {
         this.workTime -= 1;
+        document.getElementById('session-length').innerText = this.workTime;
       }
     },
     incSess() {
       if (this.workTime < 60) {
         this.workTime += 1;
+        document.getElementById('session-length').innerText = this.workTime;
       }
     },
     decBreak() {
       if (this.playTime > 1) {
         this.playTime -= 1;
+        document.getElementById('break-length').innerText = this.playTime;
       }
     },
     incBreak() {
       if (this.playTime < 60) {
         this.playTime += 1;
+        document.getElementById('break-length').innerText = this.playTime;
       }
     },
   },
@@ -80,10 +84,7 @@ export default {
   watch: {
     workTime() {
       document.getElementById('time-left').innerText = `${this.workTime}:00`;
-      document.getElementById('session-length').innerText = this.workTime;
-    },
-    playTime() {
-      document.getElementById('break-length').innerText = this.playTime;
+      // document.getElementById('session-length').innerText = this.workTime;
     },
   },
 };
