@@ -12,9 +12,8 @@
 
     <div id="timer-label"></div>
     <div id="time-left"></div>
-    <audio id="beep" preload="auto" source="./assets/chime.mp3" type="audio/mpeg">
+    <audio id="beep" source="./assets/chime.mp3" type=mpeg>
     </audio>
-
   </div>
 </template>
 
@@ -28,7 +27,6 @@ export default {
       timeElapsed: 0,
       working: true,
       timeInc: null, // placeholder for setTimeout()
-      chime: new Audio('./assets/chime.mp3'),
     };
   },
 
@@ -36,12 +34,13 @@ export default {
 
     resetTimer() {
       // pause that gong and reset playback!
-      this.chime.pause();
-      this.chime.currentTime = 0;
+      this.pauseAudio(document.getElementById('beep'));
 
       // reset default time limits first
       this.$parent.workTime = 25;
+      document.getElementById('session-length').innerText = this.$parent.workTime;
       this.$parent.playTime = 5;
+      document.getElementById('break-length').innerText = this.$parent.playTime;
 
       // reset all attributes to default work time
       clearTimeout(this.timeInc);
@@ -59,9 +58,9 @@ export default {
       const deadline = this.working ? (this.$parent.workTime * 60 * 1000)
         : (this.$parent.playTime * 60 * 1000);
 
-      // we could add another button to manually set break or work session?
+      // switch message before next start timer call
       document.getElementById('timer-label')
-        .innerText = (this.working) ? 'Time to work!' : 'Take a break!';
+        .innerText = this.working ? 'Time to work!' : 'Take a break!';
 
       if (!this.timmerRunning) {
         this.timmerRunning = true;
@@ -88,7 +87,7 @@ export default {
           // if current timer has ended, start next timer
           if (interval < 1) {
             // play audio at end of timer
-            this.chime.play();
+            this.playAudio(document.getElementById('beep'));
 
             clearTimeout(this.timeInc);
             this.timeElapsed = 0;
@@ -103,7 +102,7 @@ export default {
             // continue to call setTimeout() to measure time
             this.incrementTime(time);
           }
-        }, 100);
+        }, 10);
       }
     },
 
@@ -112,7 +111,30 @@ export default {
       return time < 10 ? `0${time}` : time;
     },
 
-  },
+    playAudio: async (el) => {
+      const playObj = el;
+      try {
+        // eslint-disable-next-line
+        console.log("fired!");
+        await playObj.play();
+      } catch (err) {
+        // eslint-disable-next-line
+        console.error(`Playback error! ${err}`);
+      }
+    },
+
+    pauseAudio: async (el) => {
+      const playObj = el;
+      try {
+        await playObj.pause();
+        playObj.currentTime = 0;
+      } catch {
+        // eslint-disable-next-line
+        console.error(`Playback error! ${err}`);
+      }
+    },
+  }, // end methods:
+
 
   mounted() {
     document.getElementById('timer-label')
