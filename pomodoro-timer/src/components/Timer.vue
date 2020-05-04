@@ -12,7 +12,7 @@
 
     <div id="timer-label"></div>
     <div id="time-left"></div>
-    <audio id="beep" preload="auto" class="clip" source="./assets/chime.mp3" type="audio/mp3">
+    <audio id="beep" preload="auto" source="./assets/chime.mp3" type="audio/mpeg">
     </audio>
 
   </div>
@@ -28,7 +28,7 @@ export default {
       timeElapsed: 0,
       working: true,
       timeInc: null, // placeholder for setTimeout()
-      chime: new Audio('../assets/chime.mp3'),
+      chime: new Audio('./assets/chime.mp3'),
     };
   },
 
@@ -39,6 +39,10 @@ export default {
       this.chime.pause();
       this.chime.currentTime = 0;
 
+      // reset default time limits first
+      this.$parent.workTime = 25;
+      this.$parent.playTime = 5;
+
       // reset all attributes to default work time
       clearTimeout(this.timeInc);
       this.timmerRunning = false;
@@ -48,10 +52,6 @@ export default {
       document.getElementById('timer-label')
         .innerText = 'Time to work!';
       this.working = true;
-
-      // reset default time limits
-      this.$parent.workTime = 25;
-      this.$parent.playTime = 5;
     },
 
     startTimer() {
@@ -103,18 +103,7 @@ export default {
             // continue to call setTimeout() to measure time
             this.incrementTime(time);
           }
-        }, 10);
-      }
-    },
-
-    playAudio: async (el) => {
-      const playObj = el;
-      try {
-        playObj.currentTime = 0;
-        await playObj.play();
-      } catch (err) {
-        // eslint-disable-next-line
-        console.error(`Playback error! ${err}`);
+        }, 100);
       }
     },
 

@@ -1,37 +1,33 @@
 <template>
   <div id="timer">
 
-      <div id="session-label">
-        Work Timer
-        <div>
-          <button id="session-decrement" @click="decSess">
-            -
-          </button>
-          <div id="session-length">
-            {{ workTime }}
-          </div>
-          <button id="session-increment" @click="incSess">
-            +
-          </button>
-        </div>
+    <div id="session-label">
+      Work Timer
+      <div>
+        <button id="session-increment" @click="incSess">
+          +
+        </button>
+        <div id="session-length"></div>
+        <button id="session-decrement" @click="decSess">
+          -
+        </button>
       </div>
+    </div>
 
-      <div id="break-label">
-        Break Timer
-        <div>
-          <button id="break-decrement" @click="decBreak">
-            -
-          </button>
-          <div id="break-length" :play-time="playTime">
-            {{ playTime }}
-          </div>
-          <button id="break-increment" @click="incBreak">
-            +
-          </button>
-        </div>
+    <div id="break-label">
+      Break Timer
+      <div>
+        <button id="break-increment" @click="incBreak">
+          +
+        </button>
+        <div id="break-length"></div>
+        <button id="break-decrement" @click="decBreak">
+          -
+        </button>
       </div>
+    </div>
 
-      <Timer />
+    <Timer />
 
   </div>
 </template>
@@ -76,6 +72,20 @@ export default {
     },
   },
 
+  mounted() {
+    document.getElementById('session-length').innerText = this.workTime;
+    document.getElementById('break-length').innerText = this.playTime;
+  },
+
+  watch: {
+    workTime() {
+      document.getElementById('time-left').innerText = `${this.workTime}:00`;
+      document.getElementById('session-length').innerText = this.workTime;
+    },
+    playTime() {
+      document.getElementById('break-length').innerText = this.playTime;
+    },
+  },
 };
 </script>
 
