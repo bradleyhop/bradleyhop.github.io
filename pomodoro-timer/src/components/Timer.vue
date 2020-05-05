@@ -12,8 +12,8 @@
 
     <div id="timer-label"></div>
     <div id="time-left"></div>
-    <audio id="beep" source="./assets/chime.mp3" type=mpeg>
-    </audio>
+    <audio id="beep" src="../assets/chime.mp3" type=mpeg preload="auto"></audio>
+
   </div>
 </template>
 
@@ -73,36 +73,30 @@ export default {
     incrementTime(time) {
       if (this.timmerRunning) {
         this.timeInc = setTimeout(() => {
-          // set to setTimeout() interval, in ms
-          this.timeElapsed += 100;
-
-          const interval = time - this.timeElapsed;
+          // NOTE: adding 1000 - setTimeout interval here so that the first second is counted
+          const interval = time - this.timeElapsed + 900;
           const minutes = Math.floor(interval / (1000 * 60));
           const seconds = Math.floor((interval / 1000) % 60);
-
 
           document.getElementById('time-left')
             .innerText = `${this.formatTime(minutes)}:${this.formatTime(seconds)}`;
 
           // if current timer has ended, start next timer
-          if (interval < 1) {
-            // play audio at end of timer
+          if (document.getElementById('time-left').innerText === '00:00') {
             this.playAudio(document.getElementById('beep'));
-
             clearTimeout(this.timeInc);
             this.timeElapsed = 0;
             this.timmerRunning = false;
-
-            // switch from work to break session
             this.working = !this.working;
-
-            // start new timer automatically
             this.startTimer();
           } else {
             // continue to call setTimeout() to measure time
             this.incrementTime(time);
           }
-        }, 10);
+
+          // set to setTimeout() interval, in ms
+          this.timeElapsed += 100;
+        }, 100);
       }
     },
 
@@ -114,8 +108,6 @@ export default {
     playAudio: async (el) => {
       const playObj = el;
       try {
-        // eslint-disable-next-line
-        console.log("fired!");
         await playObj.play();
       } catch (err) {
         // eslint-disable-next-line
@@ -128,9 +120,9 @@ export default {
       try {
         await playObj.pause();
         playObj.currentTime = 0;
-      } catch {
+      } catch (err) {
         // eslint-disable-next-line
-        console.error(`Playback error! ${err}`);
+        console.error(`Pause error! ${err}`);
       }
     },
   }, // end methods:
