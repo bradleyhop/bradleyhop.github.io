@@ -44,7 +44,7 @@ export default {
 
   data() {
     return {
-      workTime: 1,
+      workTime: 25,
       playTime: 5,
     };
   },
@@ -84,9 +84,9 @@ export default {
   watch: {
     workTime() {
       document.getElementById('time-left').innerText = `${this.workTime}:00`;
-      // document.getElementById('session-length').innerText = this.workTime;
     },
   },
+
 };
 </script>
 
