@@ -33,6 +33,9 @@ export default {
   methods: {
 
     resetTimer() {
+      // stop timer
+      clearTimeout(this.timeInc);
+
       // pause that gong and reset playback!
       this.pauseAudio(document.getElementById('beep'));
 
@@ -43,7 +46,6 @@ export default {
       document.getElementById('break-length').innerText = this.$parent.playTime;
 
       // reset all attributes to default work time
-      clearTimeout(this.timeInc);
       this.timmerRunning = false;
       this.timeElapsed = 0;
       document.getElementById('time-left')
@@ -73,7 +75,7 @@ export default {
     incrementTime(time) {
       if (this.timmerRunning) {
         this.timeInc = setTimeout(() => {
-          // NOTE: adding 1000 - setTimeout interval here so that the first second is counted
+          // NOTE: adding (1000 - setTimeout interva)l here so that the first second is counted
           const interval = time - this.timeElapsed + 900;
           const minutes = Math.floor(interval / (1000 * 60));
           const seconds = Math.floor((interval / 1000) % 60);
@@ -133,6 +135,10 @@ export default {
       .innerText = 'Time to work!';
     document.getElementById('time-left')
       .innerText = `${this.formatTime(this.$parent.workTime)}:00`;
+  },
+
+  beforeDestroy() {
+    clearTimeout(this.timeInc);
   },
 
 };

@@ -3,11 +3,11 @@
 
     <div id="session-label">
       Work Timer
-      <div>
+      <div class="inline">
         <button id="session-increment" @click="incSess">
           +
         </button>
-        <div id="session-length"></div>
+        <span id="session-length"></span>
         <button id="session-decrement" @click="decSess">
           -
         </button>
@@ -16,11 +16,11 @@
 
     <div id="break-label">
       Break Timer
-      <div>
+      <div class="inline">
         <button id="break-increment" @click="incBreak">
           +
         </button>
-        <div id="break-length"></div>
+        <span id="break-length"></span>
         <button id="break-decrement" @click="decBreak">
           -
         </button>
@@ -83,6 +83,7 @@ export default {
 
   watch: {
     workTime() {
+      // update child component timer display to reflect when user changes session length
       document.getElementById('time-left').innerText = `${this.workTime}:00`;
     },
   },
