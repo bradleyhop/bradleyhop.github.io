@@ -1,5 +1,5 @@
 <template>
-  <div id="timer">
+  <div id="app">
     <h1 class="pageTitle">pomodoro timer</h1>
 
     <div class="inputWrapper">
@@ -7,12 +7,12 @@
       <div id="session-label" class="labels">
         Work Timer
         <div class="inline">
-          <button id="session-increment" @click="incSess">
-            +
+          <button id="session-increment" @click="incSess" aria-label="increase session timer">
+            <font-awesome-icon :icon="['fas', 'angle-up']" />
           </button>
           <span id="session-length"></span>
-          <button id="session-decrement" @click="decSess">
-            -
+          <button id="session-decrement" @click="decSess" aria-label="decrease session timer">
+            <font-awesome-icon :icon="['fas', 'angle-down']" />
           </button>
         </div>
       </div>
@@ -20,12 +20,12 @@
       <div id="break-label" class="labels">
         Break Timer
         <div class="inline">
-          <button id="break-increment" @click="incBreak">
-            +
+          <button id="break-increment" @click="incBreak" aria-label="increase break timer">
+            <font-awesome-icon :icon="['fas', 'angle-up']" />
           </button>
           <span id="break-length"></span>
-          <button id="break-decrement" @click="decBreak">
-            -
+          <button id="break-decrement" @click="decBreak" aria-label="decrease break timer">
+            <font-awesome-icon :icon="['fas', 'angle-down']" />
           </button>
         </div>
       </div>
@@ -79,6 +79,11 @@ export default {
         document.getElementById('break-length').innerText = this.playTime;
       }
     },
+
+    formatTime(time) {
+      // return number so that time is in a MM:SS format
+      return time < 10 ? `0${time}` : time;
+    },
   },
 
   mounted() {
@@ -89,7 +94,7 @@ export default {
   watch: {
     workTime() {
       // update child component timer display to reflect when user changes session length
-      document.getElementById('time-left').innerText = `${this.workTime}:00`;
+      document.getElementById('time-left').innerText = `${this.formatTime(this.workTime)}:00`;
     },
   },
 
@@ -97,8 +102,11 @@ export default {
 </script>
 
 <style lang="scss">
+// min-width for mobile-first dessign
+$responsive-width: 599px;
+
 html {
-  background-color: #222;
+  background-color: #595959;
 }
 
 body {
@@ -107,7 +115,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #fff;
-  margin-top: 32px;
   font-size: 16px;
 }
 
@@ -116,8 +123,12 @@ body {
   flex-direction: row;
   align-content: space-around;
   justify-content: center;
-  width: 50%;
+  width: 100%;
   margin: auto;
+
+  @media only screen and (min-width: $responsive-width) {
+    width: 50%;
+  }
 }
 
 .labels {
