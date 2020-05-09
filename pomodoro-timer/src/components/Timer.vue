@@ -1,21 +1,29 @@
 <template>
   <div id="timer">
 
-    <div class="timerControls">
-      <button id="reset" @click="resetTimer">
-        reset
-      </button>
-      <button id="start_stop" @click="startTimer">
-        start/pause
-      </button>
-    </div>
+    <div class="wrapperEnso">
 
-    <div class="wrapperEndo">
       <img class="enso" src="../assets/Enso.svg" alt="image of zen enso">
-    <div id="timer-label" class="titleCenter"></div>
-    <div id="time-left" class="timerCenter"></div>
-    <audio id="beep" src="../assets/chime.mp3" type=mpeg preload="auto"></audio>
-    </div>
+
+      <div id="timer-label" class="titleCenter"></div>
+      <div id="time-left" class="timerCenter"></div>
+      <audio id="beep" src="../assets/chime.mp3" type=mpeg preload="auto"></audio>
+
+      <div class="timerControls">
+        <div class="startStopCenter">
+          <button id="start_stop" @click="startTimer" aria-label="start or pause timer">
+            <font-awesome-icon :icon="['fas', 'play']" />
+            <font-awesome-icon :icon="['fas', 'pause']" />
+          </button>
+        </div>
+        <div class="resetCenter">
+          <button id="reset" @click="resetTimer"
+                  aria-label="stop timer and reset to default values">
+            <font-awesome-icon :icon="['fas', 'redo']" />
+          </button>
+        </div>
+      </div>
+    </div><!-- wrapperEnso -->
 
   </div>
 </template>
@@ -54,7 +62,7 @@ export default {
       this.timmerRunning = false;
       this.timeElapsed = 0;
       document.getElementById('time-left')
-        .innerText = `${this.formatTime(this.$parent.workTime)}:00`;
+        .innerText = `${this.$parent.formatTime(this.$parent.workTime)}:00`;
       document.getElementById('timer-label')
         .innerText = this.workMessage;
       this.working = true;
@@ -86,7 +94,7 @@ export default {
           const seconds = Math.floor((interval / 1000) % 60);
 
           document.getElementById('time-left')
-            .innerText = `${this.formatTime(minutes)}:${this.formatTime(seconds)}`;
+            .innerText = `${this.$parent.formatTime(minutes)}:${this.$parent.formatTime(seconds)}`;
 
           // if current timer has ended, start next timer
           if (document.getElementById('time-left').innerText === '00:00') {
@@ -107,10 +115,6 @@ export default {
       }
     },
 
-    formatTime(time) {
-      // return number so that time is in a MM:SS format
-      return time < 10 ? `0${time}` : time;
-    },
 
     playAudio: async (el) => {
       const playObj = el;
@@ -139,7 +143,7 @@ export default {
     document.getElementById('timer-label')
       .innerText = this.workMessage;
     document.getElementById('time-left')
-      .innerText = `${this.formatTime(this.$parent.workTime)}:00`;
+      .innerText = `${this.$parent.formatTime(this.$parent.workTime)}:00`;
   },
 
   beforeDestroy() {
@@ -149,25 +153,69 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.enso {
+<style lang="scss">
+$responsive-width: 599px;
+
+@mixin inset {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wrapperEnso {
   position: relative;
-  height: 24rem;
+}
+
+.enso {
   text-align: center;
-  width: 24rem;
+  width: 22rem;
+  height: 22rem;
+
+  @media only screen and (min-width: $responsive-width) {
+    height: 24rem;
+    width: 24rem;
+  }
 }
 
 .titleCenter {
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  @include inset;
+  font-weight: bold;
+  font-size: 1.5rem;
+  top: 38%;
+
+  @media only screen and (min-width: $responsive-width) {
+    font-size: 2rem;
+    top: 42%;
+  }
 }
 
 .timerCenter {
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  @include inset;
+  font-weight: bold;
+  font-size: 1.5rem;
+  top: 45%;
+
+  @media only screen and (min-width: $responsive-width) {
+    font-size: 2rem;
+    top: 50%;
+  }
+}
+
+.startStopCenter {
+  @include inset;
+  top: 55%;
+
+  @media only screen and (min-width: $responsive-width) {
+    top: 61%;
+  }
+}
+
+.resetCenter {
+  @include inset;
+  top: 62%;
+
+  @media only screen and (min-width: $responsive-width) {
+    top: 68%;
+  }
 }
 </style>
