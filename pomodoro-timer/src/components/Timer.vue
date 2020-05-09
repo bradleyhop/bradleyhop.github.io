@@ -10,9 +10,12 @@
       </button>
     </div>
 
-    <div id="timer-label"></div>
-    <div id="time-left"></div>
+    <div class="wrapperEndo">
+      <img class="enso" src="../assets/Enso.svg" alt="image of zen enso">
+    <div id="timer-label" class="titleCenter"></div>
+    <div id="time-left" class="timerCenter"></div>
     <audio id="beep" src="../assets/chime.mp3" type=mpeg preload="auto"></audio>
+    </div>
 
   </div>
 </template>
@@ -26,6 +29,8 @@ export default {
       timmerRunning: false,
       timeElapsed: 0,
       working: true,
+      workMessage: 'concentrate',
+      playMessage: 'relax',
       timeInc: null, // placeholder for setTimeout()
     };
   },
@@ -51,7 +56,7 @@ export default {
       document.getElementById('time-left')
         .innerText = `${this.formatTime(this.$parent.workTime)}:00`;
       document.getElementById('timer-label')
-        .innerText = 'Time to work!';
+        .innerText = this.workMessage;
       this.working = true;
     },
 
@@ -62,7 +67,7 @@ export default {
 
       // switch message before next start timer call
       document.getElementById('timer-label')
-        .innerText = this.working ? 'Time to work!' : 'Take a break!';
+        .innerText = this.working ? this.workMessage : this.playMessage;
 
       if (!this.timmerRunning) {
         this.timmerRunning = true;
@@ -132,7 +137,7 @@ export default {
 
   mounted() {
     document.getElementById('timer-label')
-      .innerText = 'Time to work!';
+      .innerText = this.workMessage;
     document.getElementById('time-left')
       .innerText = `${this.formatTime(this.$parent.workTime)}:00`;
   },
@@ -144,6 +149,25 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
+.enso {
+  position: relative;
+  height: 24rem;
+  text-align: center;
+  width: 24rem;
+}
 
+.titleCenter {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.timerCenter {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 </style>
