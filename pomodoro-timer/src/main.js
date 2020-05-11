@@ -10,6 +10,9 @@ library.add(faAngleUp, faAngleDown, faPlay, faPause, faRedo);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
+// focus-visible polyfill
+require('../node_modules/focus-visible/dist/focus-visible.min');
+
 Vue.config.productionTip = false;
 
 new Vue({
