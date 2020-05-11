@@ -11,13 +11,14 @@
 
       <div class="timerControls">
         <div class="startStopCenter">
-          <button id="start_stop" @click="startTimer" aria-label="start or pause timer">
+          <button id="start_stop" class="faControls" title="play/pause"
+                  @click="startTimer" aria-label="start or pause timer">
             <font-awesome-icon :icon="['fas', 'play']" />
             <font-awesome-icon :icon="['fas', 'pause']" />
           </button>
         </div>
         <div class="resetCenter">
-          <button id="reset" @click="resetTimer"
+          <button id="reset" class="faControls" title="reset" @click="resetTimer"
                   aria-label="stop timer and reset to default values">
             <font-awesome-icon :icon="['fas', 'redo']" />
           </button>
@@ -34,7 +35,7 @@ export default {
 
   data() {
     return {
-      timmerRunning: false,
+      timerRunning: false,
       timeElapsed: 0,
       working: true,
       workMessage: 'concentrate',
@@ -59,7 +60,8 @@ export default {
       document.getElementById('break-length').innerText = this.$parent.playTime;
 
       // reset all attributes to default work time
-      this.timmerRunning = false;
+      this.$parent.adjustable = true; // allow timer to be set and displayed
+      this.timerRunning = false;
       this.timeElapsed = 0;
       document.getElementById('time-left')
         .innerText = `${this.$parent.formatTime(this.$parent.workTime)}:00`;
@@ -77,16 +79,19 @@ export default {
       document.getElementById('timer-label')
         .innerText = this.working ? this.workMessage : this.playMessage;
 
-      if (!this.timmerRunning) {
-        this.timmerRunning = true;
+      if (!this.timerRunning) {
+        // tell parent component that timer is running and therefore don't update timer on buttton
+        //  press
+        this.$parent.adjustable = false;
+        this.timerRunning = true;
         this.incrementTime(deadline);
       } else {
-        this.timmerRunning = false;
+        this.timerRunning = false;
       }
     },
 
     incrementTime(time) {
-      if (this.timmerRunning) {
+      if (this.timerRunning) {
         this.timeInc = setTimeout(() => {
           // NOTE: adding (1000 - setTimeout interva)l here so that the first second is counted
           const interval = time - this.timeElapsed + 900;
@@ -101,7 +106,7 @@ export default {
             this.playAudio(document.getElementById('beep'));
             clearTimeout(this.timeInc);
             this.timeElapsed = 0;
-            this.timmerRunning = false;
+            this.timerRunning = false;
             this.working = !this.working;
             this.startTimer();
           } else {
@@ -172,8 +177,8 @@ $responsive-width: 599px;
   height: 22rem;
 
   @media only screen and (min-width: $responsive-width) {
-    height: 24rem;
-    width: 24rem;
+    height: 28rem;
+    width: 28rem;
   }
 }
 
@@ -208,6 +213,10 @@ $responsive-width: 599px;
   @media only screen and (min-width: $responsive-width) {
     top: 61%;
   }
+}
+
+.faControls {
+  font-size: 1.5rem;
 }
 
 .resetCenter {

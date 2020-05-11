@@ -13,6 +13,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/vue-fontawesome": "^0.1.9",
     "core-js": "^3.6.5",
+    "focus-visible": "^5.1.0",
     "stylelint": "^13.3.3",
     "stylelint-order": "^4.0.0",
     "stylelint-scss": "^3.17.2",

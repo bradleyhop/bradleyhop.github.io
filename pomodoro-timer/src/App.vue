@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" role="main">
     <h1 class="pageTitle">pomodoro timer</h1>
 
     <div class="inputWrapper">
@@ -7,11 +7,13 @@
       <div id="session-label" class="labels">
         Work Timer
         <div class="inline">
-          <button id="session-increment" @click="incSess" aria-label="increase session timer">
+          <button id="session-increment" class="faButton bRight"
+                  @click="incSess" aria-label="increase session timer">
             <font-awesome-icon :icon="['fas', 'angle-up']" />
           </button>
-          <span id="session-length"></span>
-          <button id="session-decrement" @click="decSess" aria-label="decrease session timer">
+          <span id="session-length" class="sessionNumber"></span>
+          <button id="session-decrement" class="faButton bLeft"
+                  @click="decSess" aria-label="decrease session timer">
             <font-awesome-icon :icon="['fas', 'angle-down']" />
           </button>
         </div>
@@ -20,11 +22,13 @@
       <div id="break-label" class="labels">
         Break Timer
         <div class="inline">
-          <button id="break-increment" @click="incBreak" aria-label="increase break timer">
+          <button id="break-increment" class="faButton bRight"
+                  @click="incBreak" aria-label="increase break timer">
             <font-awesome-icon :icon="['fas', 'angle-up']" />
           </button>
-          <span id="break-length"></span>
-          <button id="break-decrement" @click="decBreak" aria-label="decrease break timer">
+          <span id="break-length" class="sessionNumber"></span>
+          <button id="break-decrement" class="faButton bLeft"
+                  @click="decBreak" aria-label="decrease break timer">
             <font-awesome-icon :icon="['fas', 'angle-down']" />
           </button>
         </div>
@@ -51,6 +55,7 @@ export default {
     return {
       workTime: 25,
       playTime: 5,
+      adjustable: true, // dis/allow timer to be set and displayed when it is running
     };
   },
 
@@ -93,8 +98,11 @@ export default {
 
   watch: {
     workTime() {
-      // update child component timer display to reflect when user changes session length
-      document.getElementById('time-left').innerText = `${this.formatTime(this.workTime)}:00`;
+      // only display use updates to timer session if there isn't a timer running currently
+      if (this.adjustable) {
+        // update child component timer display to reflect when user changes session length
+        document.getElementById('time-left').innerText = `${this.formatTime(this.workTime)}:00`;
+      }
     },
   },
 
@@ -105,12 +113,32 @@ export default {
 // min-width for mobile-first dessign
 $responsive-width: 599px;
 
+// next four rules needed for the focus-visible polyfill; gives focus on keyboard navigation only
+
+::-moz-focus-inner {
+  border: 0;
+}
+
+:focus {
+  outline: none;
+}
+
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
+.focus-visible {
+  border: #fff dotted 0.1rem;
+}
+
+// end focus-visible polyfill rules
+
 html {
   background-color: #595959;
 }
 
 body {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -134,17 +162,41 @@ body {
 .labels {
   margin: 0.5rem;
   padding: 0.5rem;
+
+  @media only screen and (min-width: $responsive-width) {
+    font-size: 1.5rem;
+  }
+}
+
+.inline {
+  width: 100%;
 }
 
 button {
   border: 0;
   background: none;
-  color: white;
+  color: #fff;
+
+  &:active {
+    color: #000;
+  }
 }
 
-.angle-up {
-  font-size: 1rem;
-  color: #fff;
+.faButton {
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+}
+
+.bRight {
+  float: right;
+}
+
+.bLeft {
+  float: left;
+}
+
+.sessionNumber {
+  font-size: 1.25rem;
 }
 
 </style>
