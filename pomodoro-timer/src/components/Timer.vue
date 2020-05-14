@@ -1,4 +1,6 @@
 <template>
+
+
   <div id="timer">
 
     <div class="wrapperEnso">
@@ -9,10 +11,12 @@
       <div id="time-left" class="timerCenter"></div>
       <audio id="beep" src="../assets/chime.mp3" type=mpeg preload="auto"></audio>
 
+      <div id="circle" class="progressCircle"></div>
+
       <div class="timerControls">
         <div class="startStopCenter">
           <button id="start_stop" class="faControls" title="play/pause"
-                  @click="startTimer" aria-label="start or pause timer">
+                  @click="startPauseTimer" aria-label="start or pause timer">
             <font-awesome-icon :icon="['fas', 'play']" />
             <font-awesome-icon :icon="['fas', 'pause']" />
           </button>
@@ -26,10 +30,13 @@
       </div>
     </div><!-- wrapperEnso -->
 
+
   </div>
 </template>
 
 <script>
+import ProgressBar from 'progressbar.js';
+
 export default {
   name: 'Timer',
 
@@ -41,10 +48,35 @@ export default {
       workMessage: 'concentrate',
       playMessage: 'relax',
       timeInc: null, // placeholder for setTimeout()
+      reveal: null, // placeholder for ProgressBar.Circle() functions
     };
   },
 
   methods: {
+
+    startPauseTimer() {
+      // set current countdown time based on either work or break session
+      const deadline = this.working ? (this.$parent.workTime * 60 * 1000)
+        : (this.$parent.playTime * 60 * 1000);
+
+      // switch message before next start timer call
+      document.getElementById('timer-label')
+        .innerText = this.working ? this.workMessage : this.playMessage;
+
+      if (!this.timerRunning) {
+        // tell parent component that timer is running and so don't update timer on buttton press
+        this.$parent.adjustable = false;
+        this.timerRunning = true;
+        // start painting progressbar
+        this.paintCircle(deadline);
+        // start timer
+        this.incrementTime(deadline);
+      } else {
+        this.timerRunning = false;
+        // stop drawing circle
+        this.reveal.stop();
+      }
+    },
 
     resetTimer() {
       // stop timer
@@ -68,32 +100,16 @@ export default {
       document.getElementById('timer-label')
         .innerText = this.workMessage;
       this.working = true;
-    },
 
-    startTimer() {
-      // set current countdown time based on either work or break session
-      const deadline = this.working ? (this.$parent.workTime * 60 * 1000)
-        : (this.$parent.playTime * 60 * 1000);
-
-      // switch message before next start timer call
-      document.getElementById('timer-label')
-        .innerText = this.working ? this.workMessage : this.playMessage;
-
-      if (!this.timerRunning) {
-        // tell parent component that timer is running and therefore don't update timer on buttton
-        //  press
-        this.$parent.adjustable = false;
-        this.timerRunning = true;
-        this.incrementTime(deadline);
-      } else {
-        this.timerRunning = false;
-      }
+      // remove circle animation
+      this.reveal.destroy();
+      this.reveal = null;
     },
 
     incrementTime(time) {
       if (this.timerRunning) {
         this.timeInc = setTimeout(() => {
-          // NOTE: adding (1000 - setTimeout interva)l here so that the first second is counted
+          // NOTE: adding (1000 - setTimeout interval) here so that the first second is counted
           const interval = time - this.timeElapsed + 900;
           const minutes = Math.floor(interval / (1000 * 60));
           const seconds = Math.floor((interval / 1000) % 60);
@@ -108,7 +124,10 @@ export default {
             this.timeElapsed = 0;
             this.timerRunning = false;
             this.working = !this.working;
-            this.startTimer();
+            // remove finished progress bar
+            this.reveal.destroy();
+            this.reveal = null;
+            this.startPauseTimer();
           } else {
             // continue to call setTimeout() to measure time
             this.incrementTime(time);
@@ -120,14 +139,26 @@ export default {
       }
     },
 
+    paintCircle(time) {
+      if (!this.reveal) {
+        this.reveal = new ProgressBar.Circle('#circle', {
+          strokeWidth: 6,
+          easing: 'linear',
+          duration: time,
+          color: '#000',
+          warnings: true,
+        });
+      }
+
+      this.reveal.animate(1.0);
+    },
 
     playAudio: async (el) => {
       const playObj = el;
       try {
         await playObj.play();
       } catch (err) {
-        // eslint-disable-next-line
-        console.error(`Playback error! ${err}`);
+        throw new Error(err);
       }
     },
 
@@ -137,8 +168,7 @@ export default {
         await playObj.pause();
         playObj.currentTime = 0;
       } catch (err) {
-        // eslint-disable-next-line
-        console.error(`Pause error! ${err}`);
+        throw new Error(err);
       }
     },
   }, // end methods:
@@ -167,6 +197,11 @@ $responsive-width: 599px;
   transform: translate(-50%, -50%);
 }
 
+@mixin enso-big {
+  height: 27rem;
+  width: 27rem;
+}
+
 .wrapperEnso {
   position: relative;
 }
@@ -177,8 +212,7 @@ $responsive-width: 599px;
   height: 22rem;
 
   @media only screen and (min-width: $responsive-width) {
-    height: 28rem;
-    width: 28rem;
+    @include enso-big;
   }
 }
 
@@ -226,5 +260,11 @@ $responsive-width: 599px;
   @media only screen and (min-width: $responsive-width) {
     top: 68%;
   }
+}
+
+.progressCircle {
+  @include inset;
+  @include enso-big;
+  top: 50%;
 }
 </style>

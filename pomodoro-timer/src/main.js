@@ -13,6 +13,10 @@ Vue.component('font-awesome-icon', FontAwesomeIcon);
 // focus-visible polyfill
 require('../node_modules/focus-visible/dist/focus-visible.min');
 
+// progressbar.js
+require('../node_modules/progressbar.js/dist/progressbar.min');
+
+
 Vue.config.productionTip = false;
 
 new Vue({
