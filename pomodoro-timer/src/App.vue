@@ -1,11 +1,11 @@
 <template>
   <div id="app" role="main">
-    <h1 class="pageTitle">pomodoro timer</h1>
+    <h1 class="pageTitle">POMODORO TIMER</h1>
 
     <div class="inputWrapper">
 
       <div id="session-label" class="labels">
-        Work Timer
+        work timer
         <div class="inline">
           <button id="session-increment" class="faButton bRight"
                   @click="incSess" aria-label="increase session timer">
@@ -20,7 +20,7 @@
       </div>
 
       <div id="break-label" class="labels">
-        Break Timer
+        break timer
         <div class="inline">
           <button id="break-increment" class="faButton bRight"
                   @click="incBreak" aria-label="increase break timer">
@@ -38,6 +38,11 @@
 
     <Timer />
 
+    <div class="tagline">
+      <a href="https://bradleyhop.github.io" class="portfolio-link">
+        bradley smith
+      </a>
+      &#169; 2020</div>
   </div>
 </template>
 
@@ -53,8 +58,8 @@ export default {
 
   data() {
     return {
-      workTime: 25,
-      playTime: 5,
+      workTime: 1,
+      playTime: 2,
       adjustable: true, // dis/allow timer to be set and displayed when it is running
     };
   },
@@ -197,6 +202,10 @@ button {
 
 .sessionNumber {
   font-size: 1.25rem;
+}
+
+.portfolio-link {
+  color: white;
 }
 
 </style>
