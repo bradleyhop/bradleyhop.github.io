@@ -64,7 +64,7 @@ export default {
         .innerText = this.working ? this.workMessage : this.playMessage;
 
       if (!this.timerRunning) {
-        // tell parent component that timer is running and so don't update timer on buttton press
+        // tell parent component that timer is running and so don't update timer on button press
         this.$parent.adjustable = false;
         this.timerRunning = true;
         // start painting progressbar
@@ -282,7 +282,7 @@ $responsive-width: 599px;
   // so that the div doesn't obstruct any input buttons
   border-radius: 50%;
   top: 50%;
-  // porgress bar will start at the mother dot and continue around just a a brush would
+  // progress bar will start at the mother dot and continue around just as  brush would
   transform: translate(-50%, -50%) rotate(-163deg) scaleX(-1);
 
   @media only screen and (min-width: $responsive-width) {

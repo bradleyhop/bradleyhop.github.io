@@ -41,7 +41,7 @@
     <div class="tagline">
       <p>
         <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank">
-          Need information about the pomodor technique?
+          Need information about the pomodoro technique?
         </a>
       </p>
       <a href="https://bradleyhop.github.io" target="_blank">
@@ -120,7 +120,7 @@ export default {
 </script>
 
 <style lang="scss">
-// min-width for mobile-first dessign
+// min-width for mobile-first design
 $responsive-width: 599px;
 
 // next four rules needed for the focus-visible polyfill; gives focus on keyboard navigation only
