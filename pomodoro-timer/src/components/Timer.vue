@@ -279,8 +279,6 @@ $responsive-width: 599px;
 .progressCircle {
   @include inset;
   @include enso-small;
-  // so that the div doesn't obstruct any input buttons
-  border-radius: 50%;
   top: 50%;
   // progress bar will start at the mother dot and continue around just as  brush would
   transform: translate(-50%, -50%) rotate(-163deg) scaleX(-1);
