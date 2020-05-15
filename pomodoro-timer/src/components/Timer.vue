@@ -48,7 +48,7 @@ export default {
       workMessage: 'concentrate',
       playMessage: 'relax',
       timeInc: null, // placeholder for setTimeout()
-      reveal: null, // placeholder for ProgressBar.Circle() functions
+      reveal: null, // placeholder for ProgressBar.Circle()
     };
   },
 
@@ -74,7 +74,7 @@ export default {
       } else {
         this.timerRunning = false;
         // stop drawing circle
-        this.reveal.stop();
+        this.reveal.pause();
       }
     },
 
@@ -101,9 +101,11 @@ export default {
         .innerText = this.workMessage;
       this.working = true;
 
-      // remove circle animation
-      this.reveal.destroy();
-      this.reveal = null;
+      if (this.reveal) {
+        // remove circle animation
+        this.reveal.destroy();
+        this.reveal = null;
+      }
     },
 
     incrementTime(time) {
@@ -142,15 +144,18 @@ export default {
     paintCircle(time) {
       if (!this.reveal) {
         this.reveal = new ProgressBar.Circle('#circle', {
-          strokeWidth: 6,
+          strokeWidth: 22,
           easing: 'linear',
           duration: time,
-          color: '#000',
+          color: '#595959',
           warnings: true,
         });
+        // animate progress backwards, ie from filled to empty
+        this.reveal.set(1.0);
+        this.reveal.animate(0.0);
+      } else {
+        this.reveal.resume();
       }
-
-      this.reveal.animate(1.0);
     },
 
     playAudio: async (el) => {
@@ -192,8 +197,8 @@ export default {
 $responsive-width: 599px;
 
 @mixin inset {
-  position: absolute;
   left: 50%;
+  position: absolute;
   transform: translate(-50%, -50%);
 }
 
@@ -202,14 +207,19 @@ $responsive-width: 599px;
   width: 27rem;
 }
 
+@mixin enso-small {
+  height: 22rem;
+  width: 22rem;
+}
+
 .wrapperEnso {
   position: relative;
 }
 
 .enso {
+  @include enso-small;
+
   text-align: center;
-  width: 22rem;
-  height: 22rem;
 
   @media only screen and (min-width: $responsive-width) {
     @include enso-big;
@@ -218,8 +228,9 @@ $responsive-width: 599px;
 
 .titleCenter {
   @include inset;
-  font-weight: bold;
+
   font-size: 1.5rem;
+  font-weight: bold;
   top: 38%;
 
   @media only screen and (min-width: $responsive-width) {
@@ -230,8 +241,9 @@ $responsive-width: 599px;
 
 .timerCenter {
   @include inset;
-  font-weight: bold;
+
   font-size: 1.5rem;
+  font-weight: bold;
   top: 45%;
 
   @media only screen and (min-width: $responsive-width) {
@@ -242,6 +254,7 @@ $responsive-width: 599px;
 
 .startStopCenter {
   @include inset;
+
   top: 55%;
 
   @media only screen and (min-width: $responsive-width) {
@@ -255,6 +268,7 @@ $responsive-width: 599px;
 
 .resetCenter {
   @include inset;
+
   top: 62%;
 
   @media only screen and (min-width: $responsive-width) {
@@ -264,7 +278,15 @@ $responsive-width: 599px;
 
 .progressCircle {
   @include inset;
-  @include enso-big;
+  @include enso-small;
+  // so that the div doesn't obstruct any input buttons
+  border-radius: 50%;
   top: 50%;
+  // porgress bar will start at the mother dot and continue around just a a brush would
+  transform: translate(-50%, -50%) rotate(-163deg) scaleX(-1);
+
+  @media only screen and (min-width: $responsive-width) {
+    @include enso-big;
+  }
 }
 </style>
