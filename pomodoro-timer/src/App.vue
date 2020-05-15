@@ -39,7 +39,12 @@
     <Timer />
 
     <div class="tagline">
-      <a href="https://bradleyhop.github.io" class="portfolio-link">
+      <p>
+        <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank">
+          Need information about the pomodor technique?
+        </a>
+      </p>
+      <a href="https://bradleyhop.github.io" target="_blank">
         bradley smith
       </a>
       &#169; 2020</div>
@@ -58,8 +63,8 @@ export default {
 
   data() {
     return {
-      workTime: 1,
-      playTime: 2,
+      workTime: 25,
+      playTime: 5,
       adjustable: true, // dis/allow timer to be set and displayed when it is running
     };
   },
@@ -143,21 +148,25 @@ html {
 }
 
 body {
+  color: #fff;
   font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #fff;
-  font-size: 16px;
+}
+
+.pageTitle {
+  margin-bottom: 0.5rem;
 }
 
 .inputWrapper {
+  align-content: space-around;
   display: flex;
   flex-direction: row;
-  align-content: space-around;
   justify-content: center;
-  width: 100%;
   margin: auto;
+  width: 100%;
 
   @media only screen and (min-width: $responsive-width) {
     width: 50%;
@@ -178,8 +187,8 @@ body {
 }
 
 button {
-  border: 0;
   background: none;
+  border: 0;
   color: #fff;
 
   &:active {
@@ -204,8 +213,14 @@ button {
   font-size: 1.25rem;
 }
 
-.portfolio-link {
-  color: white;
+.tagline {
+  a {
+    color: white;
+  }
+
+  a:hover {
+    color: black;
+  }
 }
 
 </style>
