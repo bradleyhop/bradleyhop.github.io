@@ -71,25 +71,25 @@ export default {
 
   methods: {
     decSess() {
-      if (this.workTime > 1) {
+      if (this.workTime > 1 && this.adjustable) {
         this.workTime -= 1;
         document.getElementById('session-length').innerText = this.workTime;
       }
     },
     incSess() {
-      if (this.workTime < 60) {
+      if (this.workTime < 60 && this.adjustable) {
         this.workTime += 1;
         document.getElementById('session-length').innerText = this.workTime;
       }
     },
     decBreak() {
-      if (this.playTime > 1) {
+      if (this.playTime > 1 && this.adjustable) {
         this.playTime -= 1;
         document.getElementById('break-length').innerText = this.playTime;
       }
     },
     incBreak() {
-      if (this.playTime < 60) {
+      if (this.playTime < 60 && this.adjustable) {
         this.playTime += 1;
         document.getElementById('break-length').innerText = this.playTime;
       }
@@ -108,11 +108,8 @@ export default {
 
   watch: {
     workTime() {
-      // only display use updates to timer session if there isn't a timer running currently
-      if (this.adjustable) {
-        // update child component timer display to reflect when user changes session length
-        document.getElementById('time-left').innerText = `${this.formatTime(this.workTime)}:00`;
-      }
+      // update child component timer display to reflect when user changes session length
+      document.getElementById('time-left').innerText = `${this.formatTime(this.workTime)}:00`;
     },
   },
 
