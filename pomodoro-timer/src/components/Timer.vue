@@ -269,16 +269,17 @@ $responsive-width: 599px;
 .resetCenter {
   @include inset;
 
-  top: 62%;
+  top: 64%;
 
   @media only screen and (min-width: $responsive-width) {
-    top: 68%;
+    top: 70%;
   }
 }
 
 .progressCircle {
   @include inset;
   @include enso-small;
+
   top: 50%;
   // progress bar will start at the mother dot and continue around just as  brush would
   transform: translate(-50%, -50%) rotate(-163deg) scaleX(-1);
