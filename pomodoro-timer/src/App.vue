@@ -121,7 +121,6 @@ export default {
 $responsive-width: 599px;
 
 // next four rules needed for the focus-visible polyfill; gives focus on keyboard navigation only
-
 ::-moz-focus-inner {
   border: 0;
 }
@@ -137,7 +136,6 @@ $responsive-width: 599px;
 .focus-visible {
   border: #fff dotted 0.1rem;
 }
-
 // end focus-visible polyfill rules
 
 html {
@@ -160,7 +158,7 @@ body {
 .inputWrapper {
   align-content: space-around;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   margin: auto;
   width: 100%;
@@ -180,6 +178,10 @@ body {
 }
 
 .inline {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   width: 100%;
 }
 
@@ -196,14 +198,6 @@ button {
 .faButton {
   font-size: 1.5rem;
   margin: 0 0.5rem;
-}
-
-.bRight {
-  float: right;
-}
-
-.bLeft {
-  float: left;
 }
 
 .sessionNumber {
