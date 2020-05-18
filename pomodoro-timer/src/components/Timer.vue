@@ -202,27 +202,18 @@ $responsive-width: 599px;
   transform: translate(-50%, -50%);
 }
 
-@mixin enso-big {
-  height: 27rem;
-  width: 27rem;
-}
-
-@mixin enso-small {
-  height: 22rem;
-  width: 22rem;
-}
-
 .wrapperEnso {
   position: relative;
 }
 
 .enso {
-  @include enso-small;
-
+  height: 22rem;
+  width: 22rem;
   text-align: center;
 
   @media only screen and (min-width: $responsive-width) {
-    @include enso-big;
+    height: 27rem;
+    width: 27rem;
   }
 }
 
@@ -278,14 +269,15 @@ $responsive-width: 599px;
 
 .progressCircle {
   @include inset;
-  @include enso-small;
-
+  height: 22.5rem;
+  width: 22.5rem;
   top: 50%;
   // progress bar will start at the mother dot and continue around just as  brush would
   transform: translate(-50%, -50%) rotate(-163deg) scaleX(-1);
 
   @media only screen and (min-width: $responsive-width) {
-    @include enso-big;
+    height: 27.5rem;
+    width: 27.5rem;
   }
 }
 </style>
