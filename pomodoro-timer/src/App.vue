@@ -47,7 +47,14 @@
       <a href="https://bradleyhop.github.io" target="_blank">
         bradley smith
       </a>
-      &#169; 2020</div>
+      &#169; 2020
+      <p>
+        <a href="https://github.com/bradleyhop/bradleyhop.github.io/tree/master/pomodoro-timer"
+           target="blank">
+          Source code for this app on github
+        </a>
+      </p>
+    </div><!-- tagline -->
   </div>
 </template>
 
