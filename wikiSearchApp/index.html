@@ -5,30 +5,32 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1,
-    shrink-to-fit=no">
-    <!-- The above 3 meta tags *must* come first in the head; any other head
-    content must come *after* these tags (per bootstrap)-->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>bradley's wikipedia search app</title>
+    <title>wikipedia search app</title>
 
-    <!-- Bootstrap 4.0 alpha via cdn-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <!-- bootstrap 4.5 cdn -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+          crossorigin="anonymous">
+
     <!-- local css -->
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="style.css">
 
   </head>
 
   <body>
 
 
-    <div class="container-fluid searchBody">
+    <div class="container-fluid searchBody" role="main">
 
       <div class="row logoWiki">
         <div class="col-lg-4 col-sm-3">
         </div>
         <div class="col-lg-4 col-sm-6">
-          <a href="https://en.wikipedia.org" target="_blank">
+          <a href="https://en.wikipedia.org" target="_blank" rel="noopener">
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Wikipedia-logo-v2-en.svg"
             class="img-responsive center-block"  alt="Wikipedia logo" />
           </a>
@@ -39,25 +41,31 @@
         <div class="col-lg-4 col-sm-3">
         </div><!-- empty space -->
         <div class="col-lg-4 col-sm-6">
+
           <div class="input-group">
-            <!-- add 'autofocus="true"' to input below if deploying.
-            will focus cursor to input box. Nice, but super annoying on codepen. -->
             <input type="search" class="searchWiki form-control"
-            placeholder="Search Wikipedia...">
-            <span class="input-group-btn">
-              <button class="searchButton btn btn-primary" type="button">
+                   placeholder="Search Wikipedia..." autofocus
+                   aria-label="Search Wikipedia" />
+            <span class="input-group-append">
+              <button class="searchButton btn btn-outline-secondary"
+                      type="button" aria-label="search input text on wikipedia">
                 <i class="fa fa-search" aria-hidden="true">
                 </i><!-- fontawesome search glyph -->
               </button>
             </span><!-- input-group-btn -->
           </div><!-- /input-group -->
+
           <!-- random page button -->
-          <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">
-            <button type="submit" class="randomButton btn btn-block">
+          <div title="random wikipedia article">
+            <a href="https://en.wikipedia.org/wiki/Special:Random"
+               target="_blank" class="randomButton boxes btn btn-block"
+               aria-label="go to a random wikipedia article"
+               rel="noopener">
               <i class="fa fa-random" aria-hidden="true">
               </i><!-- fontawesome random glyph -->
-            </button>
-          </a><!-- random button -->
+            </a><!-- random button -->
+          </div><!-- boxes -->
+
         </div><!-- col-lg-6* -->
       </div><!-- row -->
 
@@ -75,17 +83,26 @@
     <footer class="footer">
       <div class="container-fluid">
         <hr>
-        <p>Developed by <a href="https://github.com/bradleyhop"
-            target="_blank">Bradley Smith</a></p>
+        <p>Developed by
+          <a href="https://bradleyhop.github.io"
+            target="_blank" rel="noopener">
+            Bradley Smith
+          </a>
+        </p>
       </div><!-- container-fluid -->
     </footer>
 
 
-    <!-- jquery first, then boostrap -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <!-- tether required for bootstrap 4a -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <!-- added dependancies for bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
     <!-- fontawesome glyphs -->
     <script src="https://use.fontawesome.com/6e7bf0ea22.js"></script>
     <!-- my js file -->
@@ -93,4 +110,3 @@
 
   </body>
 </html>
-

@@ -8,6 +8,18 @@ body {
   padding-bottom: 65px;
 }
 
+a,
+a:active,
+a:hover {
+  color: #373d3f;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #190080;
+  text-decoration: none;
+}
+
 .searchBody {
   margin-top: 2%;
 }
@@ -27,7 +39,11 @@ body {
 }
 
 .searchWiki {
-  background: #f9f9f9;
+  background-color: #f9f9f9;
+  font-size: 1.4em;
+}
+
+.searchButton {
   font-size: 1.4em;
 }
 
@@ -41,9 +57,13 @@ body {
 
 .randomButton:hover {
   background: #cedff2;
-  border: 3px solid #cedff2 ;
+  border: 3px solid #cedff2;
   color: grey;
   margin-top: 2%;
+}
+
+.boxes:hover {
+  box-shadow: 2px 2px 2px rgba(33, 33, 33, 0.5);
 }
 
 .noResults {
@@ -51,7 +71,7 @@ body {
   border: 3px solid #f2cedd;
   border-radius: 5px;
   margin: 15px;
-  padding: .5em;
+  padding: 0.5em;
 }
 
 .noResults a {
@@ -63,7 +83,11 @@ body {
   border: 3px solid #cef2e0;
   border-radius: 5px;
   margin: 15px;
-  padding: .5em;
+  padding: 0.5em;
+}
+
+.mainSearchResult:hover {
+  box-shadow: 2px 2px 2px rgba(33, 33, 33, 0.5);
 }
 
 .altResults {
@@ -71,19 +95,11 @@ body {
   border: solid #ddcef2 2px;
   border-radius: 5px;
   margin: 15px;
-  padding: .5em;
+  padding: 0.5em;
 }
 
-a,
-a:active,
-a:hover,
-a:active {
-  color: #373d3f;
-  text-decoration: none;
-}
-
-a:visited {
-  color: #190080;
+.altResults:hover {
+  box-shadow: 2px 2px 2px rgba(33, 33, 33, 0.5);
 }
 
 .footer {
