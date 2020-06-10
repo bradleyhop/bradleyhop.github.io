@@ -78,6 +78,15 @@ a:visited {
   color: #0b0080;
 }
 
+.heading {
+  border-bottom: 1px solid #a2a9b1;
+  padding: 0.25em;
+}
+
+.extract {
+  text-align: left;
+}
+
 .mainSearchResult {
   background: #f5fffa;
   border: 3px solid #cef2e0;
