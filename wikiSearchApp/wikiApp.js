@@ -1,7 +1,7 @@
 function getResults(query) {
-  var url = "https://en.wikipedia.org/w/api.php";
+  let url = "https://en.wikipedia.org/w/api.php";
 
-  var params = {
+  let params = {
     action: 'query',
     format: 'json',
     formatversion: 2, // give the pages in an array
@@ -16,11 +16,11 @@ function getResults(query) {
     explaintext: 1, // no html, please`
     excontinue: 1, // needed to get all articles
     exsectionformat: 'plain', // no html, please
-    gsrsearch: query,
+    gsrsearch: query, // needed for additional data to be returned
   };
 
   url = url + '?origin=*'; // for CORS
-  Object.keys(params).forEach(function(key) {url += '&' + key + '=' + params[key];});
+  Object.keys(params).forEach((key) => { url += `&${key}=${params[key]}`; });
 
   fetch(url)
     .then((response) => { return response.json(); })
@@ -69,21 +69,23 @@ function displayResults(results) {
 
   for (let i in results) {
     let resultBox =
-      `<a href="https://en.wikipedia.org/wiki/${results[0].title.replace(/\s/g, '_')}"
-          target="_blank" rel="noopener" aria-label="${results[0].title}">`;
+      `<a href="https://en.wikipedia.org/wiki/${results[i].title.replace(/\s/g, '_')}"
+          target="_blank" rel="noopener" aria-label="${results[i].title}">`;
 
     // style the first returned item as it's probably the most relevant to the user
     if (i == 0) {
-      resultBox +=  `<div class="mainSearchResult btn btn-block boxes" title="go to wikipedia article">`;
+      resultBox +=  `<div class="mainSearchResult boxes" title="go to wikipedia article">`;
     } else {
-      resultBox += `<div class="altResults btn btn-block boxes" title="go to wikipedia article">`;
+      resultBox += `<div class="altResults boxes" title="go to wikipedia article">`;
     }
 
     resultBox +=
       `<h2 class="heading">
          ${results[i].title}
        </h2>
-       <i>${results[i].description}</i>`;
+       <div class="articleDescription">
+         <i>${results[i].description}</i>
+       </div>`;
 
     // not every title has an extract from the article
     if (results[i].extract) {
@@ -99,7 +101,7 @@ function displayResults(results) {
 }
 
 
-$(document).ready(function() {
+$(document).ready(() => {
   // get the search term from the user on enter or button press
   $(".searchButton").click(function() {
     const userQuery = $(".searchWiki").val();
@@ -111,7 +113,7 @@ $(document).ready(function() {
   });
 
   // search if enter or button pressed
-  $(".searchWiki").keypress(function(e) {
+  $(".searchWiki").keypress((e) => {
     if (e.which === 13) {
       $(".searchButton").click();
     }
