@@ -1,6 +1,6 @@
 # Wikipedia Search & View App
 
-[Live Site Here](https://bradleyhop.github.io/wikiSearch)
+[Live Site Here](https://bradleyhop.github.io/wikiSearchApp/)
 
 ## Objective and User Stories
 
