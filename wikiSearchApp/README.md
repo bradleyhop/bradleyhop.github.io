@@ -30,10 +30,10 @@ grabs the data from the API (instead of jQuery's `$.ajax`), and bootstrap and
 fontawesome dependencies are current. The site is now more accessible by
 providing aria-labels and titles for all elements that require them.
 
-The most challening aspect of this refactor was finding the parameters to get
-the information the from Wikimedia API. Originally, the `action=opensearch`
-parameter would return an extract from the Wikipedia article; [this is no longer
-the case and now returns an array of empty strings
+One of the most challenging aspect of this refactor was finding the parameters
+to get the information from the Wikimedia API. Originally, the
+`action=opensearch` parameter would return an extract from the Wikipedia
+article; [this is no longer the case and now returns an array of empty strings
 instead.](https://phabricator.wikimedia.org/T241437) Using this issue tracker as
 a place to start, I found the parameters that I needed using the Wikimedia [API
 Sandbox.](https://en.wikipedia.org/wiki/Special:ApiSandbox#action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=jsonfm)
