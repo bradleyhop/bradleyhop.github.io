@@ -1,4 +1,4 @@
-# Wikipedia Search & View App
+# Wikipedia Search & Preview App
 
 [Live Site Here](https://bradleyhop.github.io/wikiSearchApp/)
 

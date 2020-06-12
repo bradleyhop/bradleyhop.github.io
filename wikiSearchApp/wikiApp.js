@@ -25,7 +25,7 @@ function getResults(query) {
   fetch(url)
     .then((response) => { return response.json(); })
     .then((response) => {
-      if (response.query === undefined) {
+      if (!response.query) {
         // wikimedia returned no results
         noResults(params.gsrsearch);
       } else {
@@ -76,16 +76,22 @@ function displayResults(results) {
     if (i == 0) {
       resultBox +=  `<div class="mainSearchResult boxes" title="go to wikipedia article">`;
     } else {
+      // secondary style for alternate articles
       resultBox += `<div class="altResults boxes" title="go to wikipedia article">`;
     }
 
     resultBox +=
       `<h2 class="heading">
          ${results[i].title}
-       </h2>
-       <div class="articleDescription">
-         <i>${results[i].description}</i>
-       </div>`;
+       </h2>`;
+
+    // only add article description if defined
+    if (results[i].description) {
+      resultBox +=
+        `<div class="articleDescription">
+          <i>${results[i].description}</i>
+        </div>`;
+    }
 
     // not every title has an extract from the article
     if (results[i].extract) {
