@@ -25,10 +25,12 @@ the freeCodeCamp curriculum using the jQuery and bootstrap libraries. I decided
 to return to it as a way to practice refactoring code.
 
 The application now uses ES6 features such as arrow functions and promises, the
-javascript logic is simpler and more efficient, the built-in `fetch()` method
-grabs the data from the API (instead of jQuery's `$.ajax`), and bootstrap and
-fontawesome dependencies are current. The site is now more accessible by
-providing aria-labels and titles for all elements that require them.
+javascript logic is simpler and more efficient, ~~the built-in `fetch()` method
+grabs the data from the API (instead of jQuery's `$.ajax`),~~ $.ajax grabs the
+data since jQuery remains in the app to avoid cross-compatibility errors, and
+bootstrap and fontawesome dependencies are current. The site is now more
+accessible by providing aria-labels and titles for all elements that require
+them.
 
 One of the most challenging aspect of this refactor was finding the parameters
 to get the information from the Wikimedia API. Originally, the
