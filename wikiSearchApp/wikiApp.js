@@ -22,9 +22,10 @@ function getResults(query) {
   url = url + '?origin=*'; // for CORS
   Object.keys(params).forEach((key) => { url += `&${key}=${params[key]}`; });
 
-  fetch(url)
-    .then((response) => { return response.json(); })
-    .then((response) => {
+  $.ajax({
+    url: url
+  })
+    .done((response) => {
       if (!response.query) {
         // wikimedia returned no results
         noResults(params.gsrsearch);
@@ -33,11 +34,11 @@ function getResults(query) {
         displayResults(response.query.pages);
       }
     })
-    .catch((error) => {
+    .error((err) => {
       const fail =
-        `<div class='noResults'>
+        `<div class='noresults'>
            <h2>
-             Failed retrieving a response from wikipedia api!!!\n${error}
+             failed retrieving a response from wikipedia api!!!\n${err}
            </h2>
          </div>`;
       $(".results").append(fail);
@@ -57,7 +58,7 @@ function noResults(searchTerm) {
          </a>
        </h2>
      </div>`;
-  $(".results").append(emptyResult);
+  $('.results').append(emptyResult);
 }
 
 
@@ -109,7 +110,7 @@ function displayResults(results) {
 
 $(document).ready(() => {
   // get the search term from the user on enter or button press
-  $(".searchButton").click(function() {
+  $('.searchButton').click(function() {
     const userQuery = $(".searchWiki").val();
     // clear prior results
     $('.results').empty();
@@ -119,7 +120,7 @@ $(document).ready(() => {
   });
 
   // search if enter or button pressed
-  $(".searchWiki").keypress((e) => {
+  $('.searchWiki').keypress((e) => {
     if (e.which === 13) {
       $(".searchButton").click();
     }
