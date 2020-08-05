@@ -270,6 +270,8 @@ $responsive-width: 599px;
 .progressCircle {
   @include inset;
 
+  // set index so that div doesn't obstruct content interactivity
+  z-index: -99;
   height: 22.5rem;
   top: 50%;
   // progress bar will start at the mother dot and continue around just as  brush would
