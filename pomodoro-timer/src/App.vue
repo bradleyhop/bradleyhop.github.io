@@ -168,10 +168,9 @@ body {
   flex-direction: column;
   justify-content: center;
   margin: auto;
-  width: 100%;
 
   @media only screen and (min-width: $responsive-width) {
-    width: 50%;
+    flex-direction: row;
   }
 }
 
