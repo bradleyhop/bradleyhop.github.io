@@ -39,7 +39,7 @@
     <Timer />
 
     <div class="tagline">
-      <p>
+      <p class="aboveCircle">
         <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank">
           Need information about the pomodoro technique?
         </a>
@@ -191,6 +191,9 @@ button {
   background: none;
   border: 0;
   color: #fff;
+  cursor: pointer;
+  // div for progress circle obscures the funcionality, so set it above
+  z-index: 999999;
 
   &:active {
     color: #000;
@@ -214,6 +217,12 @@ button {
   a:hover {
     color: black;
   }
+}
+
+.aboveCircle {
+  // set position and z-index so that the progress circle doesn't obstruct functionality
+  position: relative;
+  z-index: 999999;
 }
 
 </style>
