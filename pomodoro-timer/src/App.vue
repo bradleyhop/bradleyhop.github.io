@@ -165,13 +165,9 @@ body {
 .inputWrapper {
   align-content: space-around;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   margin: auto;
-
-  @media only screen and (min-width: $responsive-width) {
-    flex-direction: row;
-  }
 }
 
 .labels {
