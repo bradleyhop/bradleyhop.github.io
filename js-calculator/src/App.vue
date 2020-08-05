@@ -55,7 +55,6 @@
           x
         </button>
 
-
         <button id="four" @click="number('4')" class="digit lightgrey" type="button" aria-label="4">
           4
         </button>
@@ -84,7 +83,6 @@
                 aria-label="add">
           +
         </button>
-
 
         <button id="zero" @click="number('0')" class="digit lightgrey" type="button" aria-label="0">
           0
@@ -344,6 +342,10 @@ button {
   margin: 2px;
   padding-inline: 0;
   width: 4rem;
+
+  &:active {
+    color: #fff;
+  }
 }
 
 .doublewide {
