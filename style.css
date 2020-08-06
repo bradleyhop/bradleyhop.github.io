@@ -229,7 +229,7 @@ ul {
 
 .tile-heading {
   color: #fff;
-  font-size: 1.25em;
+  font-size: 1.5em;
   text-align: center;
 }
 
@@ -238,7 +238,12 @@ ul {
 }
 
 .github-link {
+  font-size: 1.25em;
   font-style: italic;
+}
+
+.github-link:hover {
+  color: #fff;
 }
 
 #contact {
