@@ -1,6 +1,4 @@
 <template>
-
-
   <div id="timer">
 
     <div class="wrapperEnso">
@@ -9,21 +7,37 @@
 
       <div id="timer-label" class="titleCenter"></div>
       <div id="time-left" class="timerCenter"></div>
-      <audio id="beep" src="../assets/chime.mp3" type=mpeg preload="auto"></audio>
+      <audio
+        id="beep"
+        src="../assets/chime.mp3"
+        type="audio/mpeg"
+        preload="auto"
+        >
+      </audio>
 
       <div id="circle" class="progressCircle"></div>
 
       <div class="timerControls">
         <div class="startStopCenter">
-          <button id="start_stop" class="faControls" title="play/pause"
-                  @click="startPauseTimer" aria-label="start or pause timer">
+          <button
+            id="start-stop"
+            class="faControls"
+            title="play/pause"
+            aria-label="start or pause timer"
+            @click="startPauseTimer"
+            >
             <font-awesome-icon :icon="['fas', 'play']" />
             <font-awesome-icon :icon="['fas', 'pause']" />
           </button>
         </div>
         <div class="resetCenter">
-          <button id="reset" class="faControls" title="reset" @click="resetTimer"
-                  aria-label="stop timer and reset to default values">
+          <button
+            id="reset"
+            class="faControls"
+            title="reset"
+            aria-label="stop timer and reset to default values"
+            @click="resetTimer"
+            >
             <font-awesome-icon :icon="['fas', 'redo']" />
           </button>
         </div>
@@ -44,7 +58,7 @@ export default {
     return {
       timerRunning: false,
       timeElapsed: 0,
-      working: true,
+      working: true, // work session in progress if true, break if false
       workMessage: 'concentrate',
       playMessage: 'relax',
       timeInc: null, // placeholder for setTimeout()
@@ -67,14 +81,11 @@ export default {
         // tell parent component that timer is running and so don't update timer on button press
         this.$parent.adjustable = false;
         this.timerRunning = true;
-        // start painting progressbar
-        this.paintCircle(deadline);
-        // start timer
-        this.incrementTime(deadline);
+        this.paintCircle(deadline); // start painting progressbar
+        this.incrementTime(deadline); // start timer
       } else {
         this.timerRunning = false;
-        // stop drawing circle
-        this.reveal.pause();
+        this.reveal.pause(); // stop drawing circle
       }
     },
 
@@ -103,6 +114,7 @@ export default {
 
       if (this.reveal) {
         // remove circle animation
+        this.reveal.pause(); // stop current tween  before destroy to avoid error
         this.reveal.destroy();
         this.reveal = null;
       }
@@ -176,8 +188,7 @@ export default {
         throw new Error(err);
       }
     },
-  }, // end methods:
-
+  }, // end methods
 
   mounted() {
     document.getElementById('timer-label')
@@ -189,7 +200,6 @@ export default {
   beforeDestroy() {
     clearTimeout(this.timeInc);
   },
-
 };
 </script>
 
@@ -246,7 +256,8 @@ $responsive-width: 599px;
 .startStopCenter {
   @include inset;
 
-  top: 55%;
+  // have enough space between buttons for tap clearance
+  top: 60%;
 
   @media only screen and (min-width: $responsive-width) {
     top: 61%;
@@ -254,13 +265,19 @@ $responsive-width: 599px;
 }
 
 .faControls {
-  font-size: 1.5rem;
+  // larger button target for tap
+  font-size: 1.75rem;
+
+  @media only screen and (min-width: $responsive-width) {
+    font-size: 1.5rem;
+  }
 }
 
 .resetCenter {
   @include inset;
 
-  top: 64%;
+  // have enough space between buttons for tap clearance
+  top: 75%;
 
   @media only screen and (min-width: $responsive-width) {
     top: 70%;
