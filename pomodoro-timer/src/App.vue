@@ -7,13 +7,21 @@
       <div id="session-label" class="labels">
         work timer
         <div class="inline">
-          <button id="session-increment" class="faButton bRight"
-                  @click="incSess" aria-label="increase session timer">
+          <button
+            id="session-increment"
+            class="faButton bRight"
+            aria-label="increase session timer"
+            @click="incSess"
+            >
             <font-awesome-icon :icon="['fas', 'angle-up']" />
           </button>
           <span id="session-length" class="sessionNumber"></span>
-          <button id="session-decrement" class="faButton bLeft"
-                  @click="decSess" aria-label="decrease session timer">
+          <button
+            id="session-decrement"
+            class="faButton bLeft"
+            aria-label="decrease session timer"
+            @click="decSess"
+            >
             <font-awesome-icon :icon="['fas', 'angle-down']" />
           </button>
         </div>
@@ -22,13 +30,21 @@
       <div id="break-label" class="labels">
         break timer
         <div class="inline">
-          <button id="break-increment" class="faButton bRight"
-                  @click="incBreak" aria-label="increase break timer">
+          <button
+            id="break-increment"
+            class="faButton bRight"
+            aria-label="increase break timer"
+            @click="incBreak"
+            >
             <font-awesome-icon :icon="['fas', 'angle-up']" />
           </button>
           <span id="break-length" class="sessionNumber"></span>
-          <button id="break-decrement" class="faButton bLeft"
-                  @click="decBreak" aria-label="decrease break timer">
+          <button
+            id="break-decrement"
+            class="faButton bLeft"
+            aria-label="decrease break timer"
+            @click="decBreak"
+            >
             <font-awesome-icon :icon="['fas', 'angle-down']" />
           </button>
         </div>
@@ -40,22 +56,34 @@
 
     <div class="tagline">
       <p class="aboveCircle">
-        <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank">
+        <a
+          href="https://en.wikipedia.org/wiki/Pomodoro_Technique"
+          target="_blank"
+          rel="noopener noreferrer"
+          >
           Need information about the pomodoro technique?
         </a>
       </p>
-      <a href="https://bradleyhop.github.io" target="_blank">
+      <a
+        href="https://bradleyhop.github.io"
+        target="_blank"
+        rel="noopener noreferrer"
+        >
         bradley smith
       </a>
       &#169; 2020
       <p>
-        <a href="https://github.com/bradleyhop/bradleyhop.github.io/tree/master/pomodoro-timer"
-           target="blank">
+        <a
+          href="https://github.com/bradleyhop/bradleyhop.github.io/tree/master/pomodoro-timer"
+           target="blank"
+           rel="noopener noreferrer"
+           >
           Source code for this app on github
         </a>
       </p>
     </div><!-- tagline -->
-  </div>
+
+  </div><!-- main -->
 </template>
 
 <script>
@@ -70,9 +98,9 @@ export default {
 
   data() {
     return {
-      workTime: 25,
-      playTime: 5,
-      adjustable: true, // dis/allow timer to be set and displayed when it is running
+      workTime: 25, // default time per project spec
+      playTime: 5, // default time per project spec
+      adjustable: true, // dis- & allow timer to be set and displayed when it is running
     };
   },
 
@@ -192,7 +220,7 @@ button {
   border: 0;
   color: #fff;
   cursor: pointer;
-  // div for progress circle obscures the funcionality, so set it above
+  // set position and z-index so that the progress circle doesn't obstruct functionality
   z-index: 999999;
 
   &:active {
@@ -224,5 +252,4 @@ button {
   position: relative;
   z-index: 999999;
 }
-
 </style>
