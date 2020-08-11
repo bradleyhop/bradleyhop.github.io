@@ -97,6 +97,10 @@ ul {
   text-shadow: 4px 4px 4px #000;
 }
 
+.about-space {
+  margin-left: 0.5rem;
+}
+
 .banner {
   color: #fff;
   width: 60%;
@@ -157,7 +161,7 @@ ul {
 }
 
 .tab-button {
-  background: #a0a0a0;
+  background: #757575;
   border: none;
   border-radius: 5px 5px 0 0;
   color: #fff;
@@ -228,9 +232,13 @@ ul {
 }
 
 .tile-heading {
-  color: #fff;
+  color: #000;
   font-size: 1.5em;
   text-align: center;
+}
+
+.tile-heading:hover {
+  color: #fff;
 }
 
 .projects-github {
