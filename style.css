@@ -93,8 +93,14 @@ ul {
   text-shadow: 1px 1px 1px #666;
 }
 
+.recent-projects-list li {
+  list-style-type: disc;
+  color: white;
+}
+
 .recent-project-link:hover {
-  text-shadow: 4px 4px 4px #000;
+  /* text-shadow: 4px 4px 4px #000; */
+  text-decoration: underline;
 }
 
 .about-space {
