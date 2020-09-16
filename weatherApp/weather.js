@@ -11,24 +11,24 @@ $(document).ready(function() {
   navigator.geolocation.getCurrentPosition(showPosition);
 
   function showPosition(position) {
-    var latitude = position.coords.latitude.toFixed(3);
-    var longitude = position.coords.longitude.toFixed(3);
+    var latitude = position.coords.latitude.toFixed(4);
+    var longitude = position.coords.longitude.toFixed(4);
 
     console.log(latitude, longitude);
 
     var weatherUrl =
-
+      "https://api.weather.gov/points/" + latitude + "," + longitude ;
       // below is probably openweather api
-      "https://fcc-weather-api.glitch.me/api/current?lat=" +
-      latitude +
-      "&lon=" +
-      longitude;
+      /*
+       * "https://fcc-weather-api.glitch.me/api/current?lat=" +
+       * latitude +
+       * "&lon=" +
+       * longitude;
+       */
 
     // get the weather json
     $.ajax({
       url      : weatherUrl,
-      data     : "GET",
-      dataType : "json",
       success  : cbWeather,
       error    : handleError
     });
@@ -37,8 +37,8 @@ $(document).ready(function() {
 
 
   function cbWeather(weatherJSON) {
-    temp = weatherJSON.main.temp;
     console.log(weatherJSON);
+    temp = weatherJSON.main.temp;
     // display our weather info!!
     $(".weather").html(
       "<h1>" + weatherJSON.coord.lat +
@@ -90,6 +90,9 @@ $(document).ready(function() {
   }
 
   function showWeather(icon) {
+    // condition codes found at:
+    // https://openweathermap.org/weather-conditions
+    // TODO: rewrite for new codes
     const weatherIcon = {
       "clear-day"           : "wi-day-sunny",
       "clear-night"         : "wi-night-clear",
