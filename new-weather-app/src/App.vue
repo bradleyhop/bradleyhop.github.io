@@ -31,21 +31,21 @@ export default {
             error.response = response;
             throw error;
           } else {
-            // parse json to object
             return response.json();
           }
         })
         .then((json) => {
-          console.log(json);
-          const now = new Date().getTime();
+          // console.log(json);
+          // get time at call, but convert to seconds b/c that's what we get in the json data
+          const now = (new Date().getTime()) / 1000;
 
           this.locale = json.name.toUpperCase();
           this.description = json.weather[0].description.toUpperCase();
-          // temperature scale is in C, so call convertTemp immediately
+          // temperature scale is in C, so call convertTemp immediately 'cause 'merica
           this.temp = json.main.temp;
           this.convertTemp();
           // determine if day or night for icons, then call showIcon() to set
-          if (now > json.sys.sunrise && now < json.sys.sunset) {
+          if (json.sys.sunrise < now && now < json.sys.sunset) {
             this.timeOfDay = 'day';
           }
           this.showIcon(json.weather[0].main);
@@ -67,6 +67,7 @@ export default {
     },
 
     showIcon(main) {
+      // called by getLocation() after reading json data
       // weather condition values at https://openweathermap.org/weather-conditions
       const weatherIcon = {
         day: {
@@ -92,7 +93,7 @@ export default {
           Rain: 'wi-night-alt-rain',
           Snow: 'wi-night-alt-snow',
           Mist: 'wi-night-alt-sprinkle',
-          Haze: 'wi-night-alt-haze',
+          Haze: 'wi-day-haze',
           Fog: 'wi-night-alt-fog',
           Sand: 'wi-sandstorm',
           Tornado: 'wi-tornado',
@@ -113,6 +114,7 @@ export default {
   }, // end methods()
 
   created() {
+    // solely relies on user allowing access to location
     if (navigator.geolocation) {
       // add error checking here
       navigator.geolocation.getCurrentPosition((position) => {
@@ -153,8 +155,13 @@ body {
 
 #app {
   font-family: 'Quicksand', Helvetica, Arial, sans-serif;
-  margin-top: 4rem;
+  margin: 4rem auto;
   text-align: center;
+  width: 40%;
+
+  @media only screen and  (max-width: 600px) {
+    width: 100%;
+  }
 }
 
 .loading {
@@ -171,19 +178,18 @@ body {
 .locale {
   color: #b3e5fc;
   font-size: 1.5rem;
-  margin-bottom: 2rem;
 }
 
 .temperature {
   color: #b3e5fc;
   cursor: pointer;
-  font-size: 7rem;
-  margin-bottom: 1rem;
+  font-size: 8rem;
+  margin-bottom: 1.25rem;
 }
 
 .wi {
   color: #fff;
-  font-size: 8rem;
+  font-size: 7rem;
 }
 
 .error {
