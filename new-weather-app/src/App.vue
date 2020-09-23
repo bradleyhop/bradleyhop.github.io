@@ -2,6 +2,7 @@
 export default {
   name: 'App',
   components: {
+    // footer?
   },
 
   data() {
@@ -12,8 +13,9 @@ export default {
       description: '', // current weather condition
       temp: undefined, // in Celcius
       tempScale: 'C', // either C or F, set to C since that is what is returned
-      icon: '',
-      timeOfDay: 'night', // 'day' or 'night' setting for icons
+      icon: '', // weather-icons to display
+      timeOfDay: '', // 'day' or 'night' setting for icons
+      errorMessage: '', // placeholder for any error messages to user
     };
   },
 
@@ -36,27 +38,36 @@ export default {
         })
         .then((json) => {
           // console.log(json);
-          // get time at call, but convert to seconds b/c that's what we get in the json data
-          const now = (new Date().getTime()) / 1000;
+          if (json.name === 'Shuzenji') {
+            /*
+             * Sometimes the data returned will give the location of a small town in Japan.
+             * This is almost never the case, so prompting user to reload page is the best we can do
+             *   here. Getting that location must be a quirk of the pass-through api we're using.
+             */
+            this.errorMessage = 'Data return error. Please reload page to get weather conditions.';
+          } else {
+            // get time at call, but convert to seconds b/c that's what we get in the json data
+            const now = (new Date().getTime()) / 1000;
 
-          this.locale = json.name.toUpperCase();
-          this.description = json.weather[0].description.toUpperCase();
-          // temperature scale is in C, so call convertTemp immediately 'cause 'merica
-          this.temp = json.main.temp;
-          this.convertTemp();
-          // determine if day or night for icons, then call showIcon() to set
-          if (json.sys.sunrise < now && now < json.sys.sunset) {
-            this.timeOfDay = 'day';
+            this.locale = json.name.toUpperCase();
+            this.description = json.weather[0].description.toUpperCase();
+            // temperature scale is in C, so call convertTemp immediately 'cause 'merica
+            this.temp = json.main.temp;
+            this.convertTemp();
+            // determine if day or night for icons, then call showIcon() to set
+            if (json.sys.sunrise < now && now < json.sys.sunset) {
+              this.timeOfDay = 'day';
+            }
+            this.showIcon(json.weather[0].main);
           }
-          this.showIcon(json.weather[0].main);
         })
         .catch((error) => {
-          console.log('request failed', error);
+          this.errorMessage = `Error in getting data: ${error}. Please reload page to try again.`;
         });
     },
 
     convertTemp() {
-      // called when .temp is clicked
+      // called when class="temp" is clicked
       if (this.tempScale === 'F') {
         this.tempScale = 'C';
         this.temp = Math.round((((this.temp - 32) * 5) / 9));
@@ -107,7 +118,7 @@ export default {
       };
 
       // must have .wi for weather-icons to work!!
-      // 'na' if no icon for weather given
+      // 'na' if no icon is available for weather given
       this.icon = `wi ${weatherIcon[this.timeOfDay][main] || 'na'}`;
     },
 
@@ -122,7 +133,28 @@ export default {
         this.longitude = position.coords.longitude.toFixed(4);
         // start getting json data
         this.getLocation();
+      }, (error) => {
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            this.errorMessage =
+              `Please allow access to your location to retrieve
+               current weather conditions in your area.`;
+            break;
+          case error.POSITION_UNAVAILABLE:
+            this.errorMessage = 'Location information is unavailable.';
+            break;
+          case error.TIMEOUT:
+            this.errorMessage = 'The request to get user location timed out.';
+            break;
+          case error.UNKNOWN_ERROR:
+            this.errorMessage = 'An unknown error occurred.';
+            break;
+          default:
+            break;
+        }
       });
+    } else {
+      this.errorMessage = 'Geolocation not supported by this browser.';
     }
   },
 
@@ -132,12 +164,26 @@ export default {
 <template>
   <div id="app">
     <div
-      v-if="!locale"
+      v-if="!locale && !errorMessage"
       class="loading"
     >
       Loading...
     </div>
-    <div v-else-if="locale">
+    <div v-else-if="errorMessage">
+      <div class="error">
+        {{ errorMessage }}
+      </div>
+      <div>
+        <!-- give users an easy way to reload on errors -->
+        <button
+          onClick="window.location.reload();"
+          class="reloadButton"
+        >
+          RELOAD PAGE
+        </button>
+      </div>
+    </div>
+    <div v-else>
       <div class="description">{{ description }}</div>
       <div class="locale">{{ locale }}</div>
       <div @click="convertTemp" class="temperature">{{ temp }}&deg;{{ tempScale }}</div>
@@ -195,5 +241,15 @@ body {
 .error {
   color: #ef5350;
   font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.reloadButton {
+  background-color: #b3e5fc;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  padding: 0.75rem;
 }
 </style>
