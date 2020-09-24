@@ -1,8 +1,10 @@
 <script>
+import Footer from './components/Footer.vue';
+
 export default {
   name: 'App',
   components: {
-    // footer?
+    Footer,
   },
 
   data() {
@@ -163,32 +165,43 @@ export default {
 
 <template>
   <div id="app">
+
     <div
-      v-if="!locale && !errorMessage"
-      class="loading"
+      class="content"
+      role="main"
     >
-      Loading...
-    </div>
-    <div v-else-if="errorMessage">
-      <div class="error">
-        {{ errorMessage }}
-      </div>
-      <div>
-        <!-- give users an easy way to reload on errors -->
-        <button
-          onClick="window.location.reload();"
-          class="reloadButton"
+      <div
+        v-if="!locale && !errorMessage"
+        class="loading"
         >
-          RELOAD PAGE
-        </button>
+        Loading...
       </div>
-    </div>
-    <div v-else>
-      <div class="description">{{ description }}</div>
-      <div class="locale">{{ locale }}</div>
-      <div @click="convertTemp" class="temperature">{{ temp }}&deg;{{ tempScale }}</div>
-      <i :class="icon"></i>
-    </div>
+      <div v-else-if="errorMessage">
+        <div class="error">
+          {{ errorMessage }}
+        </div>
+        <div>
+          <!-- give users an easy way to reload on errors -->
+          <button
+            onClick="window.location.reload();"
+            class="reloadButton"
+            >
+            RELOAD PAGE
+          </button>
+        </div>
+      </div>
+      <div v-else>
+        <div class="description">{{ description }}</div>
+        <div class="locale">{{ locale }}</div>
+        <div @click="convertTemp" class="temperature">{{ temp }}&deg;{{ tempScale }}</div>
+        <i :class="icon"></i>
+      </div>
+    </div><!-- .content -->
+
+    <footer>
+      <Footer />
+    </footer>
+
   </div>
 </template>
 
@@ -200,7 +213,14 @@ body {
 }
 
 #app {
+  display: flex; // boilerplate to keep footer down below
+  flex-direction: column; // footer at the botom ;)
   font-family: 'Quicksand', Helvetica, Arial, sans-serif;
+  height: 100vh; // needed to stick the footer to bottom
+}
+
+.content {
+  flex: 1 0 auto; // grow page space to content
   margin: 4rem auto;
   text-align: center;
   width: 40%;
@@ -208,6 +228,12 @@ body {
   @media only screen and  (max-width: 600px) {
     width: 100%;
   }
+}
+
+footer {
+  /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their
+  content's default minimum size. */
+  flex-shrink: 0;
 }
 
 .loading {
@@ -239,7 +265,7 @@ body {
 }
 
 .error {
-  color: #ef5350;
+  color: #ffcdd2;
   font-size: 2rem;
   margin-bottom: 1rem;
 }
@@ -248,8 +274,13 @@ body {
   background-color: #b3e5fc;
   border: none;
   border-radius: 5px;
-  font-size: 1.25rem;
+  cursor: pointer;
+  font-size: 1rem;
   font-weight: bold;
   padding: 0.75rem;
+
+  &:hover {
+    background-color: #fff;
+  }
 }
 </style>
