@@ -14,8 +14,7 @@
       <br>
       <a
         href="https://github.com/bradleyhop/bradleyhop.github.io/tree/master/new-weather-app"
-        noopener
-        noreferrer
+        rel="noopener noreferrer"
         target="_blank"
       >
         Project GitHub
