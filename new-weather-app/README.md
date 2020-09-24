@@ -27,5 +27,8 @@ Passthrough](https://fcc-weather-api.freecodecamp.repl.co/).
 
 One drawback is a slower speed. Another, this API seems to default to a town in
 Japan instead of reliably returning data based on given latitude and longitude.
-(There is a check for this error and displays as such because I doubt many are
-actually calling this app from that particular location.)
+As a workaround, there is a check for this error and displays as such because I
+doubt many are actually calling this app from that particular location. This
+issue is described here, with the thread being closed with the bug every being
+fully resolved: [FCC Weather API randomly returning Japan weather #16869](https://github.com/freeCodeCamp/freeCodeCamp/issues/16869)
+
