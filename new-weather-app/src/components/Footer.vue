@@ -5,8 +5,7 @@
       <br>
       <a
         href="https://github.com/bradleyhop/"
-        noopener
-        noreferrer
+        rel="noopener"
         target="_blank"
       >
         Bradley Smith
@@ -14,7 +13,7 @@
       <br>
       <a
         href="https://github.com/bradleyhop/bradleyhop.github.io/tree/master/new-weather-app"
-        rel="noopener noreferrer"
+        rel="noopener"
         target="_blank"
       >
         Project GitHub
