@@ -26,7 +26,6 @@
 <style scoped lang="scss">
 .footer-content {
   color: #fff;
-  font-size: 0.9rem;
   height: 4.25rem;
   margin: 0;
   padding: 0.5rem;

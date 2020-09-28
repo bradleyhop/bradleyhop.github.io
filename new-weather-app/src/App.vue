@@ -136,24 +136,13 @@ export default {
         // start getting json data
         this.getLocation();
       }, (error) => {
-        switch (error.code) {
-          case error.PERMISSION_DENIED:
-            this.errorMessage =
-              `Please allow access to your location to retrieve
-               current weather conditions in your area.`;
-            break;
-          case error.POSITION_UNAVAILABLE:
-            this.errorMessage = 'Location information is unavailable.';
-            break;
-          case error.TIMEOUT:
-            this.errorMessage = 'The request to get user location timed out.';
-            break;
-          case error.UNKNOWN_ERROR:
-            this.errorMessage = 'An unknown error occurred.';
-            break;
-          default:
-            break;
-        }
+        // see for error codes: https://w3c.github.io/geolocation-api/#position_error_interface
+        const errCodeMessage = {
+          1: 'Please allow access to your location to retrieve current weather conditions in your area.',
+          2: 'Location information is unavailable.',
+          3: 'The request to get user location timed out.',
+        };
+        this.errorMessage = (errCodeMessage[error.code] || 'An unkown error occured.');
       });
     } else {
       this.errorMessage = 'Geolocation not supported by this browser.';
@@ -226,6 +215,7 @@ body {
   width: 40%;
 
   @media only screen and  (max-width: 600px) {
+    margin-top: 2rem;
     width: 100%;
   }
 }
@@ -268,6 +258,12 @@ footer {
   color: #ffcdd2;
   font-size: 2rem;
   margin-bottom: 1rem;
+  text-align: left;
+  width: 45vw;
+
+  @media only screen and  (max-width: 600px) {
+    width: 100vw;
+  }
 }
 
 .reloadButton {
