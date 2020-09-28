@@ -25,10 +25,12 @@ key that most weather services require to retrieve data. So, I'm using the
 workaround that freeCodeCamp has implemented: [freeCodeCamp Weather API
 Passthrough](https://fcc-weather-api.freecodecamp.repl.co/).
 
-One drawback is a slower speed. Another, this API seems to default to a town in
-Japan instead of reliably returning data based on given latitude and longitude.
-As a workaround, there is a check for this error and displays as such because I
-doubt many are actually calling this app from that particular location. This
-issue is described here, with the thread being closed with the bug every being
-fully resolved: [FCC Weather API randomly returning Japan weather #16869](https://github.com/freeCodeCamp/freeCodeCamp/issues/16869)
+One drawback is a slower speed. Another is that this API seems to default to a
+town in Japan instead of reliably returning data based on given latitude and
+longitude.  As a workaround, there is a check for this error and displays as
+such because I doubt many are actually calling this app from that particular
+location. The user can then press a button to reload the page and try again. The
+issue with the wrong data being served from the API is described here, with the
+thread being closed without the bug every being fully resolved:
+[FCC Weather API randomly returning Japan weather #16869](https://github.com/freeCodeCamp/freeCodeCamp/issues/16869)
 
