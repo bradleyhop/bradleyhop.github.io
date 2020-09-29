@@ -9,44 +9,78 @@ export default {
 
   data() {
     return {
-      latitude: undefined,
-      longitude: undefined,
-      locale: '',
+      loading: false, // show loading text
+      latitude: undefined, // set by geolocation
+      longitude: undefined, // set by geolocation
+      locale: '', // location givin by API
       description: '', // current weather condition
-      temp: undefined, // in Celcius
+      temp: undefined, // in Celsius
       tempScale: 'C', // either C or F, set to C since that is what is returned
-      icon: '', // weather-icons to display
+      icon: '', // weather-icons to display, a vue-binded class value
       timeOfDay: '', // 'day' or 'night' setting for icons
       errorMessage: '', // placeholder for any error messages to user
     };
   },
 
   methods: {
+    getLocation() {
+      // clear any potential previous calls after error returns
+      this.loading = true;
+      if (this.errorMessage) {
+        this.errorMessage = '';
+      }
+
+      if (navigator.geolocation) {
+        // add error checking here
+        navigator.geolocation.getCurrentPosition((position) => {
+          this.latitude = position.coords.latitude.toFixed(4);
+          this.longitude = position.coords.longitude.toFixed(4);
+          // start getting json data
+          this.getWeather();
+        }, (error) => {
+          // see for error codes: https://w3c.github.io/geolocation-api/#position_error_interface
+          const errCodeMessage = {
+            1: `Please change your settings to allow access to your location to retrieve current
+                weather conditions in your area!!`,
+            2: 'Location information is unavailable.',
+            3: 'The request to get user location timed out.',
+          };
+          this.loading = false;
+          this.errorMessage = (errCodeMessage[error.code] || 'An unkown error occured.');
+        });
+      } else {
+        this.loading = false;
+        this.errorMessage = 'Geolocation not supported by this browser.';
+      }
+    },
+
     getWeather() {
-      // gets called after created lifecylce step and after user agrees to give location
+      // gets called by getLocation and after user agrees to give location
       const fccWeatherApi =
         `https://fcc-weather-api.glitch.me/api/current?lat=${this.latitude}&lon=${this.longitude}`;
 
       fetch(fccWeatherApi)
         .then((response) => {
-          // check if we get a successful http request response
-          if (!(response.status >= 200 && response.status < 300)) {
-            const error = new Error(response.statusText);
-            error.response = response;
-            throw error;
-          } else {
+          if (response.status >= 200 && response.status <= 299) {
             return response.json();
+          } else {
+            throw Error(response.statusText);
           }
         })
         .then((json) => {
           // console.log(json);
-          if (json.name === 'Shuzenji') {
+          if (json.error) {
+            // API returns, but something is wrong with the call
+            this.loading = false;
+            this.errorMessage = `Data return error: ${json.error}`;
+          } else if (json.name === 'Shuzenji') {
             /*
              * Sometimes the data returned will give the location of a small town in Japan.
              * This is almost never the case, so prompting user to reload page is the best we can do
              *   here. Getting that location must be a quirk of the pass-through api we're using.
              */
-            this.errorMessage = 'Data return error. Please reload page to get weather conditions.';
+            this.loading = false;
+            this.errorMessage = 'Doh! The api returned the wrong data.';
           } else {
             // get time at call, but convert to seconds b/c that's what we get in the json data
             const now = (new Date().getTime()) / 1000;
@@ -59,12 +93,16 @@ export default {
             // determine if day or night for icons, then call showIcon() to set
             if (json.sys.sunrise < now && now < json.sys.sunset) {
               this.timeOfDay = 'day';
+            } else {
+              this.timeOfDay = 'night';
             }
             this.showIcon(json.weather[0].main);
           }
+          this.loading = false;
         })
         .catch((error) => {
-          this.errorMessage = `Error in getting data: ${error}. Please reload page to try again.`;
+          this.loading = false;
+          this.errorMessage = `Error in getting data: ${error}.`;
         });
     },
 
@@ -131,68 +169,61 @@ export default {
 
   }, // end methods()
 
-  created() {
-    // solely relies on user allowing access to location
-    if (navigator.geolocation) {
-      // add error checking here
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.latitude = position.coords.latitude.toFixed(4);
-        this.longitude = position.coords.longitude.toFixed(4);
-        // start getting json data
-        this.getWeather();
-      }, (error) => {
-        // see for error codes: https://w3c.github.io/geolocation-api/#position_error_interface
-        const errCodeMessage = {
-          1: 'Please allow access to your location to retrieve current weather conditions in your area.',
-          2: 'Location information is unavailable.',
-          3: 'The request to get user location timed out.',
-        };
-        this.errorMessage = (errCodeMessage[error.code] || 'An unkown error occured.');
-      });
-    } else {
-      this.errorMessage = 'Geolocation not supported by this browser.';
-    }
-  },
-
 };
 </script>
 
 <template>
+  <div
+    class="content"
+    role="main"
+  >
     <div
-      class="content"
-      role="main"
+      class="prompt"
+      v-if="!loading && !locale && !errorMessage"
     >
-      <div
-        v-if="!locale && !errorMessage"
-        class="loading"
-        >
-        Loading...
+      Click and allow location permission to get your current local weather conditions.
+      <br />
+      <button
+        @click="getLocation"
+        class="loadButton"
+      >
+        CLICK ME
+      </button>
+    </div>
+    <div
+      v-if="loading && !errorMessage"
+      class="loading"
+      >
+      Loading...
+    </div>
+    <div
+      v-else-if="errorMessage"
+    >
+      <div class="error">
+        {{ errorMessage }}
       </div>
-      <div v-else-if="errorMessage">
-        <div class="error">
-          {{ errorMessage }}
-        </div>
-        <div>
-          <!-- give users an easy way to reload on errors -->
-          <button
-            @click="reloadPage"
-            class="reloadButton"
-            >
-            RELOAD PAGE
-          </button>
-        </div>
+      <div>
+        <button
+          @click="getLocation"
+          class="loadButton"
+         >
+         TRY AGAIN
+        </button>
       </div>
-      <div v-else>
-        <div class="description">{{ description }}</div>
-        <div class="locale">{{ locale }}</div>
-        <div @click="convertTemp" class="temperature">{{ temp }}&deg;{{ tempScale }}</div>
-        <i :class="icon"></i>
-      </div>
-    </div><!-- .content -->
+    </div>
+    <div
+      v-else-if="locale"
+    >
+      <div class="description">{{ description }}</div>
+      <div class="locale">{{ locale }}</div>
+      <div @click="convertTemp" class="temperature">{{ temp }}&deg;{{ tempScale }}</div>
+      <i :class="icon"></i>
+    </div>
+  </div><!-- .content -->
 
-    <footer>
-      <Footer />
-    </footer>
+  <footer>
+    <Footer />
+  </footer>
 
 </template>
 
@@ -205,7 +236,7 @@ body {
 
 #app {
   display: flex; // boilerplate to keep footer down below
-  flex-direction: column; // footer at the botom ;)
+  flex-direction: column; // footer at the bottom ;)
   font-family: 'Quicksand', Helvetica, Arial, sans-serif;
   height: 100vh; // needed to stick the footer to bottom
 }
@@ -226,6 +257,11 @@ footer {
   /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their
   content's default minimum size. */
   flex-shrink: 0;
+}
+
+.prompt {
+  color: #fff;
+  font-size: 2rem;
 }
 
 .loading {
@@ -268,7 +304,7 @@ footer {
   }
 }
 
-.reloadButton {
+.loadButton {
   background-color: #b3e5fc;
   border: none;
   border-radius: 5px;

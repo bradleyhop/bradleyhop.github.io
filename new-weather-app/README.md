@@ -1,8 +1,6 @@
 # new-weather-app
 
-## What This Is
-
-A simple weather app!
+## A simple weather app!
 
 * Load user location upon page load Retreive data about weather conditions
 * Display that data to the user in a meaningful way Show any errors encountered
@@ -14,6 +12,8 @@ Weather](https://www.freecodecamp.org/learn/coding-interview-prep/take-home-proj
 ## How It Is Bulit
 
 ### Framework
+
+Update: Now uses Vue 3!
 
 Using Vue and the Vue CLI to manage packages and builds. Sass for the CSS.
 Eslint and stylelint with Vue-specific rules.
