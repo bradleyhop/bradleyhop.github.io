@@ -1,5 +1,5 @@
 <script>
-import Footer from './components/Footer.vue';
+import Footer from '@/components/Footer.vue';
 
 export default {
   name: 'App',
@@ -22,7 +22,7 @@ export default {
   },
 
   methods: {
-    getLocation() {
+    getWeather() {
       // gets called after created lifecylce step and after user agrees to give location
       const fccWeatherApi =
         `https://fcc-weather-api.glitch.me/api/current?lat=${this.latitude}&lon=${this.longitude}`;
@@ -80,7 +80,7 @@ export default {
     },
 
     showIcon(main) {
-      // called by getLocation() after reading json data
+      // called by getWeather() after reading json data
       // weather condition values at https://openweathermap.org/weather-conditions
       const weatherIcon = {
         day: {
@@ -119,9 +119,14 @@ export default {
         },
       };
 
-      // must have .wi for weather-icons to work!!
+      // ihis.icon is a reactive class; must have .wi for weather-icons to work!!
       // 'na' if no icon is available for weather given
       this.icon = `wi ${weatherIcon[this.timeOfDay][main] || 'na'}`;
+    },
+
+    reloadPage() {
+      // on error, let user reload page to try again
+       window.location.reload();
     },
 
   }, // end methods()
@@ -134,7 +139,7 @@ export default {
         this.latitude = position.coords.latitude.toFixed(4);
         this.longitude = position.coords.longitude.toFixed(4);
         // start getting json data
-        this.getLocation();
+        this.getWeather();
       }, (error) => {
         // see for error codes: https://w3c.github.io/geolocation-api/#position_error_interface
         const errCodeMessage = {
@@ -153,8 +158,6 @@ export default {
 </script>
 
 <template>
-  <div id="app">
-
     <div
       class="content"
       role="main"
@@ -172,7 +175,7 @@ export default {
         <div>
           <!-- give users an easy way to reload on errors -->
           <button
-            onClick="window.location.reload();"
+            @click="reloadPage"
             class="reloadButton"
             >
             RELOAD PAGE
@@ -191,7 +194,6 @@ export default {
       <Footer />
     </footer>
 
-  </div>
 </template>
 
 <style lang="scss">
