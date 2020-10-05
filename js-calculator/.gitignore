@@ -2,6 +2,7 @@
 node_modules
 /dist
 Session.vim
+/public/assests/fonts/
 
 # local env files
 .env.local
