@@ -162,105 +162,226 @@ export default {
 
 <template>
   <div id="calculator">
-
     <div class="calc-body">
       <div class="lcd-container">
         <!-- io shows the line above where the user is stringing their calculations -->
-        <div id="io"></div>
+        <div id="io" />
         <!-- display shows the active input the user gives -->
-        <div id="display"></div>
+        <div id="display" />
       </div>
 
       <div class="button-container">
-        <button id="inverse" @click="inverse" class="inverse darkgrey" type="button"
-                aria-label="compute inverse" title="Inverse">
+        <!-- buttons grouped by row by newline -->
+        <button
+          id="inverse"
+          @click="inverse"
+          class="inverse darkgrey"
+          type="button"
+          aria-label="compute inverse"
+          title="Inverse"
+        >
           1 &#47; x
         </button>
-        <button id="square" @click="square" class="square darkgrey" type="button"
-                aria-label="compute square" title="Square">
+        <button
+          id="square"
+          @click="square"
+          class="square darkgrey"
+          type="button"
+          aria-label="compute square"
+          title="Square"
+        >
           x<span style=" font-size: 0.8rem; vertical-align: super;">2</span>
         </button>
-        <button id="sqareRoot" @click="squareRoot" class="sqareRoot darkgrey" type="button"
-                aria-label="compute square root" title="Square Root">
+        <button
+          id="sqareRoot"
+          @click="squareRoot"
+          class="sqareRoot darkgrey"
+          type="button"
+          aria-label="compute square root"
+          title="Square Root"
+        >
           &#8730;x
         </button>
-        <button id="posNeg" @click="posNeg" class="darkgrey" title="Negate" type="button">
+        <button
+          id="posNeg"
+          @click="posNeg"
+          class="darkgrey"
+          title="Negate"
+          type="button"
+        >
           + &#47; -
         </button>
 
-        <button id="clear" @click="allClear" class="clearDisplay lightgrey doublewide" type="button"
-                aria-label="clear display to 0" title="Clear Display">
+        <button
+          id="clear"
+          @click="allClear"
+          class="clearDisplay lightgrey doublewide"
+          type="button"
+          aria-label="clear display to 0"
+          title="Clear Display"
+        >
           CD
         </button>
-        <button id="clear-entry" @click="clearEntry" class="clear darkgrey" type="button"
-                aria-label="clear entry" title="Clear Input">
+        <button
+          id="clear-entry"
+          @click="clearEntry"
+          class="clear darkgrey"
+          type="button"
+          aria-label="clear entry"
+          title="Clear Input"
+        >
           C
         </button>
-        <button id="divide" @click="operator('/')" class="operator darkgrey" type="button"
-                aria-label="divide">
+        <button
+          id="divide"
+          @click="operator('/')"
+          class="operator darkgrey"
+          type="button"
+          aria-label="divide"
+        >
           &#247;
         </button>
 
-        <button id="seven" @click="number('7')" class="digit lightgrey" type="button"
-                aria-label="7">
+        <button
+          id="seven"
+          @click="number('7')"
+          class="digit lightgrey"
+          type="button"
+          aria-label="7"
+        >
           7
         </button>
-        <button id="eight" @click="number('8')" class="digit lightgrey" type="button"
-                aria-label="8">
+        <button
+          id="eight"
+          @click="number('8')"
+          class="digit lightgrey"
+          type="button"
+          aria-label="8"
+        >
           8
         </button>
-        <button id="nine" @click="number('9')" class="digit lightgrey" type="button" aria-label="9">
+        <button
+          id="nine"
+          @click="number('9')"
+          class="digit lightgrey"
+          type="button"
+          aria-label="9"
+        >
           9
         </button>
-        <button id="multiply" @click="operator('*')" class="operator darkgrey" type="button"
-                aria-label="multiply">
+        <button
+          id="multiply"
+          @click="operator('*')"
+          class="operator darkgrey"
+          type="button"
+          aria-label="multiply"
+        >
           x
         </button>
 
-        <button id="four" @click="number('4')" class="digit lightgrey" type="button" aria-label="4">
+        <button
+          id="four"
+          @click="number('4')"
+          class="digit lightgrey"
+          type="button"
+          aria-label="4"
+        >
           4
         </button>
-        <button id="five" @click="number('5')" class="digit lightgrey" type="button" aria-label="5">
+        <button
+          id="five"
+          @click="number('5')"
+          class="digit lightgrey"
+          type="button"
+          aria-label="5"
+        >
           5
         </button>
-        <button id="six" @click="number('6')" class="digit lightgrey" type="button" aria-label="6">
+        <button
+          id="six"
+          @click="number('6')"
+          class="digit lightgrey"
+          type="button"
+          aria-label="6"
+        >
           6
         </button>
-        <button id="subtract" @click="operator('-')" class="operator darkgrey" type="button"
-                aria-label="substract">
+        <button
+          id="subtract"
+          @click="operator('-')"
+          class="operator darkgrey"
+          type="button"
+          aria-label="substract"
+        >
           -
         </button>
 
-        <button id="one" @click="number('1')" class="digit lightgrey" type="button" aria-label="1">
+        <button
+          id="one"
+          @click="number('1')"
+          class="digit lightgrey"
+          type="button"
+          aria-label="1"
+        >
           1
         </button>
-        <button id="two" @click="number('2')" class="digit lightgrey" type="button" aria-label="2">
+        <button
+          id="two"
+          @click="number('2')"
+          class="digit lightgrey"
+          type="button"
+          aria-label="2"
+        >
           2
         </button>
-        <button id="three" @click="number('3')" class="digit lightgrey" type="button"
-                aria-label="3">
+        <button
+          id="three"
+          @click="number('3')"
+          class="digit lightgrey"
+          type="button"
+          aria-label="3"
+        >
           3
         </button>
-        <button id="add" @click="operator('+')" class="operator darkgrey" type="button"
-                aria-label="add">
+        <button
+          id="add"
+          @click="operator('+')"
+          class="operator darkgrey"
+          type="button"
+          aria-label="add"
+        >
           +
         </button>
 
-        <button id="zero" @click="number('0')" class="digit lightgrey" type="button" aria-label="0">
+        <button
+          id="zero"
+          @click="number('0')"
+          class="digit lightgrey"
+          type="button"
+          aria-label="0"
+        >
           0
         </button>
-        <button id="decimal" @click="decimal" class="decimal lightgrey" type="button"
-                aria-label="decimal">
+        <button
+          id="decimal"
+          @click="decimal"
+          class="decimal lightgrey"
+          type="button"
+          aria-label="decimal"
+        >
           .
         </button>
-        <button id="equals" @click="equals" class="equals orange doublewide" type="button"
-                aria-label="calculate">
+        <button
+          id="equals"
+          @click="equals"
+          class="equals orange doublewide"
+          type="button"
+          aria-label="calculate"
+        >
           =
         </button>
-
       </div><!-- button-container -->
     </div><!-- body -->
-
   </div>
 </template>
 <style lang="scss">
