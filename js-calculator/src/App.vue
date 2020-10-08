@@ -12,73 +12,71 @@ export default {
 </script>
 
 <template>
-  <div id="app">
-    <h1 class="title">
-      JavaScript Calculator for freeCodeCamp
-    </h1>
+  <h1 class="title">
+    JavaScript Calculator for freeCodeCamp
+  </h1>
 
-    <div class="flex-wrapper">
-      <div class="project-wrapper">
-        <h2 class="project-title">
-          Texas Instruments SR-10
-        </h2>
-        <p>
-          This calculator fulfills the
-          <a
-            href="https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-javascript-calculator"
-            class="project-link"
-            rel="noreferrer noopener"
-          >
-            "Front End Libraries Projects - Build a JavaScript Calculator"</a> project for
-          freeCodeCamp. The design is inspired by one of the first scientific calculators, the
-          Texas Instruments SR-10. The calculator originally sold for $150 in 1973. More
-          information can be found at
-          <a
-            href="https://americanhistory.si.edu/collections/search/object/nmah_334394"
-            class="smithsonian"
-            rel="nnoreferrer oopener"
-          >
-            Smithsonian's Nation Museum of American History</a>
-          as part of their online collection.
-        </p>
-        <p>
-          This app uses
-          <a
-            href="https://vuejs.org"
-            class="vue-link"
-            rel="nnoreferrer oopener"
-          >Vue</a>
-          and
-          <a
-            href="https://sass-lang.com"
-            class="sass-link"
-            rel="nnoreferrer oopener"
-          >Sass</a>
-          . The
-          <a
-            href="https://mathjs.org"
-            class="mathjs-link"
-            rel="nnoreferrer oopener"
-          >math.js</a>
-          library handles the calculations and arithmetic operations using formula/expression logic.
-          There are seven places of precision to reflect the SR-10's display limitations.
-        </p>
-        <p>
-          Created and Designed by<br>
-          <a
-            href="https://bradleyhop.github.io"
-            class="me-link"
-            target="_blank"
-            rel="nnoreferrer oopener"
-          >
-            Bradley Smith</a>
-          &copy; 2020
-        </p>
-      </div><!-- project-wrapper -->
+  <div class="flex-wrapper">
+    <div class="project-wrapper">
+      <h2 class="project-title">
+        Texas Instruments SR-10
+      </h2>
+      <p>
+        This calculator fulfills the
+        <a
+          href="https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-javascript-calculator"
+          class="project-link"
+          rel="noreferrer noopener"
+        >
+          "Front End Libraries Projects - Build a JavaScript Calculator"</a> project for
+        freeCodeCamp. The design is inspired by one of the first scientific calculators, the
+        Texas Instruments SR-10. The calculator originally sold for $150 in 1973. More
+        information can be found at
+        <a
+          href="https://americanhistory.si.edu/collections/search/object/nmah_334394"
+          class="smithsonian"
+          rel="nnoreferrer oopener"
+        >
+          Smithsonian's Nation Museum of American History</a>
+        as part of their online collection.
+      </p>
+      <p>
+        This app uses
+        <a
+          href="https://vuejs.org"
+          class="vue-link"
+          rel="nnoreferrer oopener"
+        >Vue</a>
+        and
+        <a
+          href="https://sass-lang.com"
+          class="sass-link"
+          rel="nnoreferrer oopener"
+        >Sass</a>
+        . The
+        <a
+          href="https://mathjs.org"
+          class="mathjs-link"
+          rel="nnoreferrer oopener"
+        >math.js</a>
+        library handles the calculations and arithmetic operations using formula/expression logic.
+        There are seven places of precision to reflect the SR-10's display limitations.
+      </p>
+      <p>
+        Created and Designed by<br>
+        <a
+          href="https://bradleyhop.github.io"
+          class="me-link"
+          target="_blank"
+          rel="nnoreferrer oopener"
+        >
+          Bradley Smith</a>
+        &copy; 2020
+      </p>
+    </div><!-- project-wrapper -->
 
-      <Calculator />
-    </div><!-- flex-wrapper -->
-  </div>
+    <Calculator />
+  </div><!-- flex-wrapper -->
 </template>
 
 <style lang="scss">
