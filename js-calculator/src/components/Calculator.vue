@@ -384,6 +384,7 @@ export default {
     </div><!-- body -->
   </div>
 </template>
+
 <style lang="scss">
 $lcd-red: #f0466b;
 $calc-body-background: #434434;
