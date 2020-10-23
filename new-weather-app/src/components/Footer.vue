@@ -1,8 +1,6 @@
 <template>
   <div class="footer-content">
     <div class="footer-copy">
-      &#169; 2020
-      <br>
       <a
         href="https://github.com/bradleyhop/"
         rel="noopener"
@@ -10,7 +8,8 @@
       >
         Bradley Smith
       </a>
-      <br>
+        &#169; 2020
+        <br />
       <a
         href="https://github.com/bradleyhop/bradleyhop.github.io/tree/master/new-weather-app"
         rel="noopener"
@@ -18,7 +17,6 @@
       >
         Project GitHub
       </a>
-      <br>
     </div>
   </div>
 </template>
@@ -26,7 +24,7 @@
 <style scoped lang="scss">
 .footer-content {
   color: #fff;
-  height: 4.25rem;
+  height: 2.5rem;
   margin: 0;
   padding: 0.5rem;
   text-align: left;
