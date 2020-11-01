@@ -300,7 +300,6 @@ footer {
   color: #ffcdd2;
   font-size: 2rem;
   margin-bottom: 1rem;
-  width: 50vw;
 
   @media only screen and  (max-width: 600px) {
     width: 100vw;
