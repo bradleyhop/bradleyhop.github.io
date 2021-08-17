@@ -9,8 +9,8 @@ stories](https://www.freecodecamp.org/learn/front-end-libraries/front-end-librar
 
 Note: When running the automated test suite, please run in a private session for
 the tests to execute properly. Some browser extensions can mess with the timing
-just enough for some tests to not pass. The testing can take several minutes to
-run.
+just enough for some tests to not pass. The testing can take a few minutes to
+run. (UPDATE: Please choose the "25 + 5 Clock" option on the testing suite.)
 
 ## Framework and Tools
 
