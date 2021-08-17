@@ -1,99 +1,13 @@
-<template>
-  <div id="app" role="main">
-    <h1 class="pageTitle">POMODORO TIMER</h1>
-
-    <div class="inputWrapper">
-
-      <div id="session-label" class="labels">
-        work timer
-        <div class="inline">
-          <button
-            id="session-increment"
-            class="faButton bRight"
-            aria-label="increase session timer"
-            @click="incSess"
-            >
-            <font-awesome-icon :icon="['fas', 'angle-up']" />
-          </button>
-          <span id="session-length" class="sessionNumber"></span>
-          <button
-            id="session-decrement"
-            class="faButton bLeft"
-            aria-label="decrease session timer"
-            @click="decSess"
-            >
-            <font-awesome-icon :icon="['fas', 'angle-down']" />
-          </button>
-        </div>
-      </div>
-
-      <div id="break-label" class="labels">
-        break timer
-        <div class="inline">
-          <button
-            id="break-increment"
-            class="faButton bRight"
-            aria-label="increase break timer"
-            @click="incBreak"
-            >
-            <font-awesome-icon :icon="['fas', 'angle-up']" />
-          </button>
-          <span id="break-length" class="sessionNumber"></span>
-          <button
-            id="break-decrement"
-            class="faButton bLeft"
-            aria-label="decrease break timer"
-            @click="decBreak"
-            >
-            <font-awesome-icon :icon="['fas', 'angle-down']" />
-          </button>
-        </div>
-      </div>
-
-    </div><!-- inputWrapper -->
-
-    <Timer />
-
-    <div class="tagline">
-      <p class="aboveCircle">
-        <a
-          href="https://en.wikipedia.org/wiki/Pomodoro_Technique"
-          target="_blank"
-          rel="noopener noreferrer"
-          >
-          Need information about the pomodoro technique?
-        </a>
-      </p>
-      <a
-        href="https://bradleyhop.github.io"
-        target="_blank"
-        rel="noopener noreferrer"
-        >
-        bradley smith
-      </a>
-      &#169; 2020
-      <p>
-        <a
-          href="https://github.com/bradleyhop/bradleyhop.github.io/tree/master/pomodoro-timer"
-           target="blank"
-           rel="noopener noreferrer"
-           >
-          Source code for this app on github
-        </a>
-      </p>
-    </div><!-- tagline -->
-
-  </div><!-- main -->
-</template>
-
 <script>
 import Timer from './components/Timer.vue';
+import Footer from './components/Footer.vue';
 
 export default {
   name: 'App',
 
   components: {
     Timer,
+    Footer,
   },
 
   data() {
@@ -151,6 +65,82 @@ export default {
 };
 </script>
 
+<template>
+  <div id="app" role="main">
+    <div class="content">
+      <h1 class="pageTitle" title="aka 25 + 5 clock">POMODORO TIMER</h1>
+
+      <div class="inputWrapper">
+
+        <div id="session-label" class="labels">
+          work timer
+          <div class="inline">
+            <button
+              id="session-increment"
+              class="faButton bRight"
+              aria-label="increase session timer"
+              @click="incSess"
+              >
+              <font-awesome-icon :icon="['fas', 'angle-up']" />
+            </button>
+            <span id="session-length" class="sessionNumber"></span>
+            <button
+              id="session-decrement"
+              class="faButton bLeft"
+              aria-label="decrease session timer"
+              @click="decSess"
+              >
+              <font-awesome-icon :icon="['fas', 'angle-down']" />
+            </button>
+          </div>
+        </div>
+
+        <div id="break-label" class="labels">
+          break timer
+          <div class="inline">
+            <button
+              id="break-increment"
+              class="faButton bRight"
+              aria-label="increase break timer"
+              @click="incBreak"
+              >
+              <font-awesome-icon :icon="['fas', 'angle-up']" />
+            </button>
+            <span id="break-length" class="sessionNumber"></span>
+            <button
+              id="break-decrement"
+              class="faButton bLeft"
+              aria-label="decrease break timer"
+              @click="decBreak"
+              >
+              <font-awesome-icon :icon="['fas', 'angle-down']" />
+            </button>
+          </div>
+        </div>
+
+      </div><!-- inputWrapper -->
+
+      <Timer />
+
+      <div class="tagline">
+        <a
+          href="https://en.wikipedia.org/wiki/Pomodoro_Technique"
+          target="_blank"
+          rel="noopener noreferrer"
+          >
+          <i>Need information about the pomodoro technique?</i>
+        </a>
+      </div>
+
+    </div><!-- .content -->
+
+    <footer>
+      <Footer />
+    </footer>
+
+  </div><!-- main -->
+</template>
+
 <style lang="scss">
 // min-width for mobile-first design
 $responsive-width: 599px;
@@ -183,7 +173,23 @@ body {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
   text-align: center;
+}
+
+#app {
+  // need to push the footer to the bottom
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1 0 auto; // grow main page space to the content
+}
+
+footer {
+  flex-shrink: 0;
 }
 
 .pageTitle {
@@ -229,27 +235,28 @@ button {
 }
 
 .faButton {
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin: 0 0.5rem;
 }
 
 .sessionNumber {
   font-size: 1.25rem;
+  width: 2rem;
 }
 
 .tagline {
-  a {
-    color: white;
-  }
-
-  a:hover {
-    color: black;
-  }
-}
-
-.aboveCircle {
+  margin-top: 1rem;
   // set position and z-index so that the progress circle doesn't obstruct functionality
   position: relative;
   z-index: 999999;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
 }
 </style>
