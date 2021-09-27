@@ -163,25 +163,33 @@ $responsive-width: 599px;
 }
 // end focus-visible polyfill rules
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+
+  &::before {
+    box-sizing: border-box;
+  }
+
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
 html {
   background-color: #595959;
 }
 
-body {
-  color: #fff;
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin: 0;
-  text-align: center;
-}
-
 #app {
+  color: #fff;
   // need to push the footer to the bottom
   display: flex;
-  height: 100vh;
   flex-direction: column;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  height: 100vh;
+  overflow: hidden;
+  text-align: center;
 }
 
 .content {
@@ -193,7 +201,7 @@ footer {
 }
 
 .pageTitle {
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0 0.5rem 0;
 }
 
 .inputWrapper {
@@ -245,7 +253,7 @@ button {
 }
 
 .tagline {
-  margin-top: 1rem;
+  margin: 1rem 0.25rem 0 0.25rem;
   // set position and z-index so that the progress circle doesn't obstruct functionality
   position: relative;
   z-index: 999999;

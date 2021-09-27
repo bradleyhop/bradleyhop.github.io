@@ -36,17 +36,14 @@ export default {
 
 <style scoped lang="scss">
 .footer-content {
-  height: 2rem;
-  padding: 0.5rem;
-  margin: 0;
   color: #fff;
   text-align: left;
 }
 
 .footer-copy {
   float: right;
-  margin-right: 1rem;
-  line-height: 1.2rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .footer-link {
