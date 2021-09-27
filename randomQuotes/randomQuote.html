@@ -31,22 +31,27 @@
 
   <body>
 
-    <div class="flex-wrap">
+    <div role="main" class="flex-wrap">
       <div id="quote-box">
         <div class="content-container">
           <div id="text">{{ text }}</div>
           <div id="author">{{ author }}</div>
         </div>
+
         <div class="button-well">
           <button id="new-quote" v-on:click="getQuote" type="button">
             NEW QUOTE
           </button>
-          <a id="tweet-quote" v-bind:href="urlTweet">
+          <a id="tweet-quote"
+            target="_blank"
+            rel="noopener noreferrer"
+            v-bind:href="urlTweet">
             <button v-on:click="tweetQuote" type="button">
               TWEET QUOTE
             </button>
           </a>
         </div>
+
       </div>
     </div>
 

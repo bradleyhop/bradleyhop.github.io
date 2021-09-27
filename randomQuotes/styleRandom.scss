@@ -7,6 +7,7 @@ body {
   font-size: 14px;
 }
 
+// project requirements call for #quote-box to be horizonatally centered
 .flex-wrap {
   height: 100vh;
   display: flex;
@@ -14,26 +15,26 @@ body {
   align-items: center;
 }
 
-#quote-box {
-  width: 50%;
-
-  @media (max-width: $medium-layout-breakpoint) {
-    width: 75%;
-  }
-
-  @media (max-width: $small-layout-breakpoint) {
-    width: 95%;
-  }
-}
-
 .content-container {
   background-color: #272324;
-  color: green;
-  text-shadow: 0 0 3px green;
+  color: #00B800;
+  // give the text that CRT glow
+  text-shadow: 0 0 3px #00B800;
   border-radius: 20px;
   margin: auto;
   padding: 2rem;
   position: relative;
+  overflow: auto;
+
+  // keeping that 4:3 ratio ;)
+  height: 450px;
+  width: 600px;
+
+  @media (max-width: $medium-layout-breakpoint) {
+    // keeping to legibility here
+    height: 50vh;
+    width: 80vw;
+  }
 
   #text {
     font-family: $quote-font-family;
@@ -84,12 +85,12 @@ button {
   text-decoration: none;
 
   button {
-    color: #38a1f3;
+    background-color: #38a1f3;
+    color: #000;
 
     &:visited {
       text-decoration: none;
       color: #38a1f3;
     }
   }
-
 }

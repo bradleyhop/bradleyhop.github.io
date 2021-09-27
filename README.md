@@ -12,7 +12,7 @@ presentation of my projects with links to the live page and github repository.
 The files in the root directory are responsible for the portfolio project for freeCodeCamp.
 [See my portfolio page in action!](https://bradleyhop.github.io)
 
-## Certificates Earned throgh freeCodeCamp
+## Certificates Earned through freeCodeCamp
 
 I have earned the following certificates through freeCodeCamp:
 
