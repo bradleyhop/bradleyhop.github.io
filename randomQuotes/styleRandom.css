@@ -1,67 +1,49 @@
 body {
   background-color: #e4d8b4;
-  font-size: 14px;
-}
+  font-size: 14px; }
 
 .flex-wrap {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-#quote-box {
-  width: 50%;
-}
-@media (max-width: 900px) {
-  #quote-box {
-    width: 75%;
-  }
-}
-@media (max-width: 599px) {
-  #quote-box {
-    width: 95%;
-  }
-}
+  align-items: center; }
 
 .content-container {
   background-color: #272324;
-  color: green;
-  text-shadow: 0 0 3px green;
+  color: #00B800;
+  text-shadow: 0 0 3px #00B800;
   border-radius: 20px;
   margin: auto;
   padding: 2rem;
   position: relative;
-}
-.content-container #text {
-  font-family: "VT323", monospace;
-  font-size: 2.5rem;
-  text-align: left;
-}
-@media (max-width: 599px) {
+  overflow: auto;
+  height: 450px;
+  width: 600px; }
+  @media (max-width: 900px) {
+    .content-container {
+      height: 50vh;
+      width: 80vw; } }
   .content-container #text {
-    font-size: 2rem;
-  }
-}
-.content-container #author {
-  font-family: "VT323", monospace;
-  font-size: 2rem;
-  text-align: right;
-}
-@media (max-width: 900px) {
+    font-family: "VT323", monospace;
+    font-size: 2.5rem;
+    text-align: left; }
+    @media (max-width: 599px) {
+      .content-container #text {
+        font-size: 2rem; } }
   .content-container #author {
-    font-size: 1.5rem;
-  }
-}
-
+    font-family: "VT323", monospace;
+    font-size: 2rem;
+    text-align: right; }
+    @media (max-width: 900px) {
+      .content-container #author {
+        font-size: 1.5rem; } }
 .button-well {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
   width: 100%;
-  padding-top: 2rem;
-}
+  padding-top: 2rem; }
 
 button {
   background: #eee;
@@ -70,24 +52,16 @@ button {
   box-shadow: 1px 0 1px 0 #eee, 0 2px 0 2px #ccc, 0 2px 0 3px #444;
   border-radius: 3px;
   padding: 10px 10px;
-  font-family: monospace;
-}
-@media (max-width: 900px) {
-  button {
-    font-size: 1rem;
-  }
-}
-
+  font-family: monospace; }
+  @media (max-width: 900px) {
+    button {
+      font-size: 1rem; } }
 #tweet-quote {
   cursor: default;
-  text-decoration: none;
-}
-#tweet-quote button {
-  color: #38a1f3;
-}
-#tweet-quote button:visited {
-  text-decoration: none;
-  color: #38a1f3;
-}
-
-/*# sourceMappingURL=styleRandom.css.map */
+  text-decoration: none; }
+  #tweet-quote button {
+    background-color: #38a1f3;
+    color: #000; }
+    #tweet-quote button:visited {
+      text-decoration: none;
+      color: #38a1f3; }
