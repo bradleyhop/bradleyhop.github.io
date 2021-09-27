@@ -3,45 +3,34 @@ html {
   background: black;
 }
 
+/* scanlines via http://aleclownes.com/2017/02/01/crt-display.html */
+body::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+
 /* using the amber color for that CRT glow */
 p {
-  color: #FFB000;
+  color: #f0fff8;
   font-family: 'VT323', monospace;
   font-size: 36px;
   line-height: 110%;
-  text-shadow: 0 0 3px #FFB000;
+  text-shadow: 0 0 3px #FFDF99, 0 0 10px #FFB000, 0 0 20px #FFB000, 0 0 30px #FFB000;
+  /* text-shadow: 0 0 3px #FFB000; */
 }
 
-/* Separator between text and fake prompt. */
-hr {
-  border: none;
-  border-top: 2px dotted #FFB000;
-  color: #FFB000;
-  height: 1px;
-  width: 100%;
-}
-
-a {
-  color: #FFB000;
-}
-
-a:visited {
-  color: #FFB000;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #FFB000;
-  text-decoration: none;
-}
-
-a:active {
-  color: #FFB000;
-  text-decoration: none;
-}
-
-/* Blinking cursor */
-span::after {
+/* Day Blinken Cursor!! */
+#bliken-lights::after {
   content: '_';
   opacity: 0;
   animation: cursor 0.7s infinite;
