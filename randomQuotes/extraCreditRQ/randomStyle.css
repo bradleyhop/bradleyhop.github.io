@@ -3,38 +3,40 @@ html {
   background: black;
 }
 
+/* using the amber color for that CRT glow */
 p {
-  color: green;
+  color: #FFB000;
   font-family: 'VT323', monospace;
   font-size: 36px;
   line-height: 110%;
+  text-shadow: 0 0 3px #FFB000;
 }
 
 /* Separator between text and fake prompt. */
 hr {
   border: none;
-  border-top: 2px dotted green;
-  color: green;
+  border-top: 2px dotted #FFB000;
+  color: #FFB000;
   height: 1px;
   width: 100%;
 }
 
 a {
-  color: green;
+  color: #FFB000;
 }
 
 a:visited {
-  color: green;
+  color: #FFB000;
   text-decoration: none;
 }
 
 a:hover {
-  color: green;
+  color: #FFB000;
   text-decoration: none;
 }
 
 a:active {
-  color: green;
+  color: #FFB000;
   text-decoration: none;
 }
 
