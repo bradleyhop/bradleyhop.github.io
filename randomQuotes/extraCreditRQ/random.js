@@ -21,7 +21,7 @@ function getQuote() {
 
 document.addEventListener('keypress', function(event) {
   if (event.key === 'Enter') {
-    getQuote().catch(error => console.log(error));
+    getQuote();
   }
 
   if (event.key === 'T' || event.key === 't') {
