@@ -5561,16 +5561,17 @@ quotes.forEach((obj) => {
   // filter by destructuring
   const {_id, sr, source, rating, __v, addedBy, id, numberOfVotes, ...filteredQuotes} = obj;
 
-  // only the best quotes, please ;)
-  if (obj.rating >= 4) {
+  // only the best quotes, please ;) && an English quote exists
+  if (obj.rating >= 4 && obj.en !== undefined && obj.hasOwnProperty('en')) {
     // stringify so we get more than just object Object in our output
     filterQ.push(JSON.stringify(filteredQuotes));
   }
 });
 
+// write to file our filtered list of quotes and authors so we can easily paste in where we need it
+const fs = require('fs');
+
 fs.writeFile('filtered.js', filterQ.toString(), (err) => {
   if (err) throw err;
   console.log('file saved!');
 });
-
-console.log(quotes[4]);
