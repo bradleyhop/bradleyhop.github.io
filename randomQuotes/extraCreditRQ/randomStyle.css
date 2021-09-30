@@ -1,23 +1,24 @@
 html {
-  margin: 10px 24px 0 24px;
   background: black;
+  margin: 10px 24px 0 24px;
 }
 
 /* scanlines via http://aleclownes.com/2017/02/01/crt-display.html */
 body::before {
+  background:
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 2px, 3px 100%;
+  bottom: 0;
   content: " ";
   display: block;
-  position: absolute;
-  top: 0;
   left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-  z-index: 2;
-  background-size: 100% 2px, 3px 100%;
   pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
 }
-
 
 /* using the amber color for that CRT glow */
 p {
@@ -25,15 +26,16 @@ p {
   font-family: 'VT323', monospace;
   font-size: 36px;
   line-height: 110%;
-  text-shadow: 0 0 3px #FFDF99, 0 0 10px #FFB000, 0 0 20px #FFB000, 0 0 30px #FFB000;
+  text-shadow: 0 0 3px #ffdf99, 0 0 10px #ffb000, 0 0 20px #ffb000, 0 0 30px #ffb000;
+
   /* text-shadow: 0 0 3px #FFB000; */
 }
 
 /* Day Blinken Cursor!! */
 #bliken-lights::after {
+  animation: cursor 0.7s infinite;
   content: '_';
   opacity: 0;
-  animation: cursor 0.7s infinite;
 }
 
 @keyframes cursor {
