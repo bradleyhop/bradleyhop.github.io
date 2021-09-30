@@ -39,3 +39,6 @@ document.addEventListener('keypress', function(event) {
     }
   }
 });
+
+// cleick *anywhere on the displayed page to get quote
+document.onclick = () => getQuote();
