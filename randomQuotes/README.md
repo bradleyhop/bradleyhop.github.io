@@ -1,5 +1,7 @@
 # Random Quote Generator
 
+[live demo here](https://bradleyhop.github.io/randomQuotes/randomQuote.html)
+
 (9/27/21) This is an old project that was broken, which bothered me. So finally,
 I have fixed it.  Instead of using an API to grab a random quote, which required
 an additional service to serve the quote through https, I have found a
@@ -14,3 +16,8 @@ The quotes were taken from [here](https://github.com/skolakoda/programming-quote
 
 I also touched up the styling so that the page hints at a 4:3 glowing-text CRT
 monitor from days of olde.
+
+## Project Frameworks
+
+This is one of the first projects I built using Vue.js ans Sass. Vue.js is
+loaded via a CDN, and the Sass file is compiled locally into CSS via sassc.
