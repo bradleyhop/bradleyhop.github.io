@@ -2,7 +2,7 @@ body {
   background-color: #aaa9af;
   font-size: 14px; }
 
-.flex-wrap {
+.flex-container {
   align-items: center;
   display: flex;
   height: 100vh;
@@ -24,36 +24,23 @@ body {
 .content-container {
   background-color: #272324;
   border-radius: 20px;
+  color: #f0fff8;
+  font-family: "VT323", monospace;
+  font-size: 2.5rem;
   height: 450px;
+  line-height: 110%;
   margin: auto;
   overflow: auto;
   padding: 2rem;
   position: relative;
+  text-align: left;
+  text-shadow: 0 0 3px #0f0, 0 0 10px #00b800, 0 0 20px #00b800, 0 0 30px #00b800;
   width: 600px; }
   @media (max-width: 900px) {
     .content-container {
+      font-size: 2rem;
       height: 50vh;
       width: 78vw; } }
-  .content-container #text {
-    color: #f0fff8;
-    font-family: "VT323", monospace;
-    font-size: 2.5rem;
-    line-height: 110%;
-    text-align: left;
-    text-shadow: 0 0 3px #0f0, 0 0 10px #00b800, 0 0 20px #00b800, 0 0 30px #00b800; }
-    @media (max-width: 599px) {
-      .content-container #text {
-        font-size: 2rem; } }
-  .content-container #author {
-    color: #f0fff8;
-    font-family: "VT323", monospace;
-    font-size: 2rem;
-    line-height: 110%;
-    text-align: right;
-    text-shadow: 0 0 3px #0f0, 0 0 10px #00b800, 0 0 20px #00b800, 0 0 30px #00b800; }
-    @media (max-width: 900px) {
-      .content-container #author {
-        font-size: 1.5rem; } }
 .button-well {
   display: flex;
   flex-direction: row;

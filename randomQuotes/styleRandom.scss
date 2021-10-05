@@ -8,7 +8,7 @@ body {
 }
 
 // project requirements call for #quote-box to be horizonatally centered
-.flex-wrap {
+.flex-container {
   align-items: center;
   display: flex;
   height: 100vh;
@@ -34,49 +34,27 @@ body {
 .content-container {
   background-color: #272324;
   border-radius: 20px;
+  color: #f0fff8;
+  font-family: $quote-font-family;
+  font-size: 2.5rem;
 
   // keeping that 4:3 ratio ;)
   height: 450px;
+  line-height: 110%;
   margin: auto;
   overflow: auto;
   padding: 2rem;
   position: relative;
+  text-align: left;
+  // give the text that CRT glow
+  text-shadow: 0 0 3px #0f0, 0 0 10px #00b800, 0 0 20px #00b800, 0 0 30px #00b800;
   width: 600px;
 
   @media (max-width: $medium-layout-breakpoint) {
+    font-size: 2rem;
     // keeping to legibility here
     height: 50vh;
     width: 78vw;
-  }
-
-  #text {
-    color: #f0fff8;
-    font-family: $quote-font-family;
-    font-size: 2.5rem;
-    line-height: 110%;
-    text-align: left;
-    // give the text that CRT glow
-    text-shadow: 0 0 3px #0f0, 0 0 10px #00b800, 0 0 20px #00b800, 0 0 30px #00b800;
-    // text-shadow: 0 0 3px #00B800;
-
-    @media (max-width: $small-layout-breakpoint) {
-      font-size: 2rem;
-    }
-  }
-
-  #author {
-    color: #f0fff8;
-    font-family: $quote-font-family;
-    font-size: 2rem;
-    line-height: 110%;
-    text-align: right;
-    // give the text that CRT glow
-    text-shadow: 0 0 3px #0f0, 0 0 10px #00b800, 0 0 20px #00b800, 0 0 30px #00b800;
-    // text-shadow: 0 0 3px #00B800;
-
-    @media (max-width: $medium-layout-breakpoint) {
-      font-size: 1.5rem;
-    }
   }
 }
 

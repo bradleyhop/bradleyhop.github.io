@@ -18,7 +18,7 @@ var quote = new Vue({
   methods: {
     // grab a quote from the collection defined above and set the vue instances of text and author
     // to the new values
-    async getQuote() {
+    getQuote() {
       const quoteGrab = bestFilterQuotes[Math.floor(Math.random() * bestFilterQuotes.length + 1)];
       this.text = quoteGrab.en;
       this.author = quoteGrab.author;
