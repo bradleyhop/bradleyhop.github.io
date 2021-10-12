@@ -1,6 +1,8 @@
 body {
   background-color: #aaa9af;
-  font-size: 14px; }
+  font-size: 14px;
+  margin: 0;
+  padding: 0; }
 
 .flex-container {
   align-items: center;
