@@ -5,6 +5,8 @@ $quote-font-family: "VT323", monospace;
 body {
   background-color: #aaa9af;
   font-size: 14px;
+  margin: 0;
+  padding: 0;
 }
 
 // project requirements call for #quote-box to be horizonatally centered
@@ -38,7 +40,7 @@ body {
   font-family: $quote-font-family;
   font-size: 2.5rem;
 
-  // keeping that 4:3 ratio ;)
+  // keeping that 4:3 ratio; 450px x 600px ;)
   height: 450px;
   line-height: 110%;
   margin: auto;
