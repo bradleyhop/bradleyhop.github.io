@@ -13,7 +13,8 @@ const quoteEl = document.getElementById('quotelives');
 
 function getQuote() {
   const quoteGrab = bestFilterQuotes[Math.floor(Math.random() * bestFilterQuotes.length + 1)];
-  quote = quoteGrab.en;
+  // grab a new quote every time
+  quote === quoteGrab.en ? getQuote() : quote = quoteGrab.en;
   author = quoteGrab.author;
 
   quoteEl.innerHTML = `<p>${quote}<br>--  ${author}<br><br><br>Press ENTER for new quote or 'T' to share this quote via Twitter.</p>`;
