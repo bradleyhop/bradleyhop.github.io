@@ -20,7 +20,8 @@ var quote = new Vue({
     // to the new values
     getQuote() {
       const quoteGrab = bestFilterQuotes[Math.floor(Math.random() * bestFilterQuotes.length + 1)];
-      this.text = quoteGrab.en;
+      // serve a new quote every time
+      this.text === quoteGrab.en ? getQuote() : this.text = quoteGrab.en;
       this.author = quoteGrab.author;
     },
     // Tweet (Twitter) the current quote, truncate if necessary, and add the hashtags:
