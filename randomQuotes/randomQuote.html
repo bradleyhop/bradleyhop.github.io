@@ -1,43 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-      content="Landing page for Bradley Smith's random quote machine">
-    <meta name="keywords" content="fcc project freecodecamp">
-    <meta name="author" content="Bradley Smith">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Landing page for Bradley Smith's random quote machine"
+    />
+    <meta name="keywords" content="fcc project freecodecamp" />
+    <meta name="author" content="Bradley Smith" />
 
     <title>random quote generator!</title>
 
     <!-- local style sheet -->
-    <link rel="stylesheet" href="styleRandom.css" type="text/css">
+    <link rel="stylesheet" href="styleRandom.css" type="text/css" />
 
     <!-- google VT323 terminal-style font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Vue development version, includes helpful console warnings
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     -->
     <!-- Vue production version, optimized for size and speed -->
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js"
+      integrity="sha512-XdUZ5nrNkVySQBnnM5vzDqHai823Spoq1W3pJoQwomQja+o4Nw0Ew1ppxo5bhF2vMug6sfibhKWcNJsG8Vj9tg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <!-- local script file, defered to allow vue to load first -->
     <script src="random.js" defer></script>
     <!-- fCC automated test -->
     <script
-      src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" defer>
-    </script>
-
+      src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"
+      defer
+    ></script>
   </head>
 
   <body>
-
     <div role="main" class="flex-container">
-
       <div id="quote-box">
-
         <div class="content-container">
           <div id="text">{{ text }}</div>
           <div id="author">-- {{ author }}</div>
@@ -48,19 +55,19 @@
             NEW QUOTE
           </button>
 
-          <a id="tweet-quote"
+          <a
+            id="tweet-quote"
             target="_blank"
             rel="noopener noreferrer"
-            v-bind:href="urlTweet">
-            <button v-on:click="tweetQuote" type="button">
-              TWEET QUOTE
-            </button>
+            v-bind:href="urlTweet"
+          >
+            <button v-on:click="tweetQuote" type="button">TWEET QUOTE</button>
           </a>
-        </div><!-- .button-well -->
-
-      </div><!-- #quote-box -->
-    </div><!-- .flex-container -->
-
+        </div>
+        <!-- .button-well -->
+      </div>
+      <!-- #quote-box -->
+    </div>
+    <!-- .flex-container -->
   </body>
-
 </html>
