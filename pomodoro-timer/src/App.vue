@@ -1,9 +1,8 @@
 <template>
-  <div id="app" role="main">
+  <main id="app">
     <h1 class="pageTitle">POMODORO TIMER</h1>
 
     <div class="inputWrapper">
-
       <div id="session-label" class="labels">
         work timer
         <div class="inline">
@@ -12,7 +11,7 @@
             class="faButton bRight"
             aria-label="increase session timer"
             @click="incSess"
-            >
+          >
             <font-awesome-icon :icon="['fas', 'angle-up']" />
           </button>
           <span id="session-length" class="sessionNumber"></span>
@@ -21,7 +20,7 @@
             class="faButton bLeft"
             aria-label="decrease session timer"
             @click="decSess"
-            >
+          >
             <font-awesome-icon :icon="['fas', 'angle-down']" />
           </button>
         </div>
@@ -35,7 +34,7 @@
             class="faButton bRight"
             aria-label="increase break timer"
             @click="incBreak"
-            >
+          >
             <font-awesome-icon :icon="['fas', 'angle-up']" />
           </button>
           <span id="break-length" class="sessionNumber"></span>
@@ -44,46 +43,49 @@
             class="faButton bLeft"
             aria-label="decrease break timer"
             @click="decBreak"
-            >
+          >
             <font-awesome-icon :icon="['fas', 'angle-down']" />
           </button>
         </div>
       </div>
-
-    </div><!-- inputWrapper -->
+    </div>
+    <!-- inputWrapper -->
 
     <Timer />
 
-    <div class="tagline">
+    <footer class="tagline">
       <p class="aboveCircle">
         <a
           href="https://en.wikipedia.org/wiki/Pomodoro_Technique"
           target="_blank"
           rel="noopener noreferrer"
-          >
-          Need information about the pomodoro technique?
+        >
+          About the pomodoro technique
         </a>
       </p>
-      <a
-        href="https://bradleyhop.github.io"
-        target="_blank"
-        rel="noopener noreferrer"
-        >
-        bradley smith
-      </a>
-      &#169; 2020
       <p>
         <a
+          href="https://bradleyhop.github.io"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Bradley's Github Profile"
+        >
+          bradley smith
+        </a>
+        &#169; 2023
+        <a
           href="https://github.com/bradleyhop/bradleyhop.github.io/tree/master/pomodoro-timer"
-           target="blank"
-           rel="noopener noreferrer"
-           >
-          Source code for this app on github
+          target="blank"
+          rel="noopener noreferrer"
+          title="pomodoro timer project github repo"
+        >
+          &#91;&nbsp;github&nbsp;&#93;
         </a>
       </p>
-    </div><!-- tagline -->
-
-  </div><!-- main -->
+    </footer>
+    <!-- tagline -->
+  </main>
+  <!-- main -->
 </template>
 
 <script>
@@ -147,7 +149,6 @@ export default {
       document.getElementById('time-left').innerText = `${this.formatTime(this.workTime)}:00`;
     },
   },
-
 };
 </script>
 
@@ -179,15 +180,23 @@ html {
 
 body {
   color: #fff;
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 100dvh;
+  height: 100vh;
+  flex-wrap: wrap;
 }
 
 .pageTitle {
   margin-bottom: 0.5rem;
+  font-size: 3rem;
+  letter-spacing: -0.5px;
 }
 
 .inputWrapper {
@@ -199,6 +208,7 @@ body {
 }
 
 .labels {
+  letter-spacing: -0.5px;
   margin: 0.5rem;
   padding: 0.5rem;
 
@@ -240,10 +250,11 @@ button {
 .tagline {
   a {
     color: white;
+    text-decoration: none;
   }
 
   a:hover {
-    color: black;
+    text-decoration: underline;
   }
 }
 

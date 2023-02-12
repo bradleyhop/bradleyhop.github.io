@@ -20,7 +20,7 @@
       <div class="timerControls">
         <div class="startStopCenter">
           <button
-            id="start-stop"
+            id="start_stop"
             class="faControls"
             title="play/pause"
             aria-label="start or pause timer"
@@ -43,7 +43,6 @@
         </div>
       </div>
     </div><!-- wrapperEnso -->
-
 
   </div>
 </template>
