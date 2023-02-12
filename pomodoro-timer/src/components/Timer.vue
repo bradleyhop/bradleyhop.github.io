@@ -1,3 +1,55 @@
+<<<<<<< HEAD
+<template>
+  <div id="timer">
+
+    <div class="wrapperEnso">
+
+      <img class="enso" src="../assets/Enso.svg" alt="image of zen enso">
+
+      <div id="timer-label" class="titleCenter"></div>
+      <div id="time-left" class="timerCenter"></div>
+      <audio
+        id="beep"
+        src="../assets/chime.mp3"
+        type="audio/mpeg"
+        preload="auto"
+        >
+      </audio>
+
+      <div id="circle" class="progressCircle"></div>
+
+      <div class="timerControls">
+        <div class="startStopCenter">
+          <button
+            id="start_stop"
+            class="faControls"
+            title="play/pause"
+            aria-label="start or pause timer"
+            @click="startPauseTimer"
+            >
+            <font-awesome-icon :icon="['fas', 'play']" />
+            <font-awesome-icon :icon="['fas', 'pause']" />
+          </button>
+        </div>
+        <div class="resetCenter">
+          <button
+            id="reset"
+            class="faControls"
+            title="reset"
+            aria-label="stop timer and reset to default values"
+            @click="resetTimer"
+            >
+            <font-awesome-icon :icon="['fas', 'redo']" />
+          </button>
+        </div>
+      </div>
+    </div><!-- wrapperEnso -->
+
+  </div>
+</template>
+
+=======
+>>>>>>> main
 <script>
 import ProgressBar from 'progressbar.js';
 
