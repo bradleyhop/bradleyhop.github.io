@@ -1,15 +1,13 @@
 # pomodoro-timer
 
 Bradley Smith coded this app in Spring 2020 for the freeCodeCamp.org Front End
-Libraries Projects - Build A Pomodoro Clock. The app satisfies the required
-[user stories](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-pomodoro-clock).
+Libraries Projects - Build A Pomodoro Clock. (Edit: The project is now entitled
+Build a 25 + 5 Clock.) The app satisfies the required [user
+stories](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-25--5-clock).
 
-See the live app [here](https://bradleyhop.github.io/pomodoroTimer)
+[See the live app here](https://bradleyhop.github.io/pomodoroTimer)
 
-Note: When running the automated test suite, please run in a private session for
-the tests to execute properly. Some browser extensions can mess with the timing
-just enough for some tests to not pass. The testing can take several minutes to
-run.
+NOTE: Please choose the "25 + 5 Clock" option on the testing suite.
 
 ## Framework and Tools
 

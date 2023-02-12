@@ -157,7 +157,7 @@ export default {
         },
       };
 
-      // ihis.icon is a reactive class; must have .wi for weather-icons to work!!
+      // this.icon is a reactive class: must have .wi for weather-icons to work!!
       // 'na' if no icon is available for weather given
       this.icon = `wi ${weatherIcon[this.timeOfDay][main] || 'na'}`;
     },
@@ -285,6 +285,10 @@ footer {
   cursor: pointer;
   font-size: 8rem;
   margin-bottom: 1.25rem;
+
+  &:hover {
+    color: #fff;
+  }
 }
 
 .wi {
@@ -296,8 +300,6 @@ footer {
   color: #ffcdd2;
   font-size: 2rem;
   margin-bottom: 1rem;
-  text-align: left;
-  width: 45vw;
 
   @media only screen and  (max-width: 600px) {
     width: 100vw;

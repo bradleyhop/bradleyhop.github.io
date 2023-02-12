@@ -1,5 +1,5 @@
 // default markdown on pageload
-const usrMD =`# Heading 1
+const usrMD = `# Heading 1
 ## Heading 2
 -------------
 
@@ -43,10 +43,10 @@ This nastiness below will be removed through DOMPurify!
 var vm = new Vue({
   el: "#md-container",
   data: {
-    textmarkMD: usrMD
+    textmarkMD: usrMD,
   },
   computed: {
-    preview: function() {
+    preview: function () {
       return DOMPurify.sanitize(
         marked(this.textmarkMD, {
           pendantic: false,
@@ -54,11 +54,11 @@ var vm = new Vue({
           breaks: true,
           smartLists: true,
           xhtml: false,
-          highlight: function(code) {
+          highlight: function (code) {
             return hljs.highlightAuto(code).value;
-          }
+          },
         })
       );
-    }
-  }
+    },
+  },
 });

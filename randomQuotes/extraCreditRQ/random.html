@@ -12,7 +12,9 @@
     <!--local style sheet-->
     <link rel="stylesheet" href="randomStyle.css" type="text/css">
     <!--google VT323 terminal-style font-->
-    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 
   </head>
 
@@ -21,14 +23,12 @@
     <div id="quote">
       <div id="quotelives">
         <p>Welcome to the random quote generator!<br>
-          These quotes are themed around programming and computers, courtesy of
-          <i><a href="https://stormconsultancy.co.uk/">Storm Consultancy.</a></i><br>
-          Press ENTER to see a new quote!<br>
+          Hit ENTER or click window to get a quote themed around programming and computers.
         </p>
       </div>
       <div id="userprompt">
-        <hr>
-        <p>user@localhost:~$ <span></span></p>
+        <p>--------------------------<br>
+        user@localhost:~$ <span id="bliken-lights"></span></p>
       </div>
     </div>
 
