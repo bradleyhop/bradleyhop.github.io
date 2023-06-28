@@ -1,5 +1,9 @@
 # bradleyhop.github.io
 
+## THIS IS THE OLD PORTFOLIO PAGE
+
+See my updated portfolio page [here](https://bradleysmith.tech)
+
 A mega-repository for my personal portfolio page and all projects for the
 [freeCodeCamp](https://freecodecamp.org) curriculum.
 
