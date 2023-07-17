@@ -1,20 +1,11 @@
-<<<<<<< HEAD
 <template>
   <div id="timer">
-
     <div class="wrapperEnso">
-
-      <img class="enso" src="../assets/Enso.svg" alt="image of zen enso">
+      <img class="enso" src="../assets/Enso.svg" alt="image of zen enso" />
 
       <div id="timer-label" class="titleCenter"></div>
       <div id="time-left" class="timerCenter"></div>
-      <audio
-        id="beep"
-        src="../assets/chime.mp3"
-        type="audio/mpeg"
-        preload="auto"
-        >
-      </audio>
+      <audio id="beep" src="../assets/chime.mp3" type="audio/mpeg" preload="auto"></audio>
 
       <div id="circle" class="progressCircle"></div>
 
@@ -26,7 +17,7 @@
             title="play/pause"
             aria-label="start or pause timer"
             @click="startPauseTimer"
-            >
+          >
             <font-awesome-icon :icon="['fas', 'play']" />
             <font-awesome-icon :icon="['fas', 'pause']" />
           </button>
@@ -38,18 +29,16 @@
             title="reset"
             aria-label="stop timer and reset to default values"
             @click="resetTimer"
-            >
+          >
             <font-awesome-icon :icon="['fas', 'redo']" />
           </button>
         </div>
       </div>
-    </div><!-- wrapperEnso -->
-
+    </div>
+    <!-- wrapperEnso -->
   </div>
 </template>
 
-=======
->>>>>>> main
 <script>
 import ProgressBar from 'progressbar.js';
 
@@ -69,15 +58,16 @@ export default {
   },
 
   methods: {
-
     startPauseTimer() {
       // set current countdown time based on either work or break session
-      const deadline = this.working ? (this.$parent.workTime * 60 * 1000)
-        : (this.$parent.playTime * 60 * 1000);
+      const deadline = this.working
+        ? this.$parent.workTime * 60 * 1000
+        : this.$parent.playTime * 60 * 1000;
 
       // switch message before next start timer call
-      document.getElementById('timer-label')
-        .innerText = this.working ? this.workMessage : this.playMessage;
+      document.getElementById('timer-label').innerText = this.working
+        ? this.workMessage
+        : this.playMessage;
 
       if (!this.timerRunning) {
         // tell parent component that timer is running and so don't update timer on button press
@@ -108,10 +98,10 @@ export default {
       this.$parent.adjustable = true; // allow timer to be set and displayed
       this.timerRunning = false;
       this.timeElapsed = 0;
-      document.getElementById('time-left')
-        .innerText = `${this.$parent.formatTime(this.$parent.workTime)}:00`;
-      document.getElementById('timer-label')
-        .innerText = this.workMessage;
+      document.getElementById('time-left').innerText = `${this.$parent.formatTime(
+        this.$parent.workTime,
+      )}:00`;
+      document.getElementById('timer-label').innerText = this.workMessage;
       this.working = true;
 
       if (this.reveal) {
@@ -130,8 +120,9 @@ export default {
           const minutes = Math.floor(interval / (1000 * 60));
           const seconds = Math.floor((interval / 1000) % 60);
 
-          document.getElementById('time-left')
-            .innerText = `${this.$parent.formatTime(minutes)}:${this.$parent.formatTime(seconds)}`;
+          document.getElementById('time-left').innerText = `${this.$parent.formatTime(
+            minutes,
+          )}:${this.$parent.formatTime(seconds)}`;
 
           // if current timer has ended, start next timer
           if (document.getElementById('time-left').innerText === '00:00') {
@@ -193,10 +184,10 @@ export default {
   }, // end methods
 
   mounted() {
-    document.getElementById('timer-label')
-      .innerText = this.workMessage;
-    document.getElementById('time-left')
-      .innerText = `${this.$parent.formatTime(this.$parent.workTime)}:00`;
+    document.getElementById('timer-label').innerText = this.workMessage;
+    document.getElementById('time-left').innerText = `${this.$parent.formatTime(
+      this.$parent.workTime,
+    )}:00`;
   },
 
   beforeDestroy() {
@@ -204,55 +195,6 @@ export default {
   },
 };
 </script>
-
-<template>
-  <div id="timer">
-
-    <div class="wrapperEnso">
-
-      <img class="enso" src="../assets/Enso.svg" alt="image of zen enso">
-
-      <div id="timer-label" class="titleCenter"></div>
-      <div id="time-left" class="timerCenter"></div>
-      <audio
-        id="beep"
-        src="../assets/chime.mp3"
-        type="audio/mpeg"
-        preload="auto"
-        >
-      </audio>
-
-      <div id="circle" class="progressCircle"></div>
-
-      <div class="timerControls">
-        <div class="startStopCenter">
-          <button
-            id="start_stop"
-            class="faControls"
-            title="play/pause"
-            aria-label="start or pause timer"
-            @click="startPauseTimer"
-            >
-            <font-awesome-icon :icon="['fas', 'play']" />
-            <font-awesome-icon :icon="['fas', 'pause']" />
-          </button>
-        </div>
-        <div class="resetCenter">
-          <button
-            id="reset"
-            class="faControls"
-            title="reset"
-            aria-label="stop timer and reset to default values"
-            @click="resetTimer"
-            >
-            <font-awesome-icon :icon="['fas', 'redo']" />
-          </button>
-        </div>
-      </div>
-    </div><!-- wrapperEnso -->
-
-  </div>
-</template>
 
 <style lang="scss">
 $responsive-width: 599px;

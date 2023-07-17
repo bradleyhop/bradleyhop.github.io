@@ -21,7 +21,7 @@ export default {
       >
         Bradley Smith
       </a>
-        &#169;{{ currentYear }}
+      &#169;{{ currentYear }}
       <a
         href="https://github.com/bradleyhop/bradleyhop.github.io/tree/master/pomodoro-timer"
         rel="noopener noreferrer"
@@ -38,6 +38,7 @@ export default {
 .footer-content {
   color: #fff;
   text-align: left;
+  margin-top: 1rem;
 }
 
 .footer-copy {
