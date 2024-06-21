@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Bradley Smith" />
+  <meta
+    name="description"
+    content="freeCodeCamp project page for personal portfolio project"
+  />
+  <meta name="keywords" content="fcc project freecodecamp" />
+  <title>freeCodeCamp Personal Portfolio Project</title>
+
+  <!--local style sheet-->
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <!--fontawesome-->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+  />
+  <!-- google Source Sans Pro & Montserrat fonts -->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Montserrat|Source+Sans+Pro&display=swap"
+  />
+
+  <!-- Global site tag (gtag.js) - Google Analytics; UPDATE 6/23/22: Don't need
+  to track my old portfolio site anymore-->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-103166437-1"></script> -->
+<!--
+   -   <script>
+   -     window.dataLayer = window.dataLayer || [];
+   -     function gtag(){dataLayer.push(arguments);}
+   -     gtag('js', new Date());
+   -
+   -     gtag('config', 'UA-103166437-1');
+   -   </script>
+   -->
+</head>
+
+  <body>
+
+    <nav id="navbar" class="navbar">
+      <ul class="navs">
+        <li><a class="nav-link" href="#welcome-section">About</a></li>
+        <li><a class="nav-link" href="#projects">Work</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main>
+
+      <div id="welcome-section">
+        <div class="welcome-wrapper">
+
+          <div class="blurb-section">
+
+            <section class="me-copy">
+              <p>I am a self-taught web developer using
+                <a
+                  href="https://freecodecamp.org/bradleyhop"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style="color: #00641f;"
+                  >
+                  freeCodeCamp
+                </a>
+                as my main learning resource. I am proficient in html, css, and javascript
+                while also utilizing tools like: flexbox and grid in css,
+                <a
+                  href="https://sass-lang.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style=" color: #cf649a;"
+                  >
+                  Sass
+                </a>
+                to help me write responsive content, and
+                <a
+                  href="https://vuejs.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style="color: #41b883;"
+                  >
+                  Vue.js
+                </a>
+                to build webpages using
+                <a
+                  href="https://cli.vuejs.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style="color: #35495e;"
+                  >
+                  Vue CLI
+                </a>.
+                I upload my work to my
+                <a
+                  href="https://github.com/bradleyhop"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style="color: #24292e;"
+                  >
+                  github
+                </a>
+                which also serves the webpages live.
+              </p>
+            </section>
+
+            <section class="me-copy">
+              <p>Here are my most recent projects:</p>
+              <ul class="recent-projects-list">
+                <li>
+                  <a
+                    href="https://bradleyhop.github.io/scratch-aic/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="recent-project-link"
+                    >
+                    Front End Development Tool for Machine Learning Project:
+                    Color Match User Image to Art Institute of Chicago API Dataset
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://bradleyhop.github.io/pomodoroTimer/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="recent-project-link"
+                    title="live pomodoro timer site"
+                    >
+                    Pomodoro Timer
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://bradleyhop.github.io/js-calculator/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="javascript calculator live site"
+                    class="recent-project-link"
+                    >
+                    Javascript Calculator
+                  </a>
+                </li>
+              </ul>
+            </section>
+
+          </div><!-- /blurb-section -->
+
+        <div class="banner">
+          <h1 class="my-name">Bradley Smith</h1>
+          <div class="tagline">
+            web developer
+            <a
+              href="https://github.com/bradleyhop"
+              id="profile-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Bradley's github profile"
+              class="profile-link"
+              >
+              <i
+                class="fab fa-github profile-fa-github"
+                aria-hidden="true"
+                title="Bradley's github profile"
+                >
+                 <span class="sr-only">Link to github profile</span>
+              </i>
+            </a>
+          </div>
+          <img
+            src="assets/me.jpg"
+            alt="picture of bradley looking forward to the future"
+            class="profile-pic"
+            />
+        </div>
+
+        </div><!-- welcome-wrapper -->
+      </div><!-- welcome-section -->
+
+      <div id="projects" class="projects">
+
+        <p class="work-heading">My Coding Projects</p>
+
+        <div class="tabbar-projects">
+          <button class="tab-button"
+                  onclick="openBranch(event, 'responsive')"
+                  type="button">
+            Responsive Web Design
+          </button>
+          <button class="tab-button"
+                  onclick="openBranch(event, 'javascript')"
+                  type="button">
+            Javascript Algorithms and Data Structures
+          </button>
+          <button class="tab-button tab-active"
+                  onclick="openBranch(event, 'frontEndLibs')"
+                  type="button">
+            Front End Libraries
+          </button>
+          <button class="tab-button"
+                  onclick="openBranch(event, 'extracirricular')"
+                  type="button">
+            Extracurricular Projects
+          </button>
+        </div>
+
+        <!--Responsive web fCC tab-->
+        <div id="responsive" class="project-branch">
+
+          <p class="responsive-copy">
+            The first certification of the freeCodeCamp curriculum. This section teaches html and
+            css to complete five projects each with their own use story requirements.  On each
+            project, there is a green hamburger icon in the top left corner that opens the testing
+            suite for that particular project. The user stories are listed therein (be sure that the
+            correct project is selected in the drop-down menu).
+          </p>
+
+          <div class="project-flex">
+
+            <div class="project-tile">
+              <a href="https://www.freecodecamp.org/certification/bradleyhop/responsive-web-design"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="project-link"
+                 >
+                 <img src="assets/responsiveCert.png"
+                      alt="certificate for responsive web design"
+                      class="project-img"
+                      >
+                <p class="tile-heading">Responsive Web Design Certification</p>
+              </a>
+              <a href="https://github.com/bradleyhop/bradleyhop.github.io"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="projects-github"
+                 >
+                <p class="github-link">github repo
+                  <i class="fas fa-external-link-alt"></i>
+                </p>
+              </a>
+            </div>
+
+            <div class="project-tile">
+              <a  href="https://bradleyhop.github.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-link"
+                  >
+                  <img src="assets/portfolio.png"
+                       alt="screenshot of portfolio webpage"
+                       class="project-img"
+                       >
+                <p class="tile-heading">Personal Profile</p>
+              </a>
+              <a href="https://github.com/bradleyhop/bradleyhop.github.io"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="projects-github"
+                 >
+                <p class="github-link">github repo
+                  <i class="fas fa-external-link-alt"></i>
+                </p>
+              </a>
+            </div>
+
+            <div class="project-tile">
+              <a href="https://bradleyhop.github.io/techDoc/techDoc.html"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="project-link"
+                 >
+                 <img src="assets/fccTechDoc.png"
+                      alt="screenshot of technical documentation project"
+                      class="project-img"
+                      >
+                <p class="tile-heading">Technical Documentation</p>
+              </a>
+              <a href="https://github.com/bradleyhop/bradleyhop.github.io/tree/master/techDoc"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="projects-github"
+                 >
+                <p class="github-link">github repo
+                  <i class="fas fa-external-link-alt"></i>
+                </p>
+              </a>
+            </div>
+
+            <div class="project-tile">
+              <a href="https://bradleyhop.github.io/productLandingPage/productLandingPage.html"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="project-link"
+                 >
+                 <img src="assets/fccProductLanding.png"
+                      alt="screenshot of product landing page"
+                      class="project-img"
+                      >
+                <p class="tile-heading">Product Landing Page</p>
+              </a>
+              <a href="https://github.com/bradleyhop/bradleyhop.github.io/tree/master/productLandingPage"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="projects-github"
+                 >
+                <p class="github-link">github repo
+                  <i class="fas fa-external-link-alt"></i>
+                </p>
+              </a>
+            </div>
+
+            <div class="project-tile">
+              <a href="https://bradleyhop.github.io/surveyForm/surveyForm.html"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="project-link"
+                 >
+                 <img src="assets/survey.png"
+                      alt="screenshot of survey form"
+                      class="project-img"
+                      >
+                <p class="tile-heading">Survey Form</p>
+              </a>
+              <a href="https://github.com/bradleyhop/bradleyhop.github.io/tree/master/surveyForm"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="projects-github"
+                 >
+                <p class="github-link">github repo
+                  <i class="fas fa-external-link-alt"></i>
+                </p>
+              </a>
+            </div>
+
+            <div class="project-tile">
+              <a href="https://bradleyhop.github.io/tribute/tribute.html"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="project-link"
+                 >
+                <img src="assets/tribute.png"
+                     alt="screenshot of tribute webpage to Frankie Manning"
+                     class="project-img">
+                <p class="tile-heading">Tribute</p>
+              </a>
+              <a href="https://github.com/bradleyhop/bradleyhop.github.io/tree/master/tribute"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="projects-github"
+                 >
+                <p class="github-link">github repo
+                  <i class="fas fa-external-link-alt"></i>
+                </p>
+              </a>
+            </div>
+
+          </div><!-- project-flex -->
+        </div><!--#responsive -->
+
+        <!--Javascript fCC tab-->
+        <div id="javascript" class="project-branch">
+
+          <p class="responsive-copy">
+            The second certification of the freeCodeCamp curriculum. This sections teaches
+            javascript syntax and data structures. I have solved all of the three levels of
+            algorithm challenges. This section deals with solely with learning basic programming
+            skills through javascript.
+          </p>
+
+          <div class="project-flex">
+
+            <div class="project-tile">
+              <a class="project-link" href="#">
+                <img src="assets/jsCert.png"
+                     alt="javascript algorithm certification"
+                     class="project-img">
+              </a>
+              <a href="https://github.com/bradleyhop/freeCodeCampAlgorithms"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="project-link"
+                 >
+                <p class="tile-heading">
+                  Javascript Algorithms and Data Structures
+                </p>
+              </a>
+              <a
+                href="https://github.com/bradleyhop/freeCodeCampAlgorithms"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="projects-github"
+                >
+                <p class="github-link">github repo
+                  <i class="fas fa-external-link-alt"></i>
+                </p>
+              </a>
+            </div>
+
+          </div><!-- project-flex -->
+        </div><!-- #javascript -->
+
+        <!-- Front End Libraries Projects -->
+        <div id="frontEndLibs" class="project-branch">
+
+          <p class="responsive-copy"> The third certification of the freeCodeCamp curriculum. This
+            section teaches the use of various libraries for html, css, and javascript. On each
+            project, there is a green hamburger icon in the top left corner that opens the testing
+            suite for that particular project. The user stories are listed therein (be sure that the
+            correct project is selected in the drop-down menu).  </p>
+
+          <div class="project-flex">
+
+            <div class="project-tile">
+              <a
+                href="https://www.freecodecamp.org/certification/bradleyhop/front-end-libraries"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+                >
+                <img src="assets/frontEndLibraries.png"
+                     alt="screenshot of front end libraries certificate"
+                     class="project-img">
+                <p class="tile-heading">Front End Libraries Certification</p>
+              </a>
+              <a
+                href="https://github.com/bradleyhop"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="projects-github"
+                >
+                <p class="github-link">github repo
+                  <i class="fas fa-external-link-alt"></i>
+                </p>
+              </a>
+            </div>
+
+            <div class="project-tile">
+              <a
+                href="https://bradleyhop.github.io/pomodoroTimer/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+                >
+                <img src="assets/pomodoroTimer.png"
+                     alt="screenshot of pomodoro timer app"
+                     class="project-img">
+                <p class="tile-heading">Pomodoro Timer</p>
+              </a>
+              <a
+                href="https://github.com/bradleyhop/bradleyhop.github.io/tree/master/pomodoro-timer/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="projects-github"
+                >
+                <p class="github-link">github repo
+                  <i class="fas fa-external-link-alt"></i>
+                </p>
+              </a>
+            </div>
+
+            <div class="project-tile">
+              <a
+                href="https://bradleyhop.github.io/js-calculator/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+                >
+                <img src="assets/js-calculator.png"
+                     alt="screenshot of markdown to javascript calculator"
+                     class="project-img">
+                <p class="tile-heading">Javascript Calculator</p>
+              </a>
+              <a
+                href="https://github.com/bradleyhop/bradleyhop.github.io/tree/master/js-calculator/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="projects-github"
+                >
+                <p class="github-link">github repo
+                  <i class="fas fa-external-link-alt"></i>
+                </p>
+              </a>
+            </div>
+
+            <div class="project-tile">
+              <a
+                href="https://bradleyhop.github.io/drumMachine/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+                >
+                <img src="assets/drum-machine.png"
+                     alt="screenshot of game boy inspired drum machine"
+                     class="project-img">
+                <p class="tile-heading">Drum Machine</p>
+              </a>
+              <a
+                href="https://github.com/bradleyhop/bradleyhop.github.io/tree/master/drum-machine/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="projects-github"
+                >
+                <p class="github-link">github repo
+                  <i class="fas fa-external-link-alt"></i>
+                </p>
+              </a>
+            </div>
+
+            <div class="project-tile">
+              <a
+                href="https://bradleyhop.github.io/markdownPreviewer/markdownPre.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+                >
+                <img src="assets/markdownPreviewer.png"
+                     alt="screenshot of markdown to html previewer"
+                     class="project-img">
+                <p class="tile-heading">Markdown Previewer</p>
+              </a>
+              <a
+                href="https://github.com/bradleyhop/bradleyhop.github.io/tree/master/markdownPreviewer/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="projects-github"
+                >
+                <p class="github-link">github repo
+                  <i class="fas fa-external-link-alt"></i>
+                </p>
+              </a>
+            </div>
+
+            <div class="project-tile">
+              <a
+                href="https://bradleyhop.github.io/randomQuotes/randomQuote.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+                >
+                <img src="assets/randomQuoteGenerator.png"
+                     alt="screenshot of random quote machine"
+                     class="project-img">
+                <p class="tile-heading">Random Quote Machine</p>
+              </a>
+              <a
+                href="https://github.com/bradleyhop/bradleyhop.github.io/tree/master/randomQuotes/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="projects-github"
+                >
+                <p class="github-link">github repo
+                  <i class="fas fa-external-link-alt"></i>
+                </p>
+              </a>
+            </div>
+
+          </div><!-- project-flex -->
+        </div><!-- #frontEndLibs -->
+
+        <!--Extracurricular tab-->
+        <div id="extracirricular" class="project-branch">
+
+          <p class="responsive-copy">
+            In addition to freeCodeCamp, I use other resources to increase my knowledge and practice
+            my skills. Here are various algorithm exercises, classes, and projects not part of the
+            freeCodeCamp curriculum.
+          </p>
+          <div class="project-flex">
+
+            <div class="project-tile">
+              <a
+                href="https://bradleyhop.github.io/postRockBandName/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+                >
+                <img src="assets/postrock-bandname.jpg"
+                     alt="screenshot of post rock band name quiz"
+                     class="project-img">
+                <p class="tile-heading">Post-Rock Band Name Generator</p>
+              </a>
+              <a
+                href="https://github.com/bradleyhop/postrock-bandname/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="projects-github"
+                >
+                <p class="github-link">github repo
+                  <i class="fas fa-external-link-alt"></i>
+                </p>
+              </a>
+            </div>
+
+            <div class="project-tile">
+              <a
+                href="https://bradleyhop.github.io/randomQuotes/extraCreditRQ/random.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+                >
+                <img src="assets/terminalQuote.png"
+                     alt="screenshot of terminal style random quote generator"
+                     class="project-img">
+                <p class="tile-heading">Terminal Quote Generator</p>
+              </a>
+              <a
+                href="https://github.com/bradleyhop/bradleyhop.github.io/tree/master/randomQuotes/extraCreditRQ/"
+                target="noopener noreferrer"
+                class="projects-github"
+                >
+                <p class="github-link">github repo
+                  <i class="fas fa-external-link-alt"></i>
+                </p>
+              </a>
+            </div>
+
+            <div class="project-tile">
+              <a
+                href="https://bradleyhop.github.io/wikiSearchApp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+                >
+                <img src="assets/wikiSearchApp.png"
+                     alt="screenshot of wikipedia search and preview article application"
+                     class="project-img">
+                <p class="tile-heading">Wikipedia Article Search and Preview</p>
+              </a>
+              <a
+                href="https://github.com/bradleyhop/wikiSearchApp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="projects-github"
+                >
+                <p class="github-link">github repo
+                  <i class="fas fa-external-link-alt"></i>
+                </p>
+              </a>
+            </div>
+
+            <div class="project-tile">
+              <a
+                href="https://www.codewars.com/users/bradleyhop/stats"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="codewars-link"
+                >
+                <img
+                  src="https://www.codewars.com/users/bradleyhop/badges/large"
+                  alt="bradley's current codewars standing"
+                  class="project-img">
+              </a>
+                <a
+                  href="https://codewars.com/user/bradleyhop"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-link"
+                  >
+                <p class="tile-heading">Codewars</p>
+              </a>
+              <a
+                href="https://github.com/bradleyhop/codewars"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="projects-github"
+                >
+                <p class="github-link">github repo
+                  <i class="fas fa-external-link-alt"></i>
+                </p>
+              </a>
+            </div>
+
+          </div><!-- project-flex -->
+        </div><!-- extracirricular -->
+
+      </div><!-- work -->
+
+      <div id="contact">
+        <div class="contact-wrapper">
+
+          <div class="profile-header">
+            Let's talk about my projects
+          </div>
+          <div class="profile-sub">
+            <em>Could I be the team member you're looking for?</em>
+          </div>
+
+          <div class="contact-link-flex">
+
+            <a
+              href="https://github.com/bradleyhop"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Bradley's github profile"
+              class="contact-link"
+              >
+              <i
+                class="fab fa-github contact-fa-github fa-highlight"
+                aria-hidden="true"
+                title="github profile"
+                >
+                <span class="sr-only">Link to github profile</span>
+              </i>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/bradley-smith-328235112/"
+              class="contact-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="linkedin"
+              aria-label="Bradley's linked in profile"
+              >
+               <i class="fab fa-linkedin-in fa-highlight"
+                  aria-hidden="true"
+                  title="linkedin"
+                  >
+                  <span class="sr-only">link to linkedin profile</span>
+               </i>
+            </a>
+
+            <a
+              href="https://www.freecodecamp.org/bradleyhop"
+              class="contact-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Bradley's free code camp profile"
+              >
+               <i class="fab fa-free-code-camp fa-highlight"
+                  aria-hidden="true"
+                  title="freeCodeCamp profile"
+                  >
+                <span class="sr-only">Link to free code camp profile</span>
+              </i>
+            </a>
+
+
+            <a
+              href="https://wakatime.com/@bradleyhop"
+              class="contact-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Bradley's waka time profile"
+              >
+              <i class="far fa-clock fa-highlight"
+                 aria-hidden="true"
+                 title="wakatime profile"
+                 >
+                 <span class="sr-only">link to waka time profile</span>
+              </i>
+            </a>
+
+            <a
+              href="mailto:bradleywjsmith@gmail.com"
+              class="contact-link"
+              title="email me"
+              aria-label="Bradley's email address"
+              >
+               <i class="fas fa-at fa-highlight"
+                  aria-hidden="true"
+                  title="email me"
+                  >
+                  <span class="sr-only">link to email address</span>
+               </i>
+            </a>
+
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+
+    <footer>
+      <div class="to-top">
+        <a href="#"
+          aria-label="jump to top of page">
+          <i class="fas fa-chevron-up"
+             aria-hidden="true"
+             title="back to top"
+             >
+             <span class="sr-only">to top of page</span>
+          </i>
+        </a>
+        <div class="copyright">Bradley Smith &copy; <span id="year"></span></div>
+        <script>
+          document.getElementById("year").innerHTML = new Date().getFullYear();
+        </script>
+      </div>
+    </footer>
+
+    <!--simple function for tabbed project browsing-->
+    <script src="tabs.js" defer></script>
+
+    <!-- freeCodeCamp script for validating project for submission-->
+    <!--
+       - <script
+       -   src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js">
+       - </script>
+       -->
+
+  </body>
+
+</html>
